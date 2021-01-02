@@ -9,23 +9,23 @@ package ec.edu.espe.simulatorHealthCody.model;
  *
  * @author Rafael Buse ESPE-DCCO
  */
-public class LogIn {
+public class TheLogin {
     private String user;
     private String password;
     private String accessCode;
 
-    public LogIn(String user, String password) {
+    public TheLogin(String user, String password) {
         this.user = user;
         this.password = password;
     }
 
-    public LogIn(String user, String password, String accessCode) {
+    public TheLogin(String user, String password, String accessCode) {
         this.user = user;
         this.password = password;
         this.accessCode = accessCode;
     }
     
-    public boolean LoginAdministrator(){
+    public boolean loginAdministrator(){
         AdministratorList administrators = new AdministratorList();
         administrators.readFile();
         boolean compare = false ;
@@ -41,7 +41,7 @@ public class LogIn {
         return compare;
     }
     
-    public boolean LoginCustomer(){
+    public boolean loginCustomer(){
         CustomerList customers = new CustomerList();
         customers.readFile();
         boolean compare = false;

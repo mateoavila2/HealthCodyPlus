@@ -38,7 +38,7 @@ public class AdministratorList {
             if(f.exists())
             {
                 write =new BufferedWriter(file);
-                write.write(administrator.toString());
+                write.write(administrator.showDataAdministrator());
                 //write.write(""+"\n");
                 write.close();
                 }   

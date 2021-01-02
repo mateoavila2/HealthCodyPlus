@@ -40,8 +40,8 @@ public class Main {
                         String passwordAdmin = read.nextLine();
                         System.out.print("Codigo de acceso: ");
                         String codeAdmin = read.nextLine();
-                        LogIn LoginAdministrator = new LogIn(userAdmin,passwordAdmin,codeAdmin);
-                        loginCompareAdmin = LoginAdministrator.LoginAdministrator();
+                        TheLogin LoginAdministrator = new TheLogin(userAdmin,passwordAdmin,codeAdmin);
+                        loginCompareAdmin = LoginAdministrator.loginAdministrator();
                         }while(loginCompareAdmin == false);
                         
                         break;
@@ -54,8 +54,8 @@ public class Main {
                             String userCustomer = read.nextLine();
                             System.out.print("Contraseña: ");
                             String passwordCustomer  = read.nextLine();
-                            LogIn LoginCustomer = new LogIn(userCustomer ,passwordCustomer);
-                            loginCompareCustomer = LoginCustomer.LoginCustomer();
+                            TheLogin LoginCustomer = new TheLogin(userCustomer ,passwordCustomer);
+                            loginCompareCustomer = LoginCustomer.loginCustomer();
                         }while(loginCompareCustomer == false);
                         break;
                 }
@@ -85,7 +85,7 @@ public class Main {
                         Administrator administrator = new Administrator(namePerson,idPerson,genderPerson,agePerson,administratorUSer,administratorPassword,"");
                         Registry adminRegistration = new Registry(administrator);
                         adminRegistration.generateAdminCode();
-                        adminRegistration.Registeradministrator();
+                        adminRegistration.registeradministrator();
                         System.out.print("Su codigo de acceso es: ");
                         System.out.println(administrator.getAdministratorCode());
                         
@@ -109,7 +109,7 @@ public class Main {
                         String customerPassword = read.nextLine();
                         Customer customer = new Customer(namePerson1,idPerson1,genderPerson1,agePerson1,customerUSer,customerPassword);
                         Registry customerRegistration = new Registry(customer);
-                        customerRegistration.RegisterCustomer();
+                        customerRegistration.registerCustomer();
                         break;
                 }
                 break;

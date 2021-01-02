@@ -34,9 +34,7 @@ public class Customer extends Person{
     public void setCustomerPassword(String customerPassword) {
         this.customerPassword = customerPassword;
     }
-
-    @Override
-    public String toString() {
+    public String showDataCustomer() {
         return namePerson + "," + idPerson + "," + genderPerson + "," + agePerson + "," + customerUSer + "," + customerPassword + "\n";
     }
     

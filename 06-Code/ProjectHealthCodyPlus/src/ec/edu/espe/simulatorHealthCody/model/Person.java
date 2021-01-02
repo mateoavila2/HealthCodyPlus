@@ -76,9 +76,7 @@ public class Person {
     public void setAgePerson(int agePerson) {
         this.agePerson = agePerson;
     }
-
-    @Override
-    public String toString() {
+    public String showDataPerson() {
         return "Nombre: " + namePerson + " id: " + idPerson + " Genero: " + genderPerson + " Edad: " + agePerson+"\n";
     }
     
