@@ -1,0 +1,4 @@
+Kenneth Andrade,17264588999,M,20,keneth15848,12345687,17264588999Kenneth Andrade 
+r,1,M,2,r,12,1r
+M,455,M,20,mate,123456789,455M
+Alisson,12,F,2,al,20,12Alisson

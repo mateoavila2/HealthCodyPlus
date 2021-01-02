@@ -7,66 +7,37 @@ package ec.edu.espe.simulatorHealthCody.model;
 
 /**
  *
- * @author Kenneth Andrade ESPE-DCCO
+ * @author Rafael Buse ESPE-DCCO
  */
-public class Customer{
+public class Customer extends Person{
+    private String customerUSer;
+    private String customerPassword;
 
-    /**
-     * @return the customerUSer
-     */
+    public Customer(String namePerson, String idPerson, String genderPerson, int agePerson, String customerUSer, String customerPassword) {
+        super(namePerson, idPerson, genderPerson, agePerson);
+        this.customerUSer = customerUSer;
+        this.customerPassword = customerPassword;
+    }
+
     public String getCustomerUSer() {
         return customerUSer;
     }
 
-    /**
-     * @param customerUSer the customerUSer to set
-     */
     public void setCustomerUSer(String customerUSer) {
         this.customerUSer = customerUSer;
     }
 
-    /**
-     * @return the customerPassword
-     */
     public String getCustomerPassword() {
         return customerPassword;
     }
 
-    /**
-     * @param customerPassword the customerPassword to set
-     */
     public void setCustomerPassword(String customerPassword) {
         this.customerPassword = customerPassword;
     }
 
-    /**
-     * @return the customer
-     */
-    public Person getCustomer() {
-        return customer;
-    }
-
-    /**
-     * @param customer the customer to set
-     */
-    public void setCustomer(Person customer) {
-        this.customer = customer;
-    }
-    private String customerUSer;
-    private String customerPassword;
-    private Person customer;
-    public Customer(String customerUSer, String customerPassword, Person customer) {
-        this.customerUSer = customerUSer;
-        this.customerPassword = customerPassword;
-        this.customer = customer;
-    }
-
     @Override
     public String toString() {
-        return "Usuario = " + getCustomerUSer() +"\n" +"Contraseña = " + getCustomerPassword() +"\n"+ "Nombre = " + getCustomer().getNamePerson() +"\n"+ "Id = "+ getCustomer().getIdPerson() +"\n"+ "Genero = "+getCustomer().getGenderPerson()+"\n"+ "Edad = "+getCustomer().getAgePerson()+"\n";
+        return namePerson + "," + idPerson + "," + genderPerson + "," + agePerson + "," + customerUSer + "," + customerPassword + "\n";
     }
-
-    
-    
     
 }

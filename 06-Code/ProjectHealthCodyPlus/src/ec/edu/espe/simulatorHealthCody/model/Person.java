@@ -7,13 +7,13 @@ package ec.edu.espe.simulatorHealthCody.model;
 
 /**
  *
- * @author Kenneth Andrade ESPE-DCCO
+ * @author Rafael Buse ESPE-DCCO
  */
 public class Person {
-    private String namePerson;
-    private String idPerson; 
-    private String genderPerson;
-    private int agePerson;
+    protected String namePerson;
+    protected String idPerson; 
+    protected String genderPerson;
+    protected int agePerson;
 
     public Person(String namePerson, String idPerson, String genderPerson, int agePerson) {
         this.namePerson = namePerson;
@@ -75,6 +75,11 @@ public class Person {
      */
     public void setAgePerson(int agePerson) {
         this.agePerson = agePerson;
+    }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + namePerson + " id: " + idPerson + " Genero: " + genderPerson + " Edad: " + agePerson+"\n";
     }
     
     
