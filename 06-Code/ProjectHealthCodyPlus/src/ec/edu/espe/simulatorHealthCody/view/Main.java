@@ -12,6 +12,11 @@ import ec.edu.espe.simulatorHealthCody.controller.CustomerRegistryMenu;
 import ec.edu.espe.simulatorHealthCody.controller.LogInMenu;
 import ec.edu.espe.simulatorHealthCody.controller.PrincipalMenu;
 import ec.edu.espe.simulatorHealthCody.controller.RegistryMenu;
+import ec.edu.espe.simulatorHealthCody.controller.AdministratorMenuOptions;
+import ec.edu.espe.simulatorHealthCody.controller.MenuDataCustomer;
+import ec.edu.espe.simulatorHealthCody.model.AppointmentsAdmin;
+import ec.edu.espe.simulatorHealthCody.model.AppointmentsAdminList;
+import ec.edu.espe.simulatorHealthCody.model.MedicalHistory;
 import java.util.Scanner;
 
 /**
@@ -26,6 +31,7 @@ public class Main {
         PrincipalMenu princioalmenu = new PrincipalMenu();
         princioalmenu.showMenuPrincipal();
         option = princioalmenu.selectOptionMenu();
+        int returns = 0;
         switch(option){
             case 1:
                 LogInMenu loginMenu = new LogInMenu();
@@ -35,11 +41,56 @@ public class Main {
                 switch(loginOption){
                     case 1:                        
                         boolean loginCompareAdmin;
+                        int optionMenuAdmin;
+                        int optionCustomerMedical;
+                        int optionMedicalMenu = 0;
                         do{
                             AdministratorLoginMenu administratorLoginMenu = new AdministratorLoginMenu();
                             administratorLoginMenu.completeLoginDetails();
                             loginCompareAdmin = administratorLoginMenu.verifyAdministratorData();
                         }while(loginCompareAdmin == false);
+                         AdministratorMenuOptions administratorMenuOptions = new AdministratorMenuOptions();
+                         do
+                        {
+                        administratorMenuOptions.showAdminOptions();
+                        optionMenuAdmin = administratorMenuOptions.selectOptionMenuAdmin();
+                        switch(optionMenuAdmin)
+                        {
+                            
+                            case 1: 
+                                    MenuDataCustomer menuMedicalHistory = new MenuDataCustomer();
+                                    optionCustomerMedical=menuMedicalHistory.selectMedicalHistoryOption();
+                                    
+                                    MedicalHistory medicalHistory = new MedicalHistory();
+                                   
+                                    if(optionCustomerMedical==1)
+                                    {
+                                        medicalHistory.searchCustomer();
+                                    }
+                                    if(optionCustomerMedical==2)
+                                    {
+                                        optionMedicalMenu = optionCustomerMedical;
+                                    }
+                                    else
+                                    {
+                                        System.out.println("OPCION NO VALIDA");
+                                    }
+                                    break;
+                            case 2:
+                                    
+                                    AppointmentsAdmin appointmentsAdmin = new AppointmentsAdmin("","");
+                                    
+                                    AppointmentsAdminList appointmentsAdminList = new AppointmentsAdminList();
+                                    appointmentsAdminList.saveAppointments(appointmentsAdmin);
+                                break;
+                            case 3: 
+                                    break; 
+                            case 4: 
+                                    break; 
+                            case 5: 
+                                    break;
+                        }
+                        }while(optionMenuAdmin!=5);
                         break;
                     
                     case 2:
