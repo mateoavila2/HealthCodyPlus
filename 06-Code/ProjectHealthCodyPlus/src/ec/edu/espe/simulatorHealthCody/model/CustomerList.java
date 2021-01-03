@@ -37,7 +37,7 @@ public class CustomerList {
             if(f.exists())
             {
                 write =new BufferedWriter(file);
-                write.write(customer.showDataCustomer());
+                write.write(customer.toString());
                 //write.write(""+"\n");
                 write.close();
                 }   

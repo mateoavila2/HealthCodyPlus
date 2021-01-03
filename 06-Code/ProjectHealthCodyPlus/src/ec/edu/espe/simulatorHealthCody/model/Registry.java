@@ -21,13 +21,13 @@ public class Registry {
         this.customer = customer;
     }
     
-    public void registeradministrator(){
+    public void Registeradministrator(){
         AdministratorList administrators = new AdministratorList();
         administrators.saveAdministrator(administrator);
         //administrators.readFile();
     }
     
-    public void registerCustomer(){
+    public void RegisterCustomer(){
         CustomerList customers = new CustomerList();
         customers.saveCustomer(customer);
         //customers.readFile();

@@ -43,7 +43,9 @@ public class Administrator extends Person {
     public void setAdministratorCode(String administratorCode) {
         this.administratorCode = administratorCode;
     }
-    public String showDataAdministrator() {
+    
+    @Override
+    public String toString() {
         return namePerson + "," + idPerson + "," + genderPerson + "," + agePerson + "," + administratorUSer + "," + administratorPassword + "," + administratorCode +"\n";
     }
     
