@@ -12,12 +12,68 @@ import java.util.Scanner;
  * @author Kenneth Andrade ESPE-DCCO
  */
 public class MedicalHistory {
+
+    /**
+     * @return the read
+     */
+    public Scanner getRead() {
+        return read;
+    }
+
+    /**
+     * @param read the read to set
+     */
+    public void setRead(Scanner read) {
+        this.read = read;
+    }
+
+    /**
+     * @return the customerId
+     */
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    /**
+     * @param customerId the customerId to set
+     */
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    /**
+     * @return the customer
+     */
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    /**
+     * @param customer the customer to set
+     */
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    /**
+     * @return the customerData
+     */
+    public CustomerList getCustomerData() {
+        return customerData;
+    }
+
+    /**
+     * @param customerData the customerData to set
+     */
+    public void setCustomerData(CustomerList customerData) {
+        this.customerData = customerData;
+    }
     
-    Scanner read = new Scanner(System.in);
+    private Scanner read = new Scanner(System.in);
     
-    String customerId;
-    Customer customer;
-    CustomerList customerData;
+    private String customerId;
+    private Customer customer;
+    private CustomerList customerData;
     
     public MedicalHistory()
     {
@@ -26,16 +82,16 @@ public class MedicalHistory {
     public void searchCustomer()
     {
         System.out.println("Ingrese el id del Paciente: ");
-        customerId = read.nextLine();
-        customerData.readFile();
+        setCustomerId(getRead().nextLine());
+        getCustomerData().readFile();
         boolean compareCustomer=false;
-        for(int i=0; i<customerData.getCustomerList().size();i++)
+        for(int i=0; i<getCustomerData().getCustomerList().size();i++)
         {
-            if(customerId.equals(customerData.getCustomerList().get(i).getIdPerson()))
+            if(getCustomerId().equals(getCustomerData().getCustomerList().get(i).getIdPerson()))
             {
                 compareCustomer = true;
                 System.out.println("DATOS DEL PACIENTE");
-                System.out.println(customerData.getCustomerList().get(i));
+                System.out.println(getCustomerData().getCustomerList().get(i));
             }
         }
         if(compareCustomer==false)
