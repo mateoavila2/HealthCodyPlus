@@ -19,10 +19,10 @@ public class AdministratorMenuOptions {
     {
         System.out.println("---MENU DEL ADMINISTRADOR---");
         System.out.println("1) Buscar paciente");
-        System.out.println("2) Programar citas");
+        System.out.println("2) Ver citas programadas");
         System.out.println("3) Manejar Inventario");
         System.out.println("4) Generar reporte");
-        System.out.println("5) Salir");
+        System.out.println("5) Regresar");
     }
     public int selectOptionMenuAdmin()
     {

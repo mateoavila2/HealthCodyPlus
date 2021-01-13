@@ -1,4 +1,0 @@
-Kenneth Andrade,2,M,20,ka2000,12345,2Kenneth Andrade
-Mateo Avila,3,M,20,ma2000,123456,3Mateo Avila
-Alisson Barriga,4,F,20,ab2000,1234567,4Alisson Barriga
-Rafael Buse,10,M,20,rb2000,123456789,10Rafael Buse

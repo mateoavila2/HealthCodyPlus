@@ -5,18 +5,11 @@
  */
 package ec.edu.espe.simulatorHealthCody.view;
 
-import ec.edu.espe.simulatorHealthCody.controller.AdministratorLoginMenu;
-import ec.edu.espe.simulatorHealthCody.controller.AdministratorRegistryMenu;
-import ec.edu.espe.simulatorHealthCody.controller.CustomerLoginMenu;
-import ec.edu.espe.simulatorHealthCody.controller.CustomerRegistryMenu;
-import ec.edu.espe.simulatorHealthCody.controller.LogInMenu;
-import ec.edu.espe.simulatorHealthCody.controller.PrincipalMenu;
-import ec.edu.espe.simulatorHealthCody.controller.RegistryMenu;
-import ec.edu.espe.simulatorHealthCody.controller.AdministratorMenuOptions;
-import ec.edu.espe.simulatorHealthCody.controller.MenuDataCustomer;
-import ec.edu.espe.simulatorHealthCody.model.AppointmentsAdmin;
-import ec.edu.espe.simulatorHealthCody.model.AppointmentsAdminList;
-import ec.edu.espe.simulatorHealthCody.model.MedicalHistory;
+import ec.edu.espe.simulatorHealthCody.controller.Menu;
+import ec.edu.espe.simulatorHealthCody.model.Administrator;
+import ec.edu.espe.simulatorHealthCody.model.LogIn;
+import ec.edu.espe.simulatorHealthCody.model.Registry;
+import ec.edu.espe.simulatorHealthCody.model.Customer;
 import java.util.Scanner;
 
 /**
@@ -24,109 +17,102 @@ import java.util.Scanner;
  * @author Rafael Buse ESPE-DCCO
  */
 public class Main {
-    public static void main(String[] args) {
-        int option;
+    public static void main(String[] args) throws InterruptedException {
         Scanner read = new Scanner(System.in);
+        int option;
+        Menu menu = new Menu();
         do{
-        PrincipalMenu princioalmenu = new PrincipalMenu();
-        princioalmenu.showMenuPrincipal();
-        option = princioalmenu.selectOptionMenu();
-        int returns = 0;
+        menu.showMenuPrincipal();
+        System.out.print("Seleccione una opcion: ");
+        option = read.nextInt();
         switch(option){
             case 1:
-                LogInMenu loginMenu = new LogInMenu();
-                loginMenu.showMenuLogin();
-                int loginOption = loginMenu.selectOptionLoginMenu();
-                
-                switch(loginOption){
-                    case 1:                        
-                        boolean loginCompareAdmin;
-                        int optionMenuAdmin;
-                        int optionCustomerMedical;
-                        int optionMedicalMenu = 0;
-                        do{
-                            AdministratorLoginMenu administratorLoginMenu = new AdministratorLoginMenu();
-                            administratorLoginMenu.completeLoginDetails();
-                            loginCompareAdmin = administratorLoginMenu.verifyAdministratorData();
-                        }while(loginCompareAdmin == false);
-                         AdministratorMenuOptions administratorMenuOptions = new AdministratorMenuOptions();
-                         do
-                        {
-                        administratorMenuOptions.showAdminOptions();
-                        optionMenuAdmin = administratorMenuOptions.selectOptionMenuAdmin();
-                        switch(optionMenuAdmin)
-                        {
-                            
-                            case 1: 
-                                    MenuDataCustomer menuMedicalHistory = new MenuDataCustomer();
-                                    optionCustomerMedical=menuMedicalHistory.selectMedicalHistoryOption();
-                                    
-                                    MedicalHistory medicalHistory = new MedicalHistory();
-                                   
-                                    if(optionCustomerMedical==1)
-                                    {
-                                        medicalHistory.searchCustomer();
-                                    }
-                                    if(optionCustomerMedical==2)
-                                    {
-                                        optionMedicalMenu = optionCustomerMedical;
-                                    }
-                                    else
-                                    {
-                                        System.out.println("OPCION NO VALIDA");
-                                    }
-                                    break;
-                            case 2:
-                                    
-                                    AppointmentsAdmin appointmentsAdmin = new AppointmentsAdmin("","");
-                                    
-                                    AppointmentsAdminList appointmentsAdminList = new AppointmentsAdminList();
-                                    appointmentsAdminList.saveAppointments(appointmentsAdmin);
-                                break;
-                            case 3: 
-                                    break; 
-                            case 4: 
-                                    break; 
-                            case 5: 
-                                    break;
-                        }
-                        }while(optionMenuAdmin!=5);
-                        break;
-                    
-                    case 2:
-                        boolean loginCompareCustomer;
-                        do{
-                            CustomerLoginMenu customerLoginMenu = new CustomerLoginMenu();
-                            customerLoginMenu.completeLoginDetails();
-                            loginCompareCustomer = customerLoginMenu.verifyCustomerData();
-                        }while(loginCompareCustomer == false);
-                        break;
+                menu.showLoginAndRegistryMenu();
+                System.out.print("Seleccione una opcion: ");
+                option = read.nextInt();
+                String user="",accesCode="",password="";
+                if(option == 1){
+                    System.out.print("Ingrese su codigo de acceso: ");
+                    read.nextLine();
+                    accesCode = read.nextLine();
+                    System.out.print("Ingrese su contraseña: ");
+                    password = read.nextLine();
+                    LogIn loginAdmin = new LogIn(user, accesCode, password);
+                    boolean comparateAdmin = loginAdmin.LoginAdministrator();
+                    System.out.println(comparateAdmin);
+                }else{
+                    System.out.print("Ingrese su usuario: ");
+                    read.nextLine();
+                    user = read.nextLine();
+                    System.out.print("Ingrese su contraseña: ");
+                    password = read.nextLine();
+                    LogIn loginCustomer = new LogIn(user, password);
+                    boolean compareCustom = loginCustomer.LoginCustomer();
+                    System.out.println(compareCustom);
                 }
                 break;
             case 2:
-                RegistryMenu registryMenu = new RegistryMenu();
-                registryMenu.showMenuRegistry();
-                int registerOption = registryMenu.selectOptionRegistryMenu();
-                switch(registerOption){ 
-                    case 1:
-                        AdministratorRegistryMenu administratorRegistryMenu = new AdministratorRegistryMenu();
-                        administratorRegistryMenu.completeAdminData();
-                        administratorRegistryMenu.saveRegistryAdminData();
-                        
-                        break;
-                    
-                    case 2:
-                        CustomerRegistryMenu customerRegistryMenu = new CustomerRegistryMenu();
-                        customerRegistryMenu.completeCustomerData();
-                        customerRegistryMenu.saveRegistryCustomerData();
-                        break;
+                menu.showLoginAndRegistryMenu();
+                System.out.print("Seleccione una opcion: ");
+                option = read.nextInt();
+                String namePerson, idPerson, genderPerson;
+                String dataPassword;
+                String dataUser;
+                int agePerson;
+                if(option == 1){
+                    System.out.println("Complete los siguientes datos");
+                    read.nextLine();
+                    System.out.print("Ingrese su nombre: ");
+                    namePerson = read.nextLine();
+                    System.out.print("Ingrese su numero de identificacion: ");
+                    idPerson = read.nextLine();
+                    System.out.print("Ingrese su genero: ");
+                    genderPerson = read.nextLine();
+                    System.out.print("Ingrese su edad: ");
+                    agePerson = read.nextInt();
+                    System.out.println("Guardando...........");
+                    Thread.sleep(2000);
+                    System.out.print("Cree una contraseña: ");
+                    read.nextLine();
+                    dataPassword = read.nextLine();
+                    Administrator administrator = new Administrator(namePerson, idPerson, genderPerson, agePerson, "", dataPassword);
+                    Registry registryAdmin = new Registry(administrator);
+                    registryAdmin.generateAdminCode();
+                    registryAdmin.registerAdministrator();
+                    System.out.println("Generando codigo de Acceso");
+                    Thread.sleep(1000);
+                    System.out.println("Su condigo de acceso es: " + administrator.getAdministratorCode());
+                    Thread.sleep(1000);
+                }else{
+                    System.out.println("Complete los siguientes datos");
+                    read.nextLine();
+                    System.out.print("Ingrese su nombre: ");
+                    namePerson = read.nextLine();
+                    System.out.print("Ingrese su numero de identificacion: ");
+                    idPerson = read.nextLine();
+                    System.out.print("Ingrese su genero: ");
+                    genderPerson = read.nextLine();
+                    System.out.print("Ingrese su edad: ");
+                    agePerson = read.nextInt();
+                    System.out.println("Guardando...........");
+                    Thread.sleep(2000);
+                    System.out.print("Cree un usuario: ");
+                    read.nextLine();
+                    dataUser = read.nextLine();
+                    System.out.print("Cree una contraseña: ");
+                    dataPassword = read.nextLine();
+                    System.out.println("Guardando...........");
+                    Thread.sleep(2000);
+                    Customer customer = new Customer(namePerson, idPerson, genderPerson, agePerson, dataUser, dataPassword);
+                    Registry registryCustomer = new Registry(customer);
+                    registryCustomer.registerCustomer();
                 }
+                
                 break;
                 
             case 3:
-                option = 3;
                 break;
         }
-        }while(option==1 || option==2);        
+        }while(option != 3);
     }
 }

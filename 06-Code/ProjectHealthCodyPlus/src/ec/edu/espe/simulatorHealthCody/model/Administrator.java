@@ -13,9 +13,8 @@ public class Administrator extends Person {
     private String administratorUSer;
     private String administratorPassword;
     private String administratorCode;
-    public Administrator(String namePerson, String idPerson, String genderPerson, int agePerson,String administratorUSer, String administratorPassword,String administratorCode) {
+    public Administrator(String namePerson, String idPerson, String genderPerson, int agePerson, String administratorCode, String administratorPassword) {
         super(namePerson, idPerson, genderPerson, agePerson);
-        this.administratorUSer = administratorUSer;
         this.administratorPassword = administratorPassword;
         this.administratorCode = administratorCode;
     }
@@ -46,7 +45,7 @@ public class Administrator extends Person {
     
     @Override
     public String toString() {
-        return namePerson + "," + idPerson + "," + genderPerson + "," + agePerson + "," + administratorUSer + "," + administratorPassword + "," + administratorCode +"\n";
+        return namePerson + "," + idPerson + "," + genderPerson + "," + agePerson + "," + administratorCode + "," + administratorPassword + "\n";
     }
     
     

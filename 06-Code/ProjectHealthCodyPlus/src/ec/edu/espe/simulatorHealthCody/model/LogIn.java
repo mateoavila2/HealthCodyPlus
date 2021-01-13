@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
+import ec.edu.espe.Filemanager.utils.FileManager;
+import java.util.ArrayList;
+
 /**
  *
  * @author Rafael Buse ESPE-DCCO
@@ -19,40 +22,36 @@ public class LogIn {
         this.password = password;
     }
 
-    public LogIn(String user, String password, String accessCode) {
-        this.user = user;
+    public LogIn(String user,String accessCode, String password) {
         this.password = password;
         this.accessCode = accessCode;
     }
     
     public boolean LoginAdministrator(){
-        AdministratorList administrators = new AdministratorList();
-        administrators.readFile();
+        boolean verifyCode = FileManager.findLogin("AdministratorList.json", accessCode);
+        boolean verifyPassword = FileManager.findLogin("AdministratorList.json", password);
+        
         boolean compare = false ;
-        for(int i=0;i<administrators.getAdministratorList().size();i++){
-            if(user.equals(administrators.getAdministratorList().get(i).getAdministratorUSer()) && password.equals(administrators.getAdministratorList().get(i).getAdministratorPassword()) && accessCode.equals(administrators.getAdministratorList().get(i).getAdministratorCode()) ){
-                System.out.println("Correcto");
-                compare = true;
-            }
-        }
-        if(compare == false){
-            System.out.println("Datos Incorrectos");
+        if(verifyCode == true && verifyPassword == true){
+            System.out.println("Encontrado");
+            compare = true;
+        }else{
+            System.out.println("No enontrado");
         }
         return compare;
     }
     
     public boolean LoginCustomer(){
-        CustomerList customers = new CustomerList();
-        customers.readFile();
-        boolean compare = false;
-        for(int i=0;i<customers.getCustomerList().size();i++){
-            if(user.equals(customers.getCustomerList().get(i).getCustomerUSer()) && password.equals(customers.getCustomerList().get(i).getCustomerPassword())){
-                System.out.println("Correcto");
-                compare = true;
-            }
-        }
-        if(compare == false){
-            System.out.println("Datos Incorrectos");
+        
+        boolean verifyUser = FileManager.findLogin("AdministratorList.json", accessCode);
+        boolean verifyPassword = FileManager.findLogin("AdministratorList.json", password);
+        
+        boolean compare = false ;
+        if(verifyUser == true && verifyPassword == true){
+            System.out.println("Encontrado");
+            compare = true;
+        }else{
+            System.out.println("No enontrado");
         }
         return compare;
     }

@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Kenneth Andrade ESPE-DCCO
  */
-public class MenuDataCustomer {
+public class MenuMedicalHistory {
     
     Scanner read = new Scanner(System.in);
 

@@ -1,2 +1,0 @@
-George washo,5,M,20,georgeUSA,123
-Santiago paguay,9,M,50,pg1984,1234567

@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
+import com.google.gson.Gson;
+import ec.edu.espe.Filemanager.utils.FileManager;
+
 /**
  *
  * @author Rafael Buse ESPE-DCCO
@@ -12,6 +15,7 @@ package ec.edu.espe.simulatorHealthCody.model;
 public class Registry {
     Administrator administrator;
     Customer customer;
+    Gson gson = new Gson();
 
     public Registry(Administrator administrator) {
         this.administrator = administrator;
@@ -22,18 +26,16 @@ public class Registry {
     }
     
     public void registerAdministrator(){
-        AdministratorList administrators = new AdministratorList();
-        administrators.saveAdministrator(administrator);
-        //administrators.readFile();
+        String AdminDataJson = gson.toJson(administrator);
+        FileManager.save("AdministratorList.json", AdminDataJson);
     }
     
     public void registerCustomer(){
-        CustomerList customers = new CustomerList();
-        customers.saveCustomer(customer);
-        //customers.readFile();
+        String CustomerDataJson = gson.toJson(customer);
+        FileManager.save("CustomerList.json", CustomerDataJson);
     }
     
     public void generateAdminCode(){
-        administrator.setAdministratorCode(administrator.getIdPerson() + administrator.getNamePerson());
+        administrator.setAdministratorCode("Admin"+administrator.getIdPerson() + administrator.getGenderPerson());
     }
 }

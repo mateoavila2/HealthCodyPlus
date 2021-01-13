@@ -5,24 +5,24 @@
  */
 package ec.edu.espe.simulatorHealthCody.controller;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Rafael Buse ESPE-DCCO
  */
-public class RegistryMenu {
-    Scanner read = new Scanner(System.in);
+public class Menu {
+     
     
-    
-    public void showMenuRegistry(){
+    public void showMenuPrincipal(){
+        System.out.println("MENU");
+        System.out.println("1. Iniciar secion");
+        System.out.println("2. Registrarse");
+        System.out.println("3. Salir");
+    }
+   
+    public void showLoginAndRegistryMenu(){
         System.out.println("1. Administrador");
         System.out.println("2. Usuario");
     }
     
-    public int selectOptionRegistryMenu(){
-        System.out.print("Seleccione una opcion: ");
-        int registerOption = read.nextInt();
-        return registerOption;
-    }
+    
 }
