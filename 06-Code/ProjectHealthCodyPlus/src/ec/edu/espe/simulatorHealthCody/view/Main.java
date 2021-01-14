@@ -5,12 +5,22 @@
  */
 package ec.edu.espe.simulatorHealthCody.view;
 
+import ec.edu.espe.Filemanager.utils.FileManager;
 import ec.edu.espe.simulatorHealthCody.controller.Menu;
 import ec.edu.espe.simulatorHealthCody.model.Administrator;
 import ec.edu.espe.simulatorHealthCody.model.LogIn;
 import ec.edu.espe.simulatorHealthCody.model.Registry;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
+import ec.edu.espe.simulatorHealthCody.model.Inventory;
+import ec.edu.espe.simulatorHealthCody.model.Product;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,14 +42,54 @@ public class Main {
                 option = read.nextInt();
                 String user="",accesCode="",password="";
                 if(option == 1){
+                    boolean comparateAdmin;
+                    do{
                     System.out.print("Ingrese su codigo de acceso: ");
                     read.nextLine();
                     accesCode = read.nextLine();
                     System.out.print("Ingrese su contraseña: ");
                     password = read.nextLine();
                     LogIn loginAdmin = new LogIn(user, accesCode, password);
-                    boolean comparateAdmin = loginAdmin.LoginAdministrator();
+                    comparateAdmin = loginAdmin.LoginAdministrator();
                     System.out.println(comparateAdmin);
+                    }while(comparateAdmin == false);
+                    menu.showAdminTaskMenu();
+                    System.out.print("Seleccione una opcion: ");
+                    option = read.nextInt();
+                    switch(option){
+                        case 1:
+                            menu.showMenuInventory();
+                            System.out.print("Seleccione una opcion: ");
+                            option = read.nextInt();
+                            Product product = new Product("", "", 0.0, 0);
+                            Inventory inventory = new Inventory(product);
+                            switch(option){
+                                case 1:
+                                    read.nextLine();
+                                    System.out.print("Ingrese el nombre del producto: ");
+                                    product.setNameProduct(read.nextLine());
+                                    System.out.print("Ingrese el codigo del producto: ");
+                                    product.setCodeProduct(read.nextLine());
+                                    System.out.print("Ingrese el precio del prodcuto: ");
+                                    product.setPriceProduct(read.nextDouble());
+                                    System.out.print("Ingrese la cantidad del producto: ");
+                                    product.setQuantity(read.nextInt());
+                                    inventory.saveProduct();
+                                    break;
+                                
+                                case 2:
+                                    
+                                    break;
+                            
+                            
+                            }
+                            
+                            break;
+                            
+                        case 2:
+                            
+                            break;
+                    }
                 }else{
                     System.out.print("Ingrese su usuario: ");
                     read.nextLine();
@@ -115,4 +165,5 @@ public class Main {
         }
         }while(option != 3);
     }
+    
 }

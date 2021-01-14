@@ -30,12 +30,14 @@ public class LogIn {
     public boolean LoginAdministrator(){
         boolean verifyCode = FileManager.findLogin("AdministratorList.json", accessCode);
         boolean verifyPassword = FileManager.findLogin("AdministratorList.json", password);
-        
-        boolean compare = false ;
+        System.out.println("codigo: " + verifyCode);
+        System.out.println("Contraseña: " + verifyPassword);
+        boolean compare;
         if(verifyCode == true && verifyPassword == true){
             System.out.println("Encontrado");
             compare = true;
         }else{
+            compare = false;
             System.out.println("No enontrado");
         }
         return compare;

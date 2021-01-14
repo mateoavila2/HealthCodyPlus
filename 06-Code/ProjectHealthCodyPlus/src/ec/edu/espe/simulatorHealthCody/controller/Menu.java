@@ -24,5 +24,18 @@ public class Menu {
         System.out.println("2. Usuario");
     }
     
+    public void showAdminTaskMenu(){
+        System.out.println("1. Inventario");
+        System.out.println("2. Citas");
+        System.out.println("3. otros....");
+    }
+    public void showMenuInventory(){
+        System.out.println("1. Agregar Producto");
+        System.out.println("2. Buscar producto");
+        System.out.println("3. Modificar Producto");
+        System.out.println("4. Eliminar producto");
+        System.out.println("5. Ver Inventario");
+    }
+    
     
 }
