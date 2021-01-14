@@ -8,42 +8,69 @@ package ec.edu.espe.simulatorHealthCody.model;
 import com.google.gson.Gson;
 import ec.edu.espe.Filemanager.utils.FileManager;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author Rafael Buse ESPE-DCCO
  */
 public class Inventory {
-    Product product;
+    ArrayList<Product> products;
     Gson gson = new Gson();
-    
-    public Inventory(Product product) {
-        this.product = product;
+    Scanner read = new Scanner(System.in);
+
+    public Inventory() {
+        products = new ArrayList();
     }
     
-    public void showInventory(){
-        
     
-    }
-    
-    public void saveProduct(){
+    public void saveProduct(Product product){
         
         String jsonProduct = gson.toJson(product);
         FileManager.save("Inventory.json", jsonProduct);
     }
-
-    public Product getProduct() {
-        return product;
+    
+    public ArrayList<Product> findProduct(String code){
+        ArrayList<String> dataProduct = new ArrayList();
+        dataProduct = FileManager.find("Inventory.json",code);
+        for(int i=0;i<dataProduct.size();i++){
+            products.add(gson.fromJson(dataProduct.get(i), Product.class));
+        }
+        return products;
+    
+    }
+    
+    public void modifyProduct(String modified){
+        
+    }
+    
+    public void deleteProduct(){
+    
+    }
+    
+    public void showInventory(){
+        ArrayList<String> dataProducts = new ArrayList();
+        dataProducts = FileManager.findAll("Inventory.json");
+        for(int i=0;i<dataProducts.size();i++){
+            products.add(gson.fromJson(dataProducts.get(i), Product.class));
+        }
+        for(int i=0;i<products.size();i++){
+            System.out.println(products.get(i));
+        }
+    
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public ArrayList<Product> getProducts() {
+        return products;
     }
 
-    @Override
-    public String toString() {
-        return "Inventory{" + "product=" + product + '}';
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
     }
+    
+    
+
+    
     
     
 }

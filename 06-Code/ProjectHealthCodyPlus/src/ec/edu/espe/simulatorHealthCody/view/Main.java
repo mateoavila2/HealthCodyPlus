@@ -5,7 +5,6 @@
  */
 package ec.edu.espe.simulatorHealthCody.view;
 
-import ec.edu.espe.Filemanager.utils.FileManager;
 import ec.edu.espe.simulatorHealthCody.controller.Menu;
 import ec.edu.espe.simulatorHealthCody.model.Administrator;
 import ec.edu.espe.simulatorHealthCody.model.LogIn;
@@ -13,19 +12,17 @@ import ec.edu.espe.simulatorHealthCody.model.Registry;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
 import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.simulatorHealthCody.model.Product;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
  * @author Rafael Buse ESPE-DCCO
  */
+
+/// codido acceso : Admin1725M
+/// contraseña: ka123
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Scanner read = new Scanner(System.in);
@@ -56,13 +53,13 @@ public class Main {
                     menu.showAdminTaskMenu();
                     System.out.print("Seleccione una opcion: ");
                     option = read.nextInt();
+                    Product product = new Product("", "", 0.0, 0);
+                    Inventory inventory = new Inventory();
                     switch(option){
                         case 1:
                             menu.showMenuInventory();
                             System.out.print("Seleccione una opcion: ");
                             option = read.nextInt();
-                            Product product = new Product("", "", 0.0, 0);
-                            Inventory inventory = new Inventory(product);
                             switch(option){
                                 case 1:
                                     read.nextLine();
@@ -74,11 +71,28 @@ public class Main {
                                     product.setPriceProduct(read.nextDouble());
                                     System.out.print("Ingrese la cantidad del producto: ");
                                     product.setQuantity(read.nextInt());
-                                    inventory.saveProduct();
+                                    inventory.saveProduct(product);
+                                    break;
+                                case 2:
+                                    System.out.print("Ingrese El codigo del Producto");
+                                    read.nextLine();
+                                    String code = read.nextLine();
+                                    ArrayList<Product> dataproducts= new ArrayList();
+                                    dataproducts = inventory.findProduct(code);
+                                    System.out.println(dataproducts);
                                     break;
                                 
-                                case 2:
-                                    
+                                case 3:
+                                    inventory.showInventory();
+                                    System.out.print("Ingrese El codigo del Producto a modificar: ");
+                                    read.nextLine();
+                                    String modified = read.nextLine();
+                                    ArrayList<Product>  modifiedProduct = new ArrayList();
+                                    modifiedProduct = inventory.findProduct(modified);
+                                    inventory.modifyProduct(modified);
+                                    break;
+                                case 5:
+                                    inventory.showInventory();
                                     break;
                             
                             
