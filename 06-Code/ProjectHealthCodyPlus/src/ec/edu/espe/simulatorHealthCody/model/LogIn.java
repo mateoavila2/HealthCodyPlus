@@ -6,7 +6,6 @@
 package ec.edu.espe.simulatorHealthCody.model;
 
 import ec.edu.espe.Filemanager.utils.FileManager;
-import java.util.ArrayList;
 
 /**
  *
@@ -30,30 +29,25 @@ public class LogIn {
     public boolean LoginAdministrator(){
         boolean verifyCode = FileManager.findLogin("AdministratorList.json", accessCode);
         boolean verifyPassword = FileManager.findLogin("AdministratorList.json", password);
-        System.out.println("codigo: " + verifyCode);
-        System.out.println("Contraseña: " + verifyPassword);
         boolean compare;
         if(verifyCode == true && verifyPassword == true){
-            System.out.println("Encontrado");
             compare = true;
         }else{
             compare = false;
-            System.out.println("No enontrado");
         }
         return compare;
     }
     
     public boolean LoginCustomer(){
         
-        boolean verifyUser = FileManager.findLogin("AdministratorList.json", accessCode);
-        boolean verifyPassword = FileManager.findLogin("AdministratorList.json", password);
+        boolean verifyUser = FileManager.findLogin("CustomerList.json", user);
+        boolean verifyPassword = FileManager.findLogin("CustomerList.json", password);
         
         boolean compare = false ;
         if(verifyUser == true && verifyPassword == true){
-            System.out.println("Encontrado");
             compare = true;
         }else{
-            System.out.println("No enontrado");
+            compare = false;
         }
         return compare;
     }

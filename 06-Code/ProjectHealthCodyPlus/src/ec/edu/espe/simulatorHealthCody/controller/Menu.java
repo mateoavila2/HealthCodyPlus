@@ -27,7 +27,12 @@ public class Menu {
     public void showAdminTaskMenu(){
         System.out.println("1. Inventario");
         System.out.println("2. Citas");
-        System.out.println("3. otros....");
+        System.out.println("3. ");
+    }
+    public void showCustomerTaskMenu(){
+        System.out.println("1. Citas");
+        System.out.println("2. ");
+        System.out.println("3. ");
     }
     public void showMenuInventory(){
         System.out.println("1. Agregar Producto");
@@ -35,6 +40,20 @@ public class Menu {
         System.out.println("3. Modificar Producto");
         System.out.println("4. Eliminar producto");
         System.out.println("5. Ver Inventario");
+        System.out.println("6. Salir");
+    }
+    
+    public void MenuAppointmentAdmin(){
+        System.out.println("1. Programar citas de la semana");
+        System.out.println("2. Ver citas agendadas");
+        System.out.println("3. Salir");
+    
+    }
+    public void MenuAppointmentCustomer(){
+        System.out.println("1. Agendar cita");
+        System.out.println("2. Eliminar cita");
+        System.out.println("3. Salir");
+    
     }
     
     

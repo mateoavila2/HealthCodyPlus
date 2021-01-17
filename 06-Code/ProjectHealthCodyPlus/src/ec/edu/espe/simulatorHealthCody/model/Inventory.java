@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Inventory {
     ArrayList<Product> products;
     Gson gson = new Gson();
-    Scanner read = new Scanner(System.in);
+    Scanner enter = new Scanner(System.in);
 
     public Inventory() {
         products = new ArrayList();
@@ -30,34 +30,35 @@ public class Inventory {
         FileManager.save("Inventory.json", jsonProduct);
     }
     
-    public ArrayList<Product> findProduct(String code){
-        ArrayList<String> dataProduct = new ArrayList();
-        dataProduct = FileManager.find("Inventory.json",code);
-        for(int i=0;i<dataProduct.size();i++){
-            products.add(gson.fromJson(dataProduct.get(i), Product.class));
-        }
-        return products;
+    public String findProduct(String dataToFind){
+        String recovered = FileManager.find("Inventory.json", dataToFind);
+        return recovered;
     
     }
     
-    public void modifyProduct(String modified){
+    public boolean modifyProduct(String dataTofind,String dataToUpdate){
+        boolean update;
+        System.out.println(dataToUpdate + dataTofind);
+        update = FileManager.update("Inventory.json", dataTofind, dataToUpdate);
+        return update;
+    }
+    
+    public boolean deleteProduct(String dataToDelete){
+        boolean deleted;
+        deleted = FileManager.delete("Inventory.json", dataToDelete);
+        return deleted;
+    }
+    
+    public ArrayList<Product> showInventory(){
         
-    }
-    
-    public void deleteProduct(){
-    
-    }
-    
-    public void showInventory(){
-        ArrayList<String> dataProducts = new ArrayList();
-        dataProducts = FileManager.findAll("Inventory.json");
-        for(int i=0;i<dataProducts.size();i++){
-            products.add(gson.fromJson(dataProducts.get(i), Product.class));
+        String allData;
+        allData = FileManager.findAll("Inventory.json");
+        String[] savedAllData = allData.split("\r\n");
+        for(int i=0;i<savedAllData.length;i++){
+           products.add(gson.fromJson(savedAllData[i], Product.class));
         }
-        for(int i=0;i<products.size();i++){
-            System.out.println(products.get(i));
-        }
-    
+        
+        return products;
     }
 
     public ArrayList<Product> getProducts() {
