@@ -1,4 +1,4 @@
-{"nameProduct":"Leche","codeProduct":"123456","priceProduct":0.8,"quantity":2}
-{"codeProduct":"75896","priceProduct":"0.15","nameProduct":"pan","quantity":"12"}
-{"codeProduct":"4562","priceProduct":"1.5","nameProduct":"tomate","quantity":"200"}
-{"codeProduct":"123415","priceProduct":"0.5","nameProduct":"huevos","quantity":"150"}
+{"nameProduct":"Pruebas PCR","codeProduct":"PCR01","priceProduct":"120","quantity":"100"}
+{"codeProduct":"PR02","priceProduct":"50","nameProduct":"Pruebas Rapidas","quantity":"12"}
+{"codeProduct":"MC03","priceProduct":"2.50","nameProduct":"Mascarillas","quantity":"200"}
+{"codeProduct":"TP04","priceProduct":"20","nameProduct":"Trajes de proteccion","quantity":"150"}

@@ -43,9 +43,9 @@ public class Main {
                     menu.showLoginAndRegistryMenu();
                     System.out.print("Seleccione una opcion: ");
                     option = enter.nextInt();
-                    String user = "",
-                     accesCode = "",
-                     password = "";
+                    String user = "";
+                    String accesCode = "";
+                    String password = "";
                     if (option == 1) {
                         boolean comparateAdmin;
                         do {
@@ -145,13 +145,15 @@ public class Main {
                                         break;
 
                                     case 2:
-                                        appoiment.showAppoiment();
+                                        appoiment.showAppoiment("AppoimentGenerated.json");
                                         break;
 
                                 }
                                 break;
                         }
-                    } else {
+                    } 
+                    else {
+                        String userCustomer="";
                         LogIn loginCustomer = new LogIn("", "");
                         boolean compareCustom = false;
                         boolean verified;
@@ -159,7 +161,8 @@ public class Main {
                             try {
                                 enter.nextLine();
                                 System.out.print("Ingrese su usuario: ");
-                                loginCustomer.setUser(enter.nextLine());
+                                userCustomer=enter.nextLine();
+                                loginCustomer.setUser(userCustomer);
                                 System.out.print("Ingrese su contraseña: ");
                                 loginCustomer.setPassword(enter.nextLine());
                                 compareCustom = loginCustomer.LoginCustomer();
@@ -170,17 +173,25 @@ public class Main {
                         }while(compareCustom == false);  
                         verified = loginCustomer.verifyFirs();
                         if (verified == false) {
-                            System.out.println("Primerizo");
+                            prediction();
                         }
                         System.out.println(compareCustom);
                         menu.MenuAppointmentCustomer();
                         System.out.print("Seleccione una opcion: ");
                         option = enter.nextInt();
+                         Appoiment appointment= new Appoiment();
                         switch (option) {
                             case 1:
-                                
+                                    appointment.showAppoiment("AppoimentGenerated.json");
+                                    System.out.println("\n Seleccione una cita para agendarla: ");
+                                    int dateAppoiments=enter.nextInt();
+                                    appointment.saveCustomerAppointment(dateAppoiments,userCustomer); 
+                                    System.out.println("AGENDANDO CITA...\n ");
+                                    Thread.sleep(2000);
+                                    System.out.println("CITA AGENDADA CON ÉXITO");
                                 break;
-
+                            case 2:         
+                                break;
                         }
                     }
                     break;
@@ -251,4 +262,90 @@ public class Main {
         } while (option != 3);
     }
 
+    public static void prediction() {
+        int suma = 0;
+        int answer;
+        float temp;
+        Scanner read = new Scanner(System.in);
+        System.out.println("\n\n¡Test de predicción de COVID-19!\n");
+        System.out.println("\n¿Cuál es su temperatura (°C)?: ");
+        temp = read.nextFloat();
+        if (temp>=37){
+            suma=suma+2;
+        }
+        System.out.println("\n¿Presenta tos nueva o que va empeorando? ");
+        System.out.println("1. Si\n2. No\nEscoja una opción: ");
+        answer = read.nextInt();
+        if (answer==1){
+            suma=suma+2;
+        }
+        System.out.println("\n¿Presenta pérdida sostenida del olfato, el gusto o el apetito? ");
+        System.out.println("1. Si\n2. No\nEscoja una opción: ");
+        answer = read.nextInt();
+        if (answer==1){
+            suma=suma+3;
+        }
+        System.out.println("\n¿Presenta dolor de garganta? ");
+        System.out.println("1. Si\n2. No\nEscoja una opción: ");
+        answer = read.nextInt();
+        if (answer==1){
+            suma=suma+2;
+        }
+        System.out.println("\n¿Presenta vómitos o diarrea? ");
+        System.out.println("1. Si\n2. No\nEscoja una opción: ");
+        answer = read.nextInt();
+        if (answer==1){
+            suma=suma+2;
+        }
+        System.out.println("\n¿Presenta dificultad para respirar leve o moderada? ");
+        System.out.println("1. Si\n2. No\nEscoja una opción: ");
+        answer = read.nextInt();
+        if (answer==1){
+            suma=suma+3;
+        }
+        System.out.println("\nEn los últimos 14 días, ¿Viajó al exterior?");
+        System.out.println("1. Si\n2. No\nEscoja una opción: ");
+        answer = read.nextInt();
+        if (answer==1){
+            suma=suma+3;
+        }
+        System.out.println("\nEn los últimos 14 días, ¿ha tenido contacto con otras personas que han contraído COVID-19?");
+        System.out.println("1. Si\n2. No\nEscoja una opción: ");
+        answer = read.nextInt();
+        if (answer==1){
+            suma=suma+3;
+        }
+        System.out.println("\n¿Trabaja en un centro médico? ");
+        System.out.println("1. Si\n2. No\nEscoja una opción: ");
+        answer = read.nextInt();
+        if (answer==1){
+            suma=suma+3;
+        }
+        System.out.println("\n¿Presenta dolor en todo el cuerpo? ");
+        System.out.println("1. Si\n2. No\nEscoja una opción: ");
+        answer = read.nextInt();
+        if (answer==1){
+            suma=suma+3;
+        }
+        System.out.println("-----------------------------------\n¡Fin del test!\n-----------------------------------");
+        if(suma>=20)
+        {
+            System.out.println("\nNivel de sospecha: Alto.");
+            System.out.println("Prueba rápida o PCR: NECESARIA\n");
+            System.out.println("------------------------------------");
+        }
+        else if(suma>=11)
+        {
+            System.out.println("\nNivel de sospecha: Medio.");
+            System.out.println("Prueba rápida o PCR: RECOMENDABLE\n");
+            System.out.println("------------------------------------");
+        }
+         else if(suma<=10)
+        {
+            System.out.println("\nNivel de sospecha: Bajo.");
+            System.out.println("\nPrueba rápida o PCR: NO NECESARIA\n");
+            System.out.println("------------------------------------");            
+        }
+    }
 }
+

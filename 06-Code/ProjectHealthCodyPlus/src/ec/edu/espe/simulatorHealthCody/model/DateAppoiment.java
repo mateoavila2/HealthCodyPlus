@@ -16,6 +16,7 @@ public class DateAppoiment {
     int hour;
     int minutes;
     int seconds;
+    String code = "0";
 
     public DateAppoiment(int day, int month, int year, int hour, int minutes, int seconds) {
         this.day = day;
@@ -77,12 +78,19 @@ public class DateAppoiment {
     public void setSeconds(int seconds) {
         this.seconds = seconds;
     }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+    
     
     
     @Override
     public String toString() {
-        return "Prueba{" + "day=" + day + ", month=" + month + ", year=" + year + ", hour=" + hour + ", minutes=" + minutes + ", seconds=" + seconds + '}';
-    }
-    
-    
+        return  day + "," + month + "," + year + "," + hour + "," + minutes + "," + seconds +","+code ;
+    }   
 }

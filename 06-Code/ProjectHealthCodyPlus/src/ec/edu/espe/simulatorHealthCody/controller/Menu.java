@@ -30,9 +30,9 @@ public class Menu {
         System.out.println("3. ");
     }
     public void showCustomerTaskMenu(){
-        System.out.println("1. Citas");
-        System.out.println("2. ");
-        System.out.println("3. ");
+        System.out.println("1. Agendar citas");
+        System.out.println("2. Eliminar citas agendadas");
+        System.out.println("3. Salir");
     }
     public void showMenuInventory(){
         System.out.println("1. Agregar Producto");

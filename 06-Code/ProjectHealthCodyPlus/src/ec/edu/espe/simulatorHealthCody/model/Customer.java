@@ -13,6 +13,7 @@ public class Customer extends Person{
     private String customerUSer;
     private String customerPassword;
     private boolean fillSurvey = false;
+    String customerCode = "0";
 
     public Customer(String namePerson, String idPerson, String genderPerson, int agePerson, String customerUSer, String customerPassword) {
         super(namePerson, idPerson, genderPerson, agePerson);
@@ -43,7 +44,14 @@ public class Customer extends Person{
     public void setFillSurvey(boolean fillSurvey) {
         this.fillSurvey = fillSurvey;
     }
-    
+
+    public String getCustomerCode() {
+        return customerCode;
+    }
+
+    public void setCustomerCode(String customerCode) {
+        this.customerCode = customerCode;
+    }
     
     @Override
     public String toString() {
