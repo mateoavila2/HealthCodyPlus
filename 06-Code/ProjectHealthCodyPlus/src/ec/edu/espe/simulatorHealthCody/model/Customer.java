@@ -12,6 +12,7 @@ package ec.edu.espe.simulatorHealthCody.model;
 public class Customer extends Person{
     private String customerUSer;
     private String customerPassword;
+    private boolean fillSurvey = false;
 
     public Customer(String namePerson, String idPerson, String genderPerson, int agePerson, String customerUSer, String customerPassword) {
         super(namePerson, idPerson, genderPerson, agePerson);
@@ -35,6 +36,15 @@ public class Customer extends Person{
         this.customerPassword = customerPassword;
     }
 
+    public boolean isFillSurvey() {
+        return fillSurvey;
+    }
+
+    public void setFillSurvey(boolean fillSurvey) {
+        this.fillSurvey = fillSurvey;
+    }
+    
+    
     @Override
     public String toString() {
         return namePerson + "," + idPerson + "," + genderPerson + "," + agePerson + "," + customerUSer + "," + customerPassword + "\n";

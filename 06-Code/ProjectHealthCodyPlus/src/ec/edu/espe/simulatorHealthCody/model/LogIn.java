@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
+import com.google.gson.Gson;
 import ec.edu.espe.Filemanager.utils.FileManager;
 
 /**
@@ -15,6 +16,7 @@ public class LogIn {
     private String user;
     private String password;
     private String accessCode;
+    Gson gson = new Gson();
 
     public LogIn(String user, String password) {
         this.user = user;
@@ -50,6 +52,23 @@ public class LogIn {
             compare = false;
         }
         return compare;
+    }
+    
+    public boolean verifyFirs(){
+        boolean verified;
+        String dataCustom = FileManager.find("CustomerList.json",user);
+        Customer customer = new Customer("","","",0,"","");
+        customer = gson.fromJson(dataCustom, Customer.class);
+        if(customer.isFillSurvey()== false){
+            verified = false;
+            customer.setFillSurvey(true);
+            FileManager.delete("CustomerList.json", user);
+            String jsonC = gson.toJson(customer);
+            FileManager.save("CustomerList.json", jsonC);
+        }else{
+            verified = true;
+        }
+        return verified;
     }
     
     

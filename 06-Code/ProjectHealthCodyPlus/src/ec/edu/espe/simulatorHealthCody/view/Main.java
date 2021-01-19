@@ -9,13 +9,16 @@ import com.google.gson.Gson;
 import ec.edu.espe.Filemanager.utils.FileManager;
 import ec.edu.espe.simulatorHealthCody.controller.Menu;
 import ec.edu.espe.simulatorHealthCody.model.Administrator;
+import ec.edu.espe.simulatorHealthCody.model.Appoiment;
 import ec.edu.espe.simulatorHealthCody.model.LogIn;
 import ec.edu.espe.simulatorHealthCody.model.Registry;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
 import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.simulatorHealthCody.model.Product;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -133,37 +136,49 @@ public class Main {
                                 menu.MenuAppointmentAdmin();
                                 System.out.print("Seleccione una opcion: ");
                                 option = enter.nextInt();
+                                Appoiment appoiment = new Appoiment();
                                 switch (option) {
                                     case 1:
-                                        System.out.println("Ingrese el Dia de la cita");
+                                        appoiment.generateAppointments();
+                                        appoiment.registerAppoiment();
+                                        System.out.println("Registro de citas completado con exito");
+                                        break;
+
+                                    case 2:
+                                        appoiment.showAppoiment();
                                         break;
 
                                 }
                                 break;
                         }
                     } else {
-                        System.out.print("Ingrese su usuario: ");
-                        enter.nextLine();
-                        user = enter.nextLine();
-                        System.out.print("Ingrese su contraseña: ");
-                        password = enter.nextLine();
-                        LogIn loginCustomer = new LogIn(user, password);
-                        boolean compareCustom = loginCustomer.LoginCustomer();
+                        LogIn loginCustomer = new LogIn("", "");
+                        boolean compareCustom = false;
+                        boolean verified;
+                        do {
+                            try {
+                                enter.nextLine();
+                                System.out.print("Ingrese su usuario: ");
+                                loginCustomer.setUser(enter.nextLine());
+                                System.out.print("Ingrese su contraseña: ");
+                                loginCustomer.setPassword(enter.nextLine());
+                                compareCustom = loginCustomer.LoginCustomer();
+                                System.out.println("Presione una tecla para continuar");
+                            } catch (Exception e) {
+                                System.out.println("Usuario o contraseña incorrectos");
+                            }
+                        }while(compareCustom == false);  
+                        verified = loginCustomer.verifyFirs();
+                        if (verified == false) {
+                            System.out.println("Primerizo");
+                        }
                         System.out.println(compareCustom);
                         menu.MenuAppointmentCustomer();
                         System.out.print("Seleccione una opcion: ");
                         option = enter.nextInt();
                         switch (option) {
                             case 1:
-                                System.out.println("Ingrese Un dia preferible para la cita: ");
-                                int day = enter.nextInt();
-                                Date[] date = new Date[4];
-                                for (int i = 0; i < date.length; i++) {
-                                    date[i] = new Date(121, 0, 3, (9+i), 0, 0);
-                                }
-                                for (int i = 0; i < date.length; i++) {
-                                    System.out.println(date[i]);
-                                }
+                                
                                 break;
 
                         }
