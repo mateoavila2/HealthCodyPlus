@@ -22,12 +22,13 @@ public class Menu {
     public void showLoginAndRegistryMenu(){
         System.out.println("1. Administrador");
         System.out.println("2. Usuario");
+        System.out.println("3. Salir");
     }
     
     public void showAdminTaskMenu(){
         System.out.println("1. Inventario");
         System.out.println("2. Citas");
-        System.out.println("3. ");
+        System.out.println("3. Salir");
     }
     public void showCustomerTaskMenu(){
         System.out.println("1. Agendar citas");
@@ -46,12 +47,13 @@ public class Menu {
     public void MenuAppointmentAdmin(){
         System.out.println("1. Programar citas de la semana");
         System.out.println("2. Ver citas agendadas");
+        System.out.println("3. Eliminar una cita agendada");
         System.out.println("3. Salir");
     
     }
     public void MenuAppointmentCustomer(){
         System.out.println("1. Agendar cita");
-        System.out.println("2. Eliminar cita");
+        System.out.println("2. Ver cita agendada");
         System.out.println("3. Salir");
     
     }

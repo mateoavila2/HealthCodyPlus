@@ -100,25 +100,47 @@ public class Appoiment {
         Customer customer = new Customer("","","",0,"","");
         String dataCustomer=FileManager.find("CustomerList.json",user);
         customer = gson.fromJson(dataCustomer,Customer.class);
-        customer.setCustomerCode(dataAppoinment.getCode());
-        FileManager.delete("CustomerList.json",user);
-        String jsonCustomer = gson.toJson(customer);
-        FileManager.save("CustomerList.json",jsonCustomer);
+        if(customer.getCustomerCode().equals("0"))
+        {
+            customer.setCustomerCode(dataAppoinment.getCode());
+            FileManager.delete("CustomerList.json",user);
+            String jsonCustomer = gson.toJson(customer);
+            FileManager.save("CustomerList.json",jsonCustomer);  
+        }
+        else
+        {
+            System.out.println("Ya ha agendado una cita, revise su agenda de citas");
+            FileManager.delete("ScheduleAppoinment.json",dataAppoinment.getCode());
+            FileManager.save("AppoimentGenerated.json",jsonReserve);
+        } 
     }
     
-    /*public void deleteCustomerAppointment()
+    public void showAppointmentCustomer(String user)
     {
-        String dataCustomerAppointment=FileManager.find("", "code");
-        ArrayList<Customer> dates = new ArrayList();
-        String[] dataSave = dataCustomerAppointment.split("\r\n");
+        Customer customer = new Customer("","","",0,"","");
+        String dataCustomer=FileManager.find("CustomerList.json",user);
+        customer = gson.fromJson(dataCustomer,Customer.class);
+        String customerCode = customer.getCustomerCode();
+        showAppoimentsDatas("ScheduleAppoinment.json",customerCode);
+    }
+
+    public void showAppoimentsDatas(String nameFile, String dataToFind) {
+        String appoimentFromFile = FileManager.find(nameFile,dataToFind);
+        String[] dataAppoiment = appoimentFromFile.split("\r\n");
         
-        System.out.println("Sus citas agendadas son: ");
-        for(int i=0;i<dataSave.length;i++)
-        {
-            dates.add(gson.fromJson(dataSave[i],Customer.class));
-            System.out.println((i+1)+")"+dates.get(i));
+        for (int i = 0; i < dataAppoiment.length; i++) {
+            this.appoiments.add(gson.fromJson(dataAppoiment[i], DateAppoiment.class));
+        }
+
+        for (int i = 0; i < this.appoiments.size(); i++) {
+            Date f3 = new Date();
+            f3.setDate(this.appoiments.get(i).day);
+            f3.setMonth(this.appoiments.get(i).month);
+            f3.setYear(this.appoiments.get(i).year);
+            f3.setHours(this.appoiments.get(i).hour);
+            f3.setMinutes(this.appoiments.get(i).minutes);
+            f3.setSeconds(this.appoiments.get(i).seconds);
+            System.out.println((i+1)+")  "+f3 + "\n");
         }
     }
-    */
-
 }

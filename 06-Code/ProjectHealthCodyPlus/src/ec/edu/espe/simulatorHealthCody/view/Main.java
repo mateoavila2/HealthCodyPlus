@@ -70,15 +70,15 @@ public class Main {
                                 switch (option) {
                                     case 1:
                                         enter.nextLine();
-                                        System.out.print("Ingrese el nombre del producto: ");
-                                        product.setNameProduct(enter.nextLine());
-                                        System.out.print("Ingrese el codigo del producto: ");
-                                        product.setCodeProduct(enter.nextLine());
-                                        System.out.print("Ingrese el precio del prodcuto: ");
-                                        product.setPriceProduct(enter.nextDouble());
-                                        System.out.print("Ingrese la cantidad del producto: ");
-                                        product.setQuantity(enter.nextInt());
-                                        inventory.saveProduct(product);
+                                         System.out.print("Ingrese el nombre del producto: ");
+                                         product.setNameProduct(enter.nextLine());
+                                         System.out.print("Ingrese el codigo del producto: ");
+                                         product.setCodeProduct(enter.nextLine());
+                                         System.out.print("Ingrese el precio del prodcuto: ");
+                                         product.setPriceProduct(enter.nextDouble());
+                                         System.out.print("Ingrese la cantidad del producto: ");
+                                         product.setQuantity(enter.nextInt());
+                                         inventory.saveProduct(product);
                                         break;
                                     case 2:
                                         System.out.print("Ingrese algun dato del producto que desea buscar: ");
@@ -152,7 +152,7 @@ public class Main {
                                 break;
                         }
                     } 
-                    else {
+                    if(option==2){
                         String userCustomer="";
                         LogIn loginCustomer = new LogIn("", "");
                         boolean compareCustom = false;
@@ -190,7 +190,8 @@ public class Main {
                                     Thread.sleep(2000);
                                     System.out.println("CITA AGENDADA CON ÉXITO");
                                 break;
-                            case 2:         
+                            case 2:      
+                                    appointment.showAppointmentCustomer(userCustomer);                
                                 break;
                         }
                     }
