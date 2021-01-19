@@ -13,8 +13,8 @@ public class Menu {
      
     
     public void showMenuPrincipal(){
-        System.out.println("MENU");
-        System.out.println("1. Iniciar secion");
+        System.out.println("MENÚ");
+        System.out.println("1. Iniciar sesión");
         System.out.println("2. Registrarse");
         System.out.println("3. Salir");
     }

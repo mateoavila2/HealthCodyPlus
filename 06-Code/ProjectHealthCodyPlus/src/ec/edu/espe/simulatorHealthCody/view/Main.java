@@ -36,12 +36,12 @@ public class Main {
         Menu menu = new Menu();
         do {
             menu.showMenuPrincipal();
-            System.out.print("Seleccione una opcion: ");
+            System.out.print("Seleccione una opción: ");
             option = enter.nextInt();
             switch (option) {
                 case 1:
                     menu.showLoginAndRegistryMenu();
-                    System.out.print("Seleccione una opcion: ");
+                    System.out.print("Seleccione una opción: ");
                     option = enter.nextInt();
                     String user = "";
                     String accesCode = "";
@@ -49,7 +49,7 @@ public class Main {
                     if (option == 1) {
                         boolean comparateAdmin;
                         do {
-                            System.out.print("Ingrese su codigo de acceso: ");
+                            System.out.print("Ingrese su código de acceso: ");
                             enter.nextLine();
                             accesCode = enter.nextLine();
                             System.out.print("Ingrese su contraseña: ");
@@ -58,30 +58,30 @@ public class Main {
                             comparateAdmin = loginAdmin.LoginAdministrator();
                         } while (comparateAdmin == false);
                         menu.showAdminTaskMenu();
-                        System.out.print("Seleccione una opcion: ");
+                        System.out.print("Seleccione una opción: ");
                         option = enter.nextInt();
                         Product product = new Product("", "", 0.0, 0);
                         Inventory inventory = new Inventory();
                         switch (option) {
                             case 1:
                                 menu.showMenuInventory();
-                                System.out.print("Seleccione una opcion: ");
+                                System.out.print("Seleccione una opción: ");
                                 option = enter.nextInt();
                                 switch (option) {
                                     case 1:
                                         enter.nextLine();
                                          System.out.print("Ingrese el nombre del producto: ");
                                          product.setNameProduct(enter.nextLine());
-                                         System.out.print("Ingrese el codigo del producto: ");
+                                         System.out.print("Ingrese el código del producto: ");
                                          product.setCodeProduct(enter.nextLine());
-                                         System.out.print("Ingrese el precio del prodcuto: ");
+                                         System.out.print("Ingrese el precio del producto: ");
                                          product.setPriceProduct(enter.nextDouble());
                                          System.out.print("Ingrese la cantidad del producto: ");
                                          product.setQuantity(enter.nextInt());
                                          inventory.saveProduct(product);
                                         break;
                                     case 2:
-                                        System.out.print("Ingrese algun dato del producto que desea buscar: ");
+                                        System.out.print("Ingrese algún dato del producto que desea buscar: ");
                                         enter.nextLine();
                                         String dataTofind = enter.nextLine();
                                         String recovered = inventory.findProduct(dataTofind);
@@ -109,13 +109,13 @@ public class Main {
                                         break;
                                     case 4:
                                         enter.nextLine();
-                                        System.out.print("Ingress el codigo del producto a eliminar: ");
+                                        System.out.print("Ingress el código del producto a eliminar: ");
                                         String dataTodeleted = enter.nextLine();
                                         boolean deleted = inventory.deleteProduct(dataTodeleted);
                                         if (deleted == true) {
                                             System.out.println("Producto eliminado ......");
                                         } else {
-                                            System.out.println("El codigo del producto es incorrecto");
+                                            System.out.println("El código del producto es incorrecto");
                                         }
                                         break;
                                     case 5:
@@ -134,14 +134,14 @@ public class Main {
 
                             case 2:
                                 menu.MenuAppointmentAdmin();
-                                System.out.print("Seleccione una opcion: ");
+                                System.out.print("Seleccione una opción: ");
                                 option = enter.nextInt();
                                 Appoiment appoiment = new Appoiment();
                                 switch (option) {
                                     case 1:
                                         appoiment.generateAppointments();
                                         appoiment.registerAppoiment();
-                                        System.out.println("Registro de citas completado con exito");
+                                        System.out.println("Registro de citas completado con éxito");
                                         break;
 
                                     case 2:
@@ -177,7 +177,7 @@ public class Main {
                         }
                         System.out.println(compareCustom);
                         menu.MenuAppointmentCustomer();
-                        System.out.print("Seleccione una opcion: ");
+                        System.out.print("Seleccione una opción: ");
                         option = enter.nextInt();
                          Appoiment appointment= new Appoiment();
                         switch (option) {
@@ -198,7 +198,7 @@ public class Main {
                     break;
                 case 2:
                     menu.showLoginAndRegistryMenu();
-                    System.out.print("Seleccione una opcion: ");
+                    System.out.print("Seleccione una opción: ");
                     option = enter.nextInt();
                     String namePerson,
                      idPerson,
@@ -211,9 +211,9 @@ public class Main {
                         enter.nextLine();
                         System.out.print("Ingrese su nombre: ");
                         namePerson = enter.nextLine();
-                        System.out.print("Ingrese su numero de identificacion: ");
+                        System.out.print("Ingrese su número de identificación: ");
                         idPerson = enter.nextLine();
-                        System.out.print("Ingrese su genero: ");
+                        System.out.print("Ingrese su género: ");
                         genderPerson = enter.nextLine();
                         System.out.print("Ingrese su edad: ");
                         agePerson = enter.nextInt();
@@ -226,7 +226,7 @@ public class Main {
                         Registry registryAdmin = new Registry(administrator);
                         registryAdmin.generateAdminCode();
                         registryAdmin.registerAdministrator();
-                        System.out.println("Generando codigo de Acceso");
+                        System.out.println("Generando código de acceso");
                         Thread.sleep(1000);
                         System.out.println("Su condigo de acceso es: " + administrator.getAdministratorCode());
                         Thread.sleep(1000);
@@ -235,9 +235,9 @@ public class Main {
                         enter.nextLine();
                         System.out.print("Ingrese su nombre: ");
                         namePerson = enter.nextLine();
-                        System.out.print("Ingrese su numero de identificacion: ");
+                        System.out.print("Ingrese su número de identificación: ");
                         idPerson = enter.nextLine();
-                        System.out.print("Ingrese su genero: ");
+                        System.out.print("Ingrese su género: ");
                         genderPerson = enter.nextLine();
                         System.out.print("Ingrese su edad: ");
                         agePerson = enter.nextInt();
@@ -332,19 +332,19 @@ public class Main {
         if(suma>=20)
         {
             System.out.println("\nNivel de sospecha: Alto.");
-            System.out.println("Prueba rápida o PCR: NECESARIA\n");
+            System.out.println("Prueba PCR o rápida: NECESARIA\n");
             System.out.println("------------------------------------");
         }
         else if(suma>=11)
         {
             System.out.println("\nNivel de sospecha: Medio.");
-            System.out.println("Prueba rápida o PCR: RECOMENDABLE\n");
+            System.out.println("Prueba PCR o rápida: RECOMENDABLE\n");
             System.out.println("------------------------------------");
         }
          else if(suma<=10)
         {
             System.out.println("\nNivel de sospecha: Bajo.");
-            System.out.println("\nPrueba rápida o PCR: NO NECESARIA\n");
+            System.out.println("\nPrueba PCR o rápida: NO NECESARIA\n");
             System.out.println("------------------------------------");            
         }
     }
