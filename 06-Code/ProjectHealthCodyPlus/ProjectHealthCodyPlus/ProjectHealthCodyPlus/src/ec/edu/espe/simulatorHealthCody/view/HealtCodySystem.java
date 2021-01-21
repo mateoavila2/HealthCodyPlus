@@ -7,7 +7,6 @@ package ec.edu.espe.simulatorHealthCody.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.Filemanager.utils.FileManager;
-import ec.edu.espe.simulatorHealthCody.controller.Menu;
 import ec.edu.espe.simulatorHealthCody.model.Administrator;
 import ec.edu.espe.simulatorHealthCody.model.Appointment;
 import ec.edu.espe.simulatorHealthCody.model.LogIn;
@@ -27,7 +26,7 @@ import java.util.Scanner;
  */
 /// codido acceso : Admin1725M
 /// contraseña: ka123
-public class Main {
+public class HealtCodySystem {
 
     public static void main(String[] args) throws InterruptedException {
         Gson gson = new Gson();
