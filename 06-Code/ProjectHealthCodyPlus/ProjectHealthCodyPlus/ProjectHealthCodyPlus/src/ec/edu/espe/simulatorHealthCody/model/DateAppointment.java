@@ -9,7 +9,7 @@ package ec.edu.espe.simulatorHealthCody.model;
  *
  * @author Rafael Buse ESPE-DCCO
  */
-public class DateAppoiment {
+public class DateAppointment {
     int day;
     int month;
     int year;
@@ -18,7 +18,7 @@ public class DateAppoiment {
     int seconds;
     String code = "0";
 
-    public DateAppoiment(int day, int month, int year, int hour, int minutes, int seconds) {
+    public DateAppointment(int day, int month, int year, int hour, int minutes, int seconds) {
         this.day = day;
         this.month = month;
         this.year = year;

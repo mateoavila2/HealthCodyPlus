@@ -5,7 +5,7 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
-import ec.edu.espe.simulatorHealthCody.model.DateAppoiment;
+import ec.edu.espe.simulatorHealthCody.model.DateAppointment;
 import com.google.gson.Gson;
 import ec.edu.espe.Filemanager.utils.FileManager;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class Appointment {
 
     Gson gson = new Gson();
     ArrayList<ArrayList<java.util.Date>> weekend;
-    ArrayList<DateAppoiment> appoiments;
+    ArrayList<DateAppointment> appoiments;
 
     public Appointment() {
         weekend = new ArrayList();
@@ -54,7 +54,7 @@ public class Appointment {
                 int hour = weekend.get(i).get(j).getHours();
                 int minutes = weekend.get(i).get(j).getMinutes();
                 int seconds = weekend.get(i).get(j).getMinutes();
-                DateAppoiment p1 = new DateAppoiment(day, month, year, hour, minutes, seconds);
+                DateAppointment p1 = new DateAppointment(day, month, year, hour, minutes, seconds);
                 p1.setCode((p1.getDay()+"")+(p1.getMonth()+"")+(p1.getHour()+""));
                 String jsonAppoiment = gson.toJson(p1);
                 FileManager.save("AppoimentGenerated.json", jsonAppoiment);
@@ -67,7 +67,7 @@ public class Appointment {
         String[] dataAppoiment = appoimentFromFile.split("\r\n");
         
         for (int i = 0; i < dataAppoiment.length; i++) {
-            this.appoiments.add(gson.fromJson(dataAppoiment[i], DateAppoiment.class));
+            this.appoiments.add(gson.fromJson(dataAppoiment[i], DateAppointment.class));
         }
 
         for (int i = 0; i < this.appoiments.size(); i++) {
@@ -85,13 +85,13 @@ public class Appointment {
     public void saveCustomerAppointment(int date,String user)
     {
         Scanner enter = new Scanner(System.in);
-        DateAppoiment dataAppoinment = new DateAppoiment(0,0,0,0,0,0);
+        DateAppointment dataAppoinment = new DateAppointment(0,0,0,0,0,0);
         String allData = FileManager.findAll("AppoimentGenerated.json");
         String[] savedAllData = allData.split("\r\n");
         for(int i=0;i<savedAllData.length;i++){
             if(date==(i+1))
             {
-                dataAppoinment=gson.fromJson(savedAllData[i],DateAppoiment.class);
+                dataAppoinment=gson.fromJson(savedAllData[i],DateAppointment.class);
             }
         }
         String jsonReserve = gson.toJson(dataAppoinment);
@@ -129,7 +129,7 @@ public class Appointment {
         String[] dataAppoiment = appoimentFromFile.split("\r\n");
         
         for (int i = 0; i < dataAppoiment.length; i++) {
-            this.appoiments.add(gson.fromJson(dataAppoiment[i], DateAppoiment.class));
+            this.appoiments.add(gson.fromJson(dataAppoiment[i], DateAppointment.class));
         }
 
         for (int i = 0; i < this.appoiments.size(); i++) {
