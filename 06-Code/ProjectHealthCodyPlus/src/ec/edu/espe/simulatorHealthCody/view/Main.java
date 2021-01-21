@@ -9,7 +9,7 @@ import com.google.gson.Gson;
 import ec.edu.espe.Filemanager.utils.FileManager;
 import ec.edu.espe.simulatorHealthCody.controller.Menu;
 import ec.edu.espe.simulatorHealthCody.model.Administrator;
-import ec.edu.espe.simulatorHealthCody.model.Appoiment;
+import ec.edu.espe.simulatorHealthCody.model.Appointment;
 import ec.edu.espe.simulatorHealthCody.model.LogIn;
 import ec.edu.espe.simulatorHealthCody.model.Registry;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
@@ -136,7 +136,7 @@ public class Main {
                                 menu.MenuAppointmentAdmin();
                                 System.out.print("Seleccione una opción: ");
                                 option = enter.nextInt();
-                                Appoiment appoiment = new Appoiment();
+                                Appointment appoiment = new Appointment();
                                 switch (option) {
                                     case 1:
                                         appoiment.generateAppointments();
@@ -179,7 +179,7 @@ public class Main {
                         menu.MenuAppointmentCustomer();
                         System.out.print("Seleccione una opción: ");
                         option = enter.nextInt();
-                         Appoiment appointment= new Appoiment();
+                         Appointment appointment= new Appointment();
                         switch (option) {
                             case 1:
                                     appointment.showAppoiment("AppoimentGenerated.json");
