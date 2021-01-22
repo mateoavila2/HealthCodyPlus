@@ -170,7 +170,7 @@ public class HealtCodySystem {
                                 System.out.println("Usuario o contraseña incorrectos");
                             }
                         }while(compareCustom == false);  
-                        verified = loginCustomer.verifyFirs();
+                        verified = loginCustomer.checkFirtsTime();
                         if (verified == false) {
                             prediction();
                         }

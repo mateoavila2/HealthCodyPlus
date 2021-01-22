@@ -54,7 +54,7 @@ public class LogIn {
         return compare;
     }
     
-    public boolean verifyFirs(){
+    public boolean checkFirtsTime(){
         boolean verified;
         String dataCustom = FileManager.find("CustomerList.json",user);
         Customer customer = new Customer("","","",0,"","");
