@@ -197,7 +197,7 @@ public class HealthCodySystem {
 
                                                     case 2:// Citas Ver citas agendadas
                                                         System.out.println("\n\n");
-                                                        appoiment.showAppointment("AppoimentGenerated.json");
+                                                        appoiment.showAppointment("AppointmentGenerated.json");
                                                         break;
 
                                                 }
@@ -253,7 +253,7 @@ public class HealthCodySystem {
                                     Appointment appointment = new Appointment();
                                     switch (opcAppoinemet) {
                                         case 1:// citas customer Agendar cita
-                                            appointment.showAppointment("AppoimentGenerated.json");
+                                            appointment.showAppointment("AppointmentGenerated.json");
                                             System.out.print("\nSeleccione una cita para agendarla: ");
                                             int numberAppointment = enter.nextInt();
                                             appointment.saveCustomerAppointment(numberAppointment, userCustomer);

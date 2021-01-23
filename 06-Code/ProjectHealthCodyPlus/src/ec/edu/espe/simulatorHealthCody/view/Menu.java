@@ -41,7 +41,7 @@ public class Menu {
     
     public void MenuAppointmentAdmin(){
         System.out.println("1. Programar citas de la semana");
-        System.out.println("2. Ver citas agendadas");
+        System.out.println("2. Ver citas programadas");
         System.out.println("3. Regresar al menú anterior");
     
     }
