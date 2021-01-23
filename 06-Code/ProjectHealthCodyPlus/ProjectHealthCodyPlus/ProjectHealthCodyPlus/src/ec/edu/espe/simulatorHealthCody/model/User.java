@@ -12,66 +12,65 @@ import ec.edu.espe.Filemanager.utils.FileManager;
  *
  * @author Rafael Buse ESPE-DCCO
  */
-public class LogIn {
+public class User {
+
     private String user;
     private String password;
     private String accessCode;
     Gson gson = new Gson();
 
-    public LogIn(String user, String password) {
+    public User(String user, String password) {
         this.user = user;
         this.password = password;
     }
 
-    public LogIn(String user,String accessCode, String password) {
+    public User(String user, String accessCode, String password) {
         this.password = password;
         this.accessCode = accessCode;
     }
-    
-    public boolean LoginAdministrator(){
+
+    public boolean LoginAdministrator() {
         boolean verifyCode = FileManager.findLogin("AdministratorList.json", accessCode);
         boolean verifyPassword = FileManager.findLogin("AdministratorList.json", password);
         boolean compare;
-        if(verifyCode == true && verifyPassword == true){
+        if (verifyCode == true && verifyPassword == true) {
             compare = true;
-        }else{
+        } else {
             compare = false;
         }
         return compare;
     }
-    
-    public boolean LoginCustomer(){
-        
+
+    public boolean LoginCustomer() {
+
         boolean verifyUser = FileManager.findLogin("CustomerList.json", user);
         boolean verifyPassword = FileManager.findLogin("CustomerList.json", password);
-        
-        boolean compare = false ;
-        if(verifyUser == true && verifyPassword == true){
+
+        boolean compare = false;
+        if (verifyUser == true && verifyPassword == true) {
             compare = true;
-        }else{
+        } else {
             compare = false;
         }
         return compare;
     }
-    
-    public boolean checkFirtsTime(){
+
+    public boolean checkFirtsTime() {
         boolean verified;
-        String dataCustom = FileManager.find("CustomerList.json",user);
-        Customer customer = new Customer("","","",0,"","");
+        String dataCustom = FileManager.find("CustomerList.json", user);
+        Customer customer = new Customer("", "", "", 0, "", "");
         customer = gson.fromJson(dataCustom, Customer.class);
-        if(customer.isFillSurvey()== false){
+        if (customer.isFillSurvey() == false) {
             verified = false;
             customer.setFillSurvey(true);
             FileManager.delete("CustomerList.json", user);
             String jsonC = gson.toJson(customer);
             FileManager.save("CustomerList.json", jsonC);
-        }else{
+        } else {
             verified = true;
         }
         return verified;
     }
-    
-    
 
     public String getUser() {
         return user;
@@ -96,6 +95,5 @@ public class LogIn {
     public void setAccessCode(String accessCode) {
         this.accessCode = accessCode;
     }
-    
-    
+
 }

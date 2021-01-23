@@ -12,30 +12,30 @@ package ec.edu.espe.simulatorHealthCody.view;
 public class Menu {
      
     
-    public void showMenuPrincipal(){
+    public void MenuPrincipal(){
         System.out.println("MENÚ");
         System.out.println("1. Iniciar sesión");
         System.out.println("2. Registrarse");
         System.out.println("3. Salir");
     }
    
-    public void showLoginAndRegistryMenu(){
+    public void LoginAndRegistryMenu(){
         System.out.println("1. Administrador");
         System.out.println("2. Usuario");
         System.out.println("3. Salir");
     }
     
-    public void showAdminTaskMenu(){
+    public void AdminTaskMenu(){
         System.out.println("1. Inventario");
         System.out.println("2. Citas");
         System.out.println("3. Salir");
     }
-    public void showCustomerTaskMenu(){
+    public void CustomerTaskMenu(){
         System.out.println("1. Agendar citas");
         System.out.println("2. Eliminar citas agendadas");
         System.out.println("3. Salir");
     }
-    public void showMenuInventory(){
+    public void MenuInventory(){
         System.out.println("1. Agregar Producto");
         System.out.println("2. Buscar producto");
         System.out.println("3. Modificar Producto");
@@ -54,6 +54,7 @@ public class Menu {
     public void MenuAppointmentCustomer(){
         System.out.println("1. Agendar cita");
         System.out.println("2. Ver cita agendada");
+        System.out.println("3. Eliminar cita agendada");
         System.out.println("3. Salir");
     
     }
