@@ -52,6 +52,7 @@ public class HealtCodySystem {
 
                     do {
 
+<<<<<<< HEAD
                         do {
                             System.out.println("\n\t\tINICIO DE SESIÓN");
                             System.out.println("\t\t¿Como deseas Ingresar?\n");
@@ -79,6 +80,24 @@ public class HealtCodySystem {
                                         System.out.println("Codigo o Contraseña INCORRECOTOS");
                                     }
                                 } while (comparateAdmin == false);
+=======
+                    }
+                    break;
+                case 2: 
+                    //Menu de registro
+                    int optionAppointment;
+                    do
+                    {
+                       System.out.println("\n\t\t REGISTRARSE");
+                       menu.LoginAndRegistryMenu();
+                       System.out.print("Seleccione una opción: ");
+                       optionTotal = enter.nextLine();
+                       optionAppointment = validate(optionTotal);
+                    }while(optionAppointment!=3);
+                    break;
+            }
+        } while (option1 < 1 || option1 > 3);
+>>>>>>> 6147ef870caccd9c316cbffb46a8a458c2ec42b6
 
                                 int opcAdmin;
 
@@ -119,6 +138,7 @@ public class HealtCodySystem {
                                                         inventory.saveProduct(product);
                                                         break;
 
+<<<<<<< HEAD
                                                     case 2:// Inventory buscar producto
                                                         System.out.println("\n\n");
                                                         System.out.print("Ingrese algún dato del producto que desea buscar: ");
@@ -147,6 +167,21 @@ public class HealtCodySystem {
                                                             System.out.println("El dato " + dataToModify + " no fue encontrado");
                                                         }
                                                         break;
+=======
+                                    break;
+/////////////////////////////////////////////////////////////////////////////////////////////
+                                case 2:
+                                    menu.MenuAppointmentAdmin();
+                                    System.out.print("Seleccione una opción: ");
+                                    int optionAppointment = enter.nextInt();
+                                    Appointment appoiment = new Appointment();
+                                    switch (optionAppointment) {
+                                        case 1:
+                                            appoiment.generateAppointments();
+                                            appoiment.registerAppoiment();
+                                            System.out.println("Registro de citas completado con éxito");
+                                            break;
+>>>>>>> 6147ef870caccd9c316cbffb46a8a458c2ec42b6
 
                                                     case 4:// Inventory eliminar producto
                                                         System.out.println("\n\n");
