@@ -90,7 +90,18 @@ public class HealtCodySystem {
 
                     }
                     break;
-
+                case 2: 
+                    //Menu de registro
+                    int optionAppointment;
+                    do
+                    {
+                       System.out.println("\n\t\t REGISTRARSE");
+                       menu.LoginAndRegistryMenu();
+                       System.out.print("Seleccione una opción: ");
+                       optionTotal = enter.nextLine();
+                       optionAppointment = validate(optionTotal);
+                    }while(optionAppointment!=3);
+                    break;
             }
         } while (option1 < 1 || option1 > 3);
 
@@ -199,7 +210,7 @@ public class HealtCodySystem {
                                     }
 
                                     break;
-
+/////////////////////////////////////////////////////////////////////////////////////////////
                                 case 2:
                                     menu.MenuAppointmentAdmin();
                                     System.out.print("Seleccione una opción: ");
