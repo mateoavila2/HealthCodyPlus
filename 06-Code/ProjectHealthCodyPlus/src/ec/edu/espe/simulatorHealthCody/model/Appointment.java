@@ -130,10 +130,10 @@ public class Appointment {
             convertedDate.setSeconds(appointment.getSeconds());
 
             appoimentCustomer = "\n\n\nNombre: " + customer.getNamePerson() + "\n"
-                    + "Identificacion: " + customer.getIdPerson() + "\n"
+                    + "Identificación: " + customer.getIdPerson() + "\n"
                     + "Fecha de cita: " + convertedDate;
         } catch (Exception e) {
-            appoimentCustomer = "No tiene citas Agendadas";
+            appoimentCustomer = "No tiene citas agendadas";
         }
 
         return appoimentCustomer;

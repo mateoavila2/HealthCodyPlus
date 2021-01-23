@@ -28,14 +28,14 @@ import java.util.Scanner;
  */
 /// codido acceso : Admin1725M
 /// contraseña: ka123
-public class HealtCodySystem {
+public class HealthCodySystem {
 
     public static void main(String[] args) throws InterruptedException {
 
         Scanner enter = new Scanner(System.in);
         Gson gson = new Gson();
         Menu menu = new Menu();
-        System.out.println("\t\t BIENVENIDO AL SISTEMA DE HEALTHCODY PLUS +");
+        System.out.println("\t\t BIENVENIDO AL SISTEMA DE HEALTH CODY PLUS +");
         String optionL1;
         String optionR1;
         int option1;
@@ -54,7 +54,7 @@ public class HealtCodySystem {
                     do {
                         do {
                             System.out.println("\n\t\tINICIO DE SESIÓN");
-                            System.out.println("\t\t¿Como deseas Ingresar?\n");
+                            System.out.println("\t\t¿Cómo deseas ingresar?\n");
                             menu.LoginAndRegistryMenu();
                             System.out.print("Seleccione una opción: ");
                             optionL1 = enter.nextLine();
@@ -75,14 +75,14 @@ public class HealtCodySystem {
                                     User loginAdmin = new User(userAdmin, codeAdmin, passwordAdmin);
                                     comparateAdmin = loginAdmin.LoginAdministrator();
                                     if (comparateAdmin == false) {
-                                        System.out.println("Codigo o Contraseña INCORRECOTOS");
+                                        System.out.println("Codigo o Contraseña INCORRECTO");
                                     }
                                 } while (comparateAdmin == false);
 
                                 int opcAdmin;
                                 do {
                                     do {
-                                        System.out.println("\n\n\t\tMENU ADMINISTRADOR");
+                                        System.out.println("\n\n\t\tMENÚ ADMINISTRADOR");
                                         menu.AdminTaskMenu();
                                         System.out.print("Seleccione una opción: ");
                                         optionL1 = enter.nextLine();
@@ -139,14 +139,14 @@ public class HealtCodySystem {
                                                         String dataToUpdate = enter.nextLine();
                                                         boolean update = inventory.modifyProduct(dataToModify, dataToUpdate);
                                                         if (update == true) {
-                                                            System.out.println("Dato modificado con exito");
+                                                            System.out.println("Dato modificado con éxito");
                                                         } else {
                                                             System.out.println("El dato " + dataToModify + " no fue encontrado");
                                                         }
                                                         break;
                                                     case 4:// Inventory eliminar producto
                                                         System.out.println("\n\n");
-                                                        System.out.print("Ingress el código del producto a eliminar: ");
+                                                        System.out.print("Ingrese el código del producto a eliminar: ");
                                                         String dataTodeleted = enter.nextLine();
                                                         boolean deleted = inventory.deleteProduct(dataTodeleted);
                                                         if (deleted == true) {
@@ -180,7 +180,7 @@ public class HealtCodySystem {
 
                                                 Appointment appoiment = new Appointment();
                                                 do {
-                                                    System.out.println("\n\n\t\tMENU DE CITAS");
+                                                    System.out.println("\n\n\t\tMENÚ DE CITAS");
                                                     menu.MenuAppointmentAdmin();
                                                     System.out.print("Seleccione una opción: ");
                                                     optionL1 = enter.nextLine();
@@ -228,7 +228,7 @@ public class HealtCodySystem {
                                         loginCustomer.setPassword(passwordCustomer);
                                         compareCustom = loginCustomer.LoginCustomer();
                                     } catch (Exception e) {
-                                        System.out.println("Usuario o contraseña incorrectos");
+                                        System.out.println("Usuario o contraseña incorrecto");
                                     }
                                 } while (compareCustom == false);
                                 verified = loginCustomer.checkFirtsTime();
@@ -297,7 +297,7 @@ public class HealtCodySystem {
                     do {
                         do {
                             System.out.println("\n\n\t\tREGISTRATE");
-                            System.out.println("\t\t¿Como deseas Registrarte?");
+                            System.out.println("\t\t¿Cómo deseas registrarte?");
                             menu.LoginAndRegistryMenu();
                             System.out.print("Seleccione una opción: ");
                             optionR1 = enter.nextLine();
@@ -333,7 +333,7 @@ public class HealtCodySystem {
                                 registryAdmin.registerAdministrator();
                                 System.out.println("Generando código de acceso");
                                 Thread.sleep(1000);
-                                System.out.println("Su condigo de acceso es: " + administrator.getAdministratorCode());
+                                System.out.println("Su código de acceso es: " + administrator.getAdministratorCode());
                                 Thread.sleep(1000);
 
                                 break;
