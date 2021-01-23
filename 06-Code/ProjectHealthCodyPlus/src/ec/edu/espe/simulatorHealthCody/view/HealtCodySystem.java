@@ -31,28 +31,27 @@ import java.util.Scanner;
 public class HealtCodySystem {
 
     public static void main(String[] args) throws InterruptedException {
+
         Scanner enter = new Scanner(System.in);
         Gson gson = new Gson();
         Menu menu = new Menu();
-
         System.out.println("\t\t BIENVENIDO AL SISTEMA DE HEALTHCODY PLUS +");
         String optionL1;
         String optionR1;
         int option1;
         do {
 
-            menu.MenuPrincipal();
-            System.out.print("Seleccione una opción: ");
-            optionL1 = enter.nextLine();
-            option1 = validate(optionL1);
-
+            do {
+                menu.MenuPrincipal();
+                System.out.print("Seleccione una opción: ");
+                optionL1 = enter.nextLine();
+                option1 = validate(optionL1);
+            } while (option1 < 1 || option1 > 3);
             switch (option1) {
-                case 1: // Menu de inicio de sesion
+                case 1:// Menu de inicio de sesion
                     int optionLogin;
 
                     do {
-
-<<<<<<< HEAD
                         do {
                             System.out.println("\n\t\tINICIO DE SESIÓN");
                             System.out.println("\t\t¿Como deseas Ingresar?\n");
@@ -61,7 +60,6 @@ public class HealtCodySystem {
                             optionL1 = enter.nextLine();
                             optionLogin = validate(optionL1);
                         } while (optionLogin < 1 || optionLogin > 3);
-
                         switch (optionLogin) {
                             case 1: //login administrator
                                 boolean comparateAdmin;
@@ -80,27 +78,8 @@ public class HealtCodySystem {
                                         System.out.println("Codigo o Contraseña INCORRECOTOS");
                                     }
                                 } while (comparateAdmin == false);
-=======
-                    }
-                    break;
-                case 2: 
-                    //Menu de registro
-                    int optionAppointment;
-                    do
-                    {
-                       System.out.println("\n\t\t REGISTRARSE");
-                       menu.LoginAndRegistryMenu();
-                       System.out.print("Seleccione una opción: ");
-                       optionTotal = enter.nextLine();
-                       optionAppointment = validate(optionTotal);
-                    }while(optionAppointment!=3);
-                    break;
-            }
-        } while (option1 < 1 || option1 > 3);
->>>>>>> 6147ef870caccd9c316cbffb46a8a458c2ec42b6
 
                                 int opcAdmin;
-
                                 do {
                                     do {
                                         System.out.println("\n\n\t\tMENU ADMINISTRADOR");
@@ -109,12 +88,11 @@ public class HealtCodySystem {
                                         optionL1 = enter.nextLine();
                                         opcAdmin = validate(optionL1);
                                     } while (opcAdmin < 1 || opcAdmin > 3);
+
                                     switch (opcAdmin) {
-                                        case 1: //Inventory
+                                        case 1:// Inventario
                                             int opcInventory;
-
                                             do {
-
                                                 Product product = new Product("", "", 0.0, 0);
                                                 Inventory inventory = new Inventory();
                                                 do {
@@ -138,11 +116,10 @@ public class HealtCodySystem {
                                                         inventory.saveProduct(product);
                                                         break;
 
-<<<<<<< HEAD
                                                     case 2:// Inventory buscar producto
                                                         System.out.println("\n\n");
                                                         System.out.print("Ingrese algún dato del producto que desea buscar: ");
-                                                        enter.nextLine();
+                                                        //enter.nextLine();
                                                         String dataTofind = enter.nextLine();
                                                         String recovered = inventory.findProduct(dataTofind);
                                                         ArrayList<Product> products = new ArrayList();
@@ -167,22 +144,6 @@ public class HealtCodySystem {
                                                             System.out.println("El dato " + dataToModify + " no fue encontrado");
                                                         }
                                                         break;
-=======
-                                    break;
-/////////////////////////////////////////////////////////////////////////////////////////////
-                                case 2:
-                                    menu.MenuAppointmentAdmin();
-                                    System.out.print("Seleccione una opción: ");
-                                    int optionAppointment = enter.nextInt();
-                                    Appointment appoiment = new Appointment();
-                                    switch (optionAppointment) {
-                                        case 1:
-                                            appoiment.generateAppointments();
-                                            appoiment.registerAppoiment();
-                                            System.out.println("Registro de citas completado con éxito");
-                                            break;
->>>>>>> 6147ef870caccd9c316cbffb46a8a458c2ec42b6
-
                                                     case 4:// Inventory eliminar producto
                                                         System.out.println("\n\n");
                                                         System.out.print("Ingress el código del producto a eliminar: ");
@@ -201,7 +162,7 @@ public class HealtCodySystem {
                                                         listProducts = inventory.showInventory();
                                                         System.out.println("\n\n\t\tPRODUCTOS DE INVENTARIO");
                                                         for (int i = 0; i < listProducts.size(); i++) {
-                                                            System.out.println("\n\n\tProducto " + (i+1));
+                                                            System.out.println("\n\n\tProducto " + (i + 1));
                                                             System.out.print("\n" + listProducts.get(i));
                                                         }
                                                         System.out.print("\n\nPRESIONE una tecla para continuar ");
@@ -209,9 +170,10 @@ public class HealtCodySystem {
                                                         break;
                                                 }
                                             } while (opcInventory != 6);
+
                                             break;
 
-                                        case 2: //Citas
+                                        case 2:// citas administrador
                                             int opcAppointment;
 
                                             do {
@@ -240,14 +202,16 @@ public class HealtCodySystem {
 
                                                 }
                                             } while (opcAppointment != 3);
+
                                             break;
 
-                                        //////
                                     }
+
                                 } while (opcAdmin != 3);
+
                                 break;
 
-                            case 2: //Login customer
+                            case 2://login customer
                                 boolean compareCustom = false;
                                 boolean verified;
                                 String userCustomer = "";
@@ -267,15 +231,12 @@ public class HealtCodySystem {
                                         System.out.println("Usuario o contraseña incorrectos");
                                     }
                                 } while (compareCustom == false);
-
                                 verified = loginCustomer.checkFirtsTime();
                                 if (verified == false) {
                                     System.out.println("ENCUESTA");
                                     prediction();
                                 }
-
                                 int opcAppoinemet;
-
                                 do {
 
                                     do {
@@ -302,6 +263,8 @@ public class HealtCodySystem {
                                             String appoimentCustomer;
                                             appoimentCustomer = appointment.showAppointmentCustomer(userCustomer);
                                             System.out.println(appoimentCustomer);
+                                            System.out.println("PRESIONE una tecla para continuar");
+                                            enter.nextLine();
                                             break;
 
                                         case 3:// Citas customer Eliminar cita
@@ -316,86 +279,94 @@ public class HealtCodySystem {
                                     }
                                 } while (opcAppoinemet != 4);
 
+                                break;
+
                         }
+
                     } while (optionLogin != 3);
+
                     break;
 
-                case 2:// Registy
+                case 2: // Registro
+
                     int opcRegistry;
+
                     do {
-                        System.out.println("\n\n\t\tREGISTRATE");
-                        menu.LoginAndRegistryMenu();
-                        System.out.print("Seleccione una opción: ");
-                        optionR1 = enter.nextLine();
-                        opcRegistry = validate(optionR1);
-                    } while (opcRegistry < 1 || opcRegistry > 3);
-                    String namePerson,
-                     idPerson,
-                     genderPerson;
-                    String dataPassword;
-                    String dataUser;
-                    switch (opcRegistry) {
-                        case 1:// Registry admin
+                        do {
+                            System.out.println("\n\n\t\tREGISTRATE");
+                            System.out.println("\t\t¿Como deseas Registrarte?");
+                            menu.LoginAndRegistryMenu();
+                            System.out.print("Seleccione una opción: ");
+                            optionR1 = enter.nextLine();
+                            opcRegistry = validate(optionR1);
+                        } while (opcRegistry >= 1 && opcRegistry <= 3);
+                        String namePerson,
+                                idPerson,
+                                genderPerson;
+                        String dataPassword;
+                        String dataUser;
+                        switch (opcRegistry) {
+                            case 1:// Registry admin
 
-                            int agePerson;
-                            System.out.println("Complete los siguientes datos");
-                            enter.nextLine();
-                            System.out.print("Ingrese su nombre: ");
-                            namePerson = enter.nextLine();
-                            System.out.print("Ingrese su número de identificación: ");
-                            idPerson = enter.nextLine();
-                            System.out.print("Ingrese su género: ");
-                            genderPerson = enter.nextLine();
-                            System.out.print("Ingrese su edad: ");
-                            agePerson = enter.nextInt();
-                            System.out.println("Guardando...........");
-                            Thread.sleep(2000);
-                            System.out.print("Cree una contraseña: ");
-                            enter.nextLine();
-                            dataPassword = enter.nextLine();
-                            Administrator administrator = new Administrator(namePerson, idPerson, genderPerson, agePerson, "", dataPassword);
-                            Registry registryAdmin = new Registry(administrator);
-                            registryAdmin.generateAdminCode();
-                            registryAdmin.registerAdministrator();
-                            System.out.println("Generando código de acceso");
-                            Thread.sleep(1000);
-                            System.out.println("Su condigo de acceso es: " + administrator.getAdministratorCode());
-                            Thread.sleep(1000);
+                                int agePerson;
+                                System.out.println("Complete los siguientes datos");
+                                enter.nextLine();
+                                System.out.print("Ingrese su nombre: ");
+                                namePerson = enter.nextLine();
+                                System.out.print("Ingrese su número de identificación: ");
+                                idPerson = enter.nextLine();
+                                System.out.print("Ingrese su género: ");
+                                genderPerson = enter.nextLine();
+                                System.out.print("Ingrese su edad: ");
+                                agePerson = enter.nextInt();
+                                System.out.println("Guardando...........");
+                                Thread.sleep(2000);
+                                System.out.print("Cree una contraseña: ");
+                                enter.nextLine();
+                                dataPassword = enter.nextLine();
+                                Administrator administrator = new Administrator(namePerson, idPerson, genderPerson, agePerson, "", dataPassword);
+                                Registry registryAdmin = new Registry(administrator);
+                                registryAdmin.generateAdminCode();
+                                registryAdmin.registerAdministrator();
+                                System.out.println("Generando código de acceso");
+                                Thread.sleep(1000);
+                                System.out.println("Su condigo de acceso es: " + administrator.getAdministratorCode());
+                                Thread.sleep(1000);
 
-                            break;
+                                break;
 
-                        case 2:
-                            System.out.println("Complete los siguientes datos");
-                            enter.nextLine();
-                            System.out.print("Ingrese su nombre: ");
-                            namePerson = enter.nextLine();
-                            System.out.print("Ingrese su número de identificación: ");
-                            idPerson = enter.nextLine();
-                            System.out.print("Ingrese su género: ");
-                            genderPerson = enter.nextLine();
-                            System.out.print("Ingrese su edad: ");
-                            agePerson = enter.nextInt();
-                            System.out.println("Guardando...........");
-                            Thread.sleep(2000);
-                            System.out.print("Cree un usuario: ");
-                            enter.nextLine();
-                            dataUser = enter.nextLine();
-                            System.out.print("Cree una contraseña: ");
-                            dataPassword = enter.nextLine();
-                            System.out.println("Guardando...........");
-                            Thread.sleep(2000);
-                            Customer customer = new Customer(namePerson, idPerson, genderPerson, agePerson, dataUser, dataPassword);
-                            Registry registryCustomer = new Registry(customer);
-                            registryCustomer.registerCustomer();
-                            break;
+                            case 2:
+                                System.out.println("Complete los siguientes datos");
+                                enter.nextLine();
+                                System.out.print("Ingrese su nombre: ");
+                                namePerson = enter.nextLine();
+                                System.out.print("Ingrese su número de identificación: ");
+                                idPerson = enter.nextLine();
+                                System.out.print("Ingrese su género: ");
+                                genderPerson = enter.nextLine();
+                                System.out.print("Ingrese su edad: ");
+                                agePerson = enter.nextInt();
+                                System.out.println("Guardando...........");
+                                Thread.sleep(2000);
+                                System.out.print("Cree un usuario: ");
+                                enter.nextLine();
+                                dataUser = enter.nextLine();
+                                System.out.print("Cree una contraseña: ");
+                                dataPassword = enter.nextLine();
+                                System.out.println("Guardando...........");
+                                Thread.sleep(2000);
+                                Customer customer = new Customer(namePerson, idPerson, genderPerson, agePerson, dataUser, dataPassword);
+                                Registry registryCustomer = new Registry(customer);
+                                registryCustomer.registerCustomer();
 
-                    }
+                                break;
+                        }
+                    } while (opcRegistry != 3);
                     break;
 
-                case 3:
-                    break;
             }
         } while (option1 != 3);
+
     }
 
     public static void prediction() {
