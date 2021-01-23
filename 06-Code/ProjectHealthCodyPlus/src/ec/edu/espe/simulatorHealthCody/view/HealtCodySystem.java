@@ -233,8 +233,11 @@ public class HealtCodySystem {
                                 } while (compareCustom == false);
                                 verified = loginCustomer.checkFirtsTime();
                                 if (verified == false) {
-                                    System.out.println("ENCUESTA");
+                                    System.out.println("\n\t\t BIENVENIDO  "+userCustomer);
+                                    System.out.println("\n\t\t COMPLETA LA SIGUIENTE ENCUESTA");
                                     prediction();
+                                    System.out.println("\n\t Presione una tecla para continuar");
+                                    enter.nextLine();
                                 }
                                 int opcAppoinemet;
                                 do {
@@ -299,7 +302,7 @@ public class HealtCodySystem {
                             System.out.print("Seleccione una opción: ");
                             optionR1 = enter.nextLine();
                             opcRegistry = validate(optionR1);
-                        } while (opcRegistry >= 1 && opcRegistry <= 3);
+                        } while (opcRegistry < 1 || opcRegistry > 3);
                         String namePerson,
                                 idPerson,
                                 genderPerson;
