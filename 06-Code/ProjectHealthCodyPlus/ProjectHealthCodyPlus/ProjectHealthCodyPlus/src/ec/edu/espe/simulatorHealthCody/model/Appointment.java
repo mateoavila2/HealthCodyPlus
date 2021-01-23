@@ -26,6 +26,7 @@ public class Appointment {
         weekend = new ArrayList();
         appoiments = new ArrayList();
     }
+
     //METODOS DE ADMINISTRADOR 
     public void generateAppointments() {
         for (int j = 0; j < 3; j++) {
@@ -80,6 +81,7 @@ public class Appointment {
             System.out.println((i + 1) + ")  " + datesAppointment + "\n");
         }
     }
+
     //METODOS DE CUSTOMER
     public void saveCustomerAppointment(int date, String user) {
         Scanner enter = new Scanner(System.in);
@@ -115,8 +117,8 @@ public class Appointment {
         customer = gson.fromJson(dataCustomer, Customer.class);
         String dateAppoinment = FileManager.find("ScheduleAppoinment.json", customer.getCustomerCode());
         DateAppointment appointment = new DateAppointment(0, 0, 0, 0, 0, 0);
-        appointment = gson.fromJson(dateAppoinment , DateAppointment.class);
-        
+        appointment = gson.fromJson(dateAppoinment, DateAppointment.class);
+
         Date convertedDate = new Date();
         convertedDate.setDate(appointment.getDay());
         convertedDate.setMonth(appointment.getMonth());
@@ -124,33 +126,30 @@ public class Appointment {
         convertedDate.setHours(appointment.getHour());
         convertedDate.setMinutes(appointment.getMinutes());
         convertedDate.setSeconds(appointment.getSeconds());
-        
-        String appoimentCustomer = "\n\n\nNombre: " + customer.getNamePerson() + "\n" +
-                                    "Identificacion: " + customer.getIdPerson() + "\n" +
-                                    "Fecha de cita: " + convertedDate;
-        
-        return appoimentCustomer ;
-        
-        
+
+        String appoimentCustomer = "\n\n\nNombre: " + customer.getNamePerson() + "\n"
+                + "Identificacion: " + customer.getIdPerson() + "\n"
+                + "Fecha de cita: " + convertedDate;
+
+        return appoimentCustomer;
     }
 
-    /*public void showAppoimentsDatas(String nameFile, String dataToFind) {
-        String appoimentFromFile = FileManager.find(nameFile, dataToFind);
-        String[] dataAppoiment = appoimentFromFile.split("\r\n");
+    public boolean deleteAppointment(String fileName, String user) {
+        boolean status;
+        String jsonaCustom = FileManager.find(fileName, user);
+        Customer customer = new Customer("", "", "", 0, "", "");
+        customer = gson.fromJson(jsonaCustom, Customer.class);
+        String jsonDate = FileManager.find("ScheduleAppoinment.json", customer.getCustomerCode());
+        DateAppointment dateRelocate = new DateAppointment(0,0,0,0,0,0);
+        dateRelocate = gson.fromJson(jsonDate, DateAppointment.class);
+        FileManager.save("AppoimentGenerated.json", gson.toJson(dateRelocate));
+        status = FileManager.delete("ScheduleAppoinment.json", customer.getCustomerCode());
+        FileManager.delete(fileName, user);
+        customer.setCustomerCode("0");
+        FileManager.save(fileName, gson.toJson(customer));
 
-        for (int i = 0; i < dataAppoiment.length; i++) {
-            this.appoiments.add(gson.fromJson(dataAppoiment[i], DateAppointment.class));
-        }
+        return status;
 
-        for (int i = 0; i < this.appoiments.size(); i++) {
-            Date f3 = new Date();
-            f3.setDate(this.appoiments.get(i).day);
-            f3.setMonth(this.appoiments.get(i).month);
-            f3.setYear(this.appoiments.get(i).year);
-            f3.setHours(this.appoiments.get(i).hour);
-            f3.setMinutes(this.appoiments.get(i).minutes);
-            f3.setSeconds(this.appoiments.get(i).seconds);
-            System.out.println((i + 1) + ")  " + f3 + "\n");
-        }
-    }*/
+    }
+
 }

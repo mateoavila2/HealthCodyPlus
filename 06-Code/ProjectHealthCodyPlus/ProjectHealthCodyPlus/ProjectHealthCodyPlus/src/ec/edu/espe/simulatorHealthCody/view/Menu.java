@@ -22,18 +22,13 @@ public class Menu {
     public void LoginAndRegistryMenu(){
         System.out.println("1. Administrador");
         System.out.println("2. Usuario");
-        System.out.println("3. Salir");
+        System.out.println("3. Regresar al menu anterior");
     }
     
     public void AdminTaskMenu(){
         System.out.println("1. Inventario");
         System.out.println("2. Citas");
-        System.out.println("3. Salir");
-    }
-    public void CustomerTaskMenu(){
-        System.out.println("1. Agendar citas");
-        System.out.println("2. Eliminar citas agendadas");
-        System.out.println("3. Salir");
+        System.out.println("3. Regresar al menu anterior");
     }
     public void MenuInventory(){
         System.out.println("1. Agregar Producto");
@@ -41,21 +36,20 @@ public class Menu {
         System.out.println("3. Modificar Producto");
         System.out.println("4. Eliminar producto");
         System.out.println("5. Ver Inventario");
-        System.out.println("6. Salir");
+        System.out.println("6. Regresar al menu anterior");
     }
     
     public void MenuAppointmentAdmin(){
         System.out.println("1. Programar citas de la semana");
         System.out.println("2. Ver citas agendadas");
-        System.out.println("3. Eliminar una cita agendada");
-        System.out.println("3. Salir");
+        System.out.println("3. Regresar al menu anterior");
     
     }
     public void MenuAppointmentCustomer(){
         System.out.println("1. Agendar cita");
         System.out.println("2. Ver cita agendada");
         System.out.println("3. Eliminar cita agendada");
-        System.out.println("3. Salir");
+        System.out.println("4. Regresar al menu anterior");
     
     }
     
