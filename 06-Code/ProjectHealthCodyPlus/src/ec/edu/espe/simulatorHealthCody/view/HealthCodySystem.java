@@ -7,7 +7,7 @@ package ec.edu.espe.simulatorHealthCody.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.Filemanager.utils.FileManager;
-import static ec.edu.espe.simulatorHealthCody.controller.Validate.validate;
+import ec.edu.espe.validate.utils.Validate;
 import ec.edu.espe.simulatorHealthCody.model.Administrator;
 import ec.edu.espe.simulatorHealthCody.model.Appointment;
 import ec.edu.espe.simulatorHealthCody.model.User;
@@ -33,6 +33,7 @@ public class HealthCodySystem {
     public static void main(String[] args) throws InterruptedException {
 
         Scanner enter = new Scanner(System.in);
+        Validate validate = new Validate();
         Gson gson = new Gson();
         Menu menu = new Menu();
         System.out.println("\t\t BIENVENIDO AL SISTEMA DE HEALTH CODY PLUS +");
@@ -45,7 +46,7 @@ public class HealthCodySystem {
                 menu.MenuPrincipal();
                 System.out.print("Seleccione una opción: ");
                 optionL1 = enter.nextLine();
-                option1 = validate(optionL1);
+                option1 = validate.Number(optionL1);
             } while (option1 < 1 || option1 > 3);
             switch (option1) {
                 case 1:// Menu de inicio de sesion
@@ -58,7 +59,7 @@ public class HealthCodySystem {
                             menu.LoginAndRegistryMenu();
                             System.out.print("Seleccione una opción: ");
                             optionL1 = enter.nextLine();
-                            optionLogin = validate(optionL1);
+                            optionLogin = validate.Number(optionL1);
                         } while (optionLogin < 1 || optionLogin > 3);
                         switch (optionLogin) {
                             case 1: //login administrator
@@ -86,7 +87,7 @@ public class HealthCodySystem {
                                         menu.AdminTaskMenu();
                                         System.out.print("Seleccione una opción: ");
                                         optionL1 = enter.nextLine();
-                                        opcAdmin = validate(optionL1);
+                                        opcAdmin = validate.Number(optionL1);
                                     } while (opcAdmin < 1 || opcAdmin > 3);
 
                                     switch (opcAdmin) {
@@ -100,19 +101,22 @@ public class HealthCodySystem {
                                                     menu.MenuInventory();
                                                     System.out.print("Seleccione una opción: ");
                                                     optionL1 = enter.nextLine();
-                                                    opcInventory = validate(optionL1);
+                                                    opcInventory = validate.Number(optionL1);
                                                 } while (opcInventory < 1 || opcInventory > 6);
                                                 switch (opcInventory) {
                                                     case 1:// Inventory Agregar producto
+                                                        String word;
                                                         System.out.println("\n\n");
                                                         System.out.print("Ingrese el nombre del producto: ");
                                                         product.setNameProduct(enter.nextLine());
                                                         System.out.print("Ingrese el código del producto: ");
                                                         product.setCodeProduct(enter.nextLine());
                                                         System.out.print("Ingrese el precio del producto: ");
+                                                       
                                                         product.setPriceProduct(enter.nextDouble());
                                                         System.out.print("Ingrese la cantidad del producto: ");
-                                                        product.setQuantity(enter.nextInt());
+                                                        opcAdmin = validate.Number(enter.nextLine());
+                                                        product.setQuantity(opcAdmin);
                                                         inventory.saveProduct(product);
                                                         break;
 
@@ -184,7 +188,7 @@ public class HealthCodySystem {
                                                     menu.MenuAppointmentAdmin();
                                                     System.out.print("Seleccione una opción: ");
                                                     optionL1 = enter.nextLine();
-                                                    opcAppointment = validate(optionL1);
+                                                    opcAppointment = validate.Number(optionL1);
                                                 } while (opcAppointment < 1 || opcAppointment > 3);
 
                                                 switch (opcAppointment) {
@@ -233,7 +237,7 @@ public class HealthCodySystem {
                                 } while (compareCustom == false);
                                 verified = loginCustomer.checkFirtsTime();
                                 if (verified == false) {
-                                    System.out.println("\n\t\t BIENVENIDO  "+userCustomer);
+                                    System.out.println("\n\t\t BIENVENIDO  " + userCustomer);
                                     System.out.println("\n\t\t COMPLETA LA SIGUIENTE ENCUESTA");
                                     prediction();
                                     System.out.println("\n\t Presione una tecla para continuar");
@@ -247,7 +251,7 @@ public class HealthCodySystem {
                                         menu.MenuAppointmentCustomer();
                                         System.out.print("Seleccione una opción: ");
                                         optionL1 = enter.nextLine();
-                                        opcAppoinemet = validate(optionL1);
+                                        opcAppoinemet = validate.Number(optionL1);
                                     } while (opcAppoinemet < 1 || opcAppoinemet > 4);
 
                                     Appointment appointment = new Appointment();
@@ -255,7 +259,7 @@ public class HealthCodySystem {
                                         case 1:// citas customer Agendar cita
                                             appointment.showAppointment("AppointmentGenerated.json");
                                             System.out.print("\nSeleccione una cita para agendarla: ");
-                                            int numberAppointment = enter.nextInt();
+                                            int numberAppointment = validate.Number(enter.nextLine());
                                             appointment.saveCustomerAppointment(numberAppointment, userCustomer);
                                             System.out.println("AGENDANDO CITA...\n ");
                                             Thread.sleep(2000);
@@ -301,7 +305,7 @@ public class HealthCodySystem {
                             menu.LoginAndRegistryMenu();
                             System.out.print("Seleccione una opción: ");
                             optionR1 = enter.nextLine();
-                            opcRegistry = validate(optionR1);
+                            opcRegistry = validate.Number(optionR1);
                         } while (opcRegistry < 1 || opcRegistry > 3);
                         String namePerson,
                                 idPerson,
@@ -315,17 +319,17 @@ public class HealthCodySystem {
                                 System.out.println("Complete los siguientes datos");
                                 enter.nextLine();
                                 System.out.print("Ingrese su nombre: ");
-                                namePerson = enter.nextLine();
+                                namePerson = validate.Words(enter.nextLine());
                                 System.out.print("Ingrese su número de identificación: ");
-                                idPerson = enter.nextLine();
+                                idPerson = validate.id(enter.nextLine());
                                 System.out.print("Ingrese su género: ");
-                                genderPerson = enter.nextLine();
+                                genderPerson = validate.Words(enter.nextLine());
                                 System.out.print("Ingrese su edad: ");
-                                agePerson = enter.nextInt();
+                                agePerson = validate.Number(enter.nextLine());
                                 System.out.println("Guardando...........");
                                 Thread.sleep(2000);
-                                System.out.print("Cree una contraseña: ");
                                 enter.nextLine();
+                                System.out.print("Cree una contraseña: ");
                                 dataPassword = enter.nextLine();
                                 Administrator administrator = new Administrator(namePerson, idPerson, genderPerson, agePerson, "", dataPassword);
                                 Registry registryAdmin = new Registry(administrator);
@@ -342,17 +346,17 @@ public class HealthCodySystem {
                                 System.out.println("Complete los siguientes datos");
                                 enter.nextLine();
                                 System.out.print("Ingrese su nombre: ");
-                                namePerson = enter.nextLine();
+                                namePerson = validate.Words(enter.nextLine());
                                 System.out.print("Ingrese su número de identificación: ");
-                                idPerson = enter.nextLine();
+                                idPerson = validate.id(enter.nextLine());
                                 System.out.print("Ingrese su género: ");
-                                genderPerson = enter.nextLine();
+                                genderPerson = validate.Words(enter.nextLine());
                                 System.out.print("Ingrese su edad: ");
-                                agePerson = enter.nextInt();
+                                agePerson = validate.Number(enter.nextLine());
                                 System.out.println("Guardando...........");
                                 Thread.sleep(2000);
-                                System.out.print("Cree un usuario: ");
                                 enter.nextLine();
+                                System.out.print("Cree un usuario: ");
                                 dataUser = enter.nextLine();
                                 System.out.print("Cree una contraseña: ");
                                 dataPassword = enter.nextLine();
@@ -377,42 +381,44 @@ public class HealthCodySystem {
         int answer;
         float temp;
         Scanner read = new Scanner(System.in);
+        Validate validate = new Validate();
+        
         System.out.println("\n\n¡Test de predicción de COVID-19!\n");
 
         System.out.println("\n¿Presenta tos nueva o que va empeorando? ");
         System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = read.nextInt();
+        answer = validate.Number(read.nextLine());
         if (answer == 1) {
             suma = suma + 2;
         }
         System.out.println("\n¿Presenta pérdida sostenida del olfato, el gusto o el apetito? ");
         System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = read.nextInt();
+        answer = validate.Number(read.nextLine());
         if (answer == 1) {
             suma = suma + 3;
         }
         System.out.println("\n¿Presenta dolor de garganta? ");
         System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = read.nextInt();
+        answer = validate.Number(read.nextLine());
         if (answer == 1) {
             suma = suma + 2;
         }
 
         System.out.println("\n¿Presenta dificultad para respirar leve o moderada? ");
         System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = read.nextInt();
+        answer = validate.Number(read.nextLine());
         if (answer == 1) {
             suma = suma + 3;
         }
         System.out.println("\nEn los últimos 14 días, ¿Viajó al exterior?");
         System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = read.nextInt();
+        answer = validate.Number(read.nextLine());
         if (answer == 1) {
             suma = suma + 3;
         }
         System.out.println("\nEn los últimos 14 días, ¿ha tenido contacto con otras personas que han contraído COVID-19?");
         System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = read.nextInt();
+        answer = validate.Number(read.nextLine());
         if (answer == 1) {
             suma = suma + 3;
         }
