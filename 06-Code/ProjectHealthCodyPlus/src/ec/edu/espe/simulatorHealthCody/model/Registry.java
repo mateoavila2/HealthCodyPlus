@@ -13,29 +13,35 @@ import ec.edu.espe.Filemanager.utils.FileManager;
  * @author Rafael Buse ESPE-DCCO
  */
 public class Registry {
-    Administrator administrator;
-    Customer customer;
-    Gson gson = new Gson();
 
-    public Registry(Administrator administrator) {
-        this.administrator = administrator;
+    Gson gson = new Gson();
+    Employee employe;
+    Customer customer;
+
+    public Registry(Employee employe) {
+        this.employe = employe;
     }
 
     public Registry(Customer customer) {
         this.customer = customer;
     }
+
     
-    public void registerAdministrator(){
-        String AdminDataJson = gson.toJson(administrator);
-        FileManager.save("AdministratorList.json", AdminDataJson);
+
+    public void registerAdmin(String fileName) {
+        String json;
+        json = gson.toJson(employe);
+        FileManager.save(fileName, json);
     }
     
-    public void registerCustomer(){
-        String CustomerDataJson = gson.toJson(customer);
-        FileManager.save("CustomerList.json", CustomerDataJson);
+    public void registerCustom(String fileName) {
+        String json;
+        json = gson.toJson(customer);
+        FileManager.save(fileName, json);
     }
-    
-    public void generateAdminCode(){
-        administrator.setAdministratorCode("Admin"+administrator.getIdPerson() + administrator.getGenderPerson());
-    }
+
+
+    /*public void generateAdminCode() {
+        administrator.setAdministratorCode("Admin" + administrator.getIdPerson() + administrator.getGenderPerson());
+    }*/
 }

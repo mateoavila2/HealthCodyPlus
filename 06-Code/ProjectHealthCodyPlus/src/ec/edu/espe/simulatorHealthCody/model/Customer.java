@@ -9,53 +9,30 @@ package ec.edu.espe.simulatorHealthCody.model;
  *
  * @author Rafael Buse ESPE-DCCO
  */
-public class Customer extends Person{
-    private String customerUSer;
-    private String customerPassword;
-    private boolean fillSurvey = false;
-    String customerCode = "0";
+public class Customer extends User{
 
-    public Customer(String namePerson, String idPerson, String genderPerson, int agePerson, String customerUSer, String customerPassword) {
-        super(namePerson, idPerson, genderPerson, agePerson);
-        this.customerUSer = customerUSer;
-        this.customerPassword = customerPassword;
-    }
-
-    public String getCustomerUSer() {
-        return customerUSer;
-    }
-
-    public void setCustomerUSer(String customerUSer) {
-        this.customerUSer = customerUSer;
-    }
-
-    public String getCustomerPassword() {
-        return customerPassword;
-    }
-
-    public void setCustomerPassword(String customerPassword) {
-        this.customerPassword = customerPassword;
-    }
-
-    public boolean isFillSurvey() {
-        return fillSurvey;
-    }
-
-    public void setFillSurvey(boolean fillSurvey) {
-        this.fillSurvey = fillSurvey;
-    }
-
-    public String getCustomerCode() {
-        return customerCode;
-    }
-
-    public void setCustomerCode(String customerCode) {
-        this.customerCode = customerCode;
-    }
+    protected String codeAppoinment;
     
+    public Customer(String name, String id, int age, String gender, String userName, String accesKey) {
+        super(name, id, age, gender, userName, accesKey);
+    }
+
+    public String getCodeAppoinment() {
+        return codeAppoinment;
+    }
+
+    public void setCodeAppoinment(String codeAppoinment) {
+        this.codeAppoinment = codeAppoinment;
+    }
+
+    
+
     @Override
     public String toString() {
-        return namePerson + "," + idPerson + "," + genderPerson + "," + agePerson + "," + customerUSer + "," + customerPassword + "\n";
+        return super.toString();
     }
+    
+    
+    
     
 }

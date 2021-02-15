@@ -13,87 +13,79 @@ import ec.edu.espe.Filemanager.utils.FileManager;
  * @author Rafael Buse ESPE-DCCO
  */
 public class User {
-
-    private String user;
-    private String password;
-    private String accessCode;
+    
     Gson gson = new Gson();
+    
+    protected String name;
+    protected String id;
+    protected int age;
+    protected String gender;
+    protected String userName;
+    protected String accesKey;
 
-    public User(String user, String password) {
-        this.user = user;
-        this.password = password;
+    public User(String name, String id, int age, String gender, String userName, String accesKey) {
+        this.name = name;
+        this.id = id;
+        this.age = age;
+        this.gender = gender;
+        this.userName = userName;
+        this.accesKey = accesKey;
     }
 
-    public User(String user, String accessCode, String password) {
-        this.password = password;
-        this.accessCode = accessCode;
+    public String getName() {
+        return name;
     }
 
-    public boolean LoginAdministrator() {
-        boolean verifyCode = FileManager.findLogin("AdministratorList.json", accessCode);
-        boolean verifyPassword = FileManager.findLogin("AdministratorList.json", password);
-        boolean compare;
-        if (verifyCode == true && verifyPassword == true) {
-            compare = true;
-        } else {
-            compare = false;
-        }
-        return compare;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public boolean LoginCustomer() {
-
-        boolean verifyUser = FileManager.findLogin("CustomerList.json", user);
-        boolean verifyPassword = FileManager.findLogin("CustomerList.json", password);
-
-        boolean compare = false;
-        if (verifyUser == true && verifyPassword == true) {
-            compare = true;
-        } else {
-            compare = false;
-        }
-        return compare;
+    public String getId() {
+        return id;
     }
 
-    public boolean checkFirtsTime() {
-        boolean verified;
-        String dataCustom = FileManager.find("CustomerList.json", user);
-        Customer customer = new Customer("", "", "", 0, "", "");
-        customer = gson.fromJson(dataCustom, Customer.class);
-        if (customer.isFillSurvey() == false) {
-            verified = false;
-            customer.setFillSurvey(true);
-            FileManager.delete("CustomerList.json", user);
-            String jsonC = gson.toJson(customer);
-            FileManager.save("CustomerList.json", jsonC);
-        } else {
-            verified = true;
-        }
-        return verified;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public int getAge() {
+        return age;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public String getPassword() {
-        return password;
+    public String getGender() {
+        return gender;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getAccessCode() {
-        return accessCode;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setAccessCode(String accessCode) {
-        this.accessCode = accessCode;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
+
+    public String getAccesKey() {
+        return accesKey;
+    }
+
+    public void setAccesKey(String accesKey) {
+        this.accesKey = accesKey;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "name=" + name + ", id=" + id + ", age=" + age + ", gender=" + gender + ", userName=" + userName + ", accesKey=" + accesKey + '}';
+    }
+
+
+    
 
 }

@@ -10,7 +10,7 @@ package ec.edu.espe.simulatorHealthCody.model;
  * @author Rafael Buse ESPE-DCCO
  */
 public class Product {
-    
+
     String nameProduct;
     String codeProduct;
     double priceProduct;
@@ -57,12 +57,10 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Nombre del producto: " + nameProduct + "\n" 
-                + "Código del producto: " + codeProduct + "\n" 
-                + "Precio del producto: " + priceProduct + "\n" 
+        return "Nombre del producto: " + nameProduct + "\n"
+                + "Código del producto: " + codeProduct + "\n"
+                + "Precio del producto: " + priceProduct + "\n"
                 + "Cantidad de producto: " + quantity;
     }
-    
-    
-    
+
 }
