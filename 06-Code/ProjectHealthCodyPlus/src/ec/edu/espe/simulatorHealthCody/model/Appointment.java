@@ -19,8 +19,8 @@ import java.util.Scanner;
 public class Appointment {
 
     Gson gson = new Gson();
-    ArrayList<ArrayList<java.util.Date>> weekend;
-    ArrayList<DateAppointment> appointments;
+    private ArrayList<ArrayList<java.util.Date>> weekend;
+    private ArrayList<DateAppointment> appointments;
 
     public Appointment() {
         weekend = new ArrayList();
@@ -72,12 +72,12 @@ public class Appointment {
 
         for (int i = 0; i < this.appointments.size(); i++) {
             Date datesAppointment = new Date();
-            datesAppointment.setDate(this.appointments.get(i).day);
-            datesAppointment.setMonth(this.appointments.get(i).month);
-            datesAppointment.setYear(this.appointments.get(i).year);
-            datesAppointment.setHours(this.appointments.get(i).hour);
-            datesAppointment.setMinutes(this.appointments.get(i).minutes);
-            datesAppointment.setSeconds(this.appointments.get(i).seconds);
+            datesAppointment.setDate(this.appointments.get(i).getDay());
+            datesAppointment.setMonth(this.appointments.get(i).getMonth());
+            datesAppointment.setYear(this.appointments.get(i).getYear());
+            datesAppointment.setHours(this.appointments.get(i).getHour());
+            datesAppointment.setMinutes(this.appointments.get(i).getMinutes());
+            datesAppointment.setSeconds(this.appointments.get(i).getSeconds());
             System.out.println((i + 1) + ")  " + datesAppointment + "\n");
         }
     }
@@ -158,6 +158,22 @@ public class Appointment {
 
         return status;
 
+    }
+
+    public ArrayList<ArrayList<Date>> getWeekend() {
+        return weekend;
+    }
+
+    public void setWeekend(ArrayList<ArrayList<Date>> weekend) {
+        this.weekend = weekend;
+    }
+
+    public ArrayList<DateAppointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(ArrayList<DateAppointment> appointments) {
+        this.appointments = appointments;
     }
 
 }

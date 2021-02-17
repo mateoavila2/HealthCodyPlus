@@ -15,8 +15,8 @@ import ec.edu.espe.Filemanager.utils.FileManager;
 public class Registry {
 
     Gson gson = new Gson();
-    Employee employe;
-    Customer customer;
+    private Employee employe;
+    private Customer customer;
 
     public Registry(Employee employe) {
         this.employe = employe;
@@ -26,18 +26,32 @@ public class Registry {
         this.customer = customer;
     }
 
-    
-
     public void registerAdmin(String fileName) {
         String json;
         json = gson.toJson(employe);
         FileManager.save(fileName, json);
     }
-    
+
     public void registerCustom(String fileName) {
         String json;
         json = gson.toJson(customer);
         FileManager.save(fileName, json);
+    }
+
+    public Employee getEmploye() {
+        return employe;
+    }
+
+    public void setEmploye(Employee employe) {
+        this.employe = employe;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
 

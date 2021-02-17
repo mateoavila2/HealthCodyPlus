@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @author Rafael Buse ESPE-DCCO
  */
 public class Inventory {
-    ArrayList<Product> products;
+    private ArrayList<Product> products;
     Gson gson = new Gson();
     Scanner enter = new Scanner(System.in);
 

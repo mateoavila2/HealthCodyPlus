@@ -10,13 +10,13 @@ package ec.edu.espe.simulatorHealthCody.model;
  * @author Rafael Buse ESPE-DCCO
  */
 public class DateAppointment {
-    int day;
-    int month;
-    int year;
-    int hour;
-    int minutes;
-    int seconds;
-    String code = "0";
+    private int day;
+    private int month;
+    private int year;
+    private int hour;
+    private int minutes;
+    private int seconds;
+    private String code = "0";
 
     public DateAppointment(int day, int month, int year, int hour, int minutes, int seconds) {
         this.day = day;

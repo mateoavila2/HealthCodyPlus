@@ -11,40 +11,42 @@ package ec.edu.espe.simulatorHealthCody.model;
  */
 public class Product {
 
-    String nameProduct;
-    String codeProduct;
-    double priceProduct;
-    int quantity;
+    
+    private String name;
+    private String code;
+    private double price;
+    private int quantity;
 
-    public Product(String nameProduct, String codeProduct, double priceProduct, int quantity) {
-        this.nameProduct = nameProduct;
-        this.codeProduct = codeProduct;
-        this.priceProduct = priceProduct;
+    
+    public Product(String name, String code, double price, int quantity) {
+        this.name = name;
+        this.code = code;
+        this.price = price;
         this.quantity = quantity;
     }
 
     public String getNameProduct() {
-        return nameProduct;
+        return name;
     }
 
     public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
+        this.name = nameProduct;
     }
 
     public String getCodeProduct() {
-        return codeProduct;
+        return code;
     }
 
     public void setCodeProduct(String codeProduct) {
-        this.codeProduct = codeProduct;
+        this.code = codeProduct;
     }
 
     public double getPriceProduct() {
-        return priceProduct;
+        return price;
     }
 
     public void setPriceProduct(double priceProduct) {
-        this.priceProduct = priceProduct;
+        this.price = priceProduct;
     }
 
     public int getQuantity() {
@@ -57,9 +59,9 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Nombre del producto: " + nameProduct + "\n"
-                + "Código del producto: " + codeProduct + "\n"
-                + "Precio del producto: " + priceProduct + "\n"
+        return "Nombre del producto: " + name + "\n"
+                + "Código del producto: " + code + "\n"
+                + "Precio del producto: " + price + "\n"
                 + "Cantidad de producto: " + quantity;
     }
 

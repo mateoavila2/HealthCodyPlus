@@ -14,8 +14,8 @@ import ec.edu.espe.Filemanager.utils.FileManager;
  */
 public class Employee extends User {
 
-    double salary;
-    String numberPhone;
+    private double salary;
+    private String numberPhone;
 
     public Employee(String name, String id, int age, String gender, String userName, String accesKey) {
         super(name, id, age, gender, userName, accesKey);

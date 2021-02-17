@@ -23,7 +23,7 @@ import java.util.Scanner;
  * @author Mateo Ávila ESPE-DCCO
  */
 public class HealthCodySystem {
-
+//
     public static void main(String[] args) throws InterruptedException {
 
         Scanner scanner = new Scanner(System.in);
@@ -37,7 +37,7 @@ public class HealthCodySystem {
         do {
 
             do {
-                menu.MenuPrincipal();
+                menu.menuPrincipal();
                 System.out.print("Seleccione una opción: ");
                 optionL1 = scanner.nextLine();
                 option1 = validate.Number(optionL1);
@@ -50,7 +50,7 @@ public class HealthCodySystem {
                         do {
                             System.out.println("\n\t\tINICIO DE SESIÓN");
                             System.out.println("\t\t¿Cómo deseas ingresar?\n");
-                            menu.LoginAndRegistryMenu();
+                            menu.loginAndRegistryMenu();
                             System.out.print("Seleccione una opción: ");
                             optionL1 = scanner.nextLine();
                             optionLogin = validate.Number(optionL1);
@@ -78,7 +78,7 @@ public class HealthCodySystem {
                                 do {
                                     do {
                                         System.out.println("\n\n\t\tMENÚ ADMINISTRADOR");
-                                        menu.AdminTaskMenu();
+                                        menu.adminTaskMenu();
                                         System.out.print("Seleccione una opción: ");
                                         optionL1 = scanner.nextLine();
                                         opcAdmin = validate.Number(optionL1);
@@ -93,7 +93,7 @@ public class HealthCodySystem {
                                                 Inventory inventory = new Inventory();
                                                 do {
                                                     System.out.println("\n\n\t\tINVENTARIO");
-                                                    menu.MenuInventory();
+                                                    menu.menuInventory();
                                                     System.out.print("Seleccione una opción: ");
                                                     optionL1 = scanner.nextLine();
                                                     opcInventory = validate.Number(optionL1);
@@ -179,7 +179,7 @@ public class HealthCodySystem {
                                                 Appointment appoiment = new Appointment();
                                                 do {
                                                     System.out.println("\n\n\t\tMENÚ DE CITAS");
-                                                    menu.MenuAppointmentAdmin();
+                                                    menu.menuAppointmentAdmin();
                                                     System.out.print("Seleccione una opción: ");
                                                     optionL1 = scanner.nextLine();
                                                     opcAppointment = validate.Number(optionL1);
@@ -239,7 +239,7 @@ public class HealthCodySystem {
 
                                     do {
                                         System.out.println("\n\n\t\tCITAS");
-                                        menu.MenuAppointmentCustomer();
+                                        menu.menuAppointmentCustomer();
                                         System.out.print("Seleccione una opción: ");
                                         optionL1 = scanner.nextLine();
                                         opcAppoinemet = validate.Number(optionL1);
@@ -293,7 +293,7 @@ public class HealthCodySystem {
                         do {
                             System.out.println("\n\n\t\tREGISTRATE");
                             System.out.println("\t\t¿Cómo deseas registrarte?");
-                            menu.LoginAndRegistryMenu();
+                            menu.loginAndRegistryMenu();
                             System.out.print("Seleccione una opción: ");
                             optionR1 = scanner.nextLine();
                             opcRegistry = validate.Number(optionR1);
