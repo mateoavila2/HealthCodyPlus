@@ -15,14 +15,13 @@ import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.simulatorHealthCody.model.Product;
 import ec.edu.espe.simulatorHealthCody.model.Authentication;
 import ec.edu.espe.simulatorHealthCody.model.Employee;
+import ec.edu.espe.simulatorHealthCody.model.PredictionOfCovid;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
  *
- * @author Rafael Buse ESPE-DCCO
+ * @author Mateo Ávila ESPE-DCCO
  */
-/// codido acceso : Admin1725M
-/// contraseña: ka123
 public class HealthCodySystem {
 
     public static void main(String[] args) throws InterruptedException {
@@ -44,7 +43,7 @@ public class HealthCodySystem {
                 option1 = validate.Number(optionL1);
             } while (option1 < 1 || option1 > 3);
             switch (option1) {
-                case 1:// Menu de inicio de sesion
+                case 1:
                     int optionLogin;
 
                     do {
@@ -231,7 +230,7 @@ public class HealthCodySystem {
                                 if (verified == false) {
                                     System.out.println("\n\t\t BIENVENIDO  " + userName);
                                     System.out.println("\n\t\t COMPLETA LA SIGUIENTE ENCUESTA");
-                                    prediction();
+                                    PredictionOfCovid.prediction();
                                     System.out.println("\n\t Presione una tecla para continuar");
                                     scanner.nextLine();
                                 }
@@ -308,7 +307,6 @@ public class HealthCodySystem {
                                 Employee employee;
                                 String numberPhone;
                                 System.out.println("Complete los siguientes datos");
-                                scanner.nextLine();
                                 System.out.print("Ingrese su nombre completo : ");
                                 name = validate.Words(scanner.nextLine());
                                 System.out.print("Ingrese su número de identificación: ");
@@ -317,24 +315,14 @@ public class HealthCodySystem {
                                 age = validate.Number(scanner.nextLine());
                                 System.out.print("Ingrese su género: ");
                                 gender = validate.Words(scanner.nextLine());
-                                System.out.println("Ingrese su nümero de telefono: ");
+                                System.out.println("Ingrese su número de telefono: ");
                                 numberPhone = validate.Words(scanner.nextLine());
-                                System.out.println("Guardando...........");
-                                Thread.sleep(2000);
-                                scanner.nextLine();
                                 System.out.print("Cree una contraseña: ");
                                 accesKey = scanner.nextLine();
                                 userName = "";
                                 employee = new Employee(name, id, age, gender, userName, accesKey);
                                 registry = new Registry(employee);
                                 registry.registerAdmin("Administrators.json");
-                                //registryAdmin.generateAdminCode();
-                                //registryAdmin.registerAdministrator();
-
-                                /*System.out.println("Generando código de acceso");
-                                Thread.sleep(1000);
-                                System.out.println("Su código de acceso es: " + administrator.getAdministratorCode());
-                                Thread.sleep(1000);*/
                                 break;
 
                             case 2:
@@ -370,66 +358,4 @@ public class HealthCodySystem {
 
     }
 
-    public static void prediction() {
-        int suma = 0;
-        int answer;
-        float temp;
-        Scanner read = new Scanner(System.in);
-        Validate validate = new Validate();
-
-        System.out.println("\n\n¡Test de predicción de COVID-19!\n");
-
-        System.out.println("\n¿Presenta tos nueva o que va empeorando? ");
-        System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = validate.Number(read.nextLine());
-        if (answer == 1) {
-            suma = suma + 2;
-        }
-        System.out.println("\n¿Presenta pérdida sostenida del olfato, el gusto o el apetito? ");
-        System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = validate.Number(read.nextLine());
-        if (answer == 1) {
-            suma = suma + 3;
-        }
-        System.out.println("\n¿Presenta dolor de garganta? ");
-        System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = validate.Number(read.nextLine());
-        if (answer == 1) {
-            suma = suma + 2;
-        }
-
-        System.out.println("\n¿Presenta dificultad para respirar leve o moderada? ");
-        System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = validate.Number(read.nextLine());
-        if (answer == 1) {
-            suma = suma + 3;
-        }
-        System.out.println("\nEn los últimos 14 días, ¿Viajó al exterior?");
-        System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = validate.Number(read.nextLine());
-        if (answer == 1) {
-            suma = suma + 3;
-        }
-        System.out.println("\nEn los últimos 14 días, ¿ha tenido contacto con otras personas que han contraído COVID-19?");
-        System.out.println("1. Si\n2. No\nEscoja una opción: ");
-        answer = validate.Number(read.nextLine());
-        if (answer == 1) {
-            suma = suma + 3;
-        }
-
-        System.out.println("-----------------------------------\n¡Fin del test!\n-----------------------------------");
-        if (suma >= 12) {
-            System.out.println("\nNivel de sospecha: Alto.");
-            System.out.println("Prueba PCR o rápida: NECESARIA\n");
-            System.out.println("------------------------------------");
-        } else if (suma >= 3) {
-            System.out.println("\nNivel de sospecha: Medio.");
-            System.out.println("Prueba PCR o rápida: RECOMENDABLE\n");
-            System.out.println("------------------------------------");
-        } else if (suma <= 2) {
-            System.out.println("\nNivel de sospecha: Bajo.");
-            System.out.println("\nPrueba PCR o rápida: NO NECESARIA\n");
-            System.out.println("------------------------------------");
-        }
-    }
 }

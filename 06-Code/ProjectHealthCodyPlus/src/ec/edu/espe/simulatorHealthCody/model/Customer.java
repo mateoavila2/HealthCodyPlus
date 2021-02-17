@@ -25,8 +25,6 @@ public class Customer extends User{
         this.codeAppoinment = codeAppoinment;
     }
 
-    
-
     @Override
     public String toString() {
         return super.toString();

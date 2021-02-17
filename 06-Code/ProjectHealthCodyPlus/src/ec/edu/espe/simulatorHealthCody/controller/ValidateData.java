@@ -7,9 +7,9 @@ package ec.edu.espe.simulatorHealthCody.controller;
 
 /**
  *
- * @author Rafael Buse ESPE-DCCO
+ * @author Mateo Ávila ESPE-DCCO
  */
-public class Validate {
+public class ValidateData {
 
     public static int validate(String data) {
         
