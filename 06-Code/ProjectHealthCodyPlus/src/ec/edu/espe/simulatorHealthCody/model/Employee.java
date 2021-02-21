@@ -5,29 +5,26 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
-import com.google.gson.Gson;
-import ec.edu.espe.Filemanager.utils.FileManager;
-
 /**
  *
  * @author Rafael Buse ESPE-DCCO
  */
 public class Employee extends User {
 
-    double salary;
-    String numberPhone;
+    private float salary;
+    private String numberPhone;
 
-    public Employee(String name, String id, int age, String gender, String userName, String accesKey) {
+    public Employee(String name, String id, int age, String gender, String numberPhone, String userName, String accesKey) {
         super(name, id, age, gender, userName, accesKey);
         this.numberPhone = numberPhone;
-        salary = 800.50;
+        salary = 800.50f;
     }
 
-    public double getSalary() {
+    public float getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(float salary) {
         this.salary = salary;
     }
 
@@ -38,4 +35,6 @@ public class Employee extends User {
     public void setNumberPhone(String numberPhone) {
         this.numberPhone = numberPhone;
     }
+
+    
 }

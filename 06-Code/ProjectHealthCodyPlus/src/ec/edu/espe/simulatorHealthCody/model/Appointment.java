@@ -5,12 +5,13 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
-import ec.edu.espe.simulatorHealthCody.model.DateAppointment;
-import com.google.gson.Gson;
-import ec.edu.espe.Filemanager.utils.FileManager;
+import ec.edu.espe.DBmanager.utils.DBmanagerDates;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
+import java.util.List;
 
 /**
  *
@@ -18,146 +19,100 @@ import java.util.Scanner;
  */
 public class Appointment {
 
-    Gson gson = new Gson();
-    ArrayList<ArrayList<java.util.Date>> weekend;
-    ArrayList<DateAppointment> appointments;
+    private List<Date> datesOfWeek;
+    private final DBmanagerDates dateOperation;
+    private String collection;
+    private String code;
 
-    public Appointment() {
-        weekend = new ArrayList();
-        appointments = new ArrayList();
+    public Appointment(String collection) {
+        code = "inspecific";
+        this.collection = collection;
+        datesOfWeek = new ArrayList();
+        dateOperation = new DBmanagerDates("Appointment", this.collection);
+
     }
 
-    //METODOS DE ADMINISTRADOR 
-    public void generateAppointments() {
-        for (int j = 0; j < 3; j++) {
-            ArrayList<java.util.Date> dates = new ArrayList();
+    public void schedule() {
+        for (int i = 0; i < 3; i++) {
 
-            for (int i = 0; i < 3; i++) {
-                java.util.Date datesGenerated = new java.util.Date();
-                datesGenerated.setDate(datesGenerated.getDate() + j);
-                datesGenerated.setHours(9 + i);
-                datesGenerated.setMinutes(0);
-                datesGenerated.setSeconds(0);
-                dates.add(datesGenerated);
-
+            for (int j = 0; j < 3; j++) {
+                Date date = new Date();
+                date.setDate(date.getDate() + i);
+                date.setHours(9 + j);
+                date.setMinutes(0);
+                date.setSeconds(0);
+                datesOfWeek.add(date);
             }
-            weekend.add(dates);
+
+        }
+        DateFormat dateFormat;
+        for (int i = 0; i < datesOfWeek.size(); i++) {
+            dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+            String date = dateFormat.format(datesOfWeek.get(i));
+            dateOperation.createDate(date, code + (i + 1));
         }
     }
 
-    public void registerAppointment() {
-        for (int i = 0; i < weekend.size(); i++) {
-            for (int j = 0; j < weekend.size(); j++) {
-                int day = weekend.get(i).get(j).getDate();
-                int month = weekend.get(i).get(j).getMonth();
-                int year = weekend.get(i).get(j).getYear();
-                int hour = weekend.get(i).get(j).getHours();
-                int minutes = weekend.get(i).get(j).getMinutes();
-                int seconds = weekend.get(i).get(j).getMinutes();
-                DateAppointment p1 = new DateAppointment(day, month, year, hour, minutes, seconds);
-                p1.setCode((p1.getDay() + "") + (p1.getMonth() + "") + (p1.getHour() + ""));
-                String jsonAppoiment = gson.toJson(p1);
-                FileManager.save("AppointmentGenerated.json", jsonAppoiment);
-            }
-        }
+    public void add(String date, String code) {
+        dateOperation.createDate(date, code);
     }
 
-    public void showAppointment(String nameFile) {
-        String appointmentFromFile = FileManager.findAll(nameFile);
-        String[] dataAppointment = appointmentFromFile.split("\r\n");
+    public List<Date> show() throws ParseException {
 
-        for (int i = 0; i < dataAppointment.length; i++) {
-            this.appointments.add(gson.fromJson(dataAppointment[i], DateAppointment.class));
+        DateFormat dateFormat;
+        Date date;
+        System.out.println("");
+        String[] dates = dateOperation.readDate().split("\r\n");
+        for (String date1 : dates) {
+            dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+            date = dateFormat.parse(date1);
+            datesOfWeek.add(date);
         }
-
-        for (int i = 0; i < this.appointments.size(); i++) {
-            Date datesAppointment = new Date();
-            datesAppointment.setDate(this.appointments.get(i).day);
-            datesAppointment.setMonth(this.appointments.get(i).month);
-            datesAppointment.setYear(this.appointments.get(i).year);
-            datesAppointment.setHours(this.appointments.get(i).hour);
-            datesAppointment.setMinutes(this.appointments.get(i).minutes);
-            datesAppointment.setSeconds(this.appointments.get(i).seconds);
-            System.out.println((i + 1) + ")  " + datesAppointment + "\n");
-        }
+        return datesOfWeek;
     }
 
-    //MÉTODOS DE CUSTOMER
-    public void saveCustomerAppointment(int date, String user) {
-        Scanner enter = new Scanner(System.in);
-        DateAppointment dataAppointment = new DateAppointment(0, 0, 0, 0, 0, 0);
-        String allData = FileManager.findAll("AppointmentGenerated.json");
-        String[] savedAllData = allData.split("\r\n");
-        for (int i = 0; i < savedAllData.length; i++) {
-            if (date == (i + 1)) {
-                dataAppointment = gson.fromJson(savedAllData[i], DateAppointment.class);
+    public String find(String dataToFind) {
+        String dateFind;
+        dateFind = dateOperation.readASpecificDate(dataToFind);
+        return dateFind;
+    }
+
+    public String delete(int opc) throws ParseException {
+        String reserveDate = "";
+        System.out.println("");
+        String[] dates = dateOperation.readDate().split("\r\n");
+        for (int i = 0; i < dates.length; i++) {
+            if (opc == (i + 1)) {
+                reserveDate = dates[i];
+                dateOperation.delete("date", dates[i]);
             }
         }
-        String jsonReserve = gson.toJson(dataAppointment);
-        FileManager.delete("AppointmentGenerated.json", dataAppointment.getCode());
-        FileManager.save("ScheduleAppointment.json", jsonReserve);
-        Customer customer;
-        customer = new Customer("", "", 0, "", "", "");
-        String dataCustomer = FileManager.find("Customers.json", user);
-        customer = gson.fromJson(dataCustomer, Customer.class);
-        if (customer.getCodeAppoinment().equals("0")) {
-            customer.setCodeAppoinment(dataAppointment.getCode());
-            FileManager.delete("CustomerList.json", user);
-            String jsonCustomer = gson.toJson(customer);
-            FileManager.save("CustomerList.json", jsonCustomer);
-        } else {
-            System.out.println("Ya ha agendado una cita, revise su agenda de citas");
-            FileManager.delete("ScheduleAppointment.json", dataAppointment.getCode());
-            FileManager.save("AppointmentGenerated.json", jsonReserve);
-        }
+        return reserveDate;
+
     }
 
-    public String showAppointmentCustomer(String user) {
-        String appointmentCustomer;
-        try {
-            Customer customer;
-            customer = new Customer("", "", 0, "", "", "");
-            String dataCustomer = FileManager.find("CustomerList.json", user);
-            customer = gson.fromJson(dataCustomer, Customer.class);
-            String dateAppoinment = FileManager.find("ScheduleAppointment.json", customer.getCodeAppoinment());
-            DateAppointment appointment = new DateAppointment(0, 0, 0, 0, 0, 0);
-            appointment = gson.fromJson(dateAppoinment, DateAppointment.class);
-
-            Date convertedDate = new Date();
-            convertedDate.setDate(appointment.getDay());
-            convertedDate.setMonth(appointment.getMonth());
-            convertedDate.setYear(appointment.getYear());
-            convertedDate.setHours(appointment.getHour());
-            convertedDate.setMinutes(appointment.getMinutes());
-            convertedDate.setSeconds(appointment.getSeconds());
-
-            appointmentCustomer = "\n\n\nNombre: " + customer.name + "\n"
-                    + "Identificación: " + customer.id + "\n"
-                    + "Fecha de cita: " + convertedDate;
-        } catch (Exception e) {
-            appointmentCustomer = "No tiene citas agendadas";
-        }
-
-        return appointmentCustomer;
+    public String getCollection() {
+        return collection;
     }
 
-    public boolean deleteAppointment(String fileName, String user) {
-        boolean status;
-        String jsonaCustom = FileManager.find(fileName, user);
-        Customer customer;
-        customer = new Customer("", "", 0, "", "", "");
-        customer = gson.fromJson(jsonaCustom, Customer.class);
-        String jsonDate = FileManager.find("ScheduleAppointment.json", customer.getCodeAppoinment());
-        DateAppointment dateRelocate = new DateAppointment(0, 0, 0, 0, 0, 0);
-        dateRelocate = gson.fromJson(jsonDate, DateAppointment.class);
-        FileManager.save("AppointmentGenerated.json", gson.toJson(dateRelocate));
-        status = FileManager.delete("ScheduleAppointment.json", customer.getCodeAppoinment());
-        FileManager.delete(fileName, user);
-        customer.setCodeAppoinment("0");
-        FileManager.save(fileName, gson.toJson(customer));
+    public void setCollection(String collection) {
+        this.collection = collection;
+    }
 
-        return status;
+    public String getCode() {
+        return code;
+    }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public List<Date> getDatesOfWeek() {
+        return datesOfWeek;
+    }
+
+    public void setDatesOfWeek(List<Date> datesOfWeek) {
+        this.datesOfWeek = datesOfWeek;
     }
 
 }

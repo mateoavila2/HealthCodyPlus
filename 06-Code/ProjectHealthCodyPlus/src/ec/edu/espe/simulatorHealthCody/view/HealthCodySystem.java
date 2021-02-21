@@ -7,15 +7,7 @@ package ec.edu.espe.simulatorHealthCody.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.validate.utils.Validate;
-import ec.edu.espe.simulatorHealthCody.model.Appointment;
-import ec.edu.espe.simulatorHealthCody.model.Registry;
-import ec.edu.espe.simulatorHealthCody.model.Customer;
-import ec.edu.espe.simulatorHealthCody.model.Inventory;
-import ec.edu.espe.simulatorHealthCody.model.Product;
-import ec.edu.espe.simulatorHealthCody.model.Authentication;
-import ec.edu.espe.simulatorHealthCody.model.Employee;
-import ec.edu.espe.simulatorHealthCody.model.PredictionOfCovid;
-import java.util.ArrayList;
+import java.text.ParseException;
 import java.util.Scanner;
 
 /**
@@ -24,7 +16,7 @@ import java.util.Scanner;
  */
 public class HealthCodySystem {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ParseException {
 
         Scanner scanner = new Scanner(System.in);
         Validate validate = new Validate();

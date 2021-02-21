@@ -5,7 +5,7 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
-import ec.edu.espe.Filemanager.utils.FileManager;
+import ec.edu.espe.DBmanager.utils.DBmanager;
 
 /**
  *
@@ -15,17 +15,20 @@ public class Authentication {
 
     private String userName;
     private String accesKey;
+    private String collenctionName;
+    private final DBmanager operation;
 
-    public Authentication(String userName, String accesKey) {
+    public Authentication(String userName, String accesKey, String collenctionName) {
         this.userName = userName;
         this.accesKey = accesKey;
+        this.collenctionName = collenctionName;
+        operation = new DBmanager("Registry", this.collenctionName);
     }
 
-    public boolean login(String fileName) {
+    public boolean login() {
         boolean compare, corretUser, correctKey;
-
-        corretUser = FileManager.findLogin(fileName, userName);
-        correctKey = FileManager.findLogin(fileName, accesKey);
+        corretUser = operation.verifyExistingData(userName);
+        correctKey = operation.verifyExistingData(accesKey);
         if (corretUser == true && correctKey == true) {
             compare = true;
         } else {
@@ -33,6 +36,14 @@ public class Authentication {
         }
         return compare;
 
+    }
+
+    public String getCollenctionName() {
+        return collenctionName;
+    }
+
+    public void setCollenctionName(String collenctionName) {
+        this.collenctionName = collenctionName;
     }
 
     public String getUserName() {

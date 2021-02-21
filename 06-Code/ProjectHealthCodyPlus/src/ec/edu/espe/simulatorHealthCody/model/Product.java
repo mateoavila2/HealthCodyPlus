@@ -55,9 +55,6 @@ public class Product {
         this.quantity = quantity;
     }
 
-    
-    
-
     @Override
     public String toString() {
         return "Nombre del producto: " + name + "\n"

@@ -6,72 +6,65 @@
 package ec.edu.espe.simulatorHealthCody.model;
 
 import com.google.gson.Gson;
-import ec.edu.espe.Filemanager.utils.FileManager;
+import ec.edu.espe.DBmanager.utils.DBmanager;
 import java.util.ArrayList;
-import java.util.Scanner;
+
+import java.util.List;
 
 /**
  *
  * @author Rafael Buse ESPE-DCCO
  */
 public class Inventory {
-    ArrayList<Product> products;
+
     Gson gson = new Gson();
-    Scanner enter = new Scanner(System.in);
 
-    public Inventory() {
+    private List<Product> products;
+    private final String collectionName;
+    private final DBmanager operation;
+
+    public Inventory(String collectionName) {
+
+        this.collectionName = collectionName;
         products = new ArrayList();
+        operation = new DBmanager("Inventory", this.collectionName);
     }
-    
-    
-    public void saveProduct(Product product){
-        
-        String jsonProduct = gson.toJson(product);
-        FileManager.save("Inventory.json", jsonProduct);
+
+    public void saveProduct(Product product) {
+
+        String jsonProduct;
+        jsonProduct = gson.toJson(product);
+        operation.create(jsonProduct);
     }
-    
-    public String findProduct(String dataToFind){
-        String recovered = FileManager.find("Inventory.json", dataToFind);
+
+    public String showProducts() {
+        String jsonProducts;
+        jsonProducts = operation.read();
+        return jsonProducts;
+    }
+
+    public String findProduct(String dataToFind) {
+        String recovered;
+        recovered = operation.readByFilter(dataToFind);
+
         return recovered;
-    
     }
-    
-    public boolean modifyProduct(String dataTofind,String dataToUpdate){
-        boolean update;
-        System.out.println(dataToUpdate + dataTofind);
-        update = FileManager.update("Inventory.json", dataTofind, dataToUpdate);
-        return update;
+
+    public void updateProduct(String dataToFind, String dataToUpdate, String keyName) {
+        operation.update(dataToFind, dataToUpdate, keyName);
+
     }
-    
-    public boolean deleteProduct(String dataToDelete){
-        boolean deleted;
-        deleted = FileManager.delete("Inventory.json", dataToDelete);
-        return deleted;
+
+    public void deleteProduct(String dataToDelete, String keyName) {
+        operation.delete(keyName, dataToDelete);
     }
-    
-    public ArrayList<Product> showInventory(){
-        
-        String allData;
-        allData = FileManager.findAll("Inventory.json");
-        String[] savedAllData = allData.split("\r\n");
-        for(int i=0;i<savedAllData.length;i++){
-           products.add(gson.fromJson(savedAllData[i], Product.class));
-        }
-        
+
+    public List<Product> getProducts() {
         return products;
     }
 
-    public ArrayList<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(ArrayList<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
-    
-    
 
-    
-    
-    
 }

@@ -25,8 +25,7 @@ public class RegistrySubMenu {
         Gson gson = new Gson();
         Menu menu = new Menu();
         String optionR1;
-        
-        
+
         int opcRegistry;
 
         do {
@@ -55,20 +54,20 @@ public class RegistrySubMenu {
                     age = validate.Number(scanner.nextLine());
                     System.out.print("Ingrese su género: ");
                     gender = validate.Words(scanner.nextLine());
-                    System.out.println("Ingrese su número de telefono: ");
-                    numberPhone = validate.Words(scanner.nextLine());
+                    System.out.print("Ingrese su número de telefono: ");
+                    numberPhone = scanner.nextLine();
                     System.out.print("Cree una contraseña: ");
                     accesKey = scanner.nextLine();
-                    userName = "";
-                    employee = new Employee(name, id, age, gender, userName, accesKey);
-                    registry = new Registry(employee);
-                    registry.registerAdmin("Administrators.json");
+                    userName = "AdminControl";
+
+                    employee = new Employee(name, id, age, gender, numberPhone, userName, accesKey);
+                    registry = new Registry("Employees");
+                    registry.register(employee);
                     break;
 
                 case 2:
                     Customer customer;
                     System.out.println("Complete los siguientes datos");
-                    scanner.nextLine();
                     System.out.print("Ingrese su nombre completo : ");
                     name = validate.Words(scanner.nextLine());
                     System.out.print("Ingrese su número de identificación: ");
@@ -79,14 +78,15 @@ public class RegistrySubMenu {
                     gender = validate.Words(scanner.nextLine());
                     System.out.println("Guardando...........");
                     Thread.sleep(2000);
-                    scanner.nextLine();
                     System.out.print("Cree una nombre de usuario: ");
+                    scanner.nextLine();
                     userName = scanner.nextLine();
                     System.out.print("Cree una contraseña: ");
                     accesKey = scanner.nextLine();
+                    //customer = new Customer("Pedro Lopez", "123", 20, "M", "p1234", "121212");
                     customer = new Customer(name, id, age, gender, userName, accesKey);
-                    registry = new Registry(customer);
-                    registry.registerCustom("Customers.json");
+                    registry = new Registry("Customers");
+                    registry.register(customer);
 
                     break;
             }

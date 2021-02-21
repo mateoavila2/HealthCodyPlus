@@ -6,7 +6,9 @@
 package ec.edu.espe.simulatorHealthCody.model;
 
 import com.google.gson.Gson;
-import ec.edu.espe.Filemanager.utils.FileManager;
+import ec.edu.espe.DBmanager.utils.DBmanager;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,33 +17,43 @@ import ec.edu.espe.Filemanager.utils.FileManager;
 public class Registry {
 
     Gson gson = new Gson();
-    Employee employe;
-    Customer customer;
 
-    public Registry(Employee employe) {
-        this.employe = employe;
+    DBmanager operations;
+    private final List<User> users;
+    String collenctionName;
+
+    public Registry(String collenctionName) {
+        this.collenctionName = collenctionName;
+        users = new ArrayList();
+        operations = new DBmanager("Registry", collenctionName);
     }
 
-    public Registry(Customer customer) {
-        this.customer = customer;
-    }
-
-    
-
-    public void registerAdmin(String fileName) {
+    public void register(User user) {
         String json;
-        json = gson.toJson(employe);
-        FileManager.save(fileName, json);
-    }
-    
-    public void registerCustom(String fileName) {
-        String json;
-        json = gson.toJson(customer);
-        FileManager.save(fileName, json);
+        json = gson.toJson(user);
+        operations.create(json);
+
     }
 
+    public String showUsers() {
+        String jsonUsers;
+        jsonUsers = operations.read();
+        return jsonUsers;
+    }
 
-    /*public void generateAdminCode() {
-        administrator.setAdministratorCode("Admin" + administrator.getIdPerson() + administrator.getGenderPerson());
-    }*/
+    public String findUser(String dataToFind) {
+        String recovered;
+        recovered = operations.readByFilter(dataToFind);
+
+        return recovered;
+    }
+
+    public void updateUser(String dataToFind, String dataToUpdate, String keyName) {
+        operations.update(dataToFind, dataToUpdate, keyName);
+
+    }
+
+    public void deleteUser(String dataToDelete, String keyName) {
+        operations.delete(keyName, dataToDelete);
+    }
 }

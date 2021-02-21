@@ -9,13 +9,13 @@ package ec.edu.espe.simulatorHealthCody.model;
  *
  * @author Rafael Buse ESPE-DCCO
  */
-public class Customer extends User{
+public class Customer extends User {
 
-    protected String codeAppoinment;
-    
+    private String codeAppoinment;
+
     public Customer(String name, String id, int age, String gender, String userName, String accesKey) {
         super(name, id, age, gender, userName, accesKey);
-        codeAppoinment = "null"+ this.userName;
+        codeAppoinment = "null" + this.userName;
     }
 
     public String getCodeAppoinment() {
@@ -24,5 +24,5 @@ public class Customer extends User{
 
     public void setCodeAppoinment(String codeAppoinment) {
         this.codeAppoinment = codeAppoinment;
-    }    
+    }
 }
