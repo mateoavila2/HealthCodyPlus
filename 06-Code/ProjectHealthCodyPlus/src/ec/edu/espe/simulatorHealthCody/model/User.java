@@ -5,17 +5,12 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
-import com.google.gson.Gson;
-import ec.edu.espe.Filemanager.utils.FileManager;
-
 /**
  *
  * @author Rafael Buse ESPE-DCCO
  */
 public class User {
-    
-    Gson gson = new Gson();
-    
+
     protected String name;
     protected String id;
     protected int age;
@@ -84,8 +79,5 @@ public class User {
     public String toString() {
         return "User{" + "name=" + name + ", id=" + id + ", age=" + age + ", gender=" + gender + ", userName=" + userName + ", accesKey=" + accesKey + '}';
     }
-
-
-    
 
 }

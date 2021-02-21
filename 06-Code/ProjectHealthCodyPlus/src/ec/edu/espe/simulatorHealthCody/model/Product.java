@@ -11,40 +11,40 @@ package ec.edu.espe.simulatorHealthCody.model;
  */
 public class Product {
 
-    String nameProduct;
-    String codeProduct;
-    double priceProduct;
-    int quantity;
+    private String name;
+    private String code;
+    private double price;
+    private int quantity;
 
-    public Product(String nameProduct, String codeProduct, double priceProduct, int quantity) {
-        this.nameProduct = nameProduct;
-        this.codeProduct = codeProduct;
-        this.priceProduct = priceProduct;
+    public Product(String name, String code, double price, int quantity) {
+        this.name = name;
+        this.code = code;
+        this.price = price;
         this.quantity = quantity;
     }
 
-    public String getNameProduct() {
-        return nameProduct;
+    public String getName() {
+        return name;
     }
 
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCodeProduct() {
-        return codeProduct;
+    public String getCode() {
+        return code;
     }
 
-    public void setCodeProduct(String codeProduct) {
-        this.codeProduct = codeProduct;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public double getPriceProduct() {
-        return priceProduct;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPriceProduct(double priceProduct) {
-        this.priceProduct = priceProduct;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public int getQuantity() {
@@ -55,11 +55,14 @@ public class Product {
         this.quantity = quantity;
     }
 
+    
+    
+
     @Override
     public String toString() {
-        return "Nombre del producto: " + nameProduct + "\n"
-                + "Código del producto: " + codeProduct + "\n"
-                + "Precio del producto: " + priceProduct + "\n"
+        return "Nombre del producto: " + name + "\n"
+                + "Código del producto: " + code + "\n"
+                + "Precio del producto: " + price + "\n"
                 + "Cantidad de producto: " + quantity;
     }
 

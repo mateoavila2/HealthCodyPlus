@@ -87,12 +87,12 @@ public class LoginSubMenu {
                                                         String word;
                                                         System.out.println("\n\n");
                                                         System.out.print("Ingrese el nombre del producto: ");
-                                                        product.setNameProduct(scanner.nextLine());
+                                                        product.setName(scanner.nextLine());
                                                         System.out.print("Ingrese el código del producto: ");
-                                                        product.setCodeProduct(scanner.nextLine());
+                                                        product.setCode(scanner.nextLine());
                                                         System.out.print("Ingrese el precio del producto: ");
 
-                                                        product.setPriceProduct(scanner.nextDouble());
+                                                        product.setPrice(scanner.nextDouble());
                                                         System.out.print("Ingrese la cantidad del producto: ");
                                                         opcAdmin = validate.Number(scanner.nextLine());
                                                         product.setQuantity(opcAdmin);

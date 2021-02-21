@@ -19,6 +19,8 @@ public class Employee extends User {
 
     public Employee(String name, String id, int age, String gender, String userName, String accesKey) {
         super(name, id, age, gender, userName, accesKey);
+        this.numberPhone = numberPhone;
+        salary = 800.50;
     }
 
     public double getSalary() {
@@ -36,10 +38,4 @@ public class Employee extends User {
     public void setNumberPhone(String numberPhone) {
         this.numberPhone = numberPhone;
     }
-
-    @Override
-    public String toString() {
-        return "Employee{" + "salary=" + salary + ", numberPhone=" + numberPhone + '}' + super.toString();
-    }
-
 }

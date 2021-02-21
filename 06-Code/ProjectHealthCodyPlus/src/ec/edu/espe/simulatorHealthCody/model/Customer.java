@@ -15,6 +15,7 @@ public class Customer extends User{
     
     public Customer(String name, String id, int age, String gender, String userName, String accesKey) {
         super(name, id, age, gender, userName, accesKey);
+        codeAppoinment = "null"+ this.userName;
     }
 
     public String getCodeAppoinment() {
@@ -23,14 +24,5 @@ public class Customer extends User{
 
     public void setCodeAppoinment(String codeAppoinment) {
         this.codeAppoinment = codeAppoinment;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-    
-    
-    
-    
+    }    
 }
