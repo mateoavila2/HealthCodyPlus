@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Rafa
+ * @author Mateo Ávila
  */
 public class HealthCodySystem {
 

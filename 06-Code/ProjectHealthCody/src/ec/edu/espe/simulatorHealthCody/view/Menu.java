@@ -7,7 +7,7 @@ package ec.edu.espe.simulatorHealthCody.view;
 
 /**
  *
- * @author Rafa
+ * @author Mateo Ávila
  */
 public class Menu {
 

@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author Rafa
+ * @author Mateo Ávila
  */
 public class Registry {
 

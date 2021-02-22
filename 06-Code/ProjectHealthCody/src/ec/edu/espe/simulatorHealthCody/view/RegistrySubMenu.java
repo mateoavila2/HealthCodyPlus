@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Rafa
+ * @author Mateo Ávila
  */
 public class RegistrySubMenu {
 
@@ -30,7 +30,7 @@ public class RegistrySubMenu {
 
         do {
             do {
-                System.out.println("\n\n\t\tREGISTRATE");
+                System.out.println("\n\n\t\tREGÍSTRATE");
                 System.out.println("\t\t¿Cómo deseas registrarte?");
                 menu.loginAndRegistryMenu();
                 System.out.print("Seleccione una opción: ");

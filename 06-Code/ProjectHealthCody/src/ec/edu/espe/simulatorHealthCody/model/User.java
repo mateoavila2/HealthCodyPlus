@@ -7,7 +7,7 @@ package ec.edu.espe.simulatorHealthCody.model;
 
 /**
  *
- * @author Rafa
+ * @author Mateo Ávila
  */
 public class User {
 

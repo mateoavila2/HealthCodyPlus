@@ -21,7 +21,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Rafa
+ * @author Mateo Ávila
  */
 public class LoginSubMenu {
 
@@ -58,7 +58,7 @@ public class LoginSubMenu {
                         authentication = new Authentication(userName, accesKey, "Employees");
                         comparateAdmin = authentication.login();
                         if (comparateAdmin == false) {
-                            System.out.println("Codigo o Contraseña INCORRECTO");
+                            System.out.println("Código o Contraseña INCORRECTO");
                         }
                     } while (comparateAdmin == false);
 
@@ -235,7 +235,7 @@ public class LoginSubMenu {
                         authentication = new Authentication(userName, accesKey, "Customers");
                         compareCustom = authentication.login();
                         if (compareCustom == false) {
-                            System.out.println("Codigo o Contraseña INCORRECTO");
+                            System.out.println("Código o Contraseña INCORRECTO");
                         }
                     } while (compareCustom == false);
                     //verified = loginCustomer.checkFirtsTime();
@@ -271,7 +271,7 @@ public class LoginSubMenu {
                                 for (int i = 0; i < dates.size(); i++) {
                                     System.out.println((i + 1) + ")" + dates.get(i));
                                 }
-                                System.out.print("Seleccione una opcion: ");
+                                System.out.print("Seleccione una opción: ");
                                 opc = scanner.nextInt();
                                 selectedDate = appointment.delete(opc);
 
@@ -296,7 +296,7 @@ public class LoginSubMenu {
 
                             case 3:// Citas customer Eliminar cita
 
-                                System.out.println("Esta funcion esta en mantenimiento");
+                                System.out.println("Esta función está en mantenimiento");
                                 appointment = new Appointment("booked appointments");
 
                                 /*boolean status;

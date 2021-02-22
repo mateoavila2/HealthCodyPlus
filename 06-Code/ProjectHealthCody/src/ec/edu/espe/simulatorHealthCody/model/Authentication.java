@@ -10,7 +10,7 @@ import ec.edu.espe.DBmanager.utils.DBmanager;
 
 /**
  *
- * @author Rafa
+ * @author Mateo Ávila
  */
 public class Authentication {
 
