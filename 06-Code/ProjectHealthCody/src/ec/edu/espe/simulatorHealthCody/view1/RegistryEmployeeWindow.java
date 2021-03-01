@@ -9,12 +9,12 @@ package ec.edu.espe.simulatorHealthCody.view1;
  *
  * @author Mateo Ávila ESPE
  */
-public class RegistryCustomerWindow extends javax.swing.JFrame {
+public class RegistryEmployeeWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form RegistryCustomerWindow
+     * Creates new form RegistryEmployeeWindow
      */
-    public RegistryCustomerWindow() {
+    public RegistryEmployeeWindow() {
         initComponents();
     }
 
@@ -28,71 +28,79 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
-        lblBirthday = new javax.swing.JLabel();
+        lblBirthDate = new javax.swing.JLabel();
+        lblNumberPhone = new javax.swing.JLabel();
         lblGender = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        cmbGender = new javax.swing.JComboBox<>();
+        txtName = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
+        txtNumberPhone = new javax.swing.JTextField();
         jMonth = new javax.swing.JComboBox<>();
         cmbDay = new javax.swing.JComboBox<>();
-        jSpinner1 = new javax.swing.JSpinner();
-        txtID = new javax.swing.JTextField();
-        imgRegister = new javax.swing.JLabel();
+        ccmbGender = new javax.swing.JComboBox<>();
+        jYear = new javax.swing.JSpinner();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
-        jPanel1.add(txtName);
-        txtName.setBounds(50, 200, 480, 26);
 
         jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 36)); // NOI18N
-        jLabel2.setText("Registro de usuario");
+        jLabel2.setText("Registro para Administradores");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 130, 410, 30);
+        jLabel2.setBounds(50, 90, 510, 44);
 
         lblName.setText("Nombres y Apellidos:");
         jPanel1.add(lblName);
-        lblName.setBounds(50, 180, 150, 16);
+        lblName.setBounds(50, 150, 170, 16);
 
         lblID.setText("Cédula o pasaporte:");
         jPanel1.add(lblID);
-        lblID.setBounds(50, 240, 130, 16);
+        lblID.setBounds(50, 210, 125, 16);
 
-        lblBirthday.setText("Fecha de nacimiento: (dd/mm/aaaa)");
-        jPanel1.add(lblBirthday);
-        lblBirthday.setBounds(50, 300, 240, 16);
+        lblBirthDate.setText("Fecha de Nacimiento: (dd/mm/aaaa)");
+        jPanel1.add(lblBirthDate);
+        lblBirthDate.setBounds(50, 270, 270, 16);
+
+        lblNumberPhone.setText("Número de contacto:");
+        jPanel1.add(lblNumberPhone);
+        lblNumberPhone.setBounds(50, 340, 180, 16);
 
         lblGender.setText("Género:");
         jPanel1.add(lblGender);
-        lblGender.setBounds(50, 370, 60, 16);
-
-        jButton1.setText("Guardar");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(90, 460, 93, 29);
-
-        cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
-        jPanel1.add(cmbGender);
-        cmbGender.setBounds(40, 390, 200, 27);
+        lblGender.setBounds(60, 400, 60, 16);
+        jPanel1.add(txtName);
+        txtName.setBounds(50, 170, 470, 26);
+        jPanel1.add(txtID);
+        txtID.setBounds(50, 230, 470, 26);
+        jPanel1.add(txtNumberPhone);
+        txtNumberPhone.setBounds(50, 360, 460, 26);
 
         jMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         jPanel1.add(jMonth);
-        jMonth.setBounds(120, 330, 150, 27);
+        jMonth.setBounds(150, 300, 140, 27);
 
         cmbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jPanel1.add(cmbDay);
-        cmbDay.setBounds(40, 330, 72, 27);
-        jPanel1.add(jSpinner1);
-        jSpinner1.setBounds(270, 330, 90, 26);
-        jPanel1.add(txtID);
-        txtID.setBounds(50, 260, 480, 26);
+        cmbDay.setBounds(50, 300, 72, 27);
 
-        imgRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/view1/RegisterIMG.png"))); // NOI18N
-        imgRegister.setText("jLabel1");
-        jPanel1.add(imgRegister);
-        imgRegister.setBounds(0, 0, 950, 540);
+        ccmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
+        jPanel1.add(ccmbGender);
+        ccmbGender.setBounds(120, 400, 150, 27);
+        jPanel1.add(jYear);
+        jYear.setBounds(290, 300, 70, 26);
+
+        jButton1.setText("Guardar");
+        jPanel1.add(jButton1);
+        jButton1.setBounds(90, 440, 93, 29);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/view1/RegisterIMG.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 860, 490);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,38 +133,40 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistryCustomerWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistryEmployeeWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistryCustomerWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistryEmployeeWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistryCustomerWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistryEmployeeWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistryCustomerWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistryEmployeeWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistryCustomerWindow().setVisible(true);
+                new RegistryEmployeeWindow().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ccmbGender;
     private javax.swing.JComboBox<String> cmbDay;
-    private javax.swing.JComboBox<String> cmbGender;
-    private javax.swing.JLabel imgRegister;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JComboBox<String> jMonth;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JLabel lblBirthday;
+    private javax.swing.JSpinner jYear;
+    private javax.swing.JLabel lblBirthDate;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblNumberPhone;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtNumberPhone;
     // End of variables declaration//GEN-END:variables
 }
