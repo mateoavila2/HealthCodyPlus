@@ -37,6 +37,11 @@ public class EmployeeMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnInventory.setText("Inventario");
+        btnInventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInventoryActionPerformed(evt);
+            }
+        });
 
         btnDates.setText("Citas");
 
@@ -121,6 +126,14 @@ public class EmployeeMenu extends javax.swing.JFrame {
         this.setVisible(false);
         loginAdministrator.setVisible(true);
     }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
+        // TODO add your handling code here:
+        InventoryWindow inventoryWindow = new InventoryWindow();
+        this.setVisible(false);
+        inventoryWindow.setLocationRelativeTo(null);
+        inventoryWindow.setVisible(true);
+    }//GEN-LAST:event_btnInventoryActionPerformed
 
     /**
      * @param args the command line arguments
