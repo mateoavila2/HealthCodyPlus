@@ -5,24 +5,18 @@
  */
 package ec.edu.espe.simulatorHealthCody.view1;
 
-import ec.edu.espe.simulatorHealthCody.model.Authentication;
-import javax.swing.JOptionPane;
-
 /**
  *
- * @author Rafa
+ * @author Mateo Ávila ESPE
  */
 public class PrincipalWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form PrincipalMenu
+     * Creates new form PrincipalWindow
      */
     public PrincipalWindow() {
-        this.setLocationRelativeTo(null);
         initComponents();
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,140 +28,73 @@ public class PrincipalWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtUserName = new javax.swing.JTextField();
-        lblUserName = new javax.swing.JLabel();
-        lblPassword = new javax.swing.JLabel();
-        btnLogin = new javax.swing.JButton();
-        txpPassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
         lblRegister = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
+        txpPassword = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
+        imgWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel1.setToolTipText("");
+        jPanel1.setLayout(null);
 
-        lblUserName.setText("Usuario:");
-
-        lblPassword.setText("Contraseña:");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("¿Eres administrador?");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(780, 350, 140, 16);
 
         btnLogin.setText("Login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
+        jPanel1.add(btnLogin);
+        btnLogin.setBounds(650, 380, 79, 29);
 
-        jLabel1.setText("¿Eres adiministrador?");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
+        lblRegister.setForeground(new java.awt.Color(255, 255, 255));
+        lblRegister.setText("Regístrate");
+        jPanel1.add(lblRegister);
+        lblRegister.setBounds(840, 330, 80, 16);
 
-        lblRegister.setText("Registrarse");
-        lblRegister.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblRegisterMouseClicked(evt);
-            }
-        });
+        jLabel5.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Ingreso para usuarios");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(670, 160, 250, 30);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblPassword)
-                        .addGap(18, 18, 18))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblUserName)
-                        .addGap(40, 40, 40)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel1)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUserName)
-                            .addComponent(txpPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
-                        .addComponent(lblRegister)))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblUserName)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPassword)
-                    .addComponent(txpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblRegister)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLogin)
-                .addGap(56, 56, 56))
-        );
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Contraseña:");
+        jPanel1.add(lblPassword);
+        lblPassword.setBounds(650, 270, 90, 16);
+
+        lblUserName.setForeground(new java.awt.Color(255, 255, 255));
+        lblUserName.setText("Usuario:");
+        jPanel1.add(lblUserName);
+        lblUserName.setBounds(650, 210, 70, 16);
+        jPanel1.add(txpPassword);
+        txpPassword.setBounds(650, 290, 260, 26);
+        jPanel1.add(txtUserName);
+        txtUserName.setBounds(650, 230, 260, 26);
+
+        imgWallpaper.setForeground(new java.awt.Color(255, 255, 255));
+        imgWallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/view1/PrincipalWindowIMG.png"))); // NOI18N
+        imgWallpaper.setText("jLabel1");
+        jPanel1.add(imgWallpaper);
+        imgWallpaper.setBounds(0, 0, 980, 530);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        
-        boolean compare;
-        do{
-        Authentication authentication;
-        
-        authentication = new Authentication(txtUserName.getText(),txpPassword.getText(),"Customers");
-        compare = authentication.login();
-        if(compare == true){
-            //Desplegar proximo menu
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario ocontraseña incorrecta");
-            txtUserName.setText(null);
-            txpPassword.setText(null);
-            txtUserName.getAction();
-            txpPassword.getAction();
-        }
-        }while(compare == false);
-        
-        
-    }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        LoginAdministrator loginAdministrator = new LoginAdministrator();
-        loginAdministrator.setLocationRelativeTo(null);
-        this.setVisible(false);
-        loginAdministrator.setVisible(true);
-        
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblRegisterMouseClicked
 
     /**
      * @param args the command line arguments
@@ -195,7 +122,6 @@ public class PrincipalWindow extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(PrincipalWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -207,12 +133,14 @@ public class PrincipalWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel imgWallpaper;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRegister;
     private javax.swing.JLabel lblUserName;
-    private javax.swing.JPasswordField txpPassword;
+    private javax.swing.JTextField txpPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }
