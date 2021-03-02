@@ -9,12 +9,12 @@ package ec.edu.espe.simulatorHealthCody.view1;
  *
  * @author Mateo Ávila ESPE
  */
-public class EmployeeMenu extends javax.swing.JFrame {
+public class CustomerMenu extends javax.swing.JFrame {
 
     /**
-     * Creates new form EmployeeMenu
+     * Creates new form CustomerMenu
      */
-    public EmployeeMenu() {
+    public CustomerMenu() {
         initComponents();
     }
 
@@ -29,65 +29,60 @@ public class EmployeeMenu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        btnInventory = new javax.swing.JButton();
-        btnAccount = new javax.swing.JButton();
-        btnDates = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
+        btnAddAppointment = new javax.swing.JButton();
+        btnShowAppointment = new javax.swing.JButton();
+        btnDeleteAppointment = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        mnOption = new javax.swing.JMenu();
-        mniAppointment = new javax.swing.JMenuItem();
-        mniInventary = new javax.swing.JMenuItem();
-        mniAccount = new javax.swing.JMenuItem();
+        mnAppointment = new javax.swing.JMenu();
+        mniAddAppointment = new javax.swing.JMenuItem();
+        mniShowAppointment = new javax.swing.JMenuItem();
+        mniDeleteAppointment = new javax.swing.JMenuItem();
         mnExit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 48)); // NOI18N
-        jLabel2.setText("Opciones Administrador");
+        jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 36)); // NOI18N
+        jLabel2.setText("Opciones de citas");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(220, 40, 630, 100);
+        jLabel2.setBounds(40, 40, 310, 60);
 
-        btnInventory.setText("Inventario");
-        jPanel1.add(btnInventory);
-        btnInventory.setBounds(380, 240, 180, 60);
+        btnAddAppointment.setText("Agendar cita");
+        jPanel1.add(btnAddAppointment);
+        btnAddAppointment.setBounds(37, 130, 280, 40);
 
-        btnAccount.setText("Cuenta");
-        jPanel1.add(btnAccount);
-        btnAccount.setBounds(380, 330, 180, 60);
+        btnShowAppointment.setText("Ver cita agendada");
+        jPanel1.add(btnShowAppointment);
+        btnShowAppointment.setBounds(40, 200, 280, 40);
 
-        btnDates.setText("Citas");
-        jPanel1.add(btnDates);
-        btnDates.setBounds(380, 150, 180, 60);
-
-        btnExit.setText("Salir");
-        jPanel1.add(btnExit);
-        btnExit.setBounds(250, 430, 180, 60);
+        btnDeleteAppointment.setText("Eliminar cita agendada");
+        jPanel1.add(btnDeleteAppointment);
+        btnDeleteAppointment.setBounds(40, 270, 280, 40);
 
         btnReturn.setText("Regresar");
         jPanel1.add(btnReturn);
-        btnReturn.setBounds(40, 430, 180, 60);
+        btnReturn.setBounds(110, 380, 140, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/SecundaryMenuIMG.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 870, 510);
+        jLabel1.setBounds(-4, 0, 370, 500);
 
-        mnOption.setText("Opciones");
+        mnAppointment.setText("Citas");
 
-        mniAppointment.setText("Citas");
-        mnOption.add(mniAppointment);
+        mniAddAppointment.setText("Agendar cita");
+        mnAppointment.add(mniAddAppointment);
 
-        mniInventary.setText("Inventario");
-        mnOption.add(mniInventary);
+        mniShowAppointment.setText("Ver cita agendada");
+        mnAppointment.add(mniShowAppointment);
 
-        mniAccount.setText("Cuenta");
-        mnOption.add(mniAccount);
+        mniDeleteAppointment.setText("Eliminar cita agendada");
+        mnAppointment.add(mniDeleteAppointment);
 
-        jMenuBar1.add(mnOption);
+        jMenuBar1.add(mnAppointment);
 
         mnExit.setText("Salir");
         jMenuBar1.add(mnExit);
@@ -98,11 +93,11 @@ public class EmployeeMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 871, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -125,38 +120,37 @@ public class EmployeeMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EmployeeMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EmployeeMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EmployeeMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EmployeeMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmployeeMenu().setVisible(true);
+                new CustomerMenu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAccount;
-    private javax.swing.JButton btnDates;
-    private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnInventory;
+    private javax.swing.JButton btnAddAppointment;
+    private javax.swing.JButton btnDeleteAppointment;
     private javax.swing.JButton btnReturn;
+    private javax.swing.JButton btnShowAppointment;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenu mnAppointment;
     private javax.swing.JMenu mnExit;
-    private javax.swing.JMenu mnOption;
-    private javax.swing.JMenuItem mniAccount;
-    private javax.swing.JMenuItem mniAppointment;
-    private javax.swing.JMenuItem mniInventary;
+    private javax.swing.JMenuItem mniAddAppointment;
+    private javax.swing.JMenuItem mniDeleteAppointment;
+    private javax.swing.JMenuItem mniShowAppointment;
     // End of variables declaration//GEN-END:variables
 }
