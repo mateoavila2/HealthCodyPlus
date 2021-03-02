@@ -44,15 +44,15 @@ public class LoginAdministrator extends javax.swing.JFrame {
 
         btnReturn.setText("Regresar");
         jPanel1.add(btnReturn);
-        btnReturn.setBounds(150, 420, 98, 29);
+        btnReturn.setBounds(150, 420, 83, 32);
 
         btnLogin.setText("Login");
         jPanel1.add(btnLogin);
-        btnLogin.setBounds(50, 420, 79, 29);
+        btnLogin.setBounds(50, 420, 61, 32);
         jPanel1.add(txtCode);
-        txtCode.setBounds(60, 310, 300, 26);
+        txtCode.setBounds(60, 310, 300, 24);
         jPanel1.add(txtUser);
-        txtUser.setBounds(60, 260, 300, 26);
+        txtUser.setBounds(60, 260, 300, 24);
 
         lblCodeForget.setText("¿Olvidaste tu usuario o contraseña?");
         jPanel1.add(lblCodeForget);
@@ -60,21 +60,21 @@ public class LoginAdministrator extends javax.swing.JFrame {
 
         lblCode.setText("Código:");
         jPanel1.add(lblCode);
-        lblCode.setBounds(60, 290, 49, 16);
+        lblCode.setBounds(60, 290, 60, 16);
 
         lblUser.setText("Usuario:");
         jPanel1.add(lblUser);
-        lblUser.setBounds(60, 240, 52, 16);
+        lblUser.setBounds(60, 240, 60, 16);
 
         jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 36)); // NOI18N
         jLabel2.setText("Ingreso para administradores");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(60, 150, 500, 80);
 
-        imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/view1/LoginAdministratorIMG.png"))); // NOI18N
+        imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/LoginAdministratorIMG.png"))); // NOI18N
         imgLogin.setText("jLabel1");
         jPanel1.add(imgLogin);
-        imgLogin.setBounds(0, 0, 940, 520);
+        imgLogin.setBounds(0, 0, 940, 480);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,7 +84,7 @@ public class LoginAdministrator extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
         );
 
         pack();

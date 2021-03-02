@@ -59,15 +59,15 @@ public class AddProductWindow extends javax.swing.JFrame {
 
         lblCode.setText("Código del producto:");
         jPanel2.add(lblCode);
-        lblCode.setBounds(180, 240, 133, 16);
+        lblCode.setBounds(180, 240, 116, 16);
 
         lblPrice.setText("Precio del producto:");
         jPanel2.add(lblPrice);
-        lblPrice.setBounds(180, 290, 126, 16);
+        lblPrice.setBounds(180, 290, 114, 16);
 
         lblQuantity.setText("Cantidad del producto:");
         jPanel2.add(lblQuantity);
-        lblQuantity.setBounds(330, 350, 144, 16);
+        lblQuantity.setBounds(330, 350, 127, 16);
         jPanel2.add(txtName);
         txtName.setBounds(330, 186, 380, 30);
         jPanel2.add(txtCode);
@@ -75,7 +75,7 @@ public class AddProductWindow extends javax.swing.JFrame {
         jPanel2.add(txtPrice);
         txtPrice.setBounds(330, 286, 380, 30);
         jPanel2.add(spnQuantity);
-        spnQuantity.setBounds(490, 350, 34, 26);
+        spnQuantity.setBounds(490, 350, 37, 26);
 
         btnReturn.setText("Regresar");
         jPanel2.add(btnReturn);
@@ -94,7 +94,7 @@ public class AddProductWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

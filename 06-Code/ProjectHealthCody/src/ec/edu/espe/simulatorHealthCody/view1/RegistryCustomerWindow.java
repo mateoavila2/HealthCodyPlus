@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.simulatorHealthCody.view1;
 
+import ec.edu.espe.simulatorHealthCody.model.Customer;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mateo Ávila ESPE
@@ -16,6 +19,12 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
      */
     public RegistryCustomerWindow() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        lblMessage.setVisible(false);
+        lblUserName.setEnabled(false);
+        txtUserName.setEnabled(false);
+        lblPassword.setEnabled(false);
+        txtPassword.setEnabled(false);
     }
 
     /**
@@ -27,86 +36,142 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         txtName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
         lblBirthday = new javax.swing.JLabel();
+        btnSave = new javax.swing.JButton();
         lblGender = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jDate = new com.toedter.calendar.JDateChooser();
         cmbGender = new javax.swing.JComboBox<>();
-        jMonth = new javax.swing.JComboBox<>();
-        cmbDay = new javax.swing.JComboBox<>();
-        jSpinner1 = new javax.swing.JSpinner();
         txtID = new javax.swing.JTextField();
-        imgRegister = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
+        txtUserName = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
+        lblMessage = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        lblimage = new javax.swing.JLabel();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
         jPanel1.add(txtName);
-        txtName.setBounds(50, 200, 480, 26);
+        txtName.setBounds(20, 80, 300, 30);
 
-        jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 24)); // NOI18N
         jLabel2.setText("Registro de usuario");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 130, 410, 30);
+        jLabel2.setBounds(70, 10, 230, 32);
 
         lblName.setText("Nombres y Apellidos:");
         jPanel1.add(lblName);
-        lblName.setBounds(50, 180, 150, 16);
+        lblName.setBounds(20, 60, 150, 16);
 
         lblID.setText("Cédula o pasaporte:");
         jPanel1.add(lblID);
-        lblID.setBounds(50, 240, 130, 16);
+        lblID.setBounds(20, 120, 130, 16);
 
-        lblBirthday.setText("Fecha de nacimiento: (dd/mm/aaaa)");
+        btnBack.setText("Regresar");
+        jPanel1.add(btnBack);
+        btnBack.setBounds(20, 500, 90, 32);
+
+        lblBirthday.setText("Fecha de nacimiento: ");
         jPanel1.add(lblBirthday);
-        lblBirthday.setBounds(50, 300, 240, 16);
+        lblBirthday.setBounds(20, 240, 130, 16);
+
+        btnSave.setText("Guardar");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSave);
+        btnSave.setBounds(280, 500, 76, 32);
 
         lblGender.setText("Género:");
         jPanel1.add(lblGender);
-        lblGender.setBounds(50, 370, 60, 16);
-
-        jButton1.setText("Guardar");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(90, 460, 93, 29);
+        lblGender.setBounds(20, 190, 60, 16);
+        jPanel1.add(jDate);
+        jDate.setBounds(150, 240, 170, 29);
 
         cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
         jPanel1.add(cmbGender);
-        cmbGender.setBounds(40, 390, 200, 27);
-
-        jMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-        jPanel1.add(jMonth);
-        jMonth.setBounds(120, 330, 150, 27);
-
-        cmbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(cmbDay);
-        cmbDay.setBounds(40, 330, 72, 27);
-        jPanel1.add(jSpinner1);
-        jSpinner1.setBounds(270, 330, 90, 26);
+        cmbGender.setBounds(80, 190, 200, 26);
         jPanel1.add(txtID);
-        txtID.setBounds(50, 260, 480, 26);
+        txtID.setBounds(20, 140, 300, 30);
 
-        imgRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/view1/RegisterIMG.png"))); // NOI18N
-        imgRegister.setText("jLabel1");
-        jPanel1.add(imgRegister);
-        imgRegister.setBounds(0, 0, 950, 540);
+        lblPassword.setText("Contraseña:");
+        jPanel1.add(lblPassword);
+        lblPassword.setBounds(20, 410, 80, 16);
+
+        lblUserName.setText("Nombre de usuario:");
+        jPanel1.add(lblUserName);
+        lblUserName.setBounds(20, 360, 120, 16);
+        jPanel1.add(txtUserName);
+        txtUserName.setBounds(20, 380, 230, 24);
+        jPanel1.add(txtPassword);
+        txtPassword.setBounds(20, 430, 230, 24);
+
+        lblMessage.setForeground(new java.awt.Color(255, 0, 0));
+        lblMessage.setText("Cree un usuario y una contraseña");
+        jPanel1.add(lblMessage);
+        lblMessage.setBounds(20, 340, 200, 16);
+
+        jButton2.setText("Siguiente");
+        jPanel1.add(jButton2);
+        jButton2.setBounds(130, 290, 90, 32);
+
+        lblimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/RegisterIMG.png"))); // NOI18N
+        lblimage.setText("jLabel1");
+        jPanel1.add(lblimage);
+        lblimage.setBounds(0, 0, 380, 550);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        int option;
+        Customer customer;
+        String userName = "", password = "";
+        option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (option == 0) {
+            JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+            lblMessage.setVisible(true);
+            lblUserName.setEnabled(true);
+            txtUserName.setEnabled(true);
+            lblPassword.setEnabled(true);
+            txtPassword.setEnabled(true);
+
+//System.out.println("fecha:" + jDate.getDate());
+            //emptyFields();
+        } else if (option == 1) {
+            emptyFields();
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    public void emptyFields() {
+        txtName.setText("");
+        txtID.setText("");
+
+    }
 
     /**
      * @param args the command line arguments
@@ -144,19 +209,25 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmbDay;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cmbGender;
-    private javax.swing.JLabel imgRegister;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private com.toedter.calendar.JDateChooser jDate;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JComboBox<String> jMonth;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lblBirthday;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblUserName;
+    private javax.swing.JLabel lblimage;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

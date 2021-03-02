@@ -51,7 +51,7 @@ public class RegistryEmployeeWindow extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 36)); // NOI18N
         jLabel2.setText("Registro para Administradores");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 90, 510, 44);
+        jLabel2.setBounds(50, 90, 510, 47);
 
         lblName.setText("Nombres y Apellidos:");
         jPanel1.add(lblName);
@@ -59,7 +59,7 @@ public class RegistryEmployeeWindow extends javax.swing.JFrame {
 
         lblID.setText("Cédula o pasaporte:");
         jPanel1.add(lblID);
-        lblID.setBounds(50, 210, 125, 16);
+        lblID.setBounds(50, 210, 113, 16);
 
         lblBirthDate.setText("Fecha de Nacimiento: (dd/mm/aaaa)");
         jPanel1.add(lblBirthDate);
@@ -73,31 +73,31 @@ public class RegistryEmployeeWindow extends javax.swing.JFrame {
         jPanel1.add(lblGender);
         lblGender.setBounds(60, 400, 60, 16);
         jPanel1.add(txtName);
-        txtName.setBounds(50, 170, 470, 26);
+        txtName.setBounds(50, 170, 470, 24);
         jPanel1.add(txtID);
-        txtID.setBounds(50, 230, 470, 26);
+        txtID.setBounds(50, 230, 470, 24);
         jPanel1.add(txtNumberPhone);
-        txtNumberPhone.setBounds(50, 360, 460, 26);
+        txtNumberPhone.setBounds(50, 360, 460, 24);
 
         jMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         jPanel1.add(jMonth);
-        jMonth.setBounds(150, 300, 140, 27);
+        jMonth.setBounds(150, 300, 140, 26);
 
         cmbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jPanel1.add(cmbDay);
-        cmbDay.setBounds(50, 300, 72, 27);
+        cmbDay.setBounds(50, 300, 44, 26);
 
         ccmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
         jPanel1.add(ccmbGender);
-        ccmbGender.setBounds(120, 400, 150, 27);
+        ccmbGender.setBounds(120, 400, 150, 26);
         jPanel1.add(jYear);
         jYear.setBounds(290, 300, 70, 26);
 
         jButton1.setText("Guardar");
         jPanel1.add(jButton1);
-        jButton1.setBounds(90, 440, 93, 29);
+        jButton1.setBounds(90, 440, 76, 32);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/view1/RegisterIMG.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/RegisterIMG.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 860, 490);
@@ -106,11 +106,11 @@ public class RegistryEmployeeWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
         );
 
         pack();

@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.simulatorHealthCody.view1;
 
+import ec.edu.espe.simulatorHealthCody.model.Authentication;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mateo Ávila ESPE
@@ -15,7 +18,11 @@ public class PrincipalWindow extends javax.swing.JFrame {
      * Creates new form PrincipalWindow
      */
     public PrincipalWindow() {
+
         initComponents();
+        this.setLocationRelativeTo(null);
+        rdbCustomer.setVisible(false);
+        rdbEmployee.setVisible(false);
     }
 
     /**
@@ -27,74 +34,160 @@ public class PrincipalWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        SelectRegistry = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        btnLogin = new javax.swing.JButton();
-        lblRegister = new javax.swing.JLabel();
+        lblAdminLogin = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        lblPassword = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
+        lblPassword = new javax.swing.JLabel();
+        lblRegister = new javax.swing.JLabel();
         txpPassword = new javax.swing.JTextField();
         txtUserName = new javax.swing.JTextField();
+        rdbEmployee = new javax.swing.JRadioButton();
+        rdbCustomer = new javax.swing.JRadioButton();
         imgWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("¿Eres administrador?");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(780, 350, 140, 16);
-
-        btnLogin.setText("Login");
-        jPanel1.add(btnLogin);
-        btnLogin.setBounds(650, 380, 79, 29);
-
-        lblRegister.setForeground(new java.awt.Color(255, 255, 255));
-        lblRegister.setText("Regístrate");
-        jPanel1.add(lblRegister);
-        lblRegister.setBounds(840, 330, 80, 16);
+        lblAdminLogin.setForeground(new java.awt.Color(255, 255, 255));
+        lblAdminLogin.setText("¿Eres administrador?");
+        lblAdminLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAdminLoginMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lblAdminLogin);
+        lblAdminLogin.setBounds(720, 360, 140, 16);
 
         jLabel5.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Ingreso para usuarios");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(670, 160, 250, 30);
-
-        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
-        lblPassword.setText("Contraseña:");
-        jPanel1.add(lblPassword);
-        lblPassword.setBounds(650, 270, 90, 16);
+        jLabel5.setBounds(580, 120, 260, 32);
 
         lblUserName.setForeground(new java.awt.Color(255, 255, 255));
         lblUserName.setText("Usuario:");
         jPanel1.add(lblUserName);
-        lblUserName.setBounds(650, 210, 70, 16);
+        lblUserName.setBounds(580, 180, 70, 16);
+
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLogin);
+        btnLogin.setBounds(690, 400, 61, 32);
+
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Contraseña:");
+        jPanel1.add(lblPassword);
+        lblPassword.setBounds(580, 240, 90, 16);
+
+        lblRegister.setForeground(new java.awt.Color(255, 255, 255));
+        lblRegister.setText("Regístrate");
+        lblRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRegisterMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lblRegister);
+        lblRegister.setBounds(780, 300, 80, 16);
         jPanel1.add(txpPassword);
-        txpPassword.setBounds(650, 290, 260, 26);
+        txpPassword.setBounds(580, 260, 260, 24);
         jPanel1.add(txtUserName);
-        txtUserName.setBounds(650, 230, 260, 26);
+        txtUserName.setBounds(580, 200, 260, 24);
+
+        SelectRegistry.add(rdbEmployee);
+        rdbEmployee.setForeground(new java.awt.Color(255, 255, 255));
+        rdbEmployee.setText("Empleado");
+        rdbEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbEmployeeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rdbEmployee);
+        rdbEmployee.setBounds(750, 320, 88, 28);
+
+        SelectRegistry.add(rdbCustomer);
+        rdbCustomer.setForeground(new java.awt.Color(255, 255, 255));
+        rdbCustomer.setText("Cliente");
+        rdbCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbCustomerActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rdbCustomer);
+        rdbCustomer.setBounds(600, 320, 110, 30);
 
         imgWallpaper.setForeground(new java.awt.Color(255, 255, 255));
-        imgWallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/view1/PrincipalWindowIMG.png"))); // NOI18N
+        imgWallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/PrincipalWindowIMG.png"))); // NOI18N
         imgWallpaper.setText("jLabel1");
         jPanel1.add(imgWallpaper);
-        imgWallpaper.setBounds(0, 0, 980, 530);
+        imgWallpaper.setBounds(0, 0, 940, 530);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        boolean compare;
+        Authentication authentication;
+
+        authentication = new Authentication(txtUserName.getText(), txpPassword.getText(), "Customers");
+        compare = authentication.login();
+        if (compare == true) {
+            //Desplegar proximo menu
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario ocontraseña incorrecta");
+            txtUserName.setText("");
+            txtUserName.getAction();
+            txpPassword.setText("");
+            txpPassword.getAction();
+
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseClicked
+        rdbCustomer.setVisible(true);
+        rdbEmployee.setVisible(true);
+    }//GEN-LAST:event_lblRegisterMouseClicked
+
+    private void rdbEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbEmployeeActionPerformed
+        RegistryEmployeeWindow registryEmployeeWindow;
+        registryEmployeeWindow = new RegistryEmployeeWindow();
+        this.setVisible(false);
+        registryEmployeeWindow.setLocationRelativeTo(null);
+        registryEmployeeWindow.setVisible(true);
+    }//GEN-LAST:event_rdbEmployeeActionPerformed
+
+    private void rdbCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbCustomerActionPerformed
+        RegistryCustomerWindow registryCustomerWindow;
+        registryCustomerWindow = new RegistryCustomerWindow();
+        this.setVisible(false);
+        registryCustomerWindow.setLocationRelativeTo(null);
+        registryCustomerWindow.setVisible(true);
+    }//GEN-LAST:event_rdbCustomerActionPerformed
+
+    private void lblAdminLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminLoginMouseClicked
+        LoginAdministrator loginAdministrator = new LoginAdministrator();
+        loginAdministrator.setLocationRelativeTo(null);
+        this.setVisible(false);
+        loginAdministrator.setVisible(true);
+    }//GEN-LAST:event_lblAdminLoginMouseClicked
 
     /**
      * @param args the command line arguments
@@ -132,14 +225,17 @@ public class PrincipalWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.ButtonGroup SelectRegistry;
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel imgWallpaper;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAdminLogin;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRegister;
     private javax.swing.JLabel lblUserName;
+    private javax.swing.JRadioButton rdbCustomer;
+    private javax.swing.JRadioButton rdbEmployee;
     private javax.swing.JTextField txpPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
