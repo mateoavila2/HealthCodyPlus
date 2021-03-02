@@ -5,6 +5,11 @@
  */
 package ec.edu.espe.simulatorHealthCody.view1;
 
+import ec.edu.espe.simulatorHealthCody.model.Inventory;
+import ec.edu.espe.simulatorHealthCody.model.Product;
+import javax.swing.JOptionPane;
+import javax.swing.SpinnerNumberModel;
+
 /**
  *
  * @author Mateo Ávila ESPE
@@ -16,6 +21,11 @@ public class AddProductWindow extends javax.swing.JFrame {
      */
     public AddProductWindow() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        SpinnerNumberModel modelSpinner = new SpinnerNumberModel();
+        modelSpinner.setMaximum(100);
+        modelSpinner.setMinimum(0);
+        spnQuantity.setModel(modelSpinner);
     }
 
     /**
@@ -59,15 +69,15 @@ public class AddProductWindow extends javax.swing.JFrame {
 
         lblCode.setText("Código del producto:");
         jPanel2.add(lblCode);
-        lblCode.setBounds(180, 240, 116, 16);
+        lblCode.setBounds(180, 240, 119, 16);
 
         lblPrice.setText("Precio del producto:");
         jPanel2.add(lblPrice);
-        lblPrice.setBounds(180, 290, 114, 16);
+        lblPrice.setBounds(180, 290, 115, 16);
 
         lblQuantity.setText("Cantidad del producto:");
         jPanel2.add(lblQuantity);
-        lblQuantity.setBounds(330, 350, 127, 16);
+        lblQuantity.setBounds(330, 350, 130, 16);
         jPanel2.add(txtName);
         txtName.setBounds(330, 186, 380, 30);
         jPanel2.add(txtCode);
@@ -75,17 +85,27 @@ public class AddProductWindow extends javax.swing.JFrame {
         jPanel2.add(txtPrice);
         txtPrice.setBounds(330, 286, 380, 30);
         jPanel2.add(spnQuantity);
-        spnQuantity.setBounds(490, 350, 37, 26);
+        spnQuantity.setBounds(490, 350, 60, 22);
 
         btnReturn.setText("Regresar");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnReturn);
         btnReturn.setBounds(470, 430, 160, 60);
 
         btnAdd.setText("Agregar");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnAdd);
         btnAdd.setBounds(290, 430, 160, 60);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/view1/InventoryIMG.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/SecundaryMenuIMG.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel2.add(jLabel2);
         jLabel2.setBounds(0, 0, 980, 550);
@@ -94,7 +114,7 @@ public class AddProductWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 976, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,6 +123,42 @@ public class AddProductWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        String code = txtCode.getText();
+        String name = txtName.getText();
+        int quantitys = Integer.parseInt(spnQuantity.getValue().toString());
+        if (code.equals("") || name.equals("") || txtPrice.getText().equals("") || (quantitys <= 0 || quantitys > 100)) {
+            JOptionPane.showMessageDialog(null, "No se han registrado todos los datos");
+        } else {
+            try {
+                double price = Double.parseDouble(txtPrice.getText());
+                if (price <= 0) {
+                    JOptionPane.showMessageDialog(null, "Dato de precio no válido");
+                    txtPrice.setText(null);
+                    txtPrice.getAction();
+                } else {
+                    Product product = new Product(name, code, price, quantitys);
+                    Inventory inventory = new Inventory("Products");
+                    inventory.saveProduct(product);
+                    JOptionPane.showMessageDialog(null, "Producto registrado con éxito");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Dato de precio no válido");
+                txtPrice.setText(null);
+                txtPrice.getAction();
+            }
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        // TODO add your handling code here:
+        InventoryWindow inventoryWindow = new InventoryWindow();
+        this.setVisible(false);
+        inventoryWindow.setLocationRelativeTo(null);
+        inventoryWindow.setVisible(true);
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments
