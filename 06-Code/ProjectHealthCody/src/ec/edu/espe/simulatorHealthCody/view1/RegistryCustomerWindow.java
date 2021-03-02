@@ -5,7 +5,12 @@
  */
 package ec.edu.espe.simulatorHealthCody.view1;
 
+import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
+import ec.edu.espe.simulatorHealthCody.model.Registry;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,6 +30,7 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
         txtUserName.setEnabled(false);
         lblPassword.setEnabled(false);
         txtPassword.setEnabled(false);
+        btnFinish.setEnabled(false);
     }
 
     /**
@@ -44,7 +50,7 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
         lblID = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         lblBirthday = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
+        btnConfirm = new javax.swing.JButton();
         lblGender = new javax.swing.JLabel();
         jDate = new com.toedter.calendar.JDateChooser();
         cmbGender = new javax.swing.JComboBox<>();
@@ -52,9 +58,9 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
         lblPassword = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         lblMessage = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnFinish = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
         lblimage = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
@@ -79,6 +85,11 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
         lblID.setBounds(20, 120, 130, 16);
 
         btnBack.setText("Regresar");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnBack);
         btnBack.setBounds(20, 500, 90, 32);
 
@@ -86,14 +97,14 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
         jPanel1.add(lblBirthday);
         lblBirthday.setBounds(20, 240, 130, 16);
 
-        btnSave.setText("Guardar");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirm.setText("Confirmar");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnConfirmActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSave);
-        btnSave.setBounds(280, 500, 76, 32);
+        jPanel1.add(btnConfirm);
+        btnConfirm.setBounds(130, 290, 90, 32);
 
         lblGender.setText("Género:");
         jPanel1.add(lblGender);
@@ -116,17 +127,22 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
         lblUserName.setBounds(20, 360, 120, 16);
         jPanel1.add(txtUserName);
         txtUserName.setBounds(20, 380, 230, 24);
-        jPanel1.add(txtPassword);
-        txtPassword.setBounds(20, 430, 230, 24);
 
         lblMessage.setForeground(new java.awt.Color(255, 0, 0));
         lblMessage.setText("Cree un usuario y una contraseña");
         jPanel1.add(lblMessage);
         lblMessage.setBounds(20, 340, 200, 16);
 
-        jButton2.setText("Siguiente");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(130, 290, 90, 32);
+        btnFinish.setText("Finalizar");
+        btnFinish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinishActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFinish);
+        btnFinish.setBounds(270, 500, 90, 32);
+        jPanel1.add(txtPassword);
+        txtPassword.setBounds(20, 430, 230, 22);
 
         lblimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/RegisterIMG.png"))); // NOI18N
         lblimage.setText("jLabel1");
@@ -147,29 +163,74 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         int option;
-        Customer customer;
-        String userName = "", password = "";
-        option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
-        if (option == 0) {
-            JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
-            lblMessage.setVisible(true);
-            lblUserName.setEnabled(true);
-            txtUserName.setEnabled(true);
-            lblPassword.setEnabled(true);
-            txtPassword.setEnabled(true);
 
-//System.out.println("fecha:" + jDate.getDate());
-            //emptyFields();
-        } else if (option == 1) {
-            emptyFields();
+        System.out.println(txtName.getText());
+        if ((txtName.getText().equals("")) || (txtID.getText().equals(""))) {
+            JOptionPane.showMessageDialog(null, "Campos vacios, Complete todos los campos");
+
+        } else {
+            option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
+            if (option == 0) {
+                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+                lblMessage.setVisible(true);
+                lblUserName.setEnabled(true);
+                txtUserName.setEnabled(true);
+                lblPassword.setEnabled(true);
+                txtPassword.setEnabled(true);
+                btnConfirm.setEnabled(false);
+                btnFinish.setEnabled(true);
+            } else if (option == 1) {
+                emptyFields();
+            }
         }
-    }//GEN-LAST:event_btnSaveActionPerformed
+
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
+        Customer customer;
+        Registry registy;
+        String userName = "", password = "", dateOfBirth = "";
+        userName = txtUserName.getText();
+        password = txtPassword.getText();
+        //btnFinish.setEnabled(true);
+        if ((txtUserName.getText().equals("") || (txtPassword.getText().equals("")))) {
+            JOptionPane.showMessageDialog(null, "Complete todos los campos");
+        } else {
+
+            dateOfBirth = covertDate(jDate);
+            customer = new Customer(txtName.getText(), txtID.getText(), dateOfBirth, cmbGender.getSelectedItem().toString(), userName, password);
+            registy = new Registry("Customers");
+            System.out.println(customer.toString());
+            registy.register(customer);
+            PrincipalWindow principalWindow;
+            this.setVisible(false);
+            principalWindow = new PrincipalWindow();
+            principalWindow.setVisible(true);
+        }
+
+
+    }//GEN-LAST:event_btnFinishActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        PrincipalWindow principalWindow;
+        this.setVisible(false);
+        principalWindow = new PrincipalWindow();
+        principalWindow.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     public void emptyFields() {
         txtName.setText("");
         txtID.setText("");
+    }
+
+    public String covertDate(JDateChooser jDate) {
+        DateFormat dateFormat;
+
+        dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        String date = dateFormat.format(jDate.getDate());
+        return date;
 
     }
 
@@ -210,10 +271,10 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnFinish;
     private javax.swing.JComboBox<String> cmbGender;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDate;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -227,7 +288,7 @@ public class RegistryCustomerWindow extends javax.swing.JFrame {
     private javax.swing.JLabel lblimage;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

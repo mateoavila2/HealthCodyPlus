@@ -13,10 +13,11 @@ public class Customer extends User{
 
     private String codeAppoinment;
 
-    public Customer(String name, String id, int age, String gender, String userName, String accesKey) {
-        super(name, id, age, gender, userName, accesKey);
-        codeAppoinment = "null"+ this.userName;
+    public Customer(String name, String id, String dateOfBirth, String gender, String userName, String accesKey) {
+        super(name, id, dateOfBirth, gender, userName, accesKey);
     }
+
+    
 
     public String getCodeAppoinment() {
         return codeAppoinment;

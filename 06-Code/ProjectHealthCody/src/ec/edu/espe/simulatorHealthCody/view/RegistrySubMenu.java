@@ -20,7 +20,7 @@ public class RegistrySubMenu {
 
     public void UserAndAministrator() throws InterruptedException {
 
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         Validate validate = new Validate();
         Gson gson = new Gson();
         Menu menu = new Menu();
@@ -90,7 +90,7 @@ public class RegistrySubMenu {
 
                     break;
             }
-        } while (opcRegistry != 3);
+        } while (opcRegistry != 3);*/
 
     }
 }

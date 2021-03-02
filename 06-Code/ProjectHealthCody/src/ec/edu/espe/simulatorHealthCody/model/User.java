@@ -13,15 +13,15 @@ public class User {
 
     protected String name;
     protected String id;
-    protected int age;
+    protected String dateOfBirth;
     protected String gender;
     protected String userName;
     protected String accesKey;
 
-    public User(String name, String id, int age, String gender, String userName, String accesKey) {
+    public User(String name, String id, String dateOfBirth, String gender, String userName, String accesKey) {
         this.name = name;
         this.id = id;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.userName = userName;
         this.accesKey = accesKey;
@@ -43,12 +43,12 @@ public class User {
         this.id = id;
     }
 
-    public int getAge() {
-        return age;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getGender() {
@@ -77,7 +77,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "name=" + name + ", id=" + id + ", age=" + age + ", gender=" + gender + ", userName=" + userName + ", accesKey=" + accesKey + '}';
+        return "User{" + "name=" + name + ", id=" + id + ", age=" + dateOfBirth + ", gender=" + gender + ", userName=" + userName + ", accesKey=" + accesKey + '}';
     }
 
 }

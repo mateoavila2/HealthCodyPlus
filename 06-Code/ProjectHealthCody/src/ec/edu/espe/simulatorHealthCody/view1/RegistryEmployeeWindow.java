@@ -5,6 +5,15 @@
  */
 package ec.edu.espe.simulatorHealthCody.view1;
 
+import com.toedter.calendar.JDateChooser;
+
+import ec.edu.espe.simulatorHealthCody.model.Employee;
+import ec.edu.espe.simulatorHealthCody.model.Registry;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mateo Ávila ESPE
@@ -16,6 +25,10 @@ public class RegistryEmployeeWindow extends javax.swing.JFrame {
      */
     public RegistryEmployeeWindow() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        pnlAccess.setVisible(false);
+        lblMessageCode.setVisible(false);
+        lblCode.setVisible(false);
     }
 
     /**
@@ -37,21 +50,26 @@ public class RegistryEmployeeWindow extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         txtID = new javax.swing.JTextField();
         txtNumberPhone = new javax.swing.JTextField();
-        jMonth = new javax.swing.JComboBox<>();
-        cmbDay = new javax.swing.JComboBox<>();
-        ccmbGender = new javax.swing.JComboBox<>();
-        jYear = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
+        cmbGender = new javax.swing.JComboBox<>();
+        btnSave = new javax.swing.JButton();
+        jDate = new com.toedter.calendar.JDateChooser();
+        pnlAccess = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        lblUsername = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JTextField();
+        lblMessageCode = new javax.swing.JLabel();
+        lblCode = new javax.swing.JLabel();
+        btnFinish = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 24)); // NOI18N
         jLabel2.setText("Registro para Administradores");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 90, 510, 47);
+        jLabel2.setBounds(50, 90, 370, 32);
 
         lblName.setText("Nombres y Apellidos:");
         jPanel1.add(lblName);
@@ -61,9 +79,9 @@ public class RegistryEmployeeWindow extends javax.swing.JFrame {
         jPanel1.add(lblID);
         lblID.setBounds(50, 210, 113, 16);
 
-        lblBirthDate.setText("Fecha de Nacimiento: (dd/mm/aaaa)");
+        lblBirthDate.setText("Fecha de Nacimiento: ");
         jPanel1.add(lblBirthDate);
-        lblBirthDate.setBounds(50, 270, 270, 16);
+        lblBirthDate.setBounds(50, 280, 130, 16);
 
         lblNumberPhone.setText("Número de contacto:");
         jPanel1.add(lblNumberPhone);
@@ -71,31 +89,94 @@ public class RegistryEmployeeWindow extends javax.swing.JFrame {
 
         lblGender.setText("Género:");
         jPanel1.add(lblGender);
-        lblGender.setBounds(60, 400, 60, 16);
+        lblGender.setBounds(50, 400, 60, 16);
         jPanel1.add(txtName);
-        txtName.setBounds(50, 170, 470, 24);
+        txtName.setBounds(50, 170, 380, 24);
         jPanel1.add(txtID);
-        txtID.setBounds(50, 230, 470, 24);
+        txtID.setBounds(50, 230, 380, 24);
         jPanel1.add(txtNumberPhone);
-        txtNumberPhone.setBounds(50, 360, 460, 24);
+        txtNumberPhone.setBounds(50, 360, 210, 24);
 
-        jMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-        jPanel1.add(jMonth);
-        jMonth.setBounds(150, 300, 140, 26);
+        cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
+        jPanel1.add(cmbGender);
+        cmbGender.setBounds(110, 390, 150, 26);
 
-        cmbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(cmbDay);
-        cmbDay.setBounds(50, 300, 44, 26);
+        btnSave.setText("Guardar");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSave);
+        btnSave.setBounds(350, 390, 76, 32);
+        jPanel1.add(jDate);
+        jDate.setBounds(190, 270, 190, 29);
 
-        ccmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
-        jPanel1.add(ccmbGender);
-        ccmbGender.setBounds(120, 400, 150, 26);
-        jPanel1.add(jYear);
-        jYear.setBounds(290, 300, 70, 26);
+        jLabel3.setText("INFORMACIÓN DE ACCESO");
 
-        jButton1.setText("Guardar");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(90, 440, 76, 32);
+        lblUsername.setForeground(new java.awt.Color(255, 0, 0));
+        lblUsername.setText("Cree un nombre de usuario:");
+
+        txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsernameKeyPressed(evt);
+            }
+        });
+
+        lblMessageCode.setText("Su codigo de acceso es:");
+
+        lblCode.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+
+        btnFinish.setText("Finalizar");
+        btnFinish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinishActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlAccessLayout = new javax.swing.GroupLayout(pnlAccess);
+        pnlAccess.setLayout(pnlAccessLayout);
+        pnlAccessLayout.setHorizontalGroup(
+            pnlAccessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAccessLayout.createSequentialGroup()
+                .addGroup(pnlAccessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAccessLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(pnlAccessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMessageCode, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlAccessLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnlAccessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblCode, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))))
+                .addContainerGap(86, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAccessLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnFinish)
+                .addGap(20, 20, 20))
+        );
+        pnlAccessLayout.setVerticalGroup(
+            pnlAccessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAccessLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel3)
+                .addGap(26, 26, 26)
+                .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(lblMessageCode, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(btnFinish)
+                .addGap(20, 20, 20))
+        );
+
+        jPanel1.add(pnlAccess);
+        pnlAccess.setBounds(520, 130, 300, 290);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/RegisterIMG.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -116,6 +197,69 @@ public class RegistryEmployeeWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        int option;
+
+        System.out.println(txtName.getText());
+        if ((txtName.getText().equals("")) || (txtID.getText().equals("")) || (txtNumberPhone.getText().equals(""))) {
+            JOptionPane.showMessageDialog(null, "Campos vacios, Complete todos los campos");
+
+        } else {
+            option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
+            if (option == 0) {
+                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+                pnlAccess.setVisible(true);
+            } else if (option == 1) {
+                emptyFields();
+            }
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
+        Employee employee;
+        Registry registry;
+        registry = new Registry("dd");
+        String userName = "", password = "", dateOfBirth = "";
+        userName = txtUsername.getText();
+        if (txtUsername.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nombre de usuario vacio, Complete");
+        } else {
+            
+            dateOfBirth = covertDate(jDate);
+            employee = new Employee(txtName.getText(),txtID.getText(),dateOfBirth,cmbGender.getSelectedItem().toString(),txtNumberPhone.getText(),txtUsername.getText(),"");
+            password = employee.generateCode();
+            lblCode.setText(password);
+            employee.setAccesKey(password);
+            registry = new Registry("Employees");
+            System.out.println(employee.toString());
+            //registry.register(employee);
+            PrincipalWindow principalWindow;
+            this.setVisible(false);
+            principalWindow = new PrincipalWindow();
+            principalWindow.setVisible(true);
+        }
+
+    }//GEN-LAST:event_btnFinishActionPerformed
+
+    private void txtUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyPressed
+        lblMessageCode.setVisible(true);
+        lblCode.setVisible(true);
+    }//GEN-LAST:event_txtUsernameKeyPressed
+    
+    public void emptyFields() {
+        txtName.setText("");
+        txtID.setText("");
+        txtNumberPhone.setText("");
+    }
+
+    public String covertDate(JDateChooser jDate) {
+        DateFormat dateFormat;
+
+        dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        String date = dateFormat.format(jDate.getDate());
+        return date;
+
+    }
     /**
      * @param args the command line arguments
      */
@@ -152,21 +296,26 @@ public class RegistryEmployeeWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ccmbGender;
-    private javax.swing.JComboBox<String> cmbDay;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnFinish;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> cmbGender;
+    private com.toedter.calendar.JDateChooser jDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JComboBox<String> jMonth;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jYear;
     private javax.swing.JLabel lblBirthDate;
+    private javax.swing.JLabel lblCode;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblMessageCode;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblNumberPhone;
+    private javax.swing.JLabel lblUsername;
+    private javax.swing.JPanel pnlAccess;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumberPhone;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

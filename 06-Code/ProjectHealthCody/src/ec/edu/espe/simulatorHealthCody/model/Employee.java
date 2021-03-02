@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
+import java.util.Random;
+
 /**
  *
  * @author Mateo Ávila
@@ -14,10 +16,24 @@ public class Employee extends User {
     private double salary;
     private String numberPhone;
 
-    public Employee(String name, String id, int age, String gender, String numberPhone, String userName, String accesKey) {
-        super(name, id, age, gender, userName, accesKey);
+    public Employee(String name, String id, String dateOfBirth, String gender, String numberPhone, String userName, String accesKey) {
+        super(name, id, dateOfBirth, gender, userName, accesKey);
         this.numberPhone = numberPhone;
         salary = 800.50;
+    }
+    
+    public String generateCode(){
+        
+        String code = "";
+        int number;
+        char character;
+        for(int i=0;i<7;i++){
+            number = (int) (Math.random() * (91 - 65)) + 65;
+            character = (char) number;
+            code += character;
+        }
+        return code;
+    
     }
 
     public double getSalary() {

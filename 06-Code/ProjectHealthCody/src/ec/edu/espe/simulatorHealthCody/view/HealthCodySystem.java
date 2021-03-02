@@ -6,6 +6,7 @@
 package ec.edu.espe.simulatorHealthCody.view;
 
 import com.google.gson.Gson;
+import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.validate.utils.Validate;
 import java.text.ParseException;
 import java.util.Scanner;
@@ -18,7 +19,23 @@ public class HealthCodySystem {
 
     public static void main(String[] args) throws InterruptedException, ParseException {
 
-        Scanner scanner = new Scanner(System.in);
+        String dataToFind = "Maqscarillas";
+        System.out.println(dataToFind);
+        Inventory inventory = new Inventory("Products");
+        String recovered = "";
+        recovered = inventory.findProduct(dataToFind);
+        System.out.println(recovered);
+        /*String code = "";
+        int number;
+        char character;
+        for(int i=0;i<7;i++){
+            number = (int) (Math.random() * (91 - 65)) + 65;
+            character = (char) number;
+            code += character;
+        }
+        System.out.println(code);*/
+
+ /*Scanner scanner = new Scanner(System.in);
         Validate validate = new Validate();
         Gson gson = new Gson();
         Menu menu = new Menu();
@@ -47,7 +64,6 @@ public class HealthCodySystem {
                     break;
 
             }
-        } while (option1 != 3);
-
+        } while (option1 != 3);*/
     }
 }
