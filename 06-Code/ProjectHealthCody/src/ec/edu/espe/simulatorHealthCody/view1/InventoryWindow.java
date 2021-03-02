@@ -5,6 +5,14 @@
  */
 package ec.edu.espe.simulatorHealthCody.view1;
 
+import com.google.gson.Gson;
+import ec.edu.espe.simulatorHealthCody.model.Inventory;
+import ec.edu.espe.simulatorHealthCody.model.Product;
+import ec.edu.espe.simulatorHealthCody.view1.AddProductWindow;
+import ec.edu.espe.simulatorHealthCody.view1.AddProductWindow;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mateo Ávila ESPE
@@ -16,6 +24,14 @@ public class InventoryWindow extends javax.swing.JFrame {
      */
     public InventoryWindow() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        ButtonGroup bG = new ButtonGroup();
+        bG.add(rdbSearch);
+        bG.add(rdbModific);
+        bG.add(rdbDelete);
+        txtProduct.setVisible(false);
+        btnAccept.setVisible(false);
+        lblModificD.setVisible(false);
     }
 
     /**
@@ -29,14 +45,15 @@ public class InventoryWindow extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnAddProduct = new javax.swing.JButton();
-        btnSearchProduct = new javax.swing.JButton();
-        btnModificProduct = new javax.swing.JButton();
-        btnDeleteProduct = new javax.swing.JButton();
         btnViewInventory = new javax.swing.JButton();
         btnAccept = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txtProduct = new javax.swing.JTextField();
+        rdbSearch = new javax.swing.JRadioButton();
+        rdbModific = new javax.swing.JRadioButton();
+        rdbDelete = new javax.swing.JRadioButton();
+        lblModificD = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,58 +61,173 @@ public class InventoryWindow extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         btnAddProduct.setText("Agregar Producto");
+        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProductActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAddProduct);
-        btnAddProduct.setBounds(220, 180, 220, 50);
-
-        btnSearchProduct.setText("Buscar Producto");
-        jPanel1.add(btnSearchProduct);
-        btnSearchProduct.setBounds(450, 180, 220, 50);
-
-        btnModificProduct.setText("Modificar Producto");
-        jPanel1.add(btnModificProduct);
-        btnModificProduct.setBounds(220, 240, 220, 50);
-
-        btnDeleteProduct.setText("Eliminar Producto");
-        jPanel1.add(btnDeleteProduct);
-        btnDeleteProduct.setBounds(450, 240, 220, 50);
+        btnAddProduct.setBounds(120, 130, 220, 50);
 
         btnViewInventory.setText("Ver Inventario");
         jPanel1.add(btnViewInventory);
-        btnViewInventory.setBounds(350, 310, 220, 50);
+        btnViewInventory.setBounds(120, 200, 220, 50);
 
         btnAccept.setText("Aceptar");
+        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAccept);
-        btnAccept.setBounds(450, 370, 220, 40);
+        btnAccept.setBounds(410, 290, 200, 40);
 
         btnReturn.setText("Regresar");
         jPanel1.add(btnReturn);
-        btnReturn.setBounds(380, 450, 130, 40);
+        btnReturn.setBounds(300, 350, 150, 40);
 
         jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 48)); // NOI18N
         jLabel2.setText("Inventario");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(340, 100, 400, 60);
+        jLabel2.setBounds(250, 10, 400, 60);
         jPanel1.add(txtProduct);
-        txtProduct.setBounds(220, 370, 220, 40);
+        txtProduct.setBounds(120, 290, 220, 40);
+
+        rdbSearch.setText("Buscar Producto");
+        rdbSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbSearchActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rdbSearch);
+        rdbSearch.setBounds(410, 130, 200, 40);
+
+        rdbModific.setText("Modificar Producto");
+        rdbModific.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbModificActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rdbModific);
+        rdbModific.setBounds(410, 180, 200, 40);
+
+        rdbDelete.setText("Eliminar Producto");
+        rdbDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbDeleteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rdbDelete);
+        rdbDelete.setBounds(410, 230, 200, 40);
+
+        lblModificD.setText("Dato a modificar");
+        jPanel1.add(lblModificD);
+        lblModificD.setBounds(120, 340, 140, 16);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/InventoryIMG.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 880, 520);
+        jLabel1.setBounds(0, 0, 730, 420);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
+        // TODO add your handling code here:
+        AddProductWindow addProductWindow = new AddProductWindow();
+        addProductWindow.setLocationRelativeTo(null);
+        this.setVisible(false);
+        addProductWindow.setVisible(true);
+    }//GEN-LAST:event_btnAddProductActionPerformed
+
+    private void rdbSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbSearchActionPerformed
+        // TODO add your handling code here:
+        txtProduct.setText(null);
+        txtProduct.getAction();
+        txtProduct.setVisible(true);
+        btnAccept.setVisible(true);
+        lblModificD.setVisible(false);
+    }//GEN-LAST:event_rdbSearchActionPerformed
+
+    private void rdbModificActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbModificActionPerformed
+        // TODO add your handling code here:
+        txtProduct.setText(null);
+        txtProduct.getAction();
+        txtProduct.setVisible(true);
+        btnAccept.setVisible(true);
+        lblModificD.setText("Dato a modificar");
+        lblModificD.setVisible(true);
+    }//GEN-LAST:event_rdbModificActionPerformed
+
+    private void rdbDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbDeleteActionPerformed
+        // TODO add your handling code here:
+        txtProduct.setText(null);
+        txtProduct.getAction();
+        txtProduct.setVisible(true);
+        btnAccept.setVisible(true);
+        lblModificD.setText("Código del producto");
+        lblModificD.setVisible(true);
+    }//GEN-LAST:event_rdbDeleteActionPerformed
+
+    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+        // TODO add your handling code here:
+        if (txtProduct.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Dato no ingresado");
+        } else {
+            if (rdbSearch.isSelected() == true) {
+                String dataToFind = txtProduct.getText();
+                System.out.println(dataToFind);
+                Inventory inventory = new Inventory("Products");
+                String recovered = inventory.findProduct(dataToFind);
+                if (recovered.equals("")) {
+                    JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
+                } else {
+                    Gson gson = new Gson();
+                    Product product = gson.fromJson(recovered, Product.class);
+                    JOptionPane.showMessageDialog(null, product.toString());
+                }
+            }
+            if (rdbModific.isSelected() == true) {
+                String dataToModify = txtProduct.getText();
+                String dataToUpdate = JOptionPane.showInputDialog("Ingrese el nuevo dato");
+
+                Inventory inventory = new Inventory("Products");
+                String recovered = inventory.findProduct(dataToModify);
+                if (recovered.equals("")) {
+                    JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
+                } else {
+                    inventory.updateProduct(dataToModify, dataToUpdate, "name");
+                    JOptionPane.showMessageDialog(null, "Dato modificado con éxito");
+                }
+
+            }
+            if (rdbDelete.isSelected() == true) {
+                String dataTodeleted = txtProduct.getText();
+                Inventory inventory = new Inventory("Products");
+                
+                String recovered = inventory.findProduct(dataTodeleted);
+                if (recovered.equals("")) {
+                    JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
+                } else {
+                    inventory.deleteProduct(dataTodeleted, "code");
+                    JOptionPane.showMessageDialog(null, "Dato eliminado con éxito");
+                }  
+            }
+        }
+    }//GEN-LAST:event_btnAcceptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,6 +255,7 @@ public class InventoryWindow extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(InventoryWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -135,14 +268,15 @@ public class InventoryWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
     private javax.swing.JButton btnAddProduct;
-    private javax.swing.JButton btnDeleteProduct;
-    private javax.swing.JButton btnModificProduct;
     private javax.swing.JButton btnReturn;
-    private javax.swing.JButton btnSearchProduct;
     private javax.swing.JButton btnViewInventory;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblModificD;
+    private javax.swing.JRadioButton rdbDelete;
+    private javax.swing.JRadioButton rdbModific;
+    private javax.swing.JRadioButton rdbSearch;
     private javax.swing.JTextField txtProduct;
     // End of variables declaration//GEN-END:variables
 }
