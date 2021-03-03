@@ -5,7 +5,7 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
-import ec.edu.espe.DBmanager.utils.DBmanagerDates;
+import ec.edu.espe.simulatorHealthCody.utils.DBmanagerDates;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -6,7 +6,7 @@
 package ec.edu.espe.simulatorHealthCody.model;
 
 import com.google.gson.Gson;
-import ec.edu.espe.DBmanager.utils.DBmanager;
+import ec.edu.espe.simulatorHealthCody.utils.DBmanager;
 import java.util.ArrayList;
 import java.util.List;
 
