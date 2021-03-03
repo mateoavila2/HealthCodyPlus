@@ -83,6 +83,11 @@ public class InventoryWindow extends javax.swing.JFrame {
         btnAccept.setBounds(410, 290, 200, 40);
 
         btnReturn.setText("Regresar");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnReturn);
         btnReturn.setBounds(300, 350, 150, 40);
 
@@ -121,6 +126,11 @@ public class InventoryWindow extends javax.swing.JFrame {
         rdbDelete.setBounds(410, 230, 200, 40);
 
         lblModificD.setText("Dato a modificar");
+        lblModificD.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                lblModificDComponentHidden(evt);
+            }
+        });
         jPanel1.add(lblModificD);
         lblModificD.setBounds(120, 340, 140, 16);
 
@@ -147,44 +157,44 @@ public class InventoryWindow extends javax.swing.JFrame {
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
         // TODO add your handling code here:
-        AddProductWindow addProductWindow = new AddProductWindow();
+        /*AddProductWindow addProductWindow = new AddProductWindow();
         addProductWindow.setLocationRelativeTo(null);
         this.setVisible(false);
-        addProductWindow.setVisible(true);
+        addProductWindow.setVisible(true);*/
     }//GEN-LAST:event_btnAddProductActionPerformed
 
     private void rdbSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbSearchActionPerformed
         // TODO add your handling code here:
-        txtProduct.setText(null);
+       /* txtProduct.setText(null);
         txtProduct.getAction();
         txtProduct.setVisible(true);
         btnAccept.setVisible(true);
-        lblModificD.setVisible(false);
+        lblModificD.setVisible(false);*/
     }//GEN-LAST:event_rdbSearchActionPerformed
 
     private void rdbModificActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbModificActionPerformed
         // TODO add your handling code here:
-        txtProduct.setText(null);
+       /* txtProduct.setText(null);
         txtProduct.getAction();
         txtProduct.setVisible(true);
         btnAccept.setVisible(true);
         lblModificD.setText("Dato a modificar");
-        lblModificD.setVisible(true);
+        lblModificD.setVisible(true);*/
     }//GEN-LAST:event_rdbModificActionPerformed
 
     private void rdbDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbDeleteActionPerformed
         // TODO add your handling code here:
-        txtProduct.setText(null);
+        /*txtProduct.setText(null);
         txtProduct.getAction();
         txtProduct.setVisible(true);
         btnAccept.setVisible(true);
         lblModificD.setText("Código del producto");
-        lblModificD.setVisible(true);
+        lblModificD.setVisible(true);*/
     }//GEN-LAST:event_rdbDeleteActionPerformed
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         // TODO add your handling code here:
-        if (txtProduct.getText().equals("")) {
+        /*if (txtProduct.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Dato no ingresado");
         } else {
             if (rdbSearch.isSelected() == true) {
@@ -226,8 +236,17 @@ public class InventoryWindow extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Dato eliminado con éxito");
                 }  
             }
-        }
+        }*/
     }//GEN-LAST:event_btnAcceptActionPerformed
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void lblModificDComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lblModificDComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblModificDComponentHidden
 
     /**
      * @param args the command line arguments
@@ -266,17 +285,17 @@ public class InventoryWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAccept;
-    private javax.swing.JButton btnAddProduct;
-    private javax.swing.JButton btnReturn;
-    private javax.swing.JButton btnViewInventory;
+    public javax.swing.JButton btnAccept;
+    public javax.swing.JButton btnAddProduct;
+    public javax.swing.JButton btnReturn;
+    public javax.swing.JButton btnViewInventory;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblModificD;
-    private javax.swing.JRadioButton rdbDelete;
-    private javax.swing.JRadioButton rdbModific;
-    private javax.swing.JRadioButton rdbSearch;
-    private javax.swing.JTextField txtProduct;
+    public javax.swing.JLabel lblModificD;
+    public javax.swing.JRadioButton rdbDelete;
+    public javax.swing.JRadioButton rdbModific;
+    public javax.swing.JRadioButton rdbSearch;
+    public javax.swing.JTextField txtProduct;
     // End of variables declaration//GEN-END:variables
 }
