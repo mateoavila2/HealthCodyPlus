@@ -43,7 +43,12 @@ public class UserTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        User instance = new User("George", "230608441", "12/8/2001", "Masculino", "Gwchicango", "09George");
+        User instance = new User("George", "230608441", "12/8/2001", "Masculino", "Gwchicango", "09George") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         String expResult = "George";
         String result = instance.getName();
         assertEquals(expResult, result);
@@ -60,7 +65,12 @@ public class UserTest {
     public void testSetName() {
         System.out.println("setName");
         String name = "";
-        User instance = new User("Jose", name, name, name, name, name);
+        User instance = new User("Jose", name, name, name, name, name) {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         instance.setName(name);
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.name.equals(name)) {
@@ -74,7 +84,12 @@ public class UserTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        User instance = new User("", "2300608441", "", "", "", "");
+        User instance = new User("", "2300608441", "", "", "", "") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         String expResult = "2300608441";
         String result = instance.getId();
         assertEquals(expResult, result);
@@ -91,7 +106,12 @@ public class UserTest {
     public void testSetId() {
         System.out.println("setId");
         String id = "";
-        User instance = new User(id, "2300608441", id, id, id, id);
+        User instance = new User(id, "2300608441", id, id, id, id) {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         instance.setId(id);
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.id.equals(id)) {
@@ -105,7 +125,12 @@ public class UserTest {
     @Test
     public void testGetDateOfBirth() {
         System.out.println("getDateOfBirth");
-        User instance = new User("", "", "Masculino", "", "", "");
+        User instance = new User("", "", "Masculino", "", "", "") {
+            @Override
+            public void calculateAge() {
+               System.out.println("Verify");
+            }
+        };
         String expResult = "Masculino";
         String result = instance.getDateOfBirth();
         assertEquals(expResult, result);
@@ -122,7 +147,12 @@ public class UserTest {
     public void testSetDateOfBirth() {
         System.out.println("setDateOfBirth");
         String dateOfBirth = "Masculino";
-        User instance = new User("", "", dateOfBirth, "", "", "");
+        User instance = new User("", "", dateOfBirth, "", "", "") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         instance.setDateOfBirth("");
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.dateOfBirth.equals(dateOfBirth)) {
@@ -136,7 +166,12 @@ public class UserTest {
     @Test
     public void testGetGender() {
         System.out.println("getGender");
-        User instance = new User("", "", "", "", "", "");
+        User instance = new User("", "", "", "", "", "") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         String expResult = "Femenino";
         String result = instance.getGender();
         assertEquals(expResult, result);
@@ -153,7 +188,12 @@ public class UserTest {
     public void testSetGender() {
         System.out.println("setGender");
         String gender = "Masculino";
-        User instance = new User("", "", "", "", "", "");
+        User instance = new User("", "", "", "", "", "") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         instance.setGender(gender);
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.gender.equals(gender)) {
@@ -167,7 +207,12 @@ public class UserTest {
     @Test
     public void testGetUserName() {
         System.out.println("getUserName");
-        User instance = new User("", "", "", "", "", "");
+        User instance = new User("", "", "", "", "", "") {
+            @Override
+            public void calculateAge() {
+               System.out.println("Verify");
+            }
+        };
         String expResult = "JW09323";
         String result = instance.getUserName();
         assertEquals(expResult, result);
@@ -184,7 +229,12 @@ public class UserTest {
     public void testSetUserName() {
         System.out.println("setUserName");
         String userName = "GJo302";
-        User instance = new User("", "", "", "", "", "");
+        User instance = new User("", "", "", "", "", "") {
+            @Override
+            public void calculateAge() {
+               System.out.println("Verify");
+            }
+        };
         instance.setUserName(userName);
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.userName.equals(userName)) {
@@ -198,7 +248,12 @@ public class UserTest {
     @Test
     public void testGetAccesKey() {
         System.out.println("getAccesKey");
-        User instance = new User("", "", "", "", "", "08_jose");
+        User instance = new User("", "", "", "", "", "08_jose") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         String expResult = "08_jose";
         String result = instance.getAccesKey();
         assertEquals(expResult, result);
@@ -215,7 +270,12 @@ public class UserTest {
     public void testSetAccesKey() {
         System.out.println("setAccesKey");
         String accesKey = "0807Jose";
-        User instance = new User(accesKey, accesKey, accesKey, accesKey, accesKey, accesKey);
+        User instance = new User(accesKey, accesKey, accesKey, accesKey, accesKey, accesKey) {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         instance.setAccesKey(accesKey);
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.accesKey.equals(accesKey)) {
@@ -245,7 +305,12 @@ public class UserTest {
     @Test
     public void testGetName2() {
         System.out.println("getName");
-        User instance = new User("Kenneth", "12312312331231", "12/8/2001", "Masculino", "Gwchicango", "09George");
+        User instance = new User("Kenneth", "12312312331231", "12/8/2001", "Masculino", "Gwchicango", "09George") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         String expResult = "George";
         String result = instance.getName();
         assertEquals(expResult, result);
@@ -262,7 +327,12 @@ public class UserTest {
     public void testSetName2() {
         System.out.println("setName");
         String name = "";
-        User instance = new User("", name, name, name, name, name);
+        User instance = new User("", name, name, name, name, name) {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         instance.setName(name);
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.name.equals(name)) {
@@ -276,7 +346,12 @@ public class UserTest {
     @Test
     public void testGetId2() {
         System.out.println("getId");
-        User instance = new User("", "", "2300608441", "", "", "");
+        User instance = new User("", "", "2300608441", "", "", "") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         String expResult = "2300608441";
         String result = instance.getId();
         assertEquals(expResult, result);
@@ -293,7 +368,12 @@ public class UserTest {
     public void testSetId2() {
         System.out.println("setId");
         String id = "";
-        User instance = new User(id, "2300608441", id, id, id, id);
+        User instance = new User(id, "2300608441", id, id, id, id) {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         instance.setId(id);
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.id.equals(id)) {
@@ -307,7 +387,12 @@ public class UserTest {
     @Test
     public void testGetDateOfBirth2() {
         System.out.println("getDateOfBirth");
-        User instance = new User("", "", "Femenino", "", "", "");
+        User instance = new User("", "", "Femenino", "", "", "") {
+            @Override
+            public void calculateAge() {
+               System.out.println("Verify");
+            }
+        };
         String expResult = "Femenino";
         String result = instance.getDateOfBirth();
         assertEquals(expResult, result);
@@ -324,7 +409,12 @@ public class UserTest {
     public void testSetDateOfBirth2() {
         System.out.println("setDateOfBirth");
         String dateOfBirth = "Masculino";
-        User instance = new User("", "", dateOfBirth, "", "", "");
+        User instance = new User("", "", dateOfBirth, "", "", "") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         instance.setDateOfBirth("");
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.dateOfBirth.equals(dateOfBirth)) {
@@ -338,7 +428,12 @@ public class UserTest {
     @Test
     public void testGetGender2() {
         System.out.println("getGender");
-        User instance = new User("", "", "", "", "", "");
+        User instance = new User("", "", "", "", "", "") {
+            @Override
+            public void calculateAge() {
+                 System.out.println("Verify");
+            }
+        };
         String expResult = "Femenino";
         String result = instance.getGender();
         assertEquals(expResult, result);
@@ -355,7 +450,12 @@ public class UserTest {
     public void testSetGender2() {
         System.out.println("setGender");
         String gender = "Masculino";
-        User instance = new User("", "", "", "", "", "");
+        User instance = new User("", "", "", "", "", "") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         instance.setGender(gender);
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.gender.equals(gender)) {
@@ -369,7 +469,12 @@ public class UserTest {
     @Test
     public void testGetUserName3() {
         System.out.println("getUserName");
-        User instance = new User("", "", "JW09323", "", "", "");
+        User instance = new User("", "", "JW09323", "", "", "") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         String expResult = "JW09323";
         String result = instance.getUserName();
         assertEquals(expResult, result);
@@ -386,7 +491,12 @@ public class UserTest {
     public void testSetUserName3() {
         System.out.println("setUserName");
         String userName = "GJo302";
-        User instance = new User("", "", "", "GJo302", "", "");
+        User instance = new User("", "", "", "GJo302", "", "") {
+            @Override
+            public void calculateAge() {
+               System.out.println("Verify");
+            }
+        };
         instance.setUserName(userName);
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.userName.equals(userName)) {
@@ -400,7 +510,12 @@ public class UserTest {
     @Test
     public void testGetAccesKey3() {
         System.out.println("getAccesKey");
-        User instance = new User("", "", "08_jose", "", "", "08_jose");
+        User instance = new User("", "", "08_jose", "", "", "08_jose") {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         String expResult = "08_jose";
         String result = instance.getAccesKey();
         assertEquals(expResult, result);
@@ -417,7 +532,12 @@ public class UserTest {
     public void testSetAccesKey3() {
         System.out.println("setAccesKey");
         String accesKey = "LOLO";
-        User instance = new User(accesKey, accesKey, accesKey, accesKey, accesKey, accesKey);
+        User instance = new User(accesKey, accesKey, accesKey, accesKey, accesKey, accesKey) {
+            @Override
+            public void calculateAge() {
+                System.out.println("Verify");
+            }
+        };
         instance.setAccesKey(accesKey);
         // TODO review the generated test code and remove the default call to fail.
         if (!instance.accesKey.equals(accesKey)) {

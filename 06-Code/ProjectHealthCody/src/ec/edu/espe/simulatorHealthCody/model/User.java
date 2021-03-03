@@ -9,7 +9,7 @@ package ec.edu.espe.simulatorHealthCody.model;
  *
  * @author Mateo Ávila
  */
-public class User {
+public abstract class User {
 
     protected String name;
     protected String id;
@@ -26,6 +26,8 @@ public class User {
         this.userName = userName;
         this.accesKey = accesKey;
     }
+    
+    public abstract void calculateAge();
 
     public String getName() {
         return name;

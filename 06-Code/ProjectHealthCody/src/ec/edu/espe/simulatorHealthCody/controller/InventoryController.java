@@ -28,7 +28,7 @@ public class InventoryController implements ActionListener, MouseListener {
     Inventory inventory;
     public InventoryController(InventoryWindow inventoryWindow) {
         this.inventoryWindow = inventoryWindow;
-        //this.inventoryWindow.setLocationRelativeTo(null);
+        this.inventoryWindow.setLocationRelativeTo(null);
         this.inventoryWindow.setVisible(true);
         inventory = new Inventory("Products");
         inventoryWindow.btnAddProduct.addActionListener(this);

@@ -26,7 +26,11 @@ public class EmployeeWindow extends javax.swing.JFrame {
     public EmployeeWindow() {
         initComponents();
         this.setLocationRelativeTo(null);
-        pnlAccess.setVisible(false);
+        lblIMessaage.setVisible(false);
+        lblUSerimage.setVisible(false);
+        lblUsername.setVisible(false);
+        txtUsername.setVisible(false);
+        btnFinish.setVisible(false);
     }
 
     /**
@@ -51,14 +55,12 @@ public class EmployeeWindow extends javax.swing.JFrame {
         cmbGender = new javax.swing.JComboBox<>();
         btnSave = new javax.swing.JButton();
         jDate = new com.toedter.calendar.JDateChooser();
-        pnlAccess = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        lblUsername = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
-        lblMessageCode = new javax.swing.JLabel();
-        lblCode = new javax.swing.JLabel();
-        btnFinish = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        lblUsername = new javax.swing.JLabel();
+        lblIMessaage = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JTextField();
+        btnFinish = new javax.swing.JButton();
+        lblUSerimage = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,37 +70,37 @@ public class EmployeeWindow extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 24)); // NOI18N
         jLabel2.setText("Registro para Administradores");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 50, 370, 32);
+        jLabel2.setBounds(80, 40, 370, 32);
 
         lblName.setText("Nombres y Apellidos:");
         jPanel1.add(lblName);
-        lblName.setBounds(50, 110, 170, 16);
+        lblName.setBounds(80, 100, 170, 16);
 
         lblID.setText("Cédula o pasaporte:");
         jPanel1.add(lblID);
-        lblID.setBounds(50, 170, 113, 16);
+        lblID.setBounds(80, 160, 113, 16);
 
         lblBirthDate.setText("Fecha de Nacimiento: ");
         jPanel1.add(lblBirthDate);
-        lblBirthDate.setBounds(50, 240, 130, 16);
+        lblBirthDate.setBounds(80, 230, 130, 16);
 
         lblNumberPhone.setText("Número de contacto:");
         jPanel1.add(lblNumberPhone);
-        lblNumberPhone.setBounds(50, 300, 180, 16);
+        lblNumberPhone.setBounds(80, 290, 180, 16);
 
         lblGender.setText("Género:");
         jPanel1.add(lblGender);
-        lblGender.setBounds(50, 360, 60, 16);
+        lblGender.setBounds(80, 350, 60, 16);
         jPanel1.add(txtName);
-        txtName.setBounds(50, 130, 380, 24);
+        txtName.setBounds(80, 120, 380, 24);
         jPanel1.add(txtID);
-        txtID.setBounds(50, 190, 380, 24);
+        txtID.setBounds(80, 180, 380, 24);
         jPanel1.add(txtNumberPhone);
-        txtNumberPhone.setBounds(50, 320, 210, 24);
+        txtNumberPhone.setBounds(80, 310, 210, 24);
 
         cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
         jPanel1.add(cmbGender);
-        cmbGender.setBounds(110, 350, 150, 26);
+        cmbGender.setBounds(140, 340, 150, 26);
 
         btnSave.setText("Guardar");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -107,72 +109,9 @@ public class EmployeeWindow extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSave);
-        btnSave.setBounds(350, 350, 76, 32);
+        btnSave.setBounds(380, 340, 76, 32);
         jPanel1.add(jDate);
-        jDate.setBounds(190, 230, 190, 29);
-
-        jLabel3.setText("INFORMACIÓN DE ACCESO");
-
-        lblUsername.setForeground(new java.awt.Color(255, 0, 0));
-        lblUsername.setText("Cree un nombre de usuario:");
-
-        lblMessageCode.setText("Su codigo de acceso es:");
-
-        lblCode.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        lblCode.setForeground(new java.awt.Color(0, 0, 204));
-
-        btnFinish.setText("Finalizar");
-        btnFinish.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFinishActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlAccessLayout = new javax.swing.GroupLayout(pnlAccess);
-        pnlAccess.setLayout(pnlAccessLayout);
-        pnlAccessLayout.setHorizontalGroup(
-            pnlAccessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAccessLayout.createSequentialGroup()
-                .addGroup(pnlAccessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlAccessLayout.createSequentialGroup()
-                        .addGroup(pnlAccessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAccessLayout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addGroup(pnlAccessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pnlAccessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblMessageCode, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblCode, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(pnlAccessLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel3)))
-                        .addGap(0, 66, Short.MAX_VALUE))
-                    .addGroup(pnlAccessLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnFinish)))
-                .addGap(20, 20, 20))
-        );
-        pnlAccessLayout.setVerticalGroup(
-            pnlAccessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAccessLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(lblMessageCode, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblCode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(btnFinish)
-                .addGap(20, 20, 20))
-        );
-
-        jPanel1.add(pnlAccess);
-        pnlAccess.setBounds(520, 130, 300, 290);
+        jDate.setBounds(220, 220, 190, 29);
 
         btnBack.setText("Regresar");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +121,31 @@ public class EmployeeWindow extends javax.swing.JFrame {
         });
         jPanel1.add(btnBack);
         btnBack.setBounds(20, 430, 90, 32);
+
+        lblUsername.setForeground(new java.awt.Color(255, 0, 0));
+        lblUsername.setText("Cree un nombre de usuario:");
+        jPanel1.add(lblUsername);
+        lblUsername.setBounds(560, 260, 167, 22);
+
+        lblIMessaage.setText("INFORMACIÓN DE ACCESO");
+        jPanel1.add(lblIMessaage);
+        lblIMessaage.setBounds(580, 100, 149, 16);
+        jPanel1.add(txtUsername);
+        txtUsername.setBounds(560, 290, 185, 24);
+
+        btnFinish.setText("Finalizar");
+        btnFinish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinishActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFinish);
+        btnFinish.setBounds(670, 330, 77, 32);
+
+        lblUSerimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/user.png.png"))); // NOI18N
+        lblUSerimage.setText("jLabel4");
+        jPanel1.add(lblUSerimage);
+        lblUSerimage.setBounds(590, 120, 130, 140);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/RegisterIMG.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -206,14 +170,13 @@ public class EmployeeWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
-      
-
-    }//GEN-LAST:event_btnFinishActionPerformed
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
+
+    }//GEN-LAST:event_btnFinishActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,17 +222,15 @@ public class EmployeeWindow extends javax.swing.JFrame {
     public com.toedter.calendar.JDateChooser jDate;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel lblBirthDate;
-    public javax.swing.JLabel lblCode;
     public javax.swing.JLabel lblGender;
     public javax.swing.JLabel lblID;
-    private javax.swing.JLabel lblMessageCode;
+    public javax.swing.JLabel lblIMessaage;
     public javax.swing.JLabel lblName;
     public javax.swing.JLabel lblNumberPhone;
-    private javax.swing.JLabel lblUsername;
-    public javax.swing.JPanel pnlAccess;
+    public javax.swing.JLabel lblUSerimage;
+    public javax.swing.JLabel lblUsername;
     public javax.swing.JTextField txtID;
     public javax.swing.JTextField txtName;
     public javax.swing.JTextField txtNumberPhone;

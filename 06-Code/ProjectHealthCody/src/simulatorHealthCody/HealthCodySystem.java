@@ -26,11 +26,7 @@ public class HealthCodySystem {
         loginWindow = new PrincipalWindow();
         authentication = new Authentication("Customers");
         loginController = new LoginController(loginWindow, authentication);
-        
-        /*InventoryWindow inventoryWindow = new InventoryWindow();
-        Inventory inventory = new Inventory("Products");
-        InventoryController inventoryController = new InventoryController(inventoryWindow, inventory);*/
-       
+
         
     }
 }

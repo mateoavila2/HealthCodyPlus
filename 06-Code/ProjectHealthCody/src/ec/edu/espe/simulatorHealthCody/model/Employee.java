@@ -5,7 +5,13 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -50,5 +56,46 @@ public class Employee extends User {
 
     public void setNumberPhone(String numberPhone) {
         this.numberPhone = numberPhone;
+    }
+
+    @Override
+    public void calculateAge() {
+        DateFormat dateFormat;
+        Date date;
+        System.out.println("");
+            dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        try {
+            Date myDate = dateFormat.parse(dateOfBirth);
+            int day = myDate.getDay();
+            int month = myDate.getMonth();
+            int year = myDate.getYear()+1900;
+            Date dateActual = new Date();
+            int dayAct = dateActual.getDate();
+            int monthAct = dateActual.getMonth()+1;
+            int yearAct = dateActual.getYear()+1900;
+            System.out.println(day+"/"+month+"/"+year);
+            System.out.println(dayAct+"/"+dayAct+"/"+yearAct);
+            int diferencia = yearAct - year;
+            if(monthAct<= month)
+            {
+                if(monthAct==month)
+                {
+                    if(day>dayAct)
+                    {
+                        diferencia--;
+                    }
+                    else
+                    {
+                        diferencia--;
+                    }
+                }
+            }
+            if(diferencia>18 && diferencia<70)
+            {
+                System.out.println("Apto para crear una cuenta");
+            }
+        } catch (ParseException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

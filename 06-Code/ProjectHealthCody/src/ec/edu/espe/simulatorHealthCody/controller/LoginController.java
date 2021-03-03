@@ -29,6 +29,7 @@ public class LoginController implements ActionListener, MouseListener {
     public LoginController(PrincipalWindow window, Authentication authentication) {
         this.loginWindow = window;
         this.authentication = authentication;
+        this.loginWindow.setLocationRelativeTo(null);
         this.loginWindow.setVisible(true);
         window.getBtnLogin().addActionListener(this);
         window.getLblRegister().addMouseListener(this);

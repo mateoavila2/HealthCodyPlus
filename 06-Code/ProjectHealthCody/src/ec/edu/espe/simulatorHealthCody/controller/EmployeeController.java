@@ -10,6 +10,7 @@ import ec.edu.espe.simulatorHealthCody.model.Authentication;
 import ec.edu.espe.simulatorHealthCody.model.Employee;
 import ec.edu.espe.simulatorHealthCody.model.Registry;
 import ec.edu.espe.simulatorHealthCody.view.EmployeeWindow;
+import ec.edu.espe.simulatorHealthCody.view.LoginAdministrator;
 import ec.edu.espe.simulatorHealthCody.view.PrincipalWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -47,7 +48,12 @@ public class EmployeeController implements ActionListener, MouseListener {
                 option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
                 if (option == 0) {
                     JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
-                    employeeWindow.pnlAccess.setVisible(true);
+                    employeeWindow.lblIMessaage.setVisible(true);
+                    employeeWindow.lblUSerimage.setVisible(true);
+                    employeeWindow.lblUsername.setVisible(true);
+                    employeeWindow.txtUsername.setVisible(true);
+                    employeeWindow.btnFinish.setVisible(true);
+
                 } else if (option == 1) {
                     //emptyFields();
                 }
@@ -63,27 +69,32 @@ public class EmployeeController implements ActionListener, MouseListener {
             if (employeeWindow.txtUsername.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Nombre de usuario vacio, Complete");
             } else {
-                String name,ID,dateOfBirth,gender,numberPhone;
+                String name, ID, dateOfBirth, gender, numberPhone;
                 name = employeeWindow.txtName.getText();
                 ID = employeeWindow.txtID.getText();
                 dateOfBirth = covertDate(employeeWindow.jDate);
                 gender = employeeWindow.cmbGender.getSelectedItem().toString();
                 numberPhone = employeeWindow.txtNumberPhone.getText();
-                employee = new Employee(name,ID,dateOfBirth,gender,numberPhone,userName,password);
+                employee = new Employee(name, ID, dateOfBirth, gender, numberPhone, userName, password);
                 password = employee.generateCode();
                 employee.setAccesKey(password);
-                employeeWindow.lblCode.setText(password);
-                employeeWindow.lblCode.setVisible(true);
-                registry = new Registry("Employee");
-                registry.register(employee);
+                JOptionPane.showMessageDialog(null, "Su codigo de acceso es: " + password);
+                //registry = new Registry("Employee");
+                //registry.register(employee);
+                this.employeeWindow.setVisible(false);
+                LoginAdministrator loginAdministrator;
+                LoginAdminControl loginAdminControl;
+                loginAdministrator = new LoginAdministrator();
+                loginAdminControl = new LoginAdminControl(loginAdministrator);
+
             }
 
         }
-        
-        if(ae.getSource() == employeeWindow.btnBack){
-            this.employeeWindow.setVisible(false);
+
+        if (ae.getSource() == employeeWindow.btnBack) {
             PrincipalWindow loginWindow = new PrincipalWindow();
             Authentication authentication = new Authentication("Customers");
+            this.employeeWindow.setVisible(false);
             LoginController loginController = new LoginController(loginWindow, authentication);
         }
     }
@@ -112,7 +123,7 @@ public class EmployeeController implements ActionListener, MouseListener {
     public void mouseExited(MouseEvent me) {
 
     }
-    
+
     public String covertDate(JDateChooser jDate) {
         DateFormat dateFormat;
 

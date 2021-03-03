@@ -24,6 +24,8 @@ public class LoginAdminControl implements ActionListener {
 
     public LoginAdminControl(LoginAdministrator loginAdministrator) {
         this.loginAdministrator = loginAdministrator;
+        this.loginAdministrator.setLocationRelativeTo(null);
+        this.loginAdministrator.setVisible(true);
         authentication = new Authentication("Employees");
         loginAdministrator.btnLogin.addActionListener(this);
         loginAdministrator.btnReturn.addActionListener(this);
