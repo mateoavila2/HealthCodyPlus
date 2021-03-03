@@ -26,9 +26,11 @@ public class InventoryController implements ActionListener, MouseListener {
 
     InventoryWindow inventoryWindow;
     Inventory inventory;
-    public InventoryController(InventoryWindow inventoryWindow, Inventory inventory) {
+    public InventoryController(InventoryWindow inventoryWindow) {
         this.inventoryWindow = inventoryWindow;
-        this.inventory = inventory;
+        //this.inventoryWindow.setLocationRelativeTo(null);
+        this.inventoryWindow.setVisible(true);
+        inventory = new Inventory("Products");
         inventoryWindow.btnAddProduct.addActionListener(this);
         inventoryWindow.btnAccept.addActionListener(this);
         inventoryWindow.btnReturn.addActionListener(this);
@@ -39,9 +41,7 @@ public class InventoryController implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == inventoryWindow.btnAddProduct) {
             AddProductWindow addProductWindow = new AddProductWindow();
-            addProductWindow.setLocationRelativeTo(null);
-            this.inventoryWindow.setVisible(false);
-            addProductWindow.setVisible(true);
+            
         }
         if (e.getSource() == inventoryWindow.btnAccept) {
             if (inventoryWindow.txtProduct.getText().equals("")) {
@@ -50,7 +50,6 @@ public class InventoryController implements ActionListener, MouseListener {
                 if (inventoryWindow.rdbSearch.isSelected() == true) {
                     String dataToFind = inventoryWindow.txtProduct.getText();
                     System.out.println(dataToFind);
-                    Inventory inventory = new Inventory("Products");
                     String recovered = inventory.findProduct(dataToFind);
                     if (recovered.equals("")) {
                         JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
@@ -96,10 +95,11 @@ public class InventoryController implements ActionListener, MouseListener {
         }
         if(e.getSource()==inventoryWindow.btnViewInventory)
         {
-            TableInventoryWindow tableInventoryWindow = new TableInventoryWindow();
             this.inventoryWindow.setVisible(false);
-            inventoryWindow.setLocationRelativeTo(null);
-            inventoryWindow.setVisible(true);
+            TableInventoryWindow tableInventoryWindow;
+            TableInventaryController tableInventaryController;
+            tableInventoryWindow = new TableInventoryWindow();
+            tableInventaryController = new TableInventaryController(tableInventoryWindow);
         }
     }
 

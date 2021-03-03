@@ -26,15 +26,17 @@ public class TableInventaryController implements ActionListener, MouseListener {
     TableInventoryWindow tableInventoryWindow;
     Inventory inventory;
 
-    public TableInventaryController(TableInventaryController tableInventaryController, Inventory inventory) {
+    public TableInventaryController(TableInventoryWindow tableInventoryWindow) {
         this.tableInventoryWindow = tableInventoryWindow;
-        this.inventory = inventory;
+        this.tableInventoryWindow.setLocationRelativeTo(null);
+        this.tableInventoryWindow.setVisible(true);
+        inventory = new Inventory("Products");
+        tableInventoryWindow.btnInventary.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == tableInventoryWindow.btnInventary) {
-            inventory = new Inventory("Products");
             Gson gson = new Gson();
             ArrayList<String[]> data = new ArrayList<String[]>();
 

@@ -3,25 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/EmployeeWindow.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/AddAppointment.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Employee.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/EmployeeMenu.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/TableInventaryController.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/TableDateWindow.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/simulatorHealthCody/HealthCodySystem.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/CustomerWindow.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Inventory.java</file>
             <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/LoginAdministrator.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/User.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Customer.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/CustomerMenu.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/PrincipalWindow.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/test/ec/edu/espe/simulatorHealthCody/model/UserTest.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/TableInventoryWindow.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/AddProductWindow.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Appointment.java</file>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/InventoryWindow.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/LoginAdminControl.java</file>
         </group>
     </open-files>
 </project-private>

@@ -19,17 +19,17 @@ import ec.edu.espe.simulatorHealthCody.view.PrincipalWindow;
 public class HealthCodySystem {
     public static void main(String[] args) {
         
-       /* PrincipalWindow loginWindow;
+       PrincipalWindow loginWindow;
         Authentication authentication;
         LoginController loginController;
         
         loginWindow = new PrincipalWindow();
         authentication = new Authentication("Customers");
-        loginController = new LoginController(loginWindow, authentication);*/
+        loginController = new LoginController(loginWindow, authentication);
         
-        InventoryWindow inventoryWindow = new InventoryWindow();
+        /*InventoryWindow inventoryWindow = new InventoryWindow();
         Inventory inventory = new Inventory("Products");
-        InventoryController inventoryController = new InventoryController(inventoryWindow, inventory);
+        InventoryController inventoryController = new InventoryController(inventoryWindow, inventory);*/
        
         
     }

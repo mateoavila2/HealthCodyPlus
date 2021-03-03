@@ -29,7 +29,7 @@ public class EmployeeMenu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        btnInventory = new javax.swing.JButton();
+        btnInventory1 = new javax.swing.JButton();
         btnAccount = new javax.swing.JButton();
         btnDates = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
@@ -51,23 +51,48 @@ public class EmployeeMenu extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(220, 40, 630, 100);
 
-        btnInventory.setText("Inventario");
-        jPanel1.add(btnInventory);
-        btnInventory.setBounds(380, 240, 180, 60);
+        btnInventory1.setText("Inventario");
+        btnInventory1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInventory1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnInventory1);
+        btnInventory1.setBounds(380, 240, 180, 60);
 
         btnAccount.setText("Cuenta");
+        btnAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAccountActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAccount);
         btnAccount.setBounds(380, 330, 180, 60);
 
         btnDates.setText("Citas");
+        btnDates.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDatesActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnDates);
         btnDates.setBounds(380, 150, 180, 60);
 
         btnExit.setText("Salir");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnExit);
         btnExit.setBounds(250, 430, 180, 60);
 
         btnReturn.setText("Regresar");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnReturn);
         btnReturn.setBounds(40, 430, 180, 60);
 
@@ -108,6 +133,26 @@ public class EmployeeMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatesActionPerformed
+       
+    }//GEN-LAST:event_btnDatesActionPerformed
+
+    private void btnInventory1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventory1ActionPerformed
+        
+    }//GEN-LAST:event_btnInventory1ActionPerformed
+
+    private void btnAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountActionPerformed
+        
+    }//GEN-LAST:event_btnAccountActionPerformed
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        
+    }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        
+    }//GEN-LAST:event_btnExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -146,9 +191,9 @@ public class EmployeeMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccount;
     private javax.swing.JButton btnDates;
-    private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnInventory;
-    private javax.swing.JButton btnReturn;
+    public javax.swing.JButton btnExit;
+    public javax.swing.JButton btnInventory1;
+    public javax.swing.JButton btnReturn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;

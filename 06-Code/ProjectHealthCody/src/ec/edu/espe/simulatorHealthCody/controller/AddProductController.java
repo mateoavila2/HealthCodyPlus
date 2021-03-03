@@ -22,10 +22,10 @@ import javax.swing.JOptionPane;
 public class AddProductController implements ActionListener, MouseListener {
 
     AddProductWindow addProductWindows;
-    Product product;
-    public AddProductController(AddProductWindow addProductWindow,Product product) {
+    Inventory inventory;
+    public AddProductController(AddProductWindow addProductWindow) {
         this.addProductWindows = addProductWindow;
-        this.product = product;
+        inventory = new Inventory("Products");
         addProductWindows.btnAdd.addActionListener(this);
         addProductWindows.btnReturn.addActionListener(this);
     }
@@ -47,7 +47,6 @@ public class AddProductController implements ActionListener, MouseListener {
                         addProductWindows.txtPrice.getAction();
                     } else {
                         Product product = new Product(name, code, price, quantitys);
-                        Inventory inventory = new Inventory("Products");
                         inventory.saveProduct(product);
                         JOptionPane.showMessageDialog(null, "Producto registrado con éxito");
                     }

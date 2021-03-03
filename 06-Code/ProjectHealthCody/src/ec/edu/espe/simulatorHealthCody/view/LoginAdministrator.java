@@ -47,7 +47,7 @@ public class LoginAdministrator extends javax.swing.JFrame {
 
         btnReturn.setText("Regresar");
         jPanel1.add(btnReturn);
-        btnReturn.setBounds(150, 420, 85, 25);
+        btnReturn.setBounds(150, 420, 83, 32);
 
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -56,11 +56,11 @@ public class LoginAdministrator extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnLogin);
-        btnLogin.setBounds(50, 420, 63, 25);
+        btnLogin.setBounds(50, 420, 61, 32);
         jPanel1.add(txtCode);
-        txtCode.setBounds(60, 310, 300, 22);
+        txtCode.setBounds(60, 310, 300, 24);
         jPanel1.add(txtUser);
-        txtUser.setBounds(60, 260, 300, 22);
+        txtUser.setBounds(60, 260, 300, 24);
 
         lblCodeForget.setText("¿Olvidaste tu usuario o contraseña?");
         lblCodeForget.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -176,15 +176,15 @@ public class LoginAdministrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnReturn;
-    private javax.swing.JLabel imgLogin;
+    public javax.swing.JButton btnLogin;
+    public javax.swing.JButton btnReturn;
+    public javax.swing.JLabel imgLogin;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblCode;
+    public javax.swing.JLabel lblCode;
     private javax.swing.JLabel lblCodeForget;
-    private javax.swing.JLabel lblUser;
-    private javax.swing.JTextField txtCode;
-    private javax.swing.JTextField txtUser;
+    public javax.swing.JLabel lblUser;
+    public javax.swing.JTextField txtCode;
+    public javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
