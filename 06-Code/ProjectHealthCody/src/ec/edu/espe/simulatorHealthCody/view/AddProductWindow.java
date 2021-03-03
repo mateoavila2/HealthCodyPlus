@@ -196,19 +196,19 @@ public class AddProductWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnReturn;
+    public javax.swing.JButton btnAdd;
+    public javax.swing.JButton btnReturn;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblCode;
-    private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblPrice;
-    private javax.swing.JLabel lblQuantity;
-    private javax.swing.JSpinner spnQuantity;
-    private javax.swing.JTextField txtCode;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPrice;
+    public javax.swing.JLabel lblCode;
+    public javax.swing.JLabel lblName;
+    public javax.swing.JLabel lblPrice;
+    public javax.swing.JLabel lblQuantity;
+    public javax.swing.JSpinner spnQuantity;
+    public javax.swing.JTextField txtCode;
+    public javax.swing.JTextField txtName;
+    public javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
 }

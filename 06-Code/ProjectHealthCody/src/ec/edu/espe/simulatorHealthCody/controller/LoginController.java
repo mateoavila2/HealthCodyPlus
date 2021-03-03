@@ -40,7 +40,8 @@ public class LoginController implements ActionListener, MouseListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == loginWindow.getBtnLogin()) {
-            boolean compare;
+            boolean compare = false;
+            authentication = new Authentication("Customers");
             String userName, password;
             userName = loginWindow.getTxtUserName().getText();
             password = loginWindow.getTxpPassword().getText();
@@ -48,7 +49,7 @@ public class LoginController implements ActionListener, MouseListener {
             if (compare == true) {
                 System.out.println("si valio ");
             } else {
-                JOptionPane.showMessageDialog(null, "Usuario ocontraseña incorrecta");
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
                 loginWindow.getTxtUserName().setText("");
                 loginWindow.getTxpPassword().setText("");
             }
@@ -82,9 +83,10 @@ public class LoginController implements ActionListener, MouseListener {
 
         if (me.getSource() == loginWindow.getLblAdminLogin()) {
             LoginAdministrator loginAdministrator = new LoginAdministrator();
-            loginAdministrator.setLocationRelativeTo(null);
+            LoginAdminController loginAdminController;
+            Authentication authentication = new Authentication("Employees");
             loginWindow.setVisible(false);
-            loginAdministrator.setVisible(true);
+            loginAdminController = new LoginAdminController(loginAdministrator, authentication);
         }
     }
 

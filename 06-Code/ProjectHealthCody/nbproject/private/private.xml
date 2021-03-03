@@ -3,7 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Rafa/Desktop/REPOSITORIO%20PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/simulatorHealthCody/HealthCodySystem.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/EmployeeMenu.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/CustomerController.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/LoginAdministrator.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/AddAppointment.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/LoginController.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/test/ec/edu/espe/simulatorHealthCody/model/EmployeeTest.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Employee.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/EmployeeController.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/EmployeeWindow.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Customer.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Authentication.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/test/ec/edu/espe/simulatorHealthCody/model/InventoryTest.java</file>
+            <file>file:/C:/Users/Rafa/Desktop/Archivos%20subir%20GIT/Copia%20Proyecto/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/LoginAdminController.java</file>
         </group>
     </open-files>
 </project-private>
