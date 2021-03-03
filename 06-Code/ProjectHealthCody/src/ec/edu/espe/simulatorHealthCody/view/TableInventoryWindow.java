@@ -26,7 +26,6 @@ public class TableInventoryWindow extends javax.swing.JFrame {
      */
     public TableInventoryWindow() {
         initComponents();
-
         btnPrint.setVisible(false);
         tblInventory.setVisible(false);
     }
@@ -110,7 +109,7 @@ public class TableInventoryWindow extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnPrint);
-        btnPrint.setBounds(540, 270, 130, 38);
+        btnPrint.setBounds(540, 270, 130, 31);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/SecundaryMenuIMG.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -135,11 +134,12 @@ public class TableInventoryWindow extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void btnInventaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventaryActionPerformed
         // TODO add your handling code here:
-        Inventory inventory = new Inventory("Products");
+        /*Inventory inventory = new Inventory("Products");
         Gson gson = new Gson();
         ArrayList<String[]> data = new ArrayList<String[]>();
 
@@ -173,15 +173,16 @@ public class TableInventoryWindow extends javax.swing.JFrame {
         });
         tblInventory.setVisible(true);
         btnPrint.setVisible(true);
+        */
     }//GEN-LAST:event_btnInventaryActionPerformed
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         // TODO add your handling code here:
-        try {
+        /*try {
             tblInventory.print();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se puede imprimir el inventario total");
-        }
+        }*/
     }//GEN-LAST:event_btnPrintActionPerformed
 
     /**
@@ -221,13 +222,13 @@ public class TableInventoryWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnInventary;
-    private javax.swing.JButton btnPrint;
-    private javax.swing.JButton btnReturn;
+    public javax.swing.JButton btnInventary;
+    public javax.swing.JButton btnPrint;
+    public javax.swing.JButton btnReturn;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblInventory;
-    private javax.swing.JTable tblInventory;
+    public javax.swing.JLabel lblInventory;
+    public javax.swing.JTable tblInventory;
     // End of variables declaration//GEN-END:variables
 }
