@@ -189,13 +189,13 @@ public class TableDateWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDates;
-    private javax.swing.JButton btnPrint;
-    private javax.swing.JButton btnReturn;
+    public javax.swing.JButton btnDates;
+    public javax.swing.JButton btnPrint;
+    public javax.swing.JButton btnReturn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblDates;
-    private javax.swing.JTable tblDates;
+    public javax.swing.JLabel lblDates;
+    public javax.swing.JTable tblDates;
     // End of variables declaration//GEN-END:variables
 }
