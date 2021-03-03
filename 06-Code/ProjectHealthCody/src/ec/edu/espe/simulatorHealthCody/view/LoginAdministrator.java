@@ -46,6 +46,11 @@ public class LoginAdministrator extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         btnReturn.setText("Regresar");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnReturn);
         btnReturn.setBounds(150, 420, 83, 32);
 
@@ -105,7 +110,7 @@ public class LoginAdministrator extends javax.swing.JFrame {
 
     private void lblCodeForgetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCodeForgetMouseClicked
         // TODO add your handling code here:
-        String selection = JOptionPane.showInputDialog("Ingrese su nombre y apellido:");
+        /*String selection = JOptionPane.showInputDialog("Ingrese su nombre y apellido:");
         boolean compare;
         if (selection != null) {
             compare = true;
@@ -119,12 +124,12 @@ public class LoginAdministrator extends javax.swing.JFrame {
                 }
 
             }
-        }
+        }*/
     }//GEN-LAST:event_lblCodeForgetMouseClicked
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        Authentication authentication = new Authentication("Employees");
+       /* Authentication authentication = new Authentication("Employees");
         boolean comparateAdmin = authentication.login(txtUser.getText(),txtCode.getText());
         EmployeeMenu employeeMenu = new EmployeeMenu();
         if (comparateAdmin == false) {
@@ -137,8 +142,12 @@ public class LoginAdministrator extends javax.swing.JFrame {
             employeeMenu.setLocationRelativeTo(null);
             employeeMenu.setVisible(true);
             this.setVisible(false);
-        }
+        }*/
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments

@@ -32,6 +32,7 @@ public class EmployeeController implements ActionListener, MouseListener {
         this.employeeWindow = employeeWindow;
         employeeWindow.btnSave.addActionListener(this);
         employeeWindow.btnFinish.addActionListener(this);
+        employeeWindow.btnBack.addActionListener(this);
     }
 
     @Override
@@ -80,9 +81,9 @@ public class EmployeeController implements ActionListener, MouseListener {
         }
         
         if(ae.getSource() == employeeWindow.btnBack){
+            this.employeeWindow.setVisible(false);
             PrincipalWindow loginWindow = new PrincipalWindow();
             Authentication authentication = new Authentication("Customers");
-            this.employeeWindow.setVisible(false);
             LoginController loginController = new LoginController(loginWindow, authentication);
         }
     }

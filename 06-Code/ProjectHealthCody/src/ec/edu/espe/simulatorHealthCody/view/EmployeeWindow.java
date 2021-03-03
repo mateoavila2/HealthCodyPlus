@@ -203,67 +203,18 @@ public class EmployeeWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        /*int option;
-
-        System.out.println(txtName.getText());
-        if ((txtName.getText().equals("")) || (txtID.getText().equals("")) || (txtNumberPhone.getText().equals(""))) {
-            JOptionPane.showMessageDialog(null, "Campos vacios, Complete todos los campos");
-
-        } else {
-            option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
-            if (option == 0) {
-                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
-                pnlAccess.setVisible(true);
-            } else if (option == 1) {
-                emptyFields();
-            }
-        }*/
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
-       /* Employee employee;
-        Registry registry;
-        registry = new Registry("dd");
-        String userName = "", password = "", dateOfBirth = "";
-        userName = txtUsername.getText();
-        if (txtUsername.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Nombre de usuario vacio, Complete");
-        } else {
-            
-            dateOfBirth = covertDate(jDate);
-            employee = new Employee(txtName.getText(),txtID.getText(),dateOfBirth,cmbGender.getSelectedItem().toString(),txtNumberPhone.getText(),txtUsername.getText(),"");
-            password = employee.generateCode();
-            lblCode.setText(password);
-            employee.setAccesKey(password);
-            registry = new Registry("Employees");
-            System.out.println(employee.toString());
-            //registry.register(employee);
-            PrincipalWindow principalWindow;
-            this.setVisible(false);
-            principalWindow = new PrincipalWindow();
-            principalWindow.setVisible(true);
-        }*/
+      
 
     }//GEN-LAST:event_btnFinishActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         
     }//GEN-LAST:event_btnBackActionPerformed
-    
-    public void emptyFields() {
-        /*txtName.setText("");
-        txtID.setText("");
-        txtNumberPhone.setText("");*/
-    }
 
-    /*public String covertDate(JDateChooser jDate) {
-        DateFormat dateFormat;
-
-        dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-        String date = dateFormat.format(jDate.getDate());
-        return date;
-
-    }*/
     /**
      * @param args the command line arguments
      */
