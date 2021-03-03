@@ -170,5 +170,265 @@ public class RegistryTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+        /**
+     * Test of register method, of class Registry.
+     */
+    @Test
+    public void testRegister2() {
+        System.out.println("reg");
+        User user = null;
+        Registry instance = null;
+        instance.register(user);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of showUsers method, of class Registry.
+     */
+    @Test
+    public void testShowUsers2() {
+        System.out.println("showUsers");
+        Registry instance = new Registry("Employees");
+        String expResult = "Employees";
+        String result = instance.showUsers();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of findUser method, of class Registry.
+     */
+    @Test
+    public void testFindUser2() {
+        System.out.println("findUser");
+        String dataToFind = "";
+        Registry instance = null;
+        String expResult = "";
+        String result = instance.findUser(dataToFind);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of updateUser method, of class Registry.
+     */
+    @Test
+    public void testUpdateUser2() {
+        System.out.println("updateUser");
+        String dataToFind = "";
+        String dataToUpdate = "";
+        String keyName = "";
+        Registry instance = null;
+        instance.updateUser(dataToFind, dataToUpdate, keyName);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of deleteUser method, of class Registry.
+     */
+    @Test
+    public void testDeleteUser2() {
+        System.out.println("deleteUser");
+        String dataToDelete = "";
+        String keyName = "";
+        Registry instance = null;
+        instance.deleteUser(dataToDelete, keyName);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getUsers method, of class Registry.
+     */
+    @Test
+    public void testGetUsers2() {
+        System.out.println("getUsers");
+        Registry instance = new Registry("Customers");
+        List<User> expResult = new ArrayList<User>();
+        List<User> result = instance.getUsers();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of setUsers method, of class Registry.
+     */
+    @Test
+    public void testSetUsers2() {
+        System.out.println("setUsers");
+        List<User> users = null;
+        Registry instance = null;
+        instance.setUsers(users);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getCollenctionName method, of class Registry.
+     */
+    @Test
+    public void testGetCollenctionName2() {
+        System.out.println("getCollenctionName");
+        Registry instance = new Registry("Employees");
+        String expResult = "Employees";
+        String result = instance.getCollenctionName();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of setCollenctionName method, of class Registry.
+     */
+    @Test
+    public void testSetCollenctionName2() {
+        System.out.println("setCollenctionName");
+        String collenctionName = " ";
+        Registry instance = null;
+        instance.setCollenctionName(collenctionName);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+            /**
+     * Test of register method, of class Registry.
+     */
+    @Test
+    public void testRegister3() {
+        System.out.println("reglop");
+        User user = null;
+        Registry instance = null;
+        instance.register(user);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of showUsers method, of class Registry.
+     */
+    @Test
+    public void testShowUsers3() {
+        System.out.println("showUsers");
+        Registry instance = new Registry("Custom");
+        String expResult = "ustom";
+        String result = instance.showUsers();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of findUser method, of class Registry.
+     */
+    @Test
+    public void testFindUser3() {
+        System.out.println("findUser");
+        String dataToFind = "";
+        Registry instance = null;
+        String expResult = "";
+        String result = instance.findUser(dataToFind);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of updateUser method, of class Registry.
+     */
+    @Test
+    public void testUpdateUser3() {
+        System.out.println("updateUser");
+        String dataToFind = "";
+        String dataToUpdate = "";
+        String keyName = "";
+        Registry instance = null;
+        instance.updateUser(dataToFind, dataToUpdate, keyName);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of deleteUser method, of class Registry.
+     */
+    @Test
+    public void testDeleteUser3() {
+        System.out.println("deleteUser");
+        String dataToDelete = "";
+        String keyName = "";
+        Registry instance = null;
+        instance.deleteUser(dataToDelete, keyName);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getUsers method, of class Registry.
+     */
+    @Test
+    public void testGetUsers3() {
+        System.out.println("getUsers");
+        Registry instance = new Registry("Customers");
+        List<User> expResult = new ArrayList<User>();
+        List<User> result = instance.getUsers();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of setUsers method, of class Registry.
+     */
+    @Test
+    public void testSetUsers3() {
+        System.out.println("setUsers");
+        List<User> users = null;
+        Registry instance = null;
+        instance.setUsers(users);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getCollenctionName method, of class Registry.
+     */
+    @Test
+    public void testGetCollenctionName3() {
+        System.out.println("getCollenctionName");
+        Registry instance = new Registry("Employees");
+        String expResult = "Employees";
+        String result = instance.getCollenctionName();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of setCollenctionName method, of class Registry.
+     */
+    @Test
+    public void testSetCollenctionName3() {
+        System.out.println("setCollenctionName");
+        String collenctionName = " ";
+        Registry instance = null;
+        instance.setCollenctionName(collenctionName);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 
 }

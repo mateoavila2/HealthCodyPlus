@@ -5,12 +5,17 @@
         <group>
             <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/CustomerMenu.java</file>
             <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/TableDateController.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/test/ec/edu/espe/simulatorHealthCody/model/InventoryTest.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Appointment.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/LoginController.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/test/ec/edu/espe/simulatorHealthCody/model/ProductTest.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/test/ec/edu/espe/simulatorHealthCody/model/EmployeeTest.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/test/ec/edu/espe/simulatorHealthCody/model/RegistryTest.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/test/ec/edu/espe/simulatorHealthCody/model/UserTest.java</file>
             <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/TableInventaryController.java</file>
             <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/AddProductWindow.java</file>
             <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/PrincipalWindow.java</file>
             <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/TableInventoryWindow.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Appointment.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/LoginController.java</file>
             <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/TableDateWindow.java</file>
             <file>file:/C:/Users/Equipo/Desktop/TOTAL/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Authentication.java</file>
         </group>

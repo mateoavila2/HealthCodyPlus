@@ -239,4 +239,206 @@ public class UserTest {
         }
     }
 
+    /**
+     * Test of getName method, of class User.
+     */
+    @Test
+    public void testGetName2() {
+        System.out.println("getName");
+        User instance = new User("Kenneth", "12312312331231", "12/8/2001", "Masculino", "Gwchicango", "09George");
+        String expResult = "George";
+        String result = instance.getName();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of setName method, of class User.
+     */
+    @Test
+    public void testSetName2() {
+        System.out.println("setName");
+        String name = "";
+        User instance = new User("", name, name, name, name, name);
+        instance.setName(name);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!instance.name.equals(name)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of getId method, of class User.
+     */
+    @Test
+    public void testGetId2() {
+        System.out.println("getId");
+        User instance = new User("", "", "2300608441", "", "", "");
+        String expResult = "2300608441";
+        String result = instance.getId();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of setId method, of class User.
+     */
+    @Test
+    public void testSetId2() {
+        System.out.println("setId");
+        String id = "";
+        User instance = new User(id, "2300608441", id, id, id, id);
+        instance.setId(id);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!instance.id.equals(id)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of getDateOfBirth method, of class User.
+     */
+    @Test
+    public void testGetDateOfBirth2() {
+        System.out.println("getDateOfBirth");
+        User instance = new User("", "", "Femenino", "", "", "");
+        String expResult = "Femenino";
+        String result = instance.getDateOfBirth();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of setDateOfBirth method, of class User.
+     */
+    @Test
+    public void testSetDateOfBirth2() {
+        System.out.println("setDateOfBirth");
+        String dateOfBirth = "Masculino";
+        User instance = new User("", "", dateOfBirth, "", "", "");
+        instance.setDateOfBirth("");
+        // TODO review the generated test code and remove the default call to fail.
+        if (!instance.dateOfBirth.equals(dateOfBirth)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of getGender method, of class User.
+     */
+    @Test
+    public void testGetGender2() {
+        System.out.println("getGender");
+        User instance = new User("", "", "", "", "", "");
+        String expResult = "Femenino";
+        String result = instance.getGender();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of setGender method, of class User.
+     */
+    @Test
+    public void testSetGender2() {
+        System.out.println("setGender");
+        String gender = "Masculino";
+        User instance = new User("", "", "", "", "", "");
+        instance.setGender(gender);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!instance.gender.equals(gender)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of getUserName method, of class User.
+     */
+    @Test
+    public void testGetUserName3() {
+        System.out.println("getUserName");
+        User instance = new User("", "", "JW09323", "", "", "");
+        String expResult = "JW09323";
+        String result = instance.getUserName();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of setUserName method, of class User.
+     */
+    @Test
+    public void testSetUserName3() {
+        System.out.println("setUserName");
+        String userName = "GJo302";
+        User instance = new User("", "", "", "GJo302", "", "");
+        instance.setUserName(userName);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!instance.userName.equals(userName)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of getAccesKey method, of class User.
+     */
+    @Test
+    public void testGetAccesKey3() {
+        System.out.println("getAccesKey");
+        User instance = new User("", "", "08_jose", "", "", "08_jose");
+        String expResult = "08_jose";
+        String result = instance.getAccesKey();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of setAccesKey method, of class User.
+     */
+    @Test
+    public void testSetAccesKey3() {
+        System.out.println("setAccesKey");
+        String accesKey = "LOLO";
+        User instance = new User(accesKey, accesKey, accesKey, accesKey, accesKey, accesKey);
+        instance.setAccesKey(accesKey);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!instance.accesKey.equals(accesKey)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
+    /**
+     * Test of toString method, of class User.
+     */
+    @Test
+    public void testToString3() {
+        System.out.println("toString");
+        User instance = null;
+        String expResult = "";
+        String result = instance.toString();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+
 }
