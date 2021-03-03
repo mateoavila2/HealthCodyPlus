@@ -69,21 +69,15 @@ public class AddProductWindow extends javax.swing.JFrame {
 
         lblCode.setText("Código del producto:");
         jPanel2.add(lblCode);
-        lblCode.setBounds(180, 240, 119, 16);
+        lblCode.setBounds(180, 240, 116, 16);
 
         lblPrice.setText("Precio del producto:");
         jPanel2.add(lblPrice);
-        lblPrice.setBounds(180, 290, 115, 16);
+        lblPrice.setBounds(180, 290, 114, 16);
 
         lblQuantity.setText("Cantidad del producto:");
         jPanel2.add(lblQuantity);
-        lblQuantity.setBounds(330, 350, 130, 16);
-
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
+        lblQuantity.setBounds(330, 350, 127, 16);
         jPanel2.add(txtName);
         txtName.setBounds(330, 186, 380, 30);
         jPanel2.add(txtCode);
@@ -91,23 +85,13 @@ public class AddProductWindow extends javax.swing.JFrame {
         jPanel2.add(txtPrice);
         txtPrice.setBounds(330, 286, 380, 30);
         jPanel2.add(spnQuantity);
-        spnQuantity.setBounds(490, 350, 60, 22);
+        spnQuantity.setBounds(490, 350, 60, 26);
 
         btnReturn.setText("Regresar");
-        btnReturn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReturnActionPerformed(evt);
-            }
-        });
         jPanel2.add(btnReturn);
         btnReturn.setBounds(470, 430, 160, 60);
 
         btnAdd.setText("Agregar");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
         jPanel2.add(btnAdd);
         btnAdd.setBounds(290, 430, 160, 60);
 
@@ -129,22 +113,6 @@ public class AddProductWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        
-    }//GEN-LAST:event_btnAddActionPerformed
-
-    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        // TODO add your handling code here:
-        /*InventoryWindow inventoryWindow = new InventoryWindow();
-        this.setVisible(false);
-        inventoryWindow.setLocationRelativeTo(null);
-        inventoryWindow.setVisible(true);*/
-    }//GEN-LAST:event_btnReturnActionPerformed
-
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
 
     /**
      * @param args the command line arguments

@@ -139,13 +139,13 @@ public class CustomerMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddAppointment;
-    private javax.swing.JButton btnDeleteAppointment;
-    private javax.swing.JButton btnReturn;
-    private javax.swing.JButton btnShowAppointment;
+    public javax.swing.JButton btnAddAppointment;
+    public javax.swing.JButton btnDeleteAppointment;
+    public javax.swing.JButton btnReturn;
+    public javax.swing.JButton btnShowAppointment;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenuBar jMenuBar1;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu mnAppointment;
     private javax.swing.JMenu mnExit;

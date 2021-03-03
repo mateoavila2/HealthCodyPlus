@@ -32,7 +32,6 @@ public class EmployeeMenu extends javax.swing.JFrame {
         btnInventory1 = new javax.swing.JButton();
         btnAccount = new javax.swing.JButton();
         btnDates = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -52,49 +51,20 @@ public class EmployeeMenu extends javax.swing.JFrame {
         jLabel2.setBounds(220, 40, 630, 100);
 
         btnInventory1.setText("Inventario");
-        btnInventory1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInventory1ActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnInventory1);
         btnInventory1.setBounds(380, 240, 180, 60);
 
         btnAccount.setText("Cuenta");
-        btnAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAccountActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnAccount);
         btnAccount.setBounds(380, 330, 180, 60);
 
         btnDates.setText("Citas");
-        btnDates.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDatesActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnDates);
         btnDates.setBounds(380, 150, 180, 60);
 
-        btnExit.setText("Salir");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnExit);
-        btnExit.setBounds(250, 430, 180, 60);
-
         btnReturn.setText("Regresar");
-        btnReturn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReturnActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnReturn);
-        btnReturn.setBounds(40, 430, 180, 60);
+        btnReturn.setBounds(50, 400, 200, 60);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/SecundaryMenuIMG.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -133,26 +103,6 @@ public class EmployeeMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatesActionPerformed
-       
-    }//GEN-LAST:event_btnDatesActionPerformed
-
-    private void btnInventory1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventory1ActionPerformed
-        
-    }//GEN-LAST:event_btnInventory1ActionPerformed
-
-    private void btnAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountActionPerformed
-        
-    }//GEN-LAST:event_btnAccountActionPerformed
-
-    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        
-    }//GEN-LAST:event_btnReturnActionPerformed
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        
-    }//GEN-LAST:event_btnExitActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -189,14 +139,13 @@ public class EmployeeMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAccount;
-    private javax.swing.JButton btnDates;
-    public javax.swing.JButton btnExit;
+    public javax.swing.JButton btnAccount;
+    public javax.swing.JButton btnDates;
     public javax.swing.JButton btnInventory1;
     public javax.swing.JButton btnReturn;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenuBar jMenuBar1;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu mnExit;
     private javax.swing.JMenu mnOption;

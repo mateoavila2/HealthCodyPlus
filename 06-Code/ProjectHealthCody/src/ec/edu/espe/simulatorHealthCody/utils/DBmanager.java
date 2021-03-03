@@ -27,6 +27,14 @@ public class DBmanager {
     MongoDatabase database;
     MongoCollection collection;
 
+    /*public static void conection(String dataBaseName, String collectionName) {
+        String cluster = "mongodb+srv://rebuse:08152000@cluster0.dtqjv.mongodb.net/DataBase?retryWrites=true&w=majority";
+        MongoClientURI uri = new MongoClientURI(cluster);
+        MongoClient mongoClient = new MongoClient(uri);
+        MongoDatabase database = mongoClient.getDatabase(dataBaseName);
+        MongoCollection collection =  database.getCollection(collectionName);
+    }*/
+
     public DBmanager(String dataBaseName, String collectionName) {
         cluster = "mongodb+srv://rebuse:08152000@cluster0.dtqjv.mongodb.net/DataBase?retryWrites=true&w=majority";
         uri = new MongoClientURI(cluster);

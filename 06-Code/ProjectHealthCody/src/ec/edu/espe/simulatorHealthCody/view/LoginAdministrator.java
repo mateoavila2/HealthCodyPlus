@@ -46,20 +46,10 @@ public class LoginAdministrator extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         btnReturn.setText("Regresar");
-        btnReturn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReturnActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnReturn);
         btnReturn.setBounds(150, 420, 83, 32);
 
         btnLogin.setText("Login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnLogin);
         btnLogin.setBounds(50, 420, 61, 32);
         jPanel1.add(txtCode);
@@ -68,11 +58,6 @@ public class LoginAdministrator extends javax.swing.JFrame {
         txtUser.setBounds(60, 260, 300, 24);
 
         lblCodeForget.setText("¿Olvidaste tu usuario o contraseña?");
-        lblCodeForget.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCodeForgetMouseClicked(evt);
-            }
-        });
         jPanel1.add(lblCodeForget);
         lblCodeForget.setBounds(60, 360, 240, 16);
 
@@ -107,47 +92,6 @@ public class LoginAdministrator extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lblCodeForgetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCodeForgetMouseClicked
-        // TODO add your handling code here:
-        /*String selection = JOptionPane.showInputDialog("Ingrese su nombre y apellido:");
-        boolean compare;
-        if (selection != null) {
-            compare = true;
-            //Enviar los dos datos a comparar
-            if (compare == true) {
-                if (JOptionPane.showInputDialog("Ingrese un nuevo usuario").equals(JOptionPane.showInputDialog("Confirmar nuevo usuario"))) {
-                    //traer el codigo de la base de datos y mostrarla en pantalla.
-                    JOptionPane.showMessageDialog(rootPane, "Su codigo de acceso es:" + "Juanito123");
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Usuario o Código incorrectos");
-                }
-
-            }
-        }*/
-    }//GEN-LAST:event_lblCodeForgetMouseClicked
-
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
-       /* Authentication authentication = new Authentication("Employees");
-        boolean comparateAdmin = authentication.login(txtUser.getText(),txtCode.getText());
-        EmployeeMenu employeeMenu = new EmployeeMenu();
-        if (comparateAdmin == false) {
-            JOptionPane.showMessageDialog(rootPane, "Usuario o Código incorrectos");
-            txtUser.setText(null);
-            txtCode.setText(null);
-            txtUser.getAction();
-            txtCode.getAction();
-        } else {
-            employeeMenu.setLocationRelativeTo(null);
-            employeeMenu.setVisible(true);
-            this.setVisible(false);
-        }*/
-    }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        
-    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,10 +132,10 @@ public class LoginAdministrator extends javax.swing.JFrame {
     public javax.swing.JButton btnLogin;
     public javax.swing.JButton btnReturn;
     public javax.swing.JLabel imgLogin;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel lblCode;
-    private javax.swing.JLabel lblCodeForget;
+    public javax.swing.JLabel lblCodeForget;
     public javax.swing.JLabel lblUser;
     public javax.swing.JTextField txtCode;
     public javax.swing.JTextField txtUser;

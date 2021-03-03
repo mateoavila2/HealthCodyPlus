@@ -4,13 +4,8 @@
  * and open the template in the editor.
  */
 package simulatorHealthCody;
-
-import ec.edu.espe.simulatorHealthCody.controller.InventoryController;
-import ec.edu.espe.simulatorHealthCody.controller.LoginController;
-import ec.edu.espe.simulatorHealthCody.model.Authentication;
-import ec.edu.espe.simulatorHealthCody.model.Inventory;
-import ec.edu.espe.simulatorHealthCody.view.InventoryWindow;
-import ec.edu.espe.simulatorHealthCody.view.PrincipalWindow;
+import ec.edu.espe.simulatorHealthCody.controller.LoginCustomerController;
+import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
 
 /**
  *
@@ -19,13 +14,14 @@ import ec.edu.espe.simulatorHealthCody.view.PrincipalWindow;
 public class HealthCodySystem {
     public static void main(String[] args) {
         
-       PrincipalWindow loginWindow;
-        Authentication authentication;
-        LoginController loginController;
+        //SISTEMA HEALTH CODY PLUSS
         
-        loginWindow = new PrincipalWindow();
-        authentication = new Authentication("Customers");
-        loginController = new LoginController(loginWindow, authentication);
+        LoginCustomer loginCustomer;
+        LoginCustomerController loginCustomerController;
+        loginCustomer = new LoginCustomer();
+        loginCustomerController = new LoginCustomerController(loginCustomer);
+        
+        
 
         
     }

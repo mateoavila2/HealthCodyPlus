@@ -26,22 +26,31 @@ public class InventoryController implements ActionListener, MouseListener {
 
     InventoryWindow inventoryWindow;
     Inventory inventory;
-    public InventoryController(InventoryWindow inventoryWindow) {
+
+    public InventoryController(InventoryWindow inventoryWindow, Inventory inventory) {
         this.inventoryWindow = inventoryWindow;
+        this.inventory = inventory;
         this.inventoryWindow.setLocationRelativeTo(null);
         this.inventoryWindow.setVisible(true);
-        inventory = new Inventory("Products");
-        inventoryWindow.btnAddProduct.addActionListener(this);
-        inventoryWindow.btnAccept.addActionListener(this);
-        inventoryWindow.btnReturn.addActionListener(this);
-        inventoryWindow.btnViewInventory.addActionListener(this);
+        this.inventoryWindow.btnAddProduct.addActionListener(this);
+        this.inventoryWindow.btnAccept.addActionListener(this);
+        this.inventoryWindow.btnReturn.addActionListener(this);
+        this.inventoryWindow.btnViewInventory.addActionListener(this);
+        this.inventoryWindow.rdbSearch.addActionListener(this);
+        this.inventoryWindow.rdbModific.addActionListener(this);
+        this.inventoryWindow.rdbDelete.addActionListener(this);
+        
+        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == inventoryWindow.btnAddProduct) {
-            AddProductWindow addProductWindow = new AddProductWindow();
-            
+            AddProductWindow addProductWindow;
+            addProductWindow = new AddProductWindow();
+            AddProductController addProductController;
+            this.inventoryWindow.setVisible(false);
+            addProductController = new AddProductController(addProductWindow, this.inventory);
         }
         if (e.getSource() == inventoryWindow.btnAccept) {
             if (inventoryWindow.txtProduct.getText().equals("")) {
@@ -50,7 +59,7 @@ public class InventoryController implements ActionListener, MouseListener {
                 if (inventoryWindow.rdbSearch.isSelected() == true) {
                     String dataToFind = inventoryWindow.txtProduct.getText();
                     System.out.println(dataToFind);
-                    String recovered = inventory.findProduct(dataToFind);
+                    String recovered = this.inventory.findProduct(dataToFind);
                     if (recovered.equals("")) {
                         JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
                     } else {
@@ -63,25 +72,24 @@ public class InventoryController implements ActionListener, MouseListener {
                     String dataToModify = inventoryWindow.txtProduct.getText();
                     String dataToUpdate = JOptionPane.showInputDialog("Ingrese el nuevo dato");
 
-                    Inventory inventory = new Inventory("Products");
-                    String recovered = inventory.findProduct(dataToModify);
+
+                    String recovered = this.inventory.findProduct(dataToModify);
                     if (recovered.equals("")) {
                         JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
                     } else {
-                        inventory.updateProduct(dataToModify, dataToUpdate, "name");
+                        this.inventory.updateProduct(dataToModify, dataToUpdate, "name");
                         JOptionPane.showMessageDialog(null, "Dato modificado con éxito");
                     }
 
                 }
                 if (inventoryWindow.rdbDelete.isSelected() == true) {
                     String dataTodeleted = inventoryWindow.txtProduct.getText();
-                    Inventory inventory = new Inventory("Products");
 
-                    String recovered = inventory.findProduct(dataTodeleted);
+                    String recovered = this.inventory.findProduct(dataTodeleted);
                     if (recovered.equals("")) {
                         JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
                     } else {
-                        inventory.deleteProduct(dataTodeleted, "code");
+                        this.inventory.deleteProduct(dataTodeleted, "code");
                         JOptionPane.showMessageDialog(null, "Dato eliminado con éxito");
                     }
                 }
@@ -89,17 +97,41 @@ public class InventoryController implements ActionListener, MouseListener {
         }
         if (e.getSource() == inventoryWindow.btnReturn) {
             EmployeeMenu employeeMenu = new EmployeeMenu();
+            EmployeeMenuControl employeeMenuControl;
+            employeeMenu = new EmployeeMenu();
             this.inventoryWindow.setVisible(false);
-            inventoryWindow.setLocationRelativeTo(null);
-            inventoryWindow.setVisible(true);
+            employeeMenuControl = new EmployeeMenuControl(employeeMenu);
         }
-        if(e.getSource()==inventoryWindow.btnViewInventory)
-        {
-            this.inventoryWindow.setVisible(false);
+        if (e.getSource() == inventoryWindow.btnViewInventory) {
+
             TableInventoryWindow tableInventoryWindow;
             TableInventaryController tableInventaryController;
             tableInventoryWindow = new TableInventoryWindow();
-            tableInventaryController = new TableInventaryController(tableInventoryWindow);
+            this.inventoryWindow.setVisible(false);
+            tableInventaryController = new TableInventaryController(tableInventoryWindow,this.inventory);
+        }
+        if (e.getSource() == inventoryWindow.rdbSearch) {
+            inventoryWindow.txtProduct.setText(null);
+            inventoryWindow.txtProduct.getAction();
+            inventoryWindow.txtProduct.setVisible(true);
+            inventoryWindow.btnAccept.setVisible(true);
+            inventoryWindow.lblModificD.setVisible(false);
+        }
+        if (e.getSource() == inventoryWindow.rdbModific) {
+            inventoryWindow.txtProduct.setText(null);
+            inventoryWindow.txtProduct.getAction();
+            inventoryWindow.txtProduct.setVisible(true);
+            inventoryWindow.btnAccept.setVisible(true);
+            inventoryWindow.lblModificD.setText("Dato a modificar");
+            inventoryWindow.lblModificD.setVisible(true);
+        }
+        if (e.getSource() == inventoryWindow.rdbDelete) {
+            inventoryWindow.txtProduct.setText(null);
+            inventoryWindow.txtProduct.getAction();
+            inventoryWindow.txtProduct.setVisible(true);
+            inventoryWindow.btnAccept.setVisible(true);
+            inventoryWindow.lblModificD.setText("Código del producto");
+            inventoryWindow.lblModificD.setVisible(true);
         }
     }
 
