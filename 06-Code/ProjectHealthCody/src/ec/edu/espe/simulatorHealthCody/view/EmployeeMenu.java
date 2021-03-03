@@ -32,6 +32,7 @@ public class EmployeeMenu extends javax.swing.JFrame {
         btnInventory = new javax.swing.JButton();
         btnAccount = new javax.swing.JButton();
         btnDates = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -51,11 +52,6 @@ public class EmployeeMenu extends javax.swing.JFrame {
         jLabel2.setBounds(220, 40, 630, 100);
 
         btnInventory.setText("Inventario");
-        btnInventory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInventoryActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnInventory);
         btnInventory.setBounds(380, 240, 180, 60);
 
@@ -67,14 +63,18 @@ public class EmployeeMenu extends javax.swing.JFrame {
         jPanel1.add(btnDates);
         btnDates.setBounds(380, 150, 180, 60);
 
+        btnExit.setText("Salir");
+        jPanel1.add(btnExit);
+        btnExit.setBounds(250, 430, 180, 60);
+
         btnReturn.setText("Regresar");
         jPanel1.add(btnReturn);
-        btnReturn.setBounds(60, 400, 180, 60);
+        btnReturn.setBounds(40, 430, 180, 60);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/SecundaryMenuIMG.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 870, 480);
+        jLabel1.setBounds(0, 0, 870, 510);
 
         mnOption.setText("Opciones");
 
@@ -102,15 +102,11 @@ public class EmployeeMenu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
-        
-    }//GEN-LAST:event_btnInventoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,16 +144,17 @@ public class EmployeeMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAccount;
-    public javax.swing.JButton btnDates;
-    public javax.swing.JButton btnInventory;
-    public javax.swing.JButton btnReturn;
+    private javax.swing.JButton btnAccount;
+    private javax.swing.JButton btnDates;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnInventory;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabel2;
-    public javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JMenu mnExit;
-    public javax.swing.JMenu mnOption;
+    private javax.swing.JMenu mnExit;
+    private javax.swing.JMenu mnOption;
     private javax.swing.JMenuItem mniAccount;
     private javax.swing.JMenuItem mniAppointment;
     private javax.swing.JMenuItem mniInventary;

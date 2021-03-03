@@ -22,6 +22,19 @@ public class Employee extends User {
         salary = 800.50;
     }
     
+    public String generateCode(){
+        
+        String code = "";
+        int number;
+        char character;
+        for(int i=0;i<7;i++){
+            number = (int) (Math.random() * (91 - 65)) + 65;
+            character = (char) number;
+            code += character;
+        }
+        return code;
+    
+    }
 
     public double getSalary() {
         return salary;

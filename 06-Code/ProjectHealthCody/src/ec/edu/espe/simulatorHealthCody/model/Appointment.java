@@ -30,7 +30,6 @@ public class Appointment {
         this.collection = collection;
         datesOfWeek = new ArrayList();
         dateOperation = new DBmanagerDates("Appointment", this.collection);
-
     }
 
     //Administrator Methods

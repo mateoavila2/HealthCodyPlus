@@ -7,7 +7,6 @@ package ec.edu.espe.simulatorHealthCody.controller;
 
 import ec.edu.espe.simulatorHealthCody.model.Authentication;
 import ec.edu.espe.simulatorHealthCody.model.Registry;
-import ec.edu.espe.simulatorHealthCody.view.CustomerMenu;
 import ec.edu.espe.simulatorHealthCody.view.LoginAdministrator;
 import ec.edu.espe.simulatorHealthCody.view.PrincipalWindow;
 import ec.edu.espe.simulatorHealthCody.view.CustomerWindow;
@@ -41,20 +40,15 @@ public class LoginController implements ActionListener, MouseListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == loginWindow.getBtnLogin()) {
-            boolean compare = false;
-            this.authentication = new Authentication("Customers");
+            boolean compare;
             String userName, password;
             userName = loginWindow.getTxtUserName().getText();
             password = loginWindow.getTxpPassword().getText();
-            compare = this.authentication.login(userName, password);
+            compare = authentication.login(userName, password);
             if (compare == true) {
-                this.loginWindow.setVisible(false);
-                CustomerMenu customerMenu;
-                CustomerMenuControl customerMenuControl;
-                customerMenu = new CustomerMenu();
-                customerMenuControl = new CustomerMenuControl(customerMenu);
+                System.out.println("si valio ");
             } else {
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
+                JOptionPane.showMessageDialog(null, "Usuario ocontraseña incorrecta");
                 loginWindow.getTxtUserName().setText("");
                 loginWindow.getTxpPassword().setText("");
             }
@@ -88,9 +82,9 @@ public class LoginController implements ActionListener, MouseListener {
 
         if (me.getSource() == loginWindow.getLblAdminLogin()) {
             LoginAdministrator loginAdministrator = new LoginAdministrator();
-            LoginAdminController loginAdminController;
+            loginAdministrator.setLocationRelativeTo(null);
             loginWindow.setVisible(false);
-            loginAdminController = new LoginAdminController(loginAdministrator);
+            loginAdministrator.setVisible(true);
         }
     }
 

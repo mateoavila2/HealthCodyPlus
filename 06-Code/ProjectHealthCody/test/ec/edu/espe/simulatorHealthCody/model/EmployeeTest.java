@@ -40,7 +40,7 @@ public class EmployeeTest {
     /**
      * Test of generateCode method, of class Employee.
      */
-    /*@Test
+    @Test
     public void testGenerateCode() {
         System.out.println("generateCode");
         Employee instance = new Employee("", "", "", "", "", "", "");
@@ -51,7 +51,7 @@ public class EmployeeTest {
         if (!result.equals(expResult)) {
             fail("The test case is a prototype.");
         }
-    }*/
+    }
 
     /**
      * Test of getSalary method, of class Employee.

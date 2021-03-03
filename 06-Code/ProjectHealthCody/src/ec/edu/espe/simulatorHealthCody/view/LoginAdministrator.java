@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.simulatorHealthCody.view;
 
+import ec.edu.espe.simulatorHealthCody.model.Authentication;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mateo Ávila ESPE
@@ -43,13 +46,8 @@ public class LoginAdministrator extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         btnReturn.setText("Regresar");
-        btnReturn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReturnActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnReturn);
-        btnReturn.setBounds(20, 380, 83, 32);
+        btnReturn.setBounds(150, 420, 85, 25);
 
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -58,55 +56,89 @@ public class LoginAdministrator extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnLogin);
-        btnLogin.setBounds(300, 330, 61, 32);
+        btnLogin.setBounds(50, 420, 63, 25);
         jPanel1.add(txtCode);
-        txtCode.setBounds(140, 250, 300, 24);
+        txtCode.setBounds(60, 310, 300, 22);
         jPanel1.add(txtUser);
-        txtUser.setBounds(140, 200, 300, 24);
+        txtUser.setBounds(60, 260, 300, 22);
 
         lblCodeForget.setText("¿Olvidaste tu usuario o contraseña?");
+        lblCodeForget.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCodeForgetMouseClicked(evt);
+            }
+        });
         jPanel1.add(lblCodeForget);
-        lblCodeForget.setBounds(140, 300, 240, 16);
+        lblCodeForget.setBounds(60, 360, 240, 16);
 
         lblCode.setText("Código:");
         jPanel1.add(lblCode);
-        lblCode.setBounds(140, 230, 60, 16);
+        lblCode.setBounds(60, 290, 60, 16);
 
         lblUser.setText("Usuario:");
         jPanel1.add(lblUser);
-        lblUser.setBounds(140, 180, 60, 16);
+        lblUser.setBounds(60, 240, 60, 16);
 
         jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 36)); // NOI18N
         jLabel2.setText("Ingreso para administradores");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(140, 90, 500, 80);
+        jLabel2.setBounds(60, 150, 500, 80);
 
         imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/LoginAdministratorIMG.png"))); // NOI18N
         imgLogin.setText("jLabel1");
         jPanel1.add(imgLogin);
-        imgLogin.setBounds(0, 0, 830, 480);
+        imgLogin.setBounds(0, 0, 940, 480);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 828, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 937, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        
-    }//GEN-LAST:event_btnLoginActionPerformed
+    private void lblCodeForgetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCodeForgetMouseClicked
+        // TODO add your handling code here:
+        String selection = JOptionPane.showInputDialog("Ingrese su nombre y apellido:");
+        boolean compare;
+        if (selection != null) {
+            compare = true;
+            //Enviar los dos datos a comparar
+            if (compare == true) {
+                if (JOptionPane.showInputDialog("Ingrese un nuevo usuario").equals(JOptionPane.showInputDialog("Confirmar nuevo usuario"))) {
+                    //traer el codigo de la base de datos y mostrarla en pantalla.
+                    JOptionPane.showMessageDialog(rootPane, "Su codigo de acceso es:" + "Juanito123");
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Usuario o Código incorrectos");
+                }
 
-    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        
-    }//GEN-LAST:event_btnReturnActionPerformed
+            }
+        }
+    }//GEN-LAST:event_lblCodeForgetMouseClicked
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        Authentication authentication = new Authentication("Employees");
+        boolean comparateAdmin = authentication.login(txtUser.getText(),txtCode.getText());
+        EmployeeMenu employeeMenu = new EmployeeMenu();
+        if (comparateAdmin == false) {
+            JOptionPane.showMessageDialog(rootPane, "Usuario o Código incorrectos");
+            txtUser.setText(null);
+            txtCode.setText(null);
+            txtUser.getAction();
+            txtCode.getAction();
+        } else {
+            employeeMenu.setLocationRelativeTo(null);
+            employeeMenu.setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,15 +176,15 @@ public class LoginAdministrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnLogin;
-    public javax.swing.JButton btnReturn;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JLabel imgLogin;
-    public javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JLabel lblCode;
-    public javax.swing.JLabel lblCodeForget;
-    public javax.swing.JLabel lblUser;
-    public javax.swing.JTextField txtCode;
-    public javax.swing.JTextField txtUser;
+    private javax.swing.JLabel lblCode;
+    private javax.swing.JLabel lblCodeForget;
+    private javax.swing.JLabel lblUser;
+    private javax.swing.JTextField txtCode;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
