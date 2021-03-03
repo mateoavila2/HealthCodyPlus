@@ -7,6 +7,7 @@ package ec.edu.espe.simulatorHealthCody.controller;
 
 import ec.edu.espe.simulatorHealthCody.model.Authentication;
 import ec.edu.espe.simulatorHealthCody.model.Registry;
+import ec.edu.espe.simulatorHealthCody.view.CustomerMenu;
 import ec.edu.espe.simulatorHealthCody.view.LoginAdministrator;
 import ec.edu.espe.simulatorHealthCody.view.PrincipalWindow;
 import ec.edu.espe.simulatorHealthCody.view.CustomerWindow;
@@ -41,13 +42,17 @@ public class LoginController implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == loginWindow.getBtnLogin()) {
             boolean compare = false;
-            authentication = new Authentication("Customers");
+            this.authentication = new Authentication("Customers");
             String userName, password;
             userName = loginWindow.getTxtUserName().getText();
             password = loginWindow.getTxpPassword().getText();
-            compare = authentication.login(userName, password);
+            compare = this.authentication.login(userName, password);
             if (compare == true) {
-                System.out.println("si valio ");
+                this.loginWindow.setVisible(false);
+                CustomerMenu customerMenu;
+                CustomerMenuControl customerMenuControl;
+                customerMenu = new CustomerMenu();
+                customerMenuControl = new CustomerMenuControl(customerMenu);
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
                 loginWindow.getTxtUserName().setText("");
@@ -84,9 +89,8 @@ public class LoginController implements ActionListener, MouseListener {
         if (me.getSource() == loginWindow.getLblAdminLogin()) {
             LoginAdministrator loginAdministrator = new LoginAdministrator();
             LoginAdminController loginAdminController;
-            Authentication authentication = new Authentication("Employees");
             loginWindow.setVisible(false);
-            loginAdminController = new LoginAdminController(loginAdministrator, authentication);
+            loginAdminController = new LoginAdminController(loginAdministrator);
         }
     }
 

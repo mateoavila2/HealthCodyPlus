@@ -6,6 +6,7 @@
 package ec.edu.espe.simulatorHealthCody.controller;
 
 import ec.edu.espe.simulatorHealthCody.model.Authentication;
+import ec.edu.espe.simulatorHealthCody.view.EmployeeMenu;
 import ec.edu.espe.simulatorHealthCody.view.LoginAdministrator;
 import ec.edu.espe.simulatorHealthCody.view.PrincipalWindow;
 import java.awt.event.ActionEvent;
@@ -23,11 +24,11 @@ public class LoginAdminController implements ActionListener, MouseListener {
     LoginAdministrator loginAdministrator;
     Authentication authentication;
 
-    public LoginAdminController(LoginAdministrator loginAdministrator, Authentication authentication) {
+    public LoginAdminController(LoginAdministrator loginAdministrator) {
         this.loginAdministrator = loginAdministrator;
         this.loginAdministrator.setLocationRelativeTo(null);
         this.loginAdministrator.setVisible(true);
-        this.authentication = authentication;
+        authentication = new Authentication("Employees");
         loginAdministrator.btnLogin.addActionListener(this);
         loginAdministrator.btnReturn.addActionListener(this);
     }
@@ -43,7 +44,11 @@ public class LoginAdminController implements ActionListener, MouseListener {
             System.out.println(password);
             compare = authentication.login(userName, password);
             if (compare == true) {
-                System.out.println("si valio");
+                EmployeeMenu employeeMenu;
+                EmployeeMenuControl employeeMenuControl;
+                employeeMenu = new EmployeeMenu();
+                this.loginAdministrator.setVisible(false);
+                employeeMenuControl = new EmployeeMenuControl(employeeMenu);
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
                 loginAdministrator.txtUser.setText("");

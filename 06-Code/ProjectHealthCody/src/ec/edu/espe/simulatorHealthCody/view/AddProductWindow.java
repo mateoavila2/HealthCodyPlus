@@ -131,39 +131,15 @@ public class AddProductWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
-        String code = txtCode.getText();
-        String name = txtName.getText();
-        int quantitys = Integer.parseInt(spnQuantity.getValue().toString());
-        if (code.equals("") || name.equals("") || txtPrice.getText().equals("") || (quantitys <= 0 || quantitys > 100)) {
-            JOptionPane.showMessageDialog(null, "No se han registrado todos los datos");
-        } else {
-            try {
-                double price = Double.parseDouble(txtPrice.getText());
-                if (price <= 0) {
-                    JOptionPane.showMessageDialog(null, "Dato de precio no válido");
-                    txtPrice.setText(null);
-                    txtPrice.getAction();
-                } else {
-                    Product product = new Product(name, code, price, quantitys);
-                    Inventory inventory = new Inventory("Products");
-                    inventory.saveProduct(product);
-                    JOptionPane.showMessageDialog(null, "Producto registrado con éxito");
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Dato de precio no válido");
-                txtPrice.setText(null);
-                txtPrice.getAction();
-            }
-        }
+        
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        // TODO add your handling code here:
+        /*// TODO add your handling code here:
         InventoryWindow inventoryWindow = new InventoryWindow();
         this.setVisible(false);
         inventoryWindow.setLocationRelativeTo(null);
-        inventoryWindow.setVisible(true);
+        inventoryWindow.setVisible(true);*/
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed

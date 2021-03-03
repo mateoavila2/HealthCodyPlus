@@ -84,9 +84,8 @@ public class EmployeeController implements ActionListener, MouseListener {
                 //registry.register(employee);
                 this.employeeWindow.setVisible(false);
                 LoginAdministrator loginAdministrator = new LoginAdministrator();
-                Authentication authentication = new Authentication("Employee");
                 LoginAdminController loginAdminController;
-                loginAdminController = new LoginAdminController(loginAdministrator, authentication);
+                loginAdminController = new LoginAdminController(loginAdministrator);
             }
 
         }
@@ -95,9 +94,8 @@ public class EmployeeController implements ActionListener, MouseListener {
             PrincipalWindow loginWindow = new PrincipalWindow();
             LoginController loginController;
             this.employeeWindow.setVisible(false);
-            Authentication authentication = new Authentication("Customers");
-            
-            loginController = new LoginController(loginWindow, authentication);
+            Authentication authentication = new Authentication("Customers"); 
+            loginController = new LoginController(loginWindow,authentication);
         }
     }
 

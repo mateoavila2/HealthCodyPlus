@@ -7,6 +7,7 @@ package ec.edu.espe.simulatorHealthCody.controller;
 
 import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.simulatorHealthCody.model.Product;
+import ec.edu.espe.simulatorHealthCody.model.Registry;
 import ec.edu.espe.simulatorHealthCody.view.AddProductWindow;
 import ec.edu.espe.simulatorHealthCody.view.InventoryWindow;
 import java.awt.event.ActionEvent;
@@ -22,10 +23,12 @@ import javax.swing.JOptionPane;
 public class AddProductController implements ActionListener, MouseListener {
 
     AddProductWindow addProductWindows;
-    Product product;
-    public AddProductController(AddProductWindow addProductWindow,Product product) {
+    Inventory inventory;
+    public AddProductController(AddProductWindow addProductWindow) {
         this.addProductWindows = addProductWindow;
-        this.product = product;
+        inventory = new Inventory("Products");
+        this.addProductWindows.setLocationRelativeTo(null);
+        this.addProductWindows.setVisible(true);
         addProductWindows.btnAdd.addActionListener(this);
         addProductWindows.btnReturn.addActionListener(this);
     }
@@ -46,8 +49,8 @@ public class AddProductController implements ActionListener, MouseListener {
                         addProductWindows.txtPrice.setText(null);
                         addProductWindows.txtPrice.getAction();
                     } else {
-                        Product product = new Product(name, code, price, quantitys);
-                        Inventory inventory = new Inventory("Products");
+                        Product product;
+                        product = new Product(name, code, price, quantitys);
                         inventory.saveProduct(product);
                         JOptionPane.showMessageDialog(null, "Producto registrado con éxito");
                     }
@@ -59,10 +62,10 @@ public class AddProductController implements ActionListener, MouseListener {
             }
         }
         if (e.getSource() == addProductWindows.btnReturn) {
-            InventoryWindow inventoryWindow = new InventoryWindow();
             this.addProductWindows.setVisible(false);
-            inventoryWindow.setLocationRelativeTo(null);
-            inventoryWindow.setVisible(true);
+            InventoryWindow inventoryWindow = new InventoryWindow();
+            InventoryController inventoryController;
+            inventoryController = new InventoryController(inventoryWindow);
         }
     }
 

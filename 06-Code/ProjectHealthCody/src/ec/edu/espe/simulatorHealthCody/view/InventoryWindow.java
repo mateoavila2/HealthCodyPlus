@@ -165,7 +165,7 @@ public class InventoryWindow extends javax.swing.JFrame {
 
     private void rdbSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbSearchActionPerformed
         // TODO add your handling code here:
-       /* txtProduct.setText(null);
+        /*txtProduct.setText(null);
         txtProduct.getAction();
         txtProduct.setVisible(true);
         btnAccept.setVisible(true);
