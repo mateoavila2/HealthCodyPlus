@@ -8,6 +8,7 @@ package ec.edu.espe.simulatorHealthCody.controller;
 import com.google.gson.Gson;
 import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.simulatorHealthCody.model.Product;
+import ec.edu.espe.simulatorHealthCody.view.InventoryWindow;
 import ec.edu.espe.simulatorHealthCody.view.TableInventoryWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,12 +27,14 @@ public class TableInventaryController implements ActionListener, MouseListener {
     TableInventoryWindow tableInventoryWindow;
     Inventory inventory;
 
-    public TableInventaryController(TableInventoryWindow tableInventoryWindow) {
+    public TableInventaryController(TableInventoryWindow tableInventoryWindow,Inventory inventory) {
         this.tableInventoryWindow = tableInventoryWindow;
         this.tableInventoryWindow.setLocationRelativeTo(null);
         this.tableInventoryWindow.setVisible(true);
-        inventory = new Inventory("Products");
-        tableInventoryWindow.btnInventary.addActionListener(this);
+        this.inventory = inventory;
+        this.tableInventoryWindow.btnInventary.addActionListener(this);
+        this.tableInventoryWindow.btnPrint.addActionListener(this);
+        this.tableInventoryWindow.btnReturn.addActionListener(this);
     }
 
     @Override
@@ -77,6 +80,13 @@ public class TableInventaryController implements ActionListener, MouseListener {
             } catch (Exception b) {
                 JOptionPane.showMessageDialog(null, "No se puede imprimir el inventario total");
             }
+        }
+        if(e.getSource() == tableInventoryWindow.btnReturn){
+            InventoryWindow inventoryWindow;
+            InventoryController inventoryController;
+            inventoryWindow = new InventoryWindow();
+            this.tableInventoryWindow.setVisible(false);
+            inventoryController = new InventoryController(inventoryWindow, this.inventory);
         }
     }
 

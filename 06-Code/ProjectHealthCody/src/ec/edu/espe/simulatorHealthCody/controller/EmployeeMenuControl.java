@@ -5,10 +5,13 @@
  */
 package ec.edu.espe.simulatorHealthCody.controller;
 
+import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.simulatorHealthCody.view.EmployeeMenu;
 import ec.edu.espe.simulatorHealthCody.view.InventoryWindow;
+import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.registry.Registry;
 
 /**
  *
@@ -22,18 +25,26 @@ public class EmployeeMenuControl implements ActionListener {
         this.employeeMenu = employeeMenu;
         this.employeeMenu.setLocationRelativeTo(null);
         this.employeeMenu.setVisible(true);
-        employeeMenu.btnInventory1.addActionListener(this);
+        this.employeeMenu.btnInventory1.addActionListener(this);
+        this.employeeMenu.btnReturn.addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == employeeMenu.btnInventory1) {
-            this.employeeMenu.setVisible(false);
             InventoryWindow inventoryWindow;
             InventoryController inventoryController;
             inventoryWindow = new InventoryWindow();
-            inventoryController = new InventoryController(inventoryWindow);
+            this.employeeMenu.setVisible(false);
+            Inventory inventory = new Inventory("Products");
+            inventoryController = new InventoryController(inventoryWindow,inventory);
             
+        }
+        
+        if(ae.getSource() == employeeMenu.btnReturn){
+            this.employeeMenu.setVisible(false);
+            LoginCustomer loginCustomer = new LoginCustomer();
+            LoginCustomerController loginCustomerController = new LoginCustomerController(loginCustomer);
         }
         
         

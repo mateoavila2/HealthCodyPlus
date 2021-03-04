@@ -23,9 +23,11 @@ public class AddProductController implements ActionListener, MouseListener {
 
     AddProductWindow addProductWindows;
     Inventory inventory;
-    public AddProductController(AddProductWindow addProductWindow) {
+    public AddProductController(AddProductWindow addProductWindow,Inventory inventory) {
         this.addProductWindows = addProductWindow;
-        inventory = new Inventory("Products");
+        this.addProductWindows.setLocationRelativeTo(null);
+        this.addProductWindows.setVisible(true);
+        this.inventory = inventory;
         addProductWindows.btnAdd.addActionListener(this);
         addProductWindows.btnReturn.addActionListener(this);
     }
@@ -58,10 +60,11 @@ public class AddProductController implements ActionListener, MouseListener {
             }
         }
         if (e.getSource() == addProductWindows.btnReturn) {
-            InventoryWindow inventoryWindow = new InventoryWindow();
+            InventoryWindow inventoryWindow;
+            InventoryController inventoryController;
+            inventoryWindow = new InventoryWindow();
             this.addProductWindows.setVisible(false);
-            inventoryWindow.setLocationRelativeTo(null);
-            inventoryWindow.setVisible(true);
+            inventoryController = new InventoryController(inventoryWindow, this.inventory);
         }
     }
 

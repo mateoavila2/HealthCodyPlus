@@ -61,11 +61,6 @@ public class InventoryWindow extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         btnAddProduct.setText("Agregar Producto");
-        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddProductActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnAddProduct);
         btnAddProduct.setBounds(120, 130, 220, 50);
 
@@ -74,20 +69,10 @@ public class InventoryWindow extends javax.swing.JFrame {
         btnViewInventory.setBounds(120, 200, 220, 50);
 
         btnAccept.setText("Aceptar");
-        btnAccept.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcceptActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnAccept);
         btnAccept.setBounds(410, 290, 200, 40);
 
         btnReturn.setText("Regresar");
-        btnReturn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReturnActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnReturn);
         btnReturn.setBounds(300, 350, 150, 40);
 
@@ -99,29 +84,14 @@ public class InventoryWindow extends javax.swing.JFrame {
         txtProduct.setBounds(120, 290, 220, 40);
 
         rdbSearch.setText("Buscar Producto");
-        rdbSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdbSearchActionPerformed(evt);
-            }
-        });
         jPanel1.add(rdbSearch);
         rdbSearch.setBounds(410, 130, 200, 40);
 
         rdbModific.setText("Modificar Producto");
-        rdbModific.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdbModificActionPerformed(evt);
-            }
-        });
         jPanel1.add(rdbModific);
         rdbModific.setBounds(410, 180, 200, 40);
 
         rdbDelete.setText("Eliminar Producto");
-        rdbDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdbDeleteActionPerformed(evt);
-            }
-        });
         jPanel1.add(rdbDelete);
         rdbDelete.setBounds(410, 230, 200, 40);
 
@@ -154,95 +124,6 @@ public class InventoryWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
-        // TODO add your handling code here:
-        /*AddProductWindow addProductWindow = new AddProductWindow();
-        addProductWindow.setLocationRelativeTo(null);
-        this.setVisible(false);
-        addProductWindow.setVisible(true);*/
-    }//GEN-LAST:event_btnAddProductActionPerformed
-
-    private void rdbSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbSearchActionPerformed
-        // TODO add your handling code here:
-       /* txtProduct.setText(null);
-        txtProduct.getAction();
-        txtProduct.setVisible(true);
-        btnAccept.setVisible(true);
-        lblModificD.setVisible(false);*/
-    }//GEN-LAST:event_rdbSearchActionPerformed
-
-    private void rdbModificActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbModificActionPerformed
-        // TODO add your handling code here:
-       /* txtProduct.setText(null);
-        txtProduct.getAction();
-        txtProduct.setVisible(true);
-        btnAccept.setVisible(true);
-        lblModificD.setText("Dato a modificar");
-        lblModificD.setVisible(true);*/
-    }//GEN-LAST:event_rdbModificActionPerformed
-
-    private void rdbDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbDeleteActionPerformed
-        // TODO add your handling code here:
-        /*txtProduct.setText(null);
-        txtProduct.getAction();
-        txtProduct.setVisible(true);
-        btnAccept.setVisible(true);
-        lblModificD.setText("Código del producto");
-        lblModificD.setVisible(true);*/
-    }//GEN-LAST:event_rdbDeleteActionPerformed
-
-    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
-        // TODO add your handling code here:
-        /*if (txtProduct.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Dato no ingresado");
-        } else {
-            if (rdbSearch.isSelected() == true) {
-                String dataToFind = txtProduct.getText();
-                System.out.println(dataToFind);
-                Inventory inventory = new Inventory("Products");
-                String recovered = inventory.findProduct(dataToFind);
-                if (recovered.equals("")) {
-                    JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
-                } else {
-                    Gson gson = new Gson();
-                    Product product = gson.fromJson(recovered, Product.class);
-                    JOptionPane.showMessageDialog(null, product.toString());
-                }
-            }
-            if (rdbModific.isSelected() == true) {
-                String dataToModify = txtProduct.getText();
-                String dataToUpdate = JOptionPane.showInputDialog("Ingrese el nuevo dato");
-
-                Inventory inventory = new Inventory("Products");
-                String recovered = inventory.findProduct(dataToModify);
-                if (recovered.equals("")) {
-                    JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
-                } else {
-                    inventory.updateProduct(dataToModify, dataToUpdate, "name");
-                    JOptionPane.showMessageDialog(null, "Dato modificado con éxito");
-                }
-
-            }
-            if (rdbDelete.isSelected() == true) {
-                String dataTodeleted = txtProduct.getText();
-                Inventory inventory = new Inventory("Products");
-                
-                String recovered = inventory.findProduct(dataTodeleted);
-                if (recovered.equals("")) {
-                    JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
-                } else {
-                    inventory.deleteProduct(dataTodeleted, "code");
-                    JOptionPane.showMessageDialog(null, "Dato eliminado con éxito");
-                }  
-            }
-        }*/
-    }//GEN-LAST:event_btnAcceptActionPerformed
-
-    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnReturnActionPerformed
 
     private void lblModificDComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lblModificDComponentHidden
         // TODO add your handling code here:
