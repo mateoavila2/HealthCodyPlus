@@ -27,6 +27,10 @@ public class Employee extends User {
         this.numberPhone = numberPhone;
         salary = 800.50;
     }
+
+    public Employee() {
+    }
+    
     
     public String generateCode(){
         

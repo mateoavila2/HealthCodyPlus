@@ -5,10 +5,17 @@
  */
 package ec.edu.espe.simulatorHealthCody.controller;
 
+import ec.edu.espe.simulatorHealthCody.model.Appointment;
+import ec.edu.espe.simulatorHealthCody.model.Customer;
+import ec.edu.espe.simulatorHealthCody.view.AddAppointment;
 import ec.edu.espe.simulatorHealthCody.view.CustomerMenu;
 import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +30,8 @@ public class CustomerMenuControl implements ActionListener {
         this.customerMenu.setLocationRelativeTo(null);
         this.customerMenu.setVisible(true);
         this.customerMenu.btnReturn.addActionListener(this);
+        this.customerMenu.btnAddAppointment.addActionListener(this);
+        this.customerMenu.btnShowAppointment.addActionListener(this);
     }
 
     @Override
@@ -34,6 +43,26 @@ public class CustomerMenuControl implements ActionListener {
             this.customerMenu.setVisible(false);
             loginController = new LoginCustomerController(loginCustomer);
 
+        }
+        if(ae.getSource() == customerMenu.btnAddAppointment){
+            AddAppointment addAppointment;
+            AppointmentController appointmentController;
+            addAppointment = new AddAppointment();
+            this.customerMenu.setVisible(false);
+            try {
+                appointmentController = new AppointmentController(addAppointment);
+            } catch (ParseException ex) {
+                Logger.getLogger(CustomerMenuControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if(ae.getSource() == customerMenu.btnShowAppointment){
+            String recovered;
+            Appointment appointment = new Appointment("Scheduled reservate");
+            Customer customer = new Customer();
+            recovered = appointment.find(customer.getCodeAppoinment());
+            JOptionPane.showMessageDialog(null, "Su cita agendada es: \n" + recovered);
+            
         }
     }
 

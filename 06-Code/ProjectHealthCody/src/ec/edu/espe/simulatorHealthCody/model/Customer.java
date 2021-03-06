@@ -18,11 +18,14 @@ import java.util.logging.Logger;
  */
 public class Customer extends User{
 
-    private String codeAppoinment;
-
+    private static String codeAppoinment;
     public Customer(String name, String id, String dateOfBirth, String gender, String userName, String accesKey) {
         super(name, id, dateOfBirth, gender, userName, accesKey);
     }
+
+    public Customer() {
+    }
+    
 
     
 

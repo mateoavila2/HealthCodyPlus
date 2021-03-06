@@ -26,6 +26,11 @@ public abstract class User {
         this.userName = userName;
         this.accesKey = accesKey;
     }
+
+    public User() {
+    }
+    
+    
     
     public abstract void calculateAge();
 

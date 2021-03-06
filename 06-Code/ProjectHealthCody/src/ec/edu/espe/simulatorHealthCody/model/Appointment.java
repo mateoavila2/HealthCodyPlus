@@ -26,12 +26,17 @@ public class Appointment {
     private String code;
 
     public Appointment(String collection) {
-        code = "inspecific";
+        code = "";
         this.collection = collection;
         datesOfWeek = new ArrayList();
         dateOperation = new DBmanagerDates("Appointment", this.collection);
     }
 
+    public Appointment() {
+    
+    }
+    
+    
     //Administrator Methods
     public void schedule() {
         for (int i = 0; i < 3; i++) {
@@ -72,18 +77,19 @@ public class Appointment {
         return datesOfWeek;
     }
     
-    public void find(String dataTofind){
-        /*String date;
-        dateOperations.*/
-    
+    public String find(String dataTofind){
+        String date;
+        date = dateOperation.readASpecificDate(dataTofind);
+        return date;
     }
 
     public String delete(int opc) throws ParseException {
+
         String reserveDate = "";
         System.out.println("");
         String[] dates = dateOperation.readDate().split("\r\n");
         for (int i = 0; i < dates.length; i++) {
-            if (opc == (i + 1)) {
+            if ((opc+1) == (i + 1)) {
                 reserveDate = dates[i];
                 dateOperation.delete("date", dates[i]);
             }

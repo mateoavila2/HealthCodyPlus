@@ -6,6 +6,7 @@
 package ec.edu.espe.simulatorHealthCody.controller;
 
 import ec.edu.espe.simulatorHealthCody.model.Authentication;
+import ec.edu.espe.simulatorHealthCody.model.Customer;
 import ec.edu.espe.simulatorHealthCody.model.Registry;
 import ec.edu.espe.simulatorHealthCody.utils.DBmanager;
 import ec.edu.espe.simulatorHealthCody.view.CustomerMenu;
@@ -40,7 +41,7 @@ public class LoginCustomerController implements ActionListener, MouseListener {
         this.loginCustomer.lblAdminLogin.addMouseListener(this);
     }
 
-    public void login(String userName,String password) {
+    public void login(String userName, String password) {
         boolean compare, corretUser, correctKey;
         corretUser = true;//operation.verifyExistingData(userName);
         correctKey = true;//operation.verifyExistingData(accesKey);
@@ -55,79 +56,84 @@ public class LoginCustomerController implements ActionListener, MouseListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource() == loginCustomer.btnLogin){
-            boolean correctUser,correctkey;
-            db = new DBmanager("Registry", "Customers");
-            correctUser = db.verifyExistingData(loginCustomer.txtUserName.getText());
-            correctkey = db.verifyExistingData(loginCustomer.txpPassword.getText());
-            if((correctUser == true) && correctkey == true){
-                loginCustomer.txtUserName.setText("");
-                loginCustomer.txpPassword.setText("");
-                CustomerMenu customerMenu;
-                CustomerMenuControl customerMenuControl;
-                customerMenu = new CustomerMenu();
-                this.loginCustomer.setVisible(false);
-                customerMenuControl = new CustomerMenuControl(customerMenu);
-                System.out.println("si valio");
+        if (ae.getSource() == loginCustomer.btnLogin) {
+            if (loginCustomer.txtUserName.getText().equals("") && loginCustomer.txpPassword.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Datos no ingresados");
+            } else {
+                boolean correctUser, correctkey;
+                db = new DBmanager("Registry", "Customers");
+                correctUser = db.verifyExistingData(loginCustomer.txtUserName.getText());
+                correctkey = db.verifyExistingData(loginCustomer.txpPassword.getText());
+                if ((correctUser == true) && correctkey == true) {
+                    Customer customer = new Customer();
+                    customer.setCodeAppoinment(loginCustomer.txtUserName.getText());
+                    loginCustomer.txtUserName.setText("");
+                    loginCustomer.txpPassword.setText("");
+                    CustomerMenu customerMenu;
+                    CustomerMenuControl customerMenuControl;
+                    customerMenu = new CustomerMenu();
+                    this.loginCustomer.setVisible(false);
+                    customerMenuControl = new CustomerMenuControl(customerMenu);
+                } else {
+                    loginCustomer.txtUserName.setText("");
+                    loginCustomer.txpPassword.setText("");
+                    JOptionPane.showMessageDialog(null, " Usuario o contaseña no existennte \n\t Intente de nuevo");
+                }
             }
-            else{
-                loginCustomer.txtUserName.setText("");
-                loginCustomer.txpPassword.setText("");
-                JOptionPane.showMessageDialog(null, " Usuario o contaseña no existennte \n\t Intente de nuevo");
-            }
+
         }
-        if(ae.getSource() == loginCustomer.rdbEmployee){
-            Registry registry ;
+        if (ae.getSource() == loginCustomer.rdbEmployee) {
+            Registry registry;
             registry = new Registry("Employees");
             REmployee rEmployee = new REmployee();
             REmployeeController rEmployeeController;
             this.loginCustomer.setVisible(false);
             rEmployeeController = new REmployeeController(rEmployee, registry);
         }
-        if(ae.getSource() == loginCustomer.rdbCustomer){
-            Registry registry ;
+        if (ae.getSource() == loginCustomer.rdbCustomer) {
+            Registry registry;
             registry = new Registry("Customers");
             RCustomer rCustomer = new RCustomer();
             RCustomerController rCustomerController;
             this.loginCustomer.setVisible(false);
-            rCustomerController = new RCustomerController(rCustomer,registry);
+            rCustomerController = new RCustomerController(rCustomer, registry);
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if(me.getSource() == loginCustomer.lblRegister){
+        if (me.getSource() == loginCustomer.lblRegister) {
             loginCustomer.rdbCustomer.setVisible(true);
             loginCustomer.rdbEmployee.setVisible(true);
         }
-        if(me.getSource() == loginCustomer.lblAdminLogin){
+        if (me.getSource() == loginCustomer.lblAdminLogin) {
             LoginAdministrator loginAdministrator;
             LoginAdminControlller loginAdminControlller;
             loginAdministrator = new LoginAdministrator();
             this.loginCustomer.setVisible(false);
             loginAdminControlller = new LoginAdminControlller(loginAdministrator);
-        
+
         }
     }
 
     @Override
     public void mousePressed(MouseEvent me) {
-        
+
     }
 
     @Override
     public void mouseReleased(MouseEvent me) {
-        
+
     }
 
     @Override
     public void mouseEntered(MouseEvent me) {
-        
+
     }
 
     @Override
     public void mouseExited(MouseEvent me) {
-        
+
     }
 
 }

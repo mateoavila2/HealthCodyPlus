@@ -31,7 +31,6 @@ public class CustomerMenu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnAddAppointment = new javax.swing.JButton();
         btnShowAppointment = new javax.swing.JButton();
-        btnDeleteAppointment = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -52,15 +51,11 @@ public class CustomerMenu extends javax.swing.JFrame {
 
         btnAddAppointment.setText("Agendar cita");
         jPanel1.add(btnAddAppointment);
-        btnAddAppointment.setBounds(37, 130, 280, 40);
+        btnAddAppointment.setBounds(40, 160, 280, 40);
 
         btnShowAppointment.setText("Ver cita agendada");
         jPanel1.add(btnShowAppointment);
-        btnShowAppointment.setBounds(40, 200, 280, 40);
-
-        btnDeleteAppointment.setText("Eliminar cita agendada");
-        jPanel1.add(btnDeleteAppointment);
-        btnDeleteAppointment.setBounds(40, 270, 280, 40);
+        btnShowAppointment.setBounds(40, 240, 280, 40);
 
         btnReturn.setText("Regresar");
         jPanel1.add(btnReturn);
@@ -140,7 +135,6 @@ public class CustomerMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAddAppointment;
-    public javax.swing.JButton btnDeleteAppointment;
     public javax.swing.JButton btnReturn;
     public javax.swing.JButton btnShowAppointment;
     private javax.swing.JLabel jLabel1;
