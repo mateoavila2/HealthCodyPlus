@@ -25,13 +25,13 @@ import javax.swing.JOptionPane;
 public class TableInventaryController implements ActionListener, MouseListener {
 
     TableInventoryWindow tableInventoryWindow;
-    Inventory inventory;
+    Product product;
 
-    public TableInventaryController(TableInventoryWindow tableInventoryWindow,Inventory inventory) {
+    public TableInventaryController(TableInventoryWindow tableInventoryWindow,Product product) {
         this.tableInventoryWindow = tableInventoryWindow;
         this.tableInventoryWindow.setLocationRelativeTo(null);
         this.tableInventoryWindow.setVisible(true);
-        this.inventory = inventory;
+        this.product = product;
         this.tableInventoryWindow.btnInventary.addActionListener(this);
         this.tableInventoryWindow.btnPrint.addActionListener(this);
         this.tableInventoryWindow.btnReturn.addActionListener(this);
@@ -43,7 +43,7 @@ public class TableInventaryController implements ActionListener, MouseListener {
             Gson gson = new Gson();
             ArrayList<String[]> data = new ArrayList<String[]>();
 
-            String[] recovered = inventory.showProducts().split("\r\n");
+            String[] recovered = product.showProducts().split("\r\n");
             List<Product> products = new ArrayList<Product>();
             for (int i = 0; i < recovered.length; i++) {
                 products.add(gson.fromJson(recovered[i], Product.class));
@@ -86,7 +86,7 @@ public class TableInventaryController implements ActionListener, MouseListener {
             InventoryController inventoryController;
             inventoryWindow = new InventoryWindow();
             this.tableInventoryWindow.setVisible(false);
-            inventoryController = new InventoryController(inventoryWindow, this.inventory);
+            inventoryController = new InventoryController(inventoryWindow, this.product);
         }
     }
 

@@ -22,12 +22,12 @@ import javax.swing.JOptionPane;
 public class AddProductController implements ActionListener, MouseListener {
 
     AddProductWindow addProductWindows;
-    Inventory inventory;
-    public AddProductController(AddProductWindow addProductWindow,Inventory inventory) {
+    Product product;
+    public AddProductController(AddProductWindow addProductWindow,Product product) {
         this.addProductWindows = addProductWindow;
         this.addProductWindows.setLocationRelativeTo(null);
         this.addProductWindows.setVisible(true);
-        this.inventory = inventory;
+        this.product = product;
         addProductWindows.btnAdd.addActionListener(this);
         addProductWindows.btnReturn.addActionListener(this);
     }
@@ -48,8 +48,8 @@ public class AddProductController implements ActionListener, MouseListener {
                         addProductWindows.txtPrice.setText(null);
                         addProductWindows.txtPrice.getAction();
                     } else {
-                        Product product = new Product(name, code, price, quantitys);
-                        inventory.saveProduct(product);
+                        Product product2 = new Product(name, code, price, quantitys);
+                        product.saveProduct(product2);
                         JOptionPane.showMessageDialog(null, "Producto registrado con éxito");
                     }
                 } catch (Exception b) {
@@ -64,7 +64,7 @@ public class AddProductController implements ActionListener, MouseListener {
             InventoryController inventoryController;
             inventoryWindow = new InventoryWindow();
             this.addProductWindows.setVisible(false);
-            inventoryController = new InventoryController(inventoryWindow, this.inventory);
+            inventoryController = new InventoryController(inventoryWindow, this.product);
         }
     }
 

@@ -6,7 +6,6 @@
 package ec.edu.espe.simulatorHealthCody.controller;
 
 import com.google.gson.Gson;
-import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.simulatorHealthCody.model.Product;
 import ec.edu.espe.simulatorHealthCody.view.AddProductWindow;
 import ec.edu.espe.simulatorHealthCody.view.EmployeeMenu;
@@ -25,11 +24,11 @@ import javax.swing.JOptionPane;
 public class InventoryController implements ActionListener, MouseListener {
 
     InventoryWindow inventoryWindow;
-    Inventory inventory;
+    Product product;
 
-    public InventoryController(InventoryWindow inventoryWindow, Inventory inventory) {
+    public InventoryController(InventoryWindow inventoryWindow, Product product) {
         this.inventoryWindow = inventoryWindow;
-        this.inventory = inventory;
+        this.product = product;
         this.inventoryWindow.setLocationRelativeTo(null);
         this.inventoryWindow.setVisible(true);
         this.inventoryWindow.btnAddProduct.addActionListener(this);
@@ -50,7 +49,7 @@ public class InventoryController implements ActionListener, MouseListener {
             addProductWindow = new AddProductWindow();
             AddProductController addProductController;
             this.inventoryWindow.setVisible(false);
-            addProductController = new AddProductController(addProductWindow, this.inventory);
+            addProductController = new AddProductController(addProductWindow, this.product);
         }
         if (e.getSource() == inventoryWindow.btnAccept) {
             if (inventoryWindow.txtProduct.getText().equals("")) {
@@ -59,7 +58,7 @@ public class InventoryController implements ActionListener, MouseListener {
                 if (inventoryWindow.rdbSearch.isSelected() == true) {
                     String dataToFind = inventoryWindow.txtProduct.getText();
                     System.out.println(dataToFind);
-                    String recovered = this.inventory.findProduct(dataToFind);
+                    String recovered = this.product.findProduct(dataToFind);
                     if (recovered.equals("")) {
                         JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
                     } else {
@@ -73,11 +72,11 @@ public class InventoryController implements ActionListener, MouseListener {
                     String dataToUpdate = JOptionPane.showInputDialog("Ingrese el nuevo dato");
 
 
-                    String recovered = this.inventory.findProduct(dataToModify);
+                    String recovered = this.product.findProduct(dataToModify);
                     if (recovered.equals("")) {
                         JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
                     } else {
-                        this.inventory.updateProduct(dataToModify, dataToUpdate, "name");
+                        this.product.updateProduct(dataToModify, dataToUpdate, "name");
                         JOptionPane.showMessageDialog(null, "Dato modificado con éxito");
                     }
 
@@ -85,11 +84,11 @@ public class InventoryController implements ActionListener, MouseListener {
                 if (inventoryWindow.rdbDelete.isSelected() == true) {
                     String dataTodeleted = inventoryWindow.txtProduct.getText();
 
-                    String recovered = this.inventory.findProduct(dataTodeleted);
+                    String recovered = this.product.findProduct(dataTodeleted);
                     if (recovered.equals("")) {
                         JOptionPane.showMessageDialog(null, "No se ha encontrado dato");
                     } else {
-                        this.inventory.deleteProduct(dataTodeleted, "code");
+                        this.product.deleteProduct(dataTodeleted, "code");
                         JOptionPane.showMessageDialog(null, "Dato eliminado con éxito");
                     }
                 }
@@ -108,7 +107,7 @@ public class InventoryController implements ActionListener, MouseListener {
             TableInventaryController tableInventaryController;
             tableInventoryWindow = new TableInventoryWindow();
             this.inventoryWindow.setVisible(false);
-            tableInventaryController = new TableInventaryController(tableInventoryWindow,this.inventory);
+            tableInventaryController = new TableInventaryController(tableInventoryWindow,this.product);
         }
         if (e.getSource() == inventoryWindow.rdbSearch) {
             inventoryWindow.txtProduct.setText(null);

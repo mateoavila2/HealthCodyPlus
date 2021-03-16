@@ -5,7 +5,7 @@
  */
 package ec.edu.espe.simulatorHealthCody.controller;
 
-import ec.edu.espe.simulatorHealthCody.model.Inventory;
+import ec.edu.espe.simulatorHealthCody.model.Product;
 import ec.edu.espe.simulatorHealthCody.view.EmployeeMenu;
 import ec.edu.espe.simulatorHealthCody.view.InventoryWindow;
 import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
@@ -36,8 +36,8 @@ public class EmployeeMenuControl implements ActionListener {
             InventoryController inventoryController;
             inventoryWindow = new InventoryWindow();
             this.employeeMenu.setVisible(false);
-            Inventory inventory = new Inventory("Products");
-            inventoryController = new InventoryController(inventoryWindow,inventory);
+            Product product = new Product("Products");
+            inventoryController = new InventoryController(inventoryWindow,product);
             
         }
         
