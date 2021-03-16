@@ -7,7 +7,6 @@ package ec.edu.espe.simulatorHealthCody.controller;
 
 import com.google.gson.Gson;
 import ec.edu.espe.simulatorHealthCody.model.Appointment;
-import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.simulatorHealthCody.view.TableDateWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

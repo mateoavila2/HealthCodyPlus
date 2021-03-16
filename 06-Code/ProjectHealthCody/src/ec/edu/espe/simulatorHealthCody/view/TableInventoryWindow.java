@@ -6,7 +6,6 @@
 package ec.edu.espe.simulatorHealthCody.view;
 
 import com.google.gson.Gson;
-import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.simulatorHealthCody.model.Product;
 import java.awt.Dimension;
 import java.awt.Toolkit;

@@ -5,7 +5,6 @@
  */
 package ec.edu.espe.simulatorHealthCody.view;
 
-import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.simulatorHealthCody.model.Product;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;

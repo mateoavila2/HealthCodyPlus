@@ -6,7 +6,6 @@
 package ec.edu.espe.simulatorHealthCody.controller;
 
 import com.google.gson.Gson;
-import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import ec.edu.espe.simulatorHealthCody.model.Product;
 import ec.edu.espe.simulatorHealthCody.view.InventoryWindow;
 import ec.edu.espe.simulatorHealthCody.view.TableInventoryWindow;

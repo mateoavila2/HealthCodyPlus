@@ -7,7 +7,6 @@ package ec.edu.espe.simulatorHealthCody.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.simulatorHealthCody.model.Appointment;
-import ec.edu.espe.simulatorHealthCody.model.Inventory;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
