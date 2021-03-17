@@ -37,7 +37,7 @@ public class LoginAdminControlller implements ActionListener {
         if (ae.getSource() == loginAdministrator.btnLogin) {
 
             boolean correctUser, correctkey;
-            db = new DBmanager("Registry", "Customers");
+            db = new DBmanager("Registry", "Employees");
             correctUser = db.verifyExistingData(loginAdministrator.txtUser.getText());
             correctkey = db.verifyExistingData(loginAdministrator.txtCode.getText());
             if ((correctUser == true) || (correctkey == true)) {
