@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Rafa
+ * @author Mateo Ávila
  */
 public class LoginAdminControlller implements ActionListener {
 

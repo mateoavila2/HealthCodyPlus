@@ -8,7 +8,7 @@ package ec.edu.espe.simulatorHealthCody.view;
 import com.toedter.calendar.JDateChooser;
 
 import ec.edu.espe.simulatorHealthCody.model.Employee;
-import ec.edu.espe.simulatorHealthCody.model.Registry;
+import ec.edu.espe.simulatorHealthCody.model.User;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 public class Customer extends User{
 
     private static String codeAppoinment;
+    
     public Customer(String name, String id, String dateOfBirth, String gender, String userName, String accesKey) {
         super(name, id, dateOfBirth, gender, userName, accesKey);
     }
@@ -71,7 +72,7 @@ public class Customer extends User{
             }
             if(diferencia<18)
             {
-                System.out.println("Ni ouede crear cuenta");
+                System.out.println("No puede crear cuenta");
             }
         } catch (ParseException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);

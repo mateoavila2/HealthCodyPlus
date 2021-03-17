@@ -8,7 +8,7 @@ package ec.edu.espe.simulatorHealthCody.controller;
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.simulatorHealthCody.model.Authentication;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
-import ec.edu.espe.simulatorHealthCody.model.Registry;
+import ec.edu.espe.simulatorHealthCody.model.User;
 import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
 import ec.edu.espe.simulatorHealthCody.view.RCustomer;
 import java.awt.event.ActionEvent;
@@ -21,15 +21,15 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Rafa
+ * @author Mateo Ávila
  */
 public class RCustomerController implements ActionListener, MouseListener {
 
     RCustomer rCustomer;
-    Registry registry;
+    User user;
 
-    public RCustomerController(RCustomer rCustomer, Registry registry) {
-        this.registry = registry;
+    public RCustomerController(RCustomer rCustomer, User user) {
+        this.user = user;
         this.rCustomer = rCustomer;
         this.rCustomer.setLocationRelativeTo(null);
         this.rCustomer.setVisible(true);
@@ -79,7 +79,7 @@ public class RCustomerController implements ActionListener, MouseListener {
                 dateOfBirth = covertDate(rCustomer.jDate);
                 customer = new Customer(name, ID, dateOfBirth, gender, userName, password);
                 System.out.println(customer.toString());
-                this.registry.register(customer);
+                this.user.register(customer);
 
                 
                 LoginCustomer loginCustomer;

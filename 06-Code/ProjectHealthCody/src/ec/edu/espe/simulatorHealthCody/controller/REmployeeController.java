@@ -8,7 +8,7 @@ package ec.edu.espe.simulatorHealthCody.controller;
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.simulatorHealthCody.model.Authentication;
 import ec.edu.espe.simulatorHealthCody.model.Employee;
-import ec.edu.espe.simulatorHealthCody.model.Registry;
+import ec.edu.espe.simulatorHealthCody.model.User;
 import ec.edu.espe.simulatorHealthCody.view.REmployee;
 import ec.edu.espe.simulatorHealthCody.view.LoginAdministrator;
 import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
@@ -22,16 +22,16 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Rafa
+ * @author Mateo Ávila
  */
 public class REmployeeController implements ActionListener, MouseListener {
 
     REmployee rEmployee;
-    Registry registry;
+    User user;
 
-    public REmployeeController(REmployee rEmployee, Registry registry) {
+    public REmployeeController(REmployee rEmployee, User user) {
         this.rEmployee = rEmployee;
-        this.registry = registry;
+        this.user = user;
         this.rEmployee.setLocationRelativeTo(null);
         this.rEmployee.setVisible(true);
         this.rEmployee.btnSave.addActionListener(this);
@@ -79,7 +79,7 @@ public class REmployeeController implements ActionListener, MouseListener {
                 password = employee.generateCode();
                 employee.setAccesKey(password);
                 JOptionPane.showMessageDialog(null, "Su codigo de acceso es: " + password);
-                this.registry.register(employee);
+                this.user.register(employee);
                 this.rEmployee.setVisible(false);
                 /*LoginAdministrator loginAdministrator;
                 LoginAdminControl loginAdminControl;

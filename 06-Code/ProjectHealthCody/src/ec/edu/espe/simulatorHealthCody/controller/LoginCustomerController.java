@@ -7,7 +7,7 @@ package ec.edu.espe.simulatorHealthCody.controller;
 
 import ec.edu.espe.simulatorHealthCody.model.Authentication;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
-import ec.edu.espe.simulatorHealthCody.model.Registry;
+import ec.edu.espe.simulatorHealthCody.model.User;
 import ec.edu.espe.simulatorHealthCody.utils.DBmanager;
 import ec.edu.espe.simulatorHealthCody.view.CustomerMenu;
 import ec.edu.espe.simulatorHealthCody.view.LoginAdministrator;
@@ -83,20 +83,18 @@ public class LoginCustomerController implements ActionListener, MouseListener {
 
         }
         if (ae.getSource() == loginCustomer.rdbEmployee) {
-            Registry registry;
-            registry = new Registry("Employees");
+            User user = null;
             REmployee rEmployee = new REmployee();
             REmployeeController rEmployeeController;
             this.loginCustomer.setVisible(false);
-            rEmployeeController = new REmployeeController(rEmployee, registry);
+            rEmployeeController = new REmployeeController(rEmployee, user);
         }
         if (ae.getSource() == loginCustomer.rdbCustomer) {
-            Registry registry;
-            registry = new Registry("Customers");
+            User user = null;
             RCustomer rCustomer = new RCustomer();
             RCustomerController rCustomerController;
             this.loginCustomer.setVisible(false);
-            rCustomerController = new RCustomerController(rCustomer, registry);
+            rCustomerController = new RCustomerController(rCustomer, user);
         }
     }
 
