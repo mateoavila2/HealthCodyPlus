@@ -5,124 +5,111 @@
  */
 package ec.edu.espe.simulatorHealthCody.controller;
 
+import com.google.gson.Gson;
 import com.toedter.calendar.JDateChooser;
-import ec.edu.espe.simulatorHealthCody.model.Authentication;
 import ec.edu.espe.simulatorHealthCody.model.Employee;
-import ec.edu.espe.simulatorHealthCody.model.User;
+import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
 import ec.edu.espe.simulatorHealthCody.view.REmployee;
 import ec.edu.espe.simulatorHealthCody.view.LoginAdministrator;
 import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Mateo Ávila
+ * @author Rafa
  */
-public class REmployeeController implements ActionListener, MouseListener {
+public class REmployeeController {
 
     REmployee rEmployee;
-    User user;
+    Employee employee;
+    MongoDBManager db;
+    Gson gson;
 
-    public REmployeeController(REmployee rEmployee, User user) {
+    public REmployeeController(REmployee rEmployee, Employee employee) {
         this.rEmployee = rEmployee;
-        this.user = user;
+        this.employee = employee;
+        db = new MongoDBManager();
+        db.openConnection("Registry");
+        gson = new Gson();
+    }
+
+    public void show() {
         this.rEmployee.setLocationRelativeTo(null);
         this.rEmployee.setVisible(true);
-        this.rEmployee.btnSave.addActionListener(this);
-        this.rEmployee.btnFinish.addActionListener(this);
-        this.rEmployee.btnBack.addActionListener(this);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == rEmployee.btnSave) {
-            int option;
+    public void hide() {
+        this.rEmployee.setVisible(false);
+    }
 
-            if ((rEmployee.txtName.getText().equals("")) || (rEmployee.txtID.getText().equals("")) || (rEmployee.txtNumberPhone.getText().equals(""))) {
-                JOptionPane.showMessageDialog(null, "Campos vacios, Complete todos los campos");
+    public void confirmData() {
 
-            } else {
-                option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
-                if (option == 0) {
-                    JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
-                    rEmployee.lblIMessaage.setVisible(true);
-                    rEmployee.lblUSerimage.setVisible(true);
-                    rEmployee.lblUsername.setVisible(true);
-                    rEmployee.txtUsername.setVisible(true);
-                    rEmployee.btnFinish.setVisible(true);
+        int option;
 
-                } else if (option == 1) {
-                    //emptyFields();
-                }
-            }
-        }
-        if (ae.getSource() == rEmployee.btnFinish) {
-            Employee employee;
-            String userName,password;
-            userName = rEmployee.txtUsername.getText();
-            if (rEmployee.txtUsername.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Nombre de usuario vacio, Complete");
-            } else {
-                String name, ID, dateOfBirth, gender, numberPhone;
-                name = rEmployee.txtName.getText();
-                ID = rEmployee.txtID.getText();
-                dateOfBirth = covertDate(rEmployee.jDate);
-                gender = rEmployee.cmbGender.getSelectedItem().toString();
-                numberPhone = rEmployee.txtNumberPhone.getText();
-                employee = new Employee(name, ID, dateOfBirth, gender, numberPhone, userName, "");
-                password = employee.generateCode();
-                employee.setAccesKey(password);
-                JOptionPane.showMessageDialog(null, "Su codigo de acceso es: " + password);
-                this.user.register(employee);
-                this.rEmployee.setVisible(false);
-                /*LoginAdministrator loginAdministrator;
-                LoginAdminControl loginAdminControl;
-                loginAdministrator = new LoginAdministrator();
-                loginAdminControl = new LoginAdminControl(loginAdministrator);*/
+        if (employee.getName().equals("") || employee.getId().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campos vacios, Complete todos los campos");
+        } else {
+            option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
+
+            if (option == 0) {
+                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+                rEmployee.lblIMessaage.setVisible(true);
+                rEmployee.lblUSerimage.setVisible(true);
+                rEmployee.lblUsername.setVisible(true);
+                rEmployee.txtUsername.setVisible(true);
+                rEmployee.btnFinish.setVisible(true);
+            } else if (option == 1) {
 
             }
         }
-        if (ae.getSource() == rEmployee.btnBack) {
-            LoginCustomer loginCustomer = new LoginCustomer();
-            LoginCustomerController loginCustomerController;
-            this.rEmployee.setVisible(false);
-            loginCustomerController = new LoginCustomerController(loginCustomer);
-            
+    }
+
+    public boolean finish() {
+        boolean status;
+
+        if (employee.getUserName().equals("")) {
+            JOptionPane.showMessageDialog(null, "Complete todos los campos");
+            status = false;
+        } else {
+            String dateOfBirth, gender, numberPhone, password;
+            dateOfBirth = covertDate(rEmployee.jDate);
+            gender = rEmployee.cmbGender.getSelectedItem().toString();
+            numberPhone = rEmployee.txtNumberPhone.getText();
+            password = employee.generateCode();
+            employee.setAccesKey(password);
+            JOptionPane.showMessageDialog(null, "Su codigo de acceso es: " + password);
+            status = true;
+        }
+        return status;
+
+    }
+
+    public void registerEmployee() {
+        boolean status;
+        String jsonEmployee;
+        jsonEmployee = gson.toJson(employee);
+        status = db.save(jsonEmployee,"Employees");
+        if (status = true) {
+            hide();
+            LoginAdministrator loginAdministrator;
+            LoginAdminControlller loginAdminControl;
+            loginAdministrator = new LoginAdministrator();
+            loginAdminControl = new LoginAdminControlller(loginAdministrator);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado");
         }
 
-       
-
-        
     }
 
-    @Override
-    public void mouseClicked(MouseEvent me) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent me) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent me) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent me) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent me) {
+    public void back() {
+        hide();
+        LoginCustomer loginCustomer = new LoginCustomer();
+        LoginCustomerController loginCustomerController;
+        loginCustomerController = new LoginCustomerController(loginCustomer);
+        loginCustomerController.show();
 
     }
 

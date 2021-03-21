@@ -5,8 +5,8 @@
  */
 package ec.edu.espe.simulatorHealthCody.view;
 
+import ec.edu.espe.simulatorHealthCody.controller.AddProductController;
 import ec.edu.espe.simulatorHealthCody.model.Product;
-import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 
 /**
@@ -14,7 +14,9 @@ import javax.swing.SpinnerNumberModel;
  * @author Mateo Ávila ESPE
  */
 public class AddProductWindow extends javax.swing.JFrame {
-
+    
+    Product product = new Product();
+    AddProductController controller = new AddProductController(this, product);
     /**
      * Creates new form AddProductWindow
      */
@@ -87,10 +89,20 @@ public class AddProductWindow extends javax.swing.JFrame {
         spnQuantity.setBounds(490, 350, 60, 26);
 
         btnReturn.setText("Regresar");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnReturn);
         btnReturn.setBounds(470, 430, 160, 60);
 
         btnAdd.setText("Agregar");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnAdd);
         btnAdd.setBounds(290, 430, 160, 60);
 
@@ -112,6 +124,16 @@ public class AddProductWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+
+        controller.saveProduct();
+        
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        controller.back();
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments

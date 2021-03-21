@@ -5,133 +5,87 @@
  */
 package ec.edu.espe.simulatorHealthCody.controller;
 
-import ec.edu.espe.simulatorHealthCody.model.Authentication;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
-import ec.edu.espe.simulatorHealthCody.model.User;
-import ec.edu.espe.simulatorHealthCody.utils.DBmanager;
+import ec.edu.espe.simulatorHealthCody.model.Employee;
+import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
 import ec.edu.espe.simulatorHealthCody.view.CustomerMenu;
 import ec.edu.espe.simulatorHealthCody.view.LoginAdministrator;
 import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
 import ec.edu.espe.simulatorHealthCody.view.RCustomer;
 import ec.edu.espe.simulatorHealthCody.view.REmployee;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Rafa
  */
-public class LoginCustomerController implements ActionListener, MouseListener {
+public class LoginCustomerController{
 
     LoginCustomer loginCustomer;
-    DBmanager db;
+    MongoDBManager db;
 
     public LoginCustomerController(LoginCustomer loginCustomer) {
         this.loginCustomer = loginCustomer;
+    }
+
+    public void show() {
         this.loginCustomer.setLocationRelativeTo(null);
         this.loginCustomer.setVisible(true);
-        this.loginCustomer.btnLogin.addActionListener(this);
-        this.loginCustomer.lblRegister.addMouseListener(this);
-        this.loginCustomer.rdbCustomer.addActionListener(this);
-        this.loginCustomer.rdbEmployee.addActionListener(this);
-        this.loginCustomer.lblAdminLogin.addMouseListener(this);
-        this.loginCustomer.lblAdminLogin.addMouseListener(this);
+    }
+
+    public void hide() {
+        this.loginCustomer.setVisible(false);
     }
 
     public void login(String userName, String password) {
-        boolean compare, corretUser, correctKey;
-        corretUser = true;//operation.verifyExistingData(userName);
-        correctKey = true;//operation.verifyExistingData(accesKey);
-        if (corretUser == true && correctKey == true) {
-            compare = true;
+        if (userName.equals("") && password.equals("")) {
+            JOptionPane.showMessageDialog(null, "Datos no ingresados");
         } else {
-            compare = false;
-        }
-        System.out.println(compare);
-
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == loginCustomer.btnLogin) {
-            if (loginCustomer.txtUserName.getText().equals("") && loginCustomer.txpPassword.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Datos no ingresados");
+            boolean correctUser, correctkey;
+            db = new MongoDBManager();
+            db.openConnection("Registry");
+            correctUser = db.verifyExistingData(userName,"Customers");
+            correctkey = db.verifyExistingData(password,"Customers");
+            if ((correctUser == true) && correctkey == true) {
+                Customer customer = new Customer();
+                customer.setCodeAppoinment(loginCustomer.txtUserName.getText());
+                loginCustomer.txtUserName.setText("");
+                loginCustomer.txpPassword.setText("");
+                hide();
+                CustomerMenu customerMenu;
+                customerMenu = new CustomerMenu();
+                CustomerMenuControl customerMenuControl;
+                
+                
+                customerMenuControl = new CustomerMenuControl(customerMenu);
             } else {
-                boolean correctUser, correctkey;
-                db = new DBmanager("Registry", "Customers");
-                correctUser = db.verifyExistingData(loginCustomer.txtUserName.getText());
-                correctkey = db.verifyExistingData(loginCustomer.txpPassword.getText());
-                if ((correctUser == true) && correctkey == true) {
-                    Customer customer = new Customer();
-                    customer.setCodeAppoinment(loginCustomer.txtUserName.getText());
-                    loginCustomer.txtUserName.setText("");
-                    loginCustomer.txpPassword.setText("");
-                    CustomerMenu customerMenu;
-                    CustomerMenuControl customerMenuControl;
-                    customerMenu = new CustomerMenu();
-                    this.loginCustomer.setVisible(false);
-                    customerMenuControl = new CustomerMenuControl(customerMenu);
-                } else {
-                    loginCustomer.txtUserName.setText("");
-                    loginCustomer.txpPassword.setText("");
-                    JOptionPane.showMessageDialog(null, " Usuario o contaseña no existennte \n\t Intente de nuevo");
-                }
+                loginCustomer.txtUserName.setText("");
+                loginCustomer.txpPassword.setText("");
+                JOptionPane.showMessageDialog(null, " Usuario o contaseña no existennte \n\t Intente de nuevo");
             }
-
-        }
-        if (ae.getSource() == loginCustomer.rdbEmployee) {
-            User user = null;
-            REmployee rEmployee = new REmployee();
-            REmployeeController rEmployeeController;
-            this.loginCustomer.setVisible(false);
-            rEmployeeController = new REmployeeController(rEmployee, user);
-        }
-        if (ae.getSource() == loginCustomer.rdbCustomer) {
-            User user = null;
-            RCustomer rCustomer = new RCustomer();
-            RCustomerController rCustomerController;
-            this.loginCustomer.setVisible(false);
-            rCustomerController = new RCustomerController(rCustomer, user);
         }
     }
-
-    @Override
-    public void mouseClicked(MouseEvent me) {
-        if (me.getSource() == loginCustomer.lblRegister) {
-            loginCustomer.rdbCustomer.setVisible(true);
-            loginCustomer.rdbEmployee.setVisible(true);
-        }
-        if (me.getSource() == loginCustomer.lblAdminLogin) {
-            LoginAdministrator loginAdministrator;
-            LoginAdminControlller loginAdminControlller;
-            loginAdministrator = new LoginAdministrator();
-            this.loginCustomer.setVisible(false);
-            loginAdminControlller = new LoginAdminControlller(loginAdministrator);
-
-        }
+    public void pressCustomer(){
+        hide();
+        RCustomer rcustomer = new RCustomer();
+        Customer customer = new Customer();
+        RCustomerController controller = new RCustomerController(rcustomer, customer);
+        controller.show();
     }
-
-    @Override
-    public void mousePressed(MouseEvent me) {
-
+    
+    public void pressEmployee(){
+        hide();
+        REmployee rEmployee = new REmployee();
+        Employee employee = new Employee();
+        REmployeeController controller = new REmployeeController(rEmployee, employee);
+        controller.show();
     }
-
-    @Override
-    public void mouseReleased(MouseEvent me) {
-
+    
+    public void changeForAdmin(){
+        hide();
+        LoginAdministrator loginAdministrator = new LoginAdministrator();
+        LoginAdminControlller controlller = new LoginAdminControlller(loginAdministrator);
+        controlller.show();
+    
     }
-
-    @Override
-    public void mouseEntered(MouseEvent me) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent me) {
-
-    }
-
 }

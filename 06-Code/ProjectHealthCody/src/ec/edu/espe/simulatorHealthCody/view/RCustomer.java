@@ -4,27 +4,18 @@
  * and open the template in the editor.
  */
 package ec.edu.espe.simulatorHealthCody.view;
-
-import com.toedter.calendar.JCalendar;
-import com.toedter.calendar.JDateChooser;
+import ec.edu.espe.simulatorHealthCody.controller.RCustomerController;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
-import ec.edu.espe.simulatorHealthCody.model.User;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+
 
 /**
  *
  * @author Mateo Ávila ESPE
  */
 public class RCustomer extends javax.swing.JFrame {
-
+    Customer customer = new Customer();
+    RCustomerController controller = new RCustomerController(this, customer);
+    
     /**
      * Creates new form RegistryCustomerWindow
      */
@@ -91,6 +82,11 @@ public class RCustomer extends javax.swing.JFrame {
         lblID.setBounds(20, 120, 130, 16);
 
         btnBack.setText("Regresar");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnBack);
         btnBack.setBounds(20, 500, 90, 32);
 
@@ -99,6 +95,11 @@ public class RCustomer extends javax.swing.JFrame {
         lblBirthday.setBounds(20, 240, 130, 16);
 
         btnConfirm.setText("Confirmar");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnConfirm);
         btnConfirm.setBounds(130, 290, 90, 32);
 
@@ -130,6 +131,11 @@ public class RCustomer extends javax.swing.JFrame {
         lblMessage.setBounds(20, 340, 200, 16);
 
         btnFinish.setText("Finalizar");
+        btnFinish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinishActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnFinish);
         btnFinish.setBounds(270, 500, 90, 32);
         jPanel1.add(txtPassword);
@@ -153,6 +159,29 @@ public class RCustomer extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+
+        customer.setName(txtName.getText());
+        customer.setId(txtID.getText());
+        controller.confirmData();
+        
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
+        boolean status;
+        customer.setUserName(txtUserName.getText());
+        customer.setAccesKey(txtPassword.getText());
+        status = controller.finish();
+        if(status == true){
+            controller.registerCustomer();
+        }
+        
+    }//GEN-LAST:event_btnFinishActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        controller.back();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments

@@ -28,6 +28,15 @@ public class TableDateController implements ActionListener, MouseListener {
     public TableDateController(TableDateWindow tableDateWindow) {
         this.tableDateWindow = tableDateWindow;
     }
+    
+    public void show() {
+        this.tableDateWindow.setLocationRelativeTo(null);
+        this.tableDateWindow.setVisible(true);
+    }
+
+    public void hide() {
+        this.tableDateWindow.setVisible(false);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -5,7 +5,9 @@
  */
 package ec.edu.espe.simulatorHealthCody.controller;
 
+import com.google.gson.Gson;
 import ec.edu.espe.simulatorHealthCody.model.Product;
+import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
 import ec.edu.espe.simulatorHealthCody.view.AddProductWindow;
 import ec.edu.espe.simulatorHealthCody.view.InventoryWindow;
 import java.awt.event.ActionEvent;
@@ -18,73 +20,67 @@ import javax.swing.JOptionPane;
  *
  * @author Kenneth Andrade ESPE-DCCO
  */
-public class AddProductController implements ActionListener, MouseListener {
+public class AddProductController {
 
     AddProductWindow addProductWindows;
     Product product;
-    public AddProductController(AddProductWindow addProductWindow,Product product) {
+    MongoDBManager db;
+    Gson gson;
+
+    public AddProductController(AddProductWindow addProductWindow, Product product) {
         this.addProductWindows = addProductWindow;
-        this.addProductWindows.setLocationRelativeTo(null);
-        this.addProductWindows.setVisible(true);
         this.product = product;
-        addProductWindows.btnAdd.addActionListener(this);
-        addProductWindows.btnReturn.addActionListener(this);
+        db = new MongoDBManager();
+        gson = new Gson();
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == addProductWindows.btnAdd) {
-            String code = addProductWindows.txtCode.getText();
-            String name = addProductWindows.txtName.getText();
-            int quantitys = Integer.parseInt(addProductWindows.spnQuantity.getValue().toString());
-            if (code.equals("") || name.equals("") || addProductWindows.txtPrice.getText().equals("") || (quantitys <= 0 || quantitys > 100)) {
-                JOptionPane.showMessageDialog(null, "No se han registrado todos los datos");
-            } else {
-                try {
-                    double price = Double.parseDouble(addProductWindows.txtPrice.getText());
-                    if (price <= 0) {
-                        JOptionPane.showMessageDialog(null, "Dato de precio no válido");
-                        addProductWindows.txtPrice.setText(null);
-                        addProductWindows.txtPrice.getAction();
-                    } else {
-                        Product product2 = new Product(name, code, price, quantitys);
-                        product.saveProduct(product2);
-                        JOptionPane.showMessageDialog(null, "Producto registrado con éxito");
-                    }
-                } catch (Exception b) {
+    public void show() {
+        this.addProductWindows.setLocationRelativeTo(null);
+        this.addProductWindows.setVisible(true);
+    }
+
+    public void hide() {
+        this.addProductWindows.setVisible(false);
+    }
+
+    public void saveProduct() {
+        String code = addProductWindows.txtCode.getText();
+        String name = addProductWindows.txtName.getText();
+        int quantitys = Integer.parseInt(addProductWindows.spnQuantity.getValue().toString());
+
+        if (code.equals("") || name.equals("") || addProductWindows.txtPrice.getText().equals("") || (quantitys <= 0 || quantitys > 100)) {
+            JOptionPane.showMessageDialog(null, "No se han registrado todos los datos");
+        } else {
+            try {
+                double price = Double.parseDouble(addProductWindows.txtPrice.getText());
+                if (price <= 0) {
                     JOptionPane.showMessageDialog(null, "Dato de precio no válido");
                     addProductWindows.txtPrice.setText(null);
                     addProductWindows.txtPrice.getAction();
+                } else {
+                    Product product = new Product(name, code, price, quantitys);
+                    String jsonProduct;
+                    jsonProduct = gson.toJson(product);
+                    db.openConnection("Inventory");
+                    boolean status = db.save(name,"Products");
+                    JOptionPane.showMessageDialog(null, "Producto registrado con éxito");
                 }
+            } catch (Exception b) {
+                JOptionPane.showMessageDialog(null, "Dato de precio no válido");
+                addProductWindows.txtPrice.setText(null);
+                addProductWindows.txtPrice.getAction();
             }
         }
-        if (e.getSource() == addProductWindows.btnReturn) {
-            InventoryWindow inventoryWindow;
-            InventoryController inventoryController;
-            inventoryWindow = new InventoryWindow();
-            this.addProductWindows.setVisible(false);
-            inventoryController = new InventoryController(inventoryWindow, this.product);
-        }
+
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-    }
+    public void back() {
+        hide();
+        InventoryWindow inventoryWindow;
+        InventoryController inventoryController;
+        inventoryWindow = new InventoryWindow();
+        inventoryController = new InventoryController(inventoryWindow, product);
+        inventoryController.show();
 
-    @Override
-    public void mousePressed(MouseEvent e) {
     }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-    }
-
 }

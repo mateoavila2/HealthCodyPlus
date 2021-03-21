@@ -5,7 +5,7 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
-import ec.edu.espe.simulatorHealthCody.utils.DBmanager;
+import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
 
 
 /**
@@ -15,16 +15,17 @@ import ec.edu.espe.simulatorHealthCody.utils.DBmanager;
 public class Authentication {
 
     private String collenctionName;
-    DBmanager operation;
+    MongoDBManager operation;
 
     public Authentication(String collenctionName) {
         this.collenctionName = collenctionName;
-        operation = new DBmanager("Registry", this.collenctionName);
+        operation = new MongoDBManager();
+        operation.openConnection("Registry");
     }
 
-    public boolean login(String userName,String accesKey) {
+   /* public boolean login(String userName,String accesKey) {
         boolean compare, corretUser, correctKey;
-        corretUser = operation.verifyExistingData(userName);
+        corretUser = operation.verifyExistingData(userName,"");
         correctKey = operation.verifyExistingData(accesKey);
         if (corretUser == true && correctKey == true) {
             compare = true;
@@ -32,9 +33,5 @@ public class Authentication {
             compare = false;
         }
         return compare;
-
-    }
-
-    
-
+    } */
 }

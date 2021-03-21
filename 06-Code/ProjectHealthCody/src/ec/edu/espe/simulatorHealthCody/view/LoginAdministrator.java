@@ -5,15 +5,14 @@
  */
 package ec.edu.espe.simulatorHealthCody.view;
 
-import ec.edu.espe.simulatorHealthCody.model.Authentication;
-import javax.swing.JOptionPane;
-
+import ec.edu.espe.simulatorHealthCody.controller.LoginAdminControlller;
 /**
  *
  * @author Mateo Ávila ESPE
  */
 public class LoginAdministrator extends javax.swing.JFrame {
-
+    
+    LoginAdminControlller controller = new LoginAdminControlller(this);
     /**
      * Creates new form LoginAdministrator
      */
@@ -46,10 +45,20 @@ public class LoginAdministrator extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         btnReturn.setText("Regresar");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnReturn);
         btnReturn.setBounds(150, 420, 83, 32);
 
         btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnLogin);
         btnLogin.setBounds(50, 420, 61, 32);
         jPanel1.add(txtCode);
@@ -92,6 +101,17 @@ public class LoginAdministrator extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        String userName, password;
+        userName = txtUser.getText();
+        password = txtCode.getText();
+        controller.login(userName, password);
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        controller.back();
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments

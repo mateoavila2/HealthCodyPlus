@@ -5,10 +5,8 @@
  */
 package ec.edu.espe.simulatorHealthCody.view;
 
-import com.google.gson.Gson;
+import ec.edu.espe.simulatorHealthCody.controller.InventoryController;
 import ec.edu.espe.simulatorHealthCody.model.Product;
-import ec.edu.espe.simulatorHealthCody.view.AddProductWindow;
-import ec.edu.espe.simulatorHealthCody.view.AddProductWindow;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
@@ -17,6 +15,9 @@ import javax.swing.JOptionPane;
  * @author Mateo Ávila ESPE
  */
 public class InventoryWindow extends javax.swing.JFrame {
+
+    Product product = new Product();
+    InventoryController controller = new InventoryController(this, product);
 
     /**
      * Creates new form InventoryWindow
@@ -60,18 +61,38 @@ public class InventoryWindow extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         btnAddProduct.setText("Agregar Producto");
+        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProductActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAddProduct);
         btnAddProduct.setBounds(120, 130, 220, 50);
 
         btnViewInventory.setText("Ver Inventario");
+        btnViewInventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewInventoryActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnViewInventory);
         btnViewInventory.setBounds(120, 200, 220, 50);
 
         btnAccept.setText("Aceptar");
+        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAccept);
         btnAccept.setBounds(410, 290, 200, 40);
 
         btnReturn.setText("Regresar");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnReturn);
         btnReturn.setBounds(300, 350, 150, 40);
 
@@ -83,18 +104,33 @@ public class InventoryWindow extends javax.swing.JFrame {
         txtProduct.setBounds(120, 290, 220, 40);
 
         rdbSearch.setText("Buscar Producto");
+        rdbSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbSearchActionPerformed(evt);
+            }
+        });
         jPanel1.add(rdbSearch);
         rdbSearch.setBounds(410, 130, 200, 40);
 
         rdbModific.setText("Modificar Producto");
+        rdbModific.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbModificActionPerformed(evt);
+            }
+        });
         jPanel1.add(rdbModific);
         rdbModific.setBounds(410, 180, 200, 40);
 
         rdbDelete.setText("Eliminar Producto");
+        rdbDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbDeleteActionPerformed(evt);
+            }
+        });
         jPanel1.add(rdbDelete);
         rdbDelete.setBounds(410, 230, 200, 40);
 
-        lblModificD.setText("Dato a modificar");
+        lblModificD.setText("Dato");
         lblModificD.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 lblModificDComponentHidden(evt);
@@ -127,6 +163,75 @@ public class InventoryWindow extends javax.swing.JFrame {
     private void lblModificDComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lblModificDComponentHidden
         // TODO add your handling code here:
     }//GEN-LAST:event_lblModificDComponentHidden
+
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
+        controller.addProduct();
+    }//GEN-LAST:event_btnAddProductActionPerformed
+
+    private void rdbSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbSearchActionPerformed
+        txtProduct.setText("");
+        txtProduct.setVisible(true);
+        btnAccept.setVisible(true);
+        lblModificD.setText("Dato a Buscar");
+        lblModificD.setVisible(true);
+    }//GEN-LAST:event_rdbSearchActionPerformed
+
+    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+        if (rdbSearch.isSelected() == true) {
+            String dataTofind;
+            dataTofind = txtProduct.getText();
+            controller.findProduct(dataTofind);
+        }
+        if (rdbModific.isSelected() == true) {
+            boolean status;
+            String dataTofind;
+            dataTofind = txtProduct.getText();
+            status = controller.validateEntry(dataTofind);
+            if (dataTofind.equals("")) {
+                JOptionPane.showMessageDialog(null, "El cuadro de texto esta vacio");
+            } else {
+                if (status == true) {
+                    String dataToUpdate = JOptionPane.showInputDialog("Ingrese el nuevo nombre del producto");
+                    controller.modifyProduct(dataTofind, dataToUpdate);
+                }else{
+                    txtProduct.setText("");
+                    JOptionPane.showMessageDialog(null, "El dato ingresado no existe");
+                }
+
+            }
+
+        }
+        if (rdbDelete.isSelected() == true) {
+        
+            String dataTodeleted;
+            dataTodeleted = txtProduct.getText();
+            controller.deleteProduct(dataTodeleted);
+        }
+    }//GEN-LAST:event_btnAcceptActionPerformed
+
+    private void rdbModificActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbModificActionPerformed
+        txtProduct.setText("");
+        txtProduct.setVisible(true);
+        btnAccept.setVisible(true);
+        lblModificD.setText("Nombre del Producto a modificar");
+        lblModificD.setVisible(true);
+    }//GEN-LAST:event_rdbModificActionPerformed
+
+    private void rdbDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbDeleteActionPerformed
+        txtProduct.setText("");
+        txtProduct.setVisible(true);
+        btnAccept.setVisible(true);
+        lblModificD.setText("Codigo del Producto a Eliminar");
+        lblModificD.setVisible(true);
+    }//GEN-LAST:event_rdbDeleteActionPerformed
+
+    private void btnViewInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewInventoryActionPerformed
+        controller.showProducts();
+    }//GEN-LAST:event_btnViewInventoryActionPerformed
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        controller.back();
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments

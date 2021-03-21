@@ -3,19 +3,36 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/LoginAdministrator.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/LoginAdminControlller.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/utils/DBmanager.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/PredictionOfCovid.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/EmployeeMenuControl.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/User.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/InventoryController.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/CustomerMenuControl.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Appointment.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Authentication.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Customer.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Employee.java</file>
-            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/EmployeeMenu.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Appointment.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/utils/FileManager.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Authentication.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/AddProductController.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/AddProductWindow.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/AppointmentController.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/LoginAdminControlller.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/RCustomerController.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Product.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/images/LoginAdministratorIMG.png</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Employee.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/InventoryController.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/LoginAdministrator.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/simulatorHealthCody/HealthCodySystem.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/REmployeeController.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/utils/JsonManager.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/images/InventoryIMG.png</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Customer.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/utils/DBmanagerDates.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/InventoryWindow.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/TableInventaryController.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/AddAppointment.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/utils/MongoDBManager.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/utils/NoSQLDBManager.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/LoginCustomerController.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/EmployeeMenu.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/test/ec/edu/espe/simulatorHealthCody/model/UserTest.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/EmployeeMenuControl.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/utils/DataPersistence.java</file>
+            <file>file:/C:/Users/Equipo/Desktop/JOE_FORO/ProjectHealthCody1/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/CustomerMenu.java</file>
         </group>
     </open-files>
 </project-private>

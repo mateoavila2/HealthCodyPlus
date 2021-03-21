@@ -5,13 +5,15 @@
  */
 package ec.edu.espe.simulatorHealthCody.view;
 
+import ec.edu.espe.simulatorHealthCody.controller.LoginCustomerController;
+
 
 /**
  *
  * @author Mateo Ávila ESPE
  */
 public class LoginCustomer extends javax.swing.JFrame {
-
+    LoginCustomerController controller = new LoginCustomerController(this);
     /**
      * Creates new form PrincipalWindow
      */
@@ -52,6 +54,11 @@ public class LoginCustomer extends javax.swing.JFrame {
 
         lblAdminLogin.setForeground(new java.awt.Color(255, 255, 255));
         lblAdminLogin.setText("¿Eres administrador?");
+        lblAdminLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAdminLoginMouseClicked(evt);
+            }
+        });
         jPanel1.add(lblAdminLogin);
         lblAdminLogin.setBounds(720, 360, 140, 16);
 
@@ -67,6 +74,11 @@ public class LoginCustomer extends javax.swing.JFrame {
         lblUserName.setBounds(580, 180, 70, 16);
 
         btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnLogin);
         btnLogin.setBounds(690, 390, 80, 30);
 
@@ -77,8 +89,13 @@ public class LoginCustomer extends javax.swing.JFrame {
 
         lblRegister.setForeground(new java.awt.Color(255, 255, 255));
         lblRegister.setText("Regístrate");
+        lblRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRegisterMouseClicked(evt);
+            }
+        });
         jPanel1.add(lblRegister);
-        lblRegister.setBounds(780, 300, 80, 16);
+        lblRegister.setBounds(780, 300, 70, 16);
         jPanel1.add(txpPassword);
         txpPassword.setBounds(580, 260, 260, 24);
         jPanel1.add(txtUserName);
@@ -88,6 +105,11 @@ public class LoginCustomer extends javax.swing.JFrame {
         SelectRegistry.add(rdbEmployee);
         rdbEmployee.setForeground(new java.awt.Color(255, 255, 255));
         rdbEmployee.setText("Empleado");
+        rdbEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbEmployeeActionPerformed(evt);
+            }
+        });
         jPanel1.add(rdbEmployee);
         rdbEmployee.setBounds(750, 320, 88, 28);
 
@@ -95,6 +117,11 @@ public class LoginCustomer extends javax.swing.JFrame {
         SelectRegistry.add(rdbCustomer);
         rdbCustomer.setForeground(new java.awt.Color(255, 255, 255));
         rdbCustomer.setText("Cliente");
+        rdbCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbCustomerActionPerformed(evt);
+            }
+        });
         jPanel1.add(rdbCustomer);
         rdbCustomer.setBounds(610, 320, 110, 30);
 
@@ -117,6 +144,31 @@ public class LoginCustomer extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        String userName, password;
+        userName = txtUserName.getText();
+        password = txpPassword.getText();
+        controller.login(userName, password);
+        
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseClicked
+        rdbCustomer.setVisible(true);
+        rdbEmployee.setVisible(true);
+    }//GEN-LAST:event_lblRegisterMouseClicked
+
+    private void rdbCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbCustomerActionPerformed
+        controller.pressCustomer();
+    }//GEN-LAST:event_rdbCustomerActionPerformed
+
+    private void rdbEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbEmployeeActionPerformed
+        controller.pressEmployee();
+    }//GEN-LAST:event_rdbEmployeeActionPerformed
+
+    private void lblAdminLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminLoginMouseClicked
+        controller.changeForAdmin();
+    }//GEN-LAST:event_lblAdminLoginMouseClicked
 
     
     

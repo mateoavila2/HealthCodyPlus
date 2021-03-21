@@ -4,22 +4,18 @@
  * and open the template in the editor.
  */
 package ec.edu.espe.simulatorHealthCody.view;
-
-import com.toedter.calendar.JDateChooser;
-
+import ec.edu.espe.simulatorHealthCody.controller.REmployeeController;
 import ec.edu.espe.simulatorHealthCody.model.Employee;
-import ec.edu.espe.simulatorHealthCody.model.User;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Mateo Ávila ESPE
  */
 public class REmployee extends javax.swing.JFrame {
-
+    Employee employee = new Employee();
+    REmployeeController controller = new REmployeeController(this, employee);
+    
     /**
      * Creates new form RegistryEmployeeWindow
      */
@@ -103,12 +99,22 @@ public class REmployee extends javax.swing.JFrame {
         cmbGender.setBounds(140, 340, 150, 26);
 
         btnSave.setText("Guardar");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSave);
         btnSave.setBounds(380, 340, 76, 32);
         jPanel1.add(jDate);
         jDate.setBounds(220, 220, 190, 29);
 
         btnBack.setText("Regresar");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnBack);
         btnBack.setBounds(80, 410, 90, 32);
 
@@ -124,6 +130,11 @@ public class REmployee extends javax.swing.JFrame {
         txtUsername.setBounds(560, 290, 185, 24);
 
         btnFinish.setText("Finalizar");
+        btnFinish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinishActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnFinish);
         btnFinish.setBounds(670, 330, 77, 32);
 
@@ -150,6 +161,25 @@ public class REmployee extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        employee.setName(txtName.getText());
+        employee.setId(txtID.getText());
+        controller.confirmData();
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
+        boolean status;
+        employee.setUserName(txtUsername.getText());
+        status = controller.finish();
+        if(status == true){
+            controller.registerEmployee();
+        }
+    }//GEN-LAST:event_btnFinishActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        controller.back();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments

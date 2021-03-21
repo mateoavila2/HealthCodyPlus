@@ -4,13 +4,15 @@
  * and open the template in the editor.
  */
 package ec.edu.espe.simulatorHealthCody.view;
+    
+import ec.edu.espe.simulatorHealthCody.controller.EmployeeMenuControl;
 
 /**
  *
  * @author Mateo Ávila ESPE
  */
 public class EmployeeMenu extends javax.swing.JFrame {
-
+    EmployeeMenuControl controller = new EmployeeMenuControl(this);
     /**
      * Creates new form EmployeeMenu
      */
@@ -30,8 +32,6 @@ public class EmployeeMenu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         btnInventory1 = new javax.swing.JButton();
-        btnAccount = new javax.swing.JButton();
-        btnDates = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -51,25 +51,27 @@ public class EmployeeMenu extends javax.swing.JFrame {
         jLabel2.setBounds(220, 40, 630, 100);
 
         btnInventory1.setText("Inventario");
+        btnInventory1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInventory1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnInventory1);
         btnInventory1.setBounds(380, 240, 180, 60);
 
-        btnAccount.setText("Cuenta");
-        jPanel1.add(btnAccount);
-        btnAccount.setBounds(380, 330, 180, 60);
-
-        btnDates.setText("Citas");
-        jPanel1.add(btnDates);
-        btnDates.setBounds(380, 150, 180, 60);
-
         btnReturn.setText("Regresar");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnReturn);
-        btnReturn.setBounds(50, 400, 200, 60);
+        btnReturn.setBounds(50, 360, 200, 60);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/SecundaryMenuIMG.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 870, 510);
+        jLabel1.setBounds(0, 0, 870, 480);
 
         mnOption.setText("Opciones");
 
@@ -102,6 +104,14 @@ public class EmployeeMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnInventory1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventory1ActionPerformed
+        controller.nextInventoryWindow();
+    }//GEN-LAST:event_btnInventory1ActionPerformed
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        controller.back();
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,8 +149,6 @@ public class EmployeeMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAccount;
-    public javax.swing.JButton btnDates;
     public javax.swing.JButton btnInventory1;
     public javax.swing.JButton btnReturn;
     private javax.swing.JLabel jLabel1;

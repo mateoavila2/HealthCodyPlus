@@ -5,7 +5,7 @@
  */
 package ec.edu.espe.simulatorHealthCody.model;
 
-import ec.edu.espe.simulatorHealthCody.utils.DBmanager;
+import ec.edu.espe.simulatorHealthCody.utils.DBmanagerDates;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,7 +21,7 @@ import java.util.List;
 public class Appointment {
     
     private List<Date> datesOfWeek;
-    private DBmanager dateOperation;
+    private DBmanagerDates dateOperation;
     private String collection;
     private String code;
 
@@ -29,7 +29,7 @@ public class Appointment {
         code = "";
         this.collection = collection;
         datesOfWeek = new ArrayList();
-        dateOperation = new DBmanager("Appointment", this.collection);
+        dateOperation = new DBmanagerDates("Appointment", this.collection);
     }
 
     public Appointment() {

@@ -33,6 +33,14 @@ public class CustomerMenuControl implements ActionListener {
         this.customerMenu.btnAddAppointment.addActionListener(this);
         this.customerMenu.btnShowAppointment.addActionListener(this);
     }
+    public void show() {
+        this.customerMenu.setLocationRelativeTo(null);
+        this.customerMenu.setVisible(true);
+    }
+
+    public void hide() {
+        this.customerMenu.setVisible(false);
+    }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -44,7 +52,7 @@ public class CustomerMenuControl implements ActionListener {
             loginController = new LoginCustomerController(loginCustomer);
 
         }
-        if(ae.getSource() == customerMenu.btnAddAppointment){
+        if (ae.getSource() == customerMenu.btnAddAppointment) {
             AddAppointment addAppointment;
             AppointmentController appointmentController;
             addAppointment = new AddAppointment();
@@ -55,14 +63,19 @@ public class CustomerMenuControl implements ActionListener {
                 Logger.getLogger(CustomerMenuControl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        if(ae.getSource() == customerMenu.btnShowAppointment){
+
+        if (ae.getSource() == customerMenu.btnShowAppointment) {
             String recovered;
             Appointment appointment = new Appointment("Scheduled reservate");
             Customer customer = new Customer();
             recovered = appointment.find(customer.getCodeAppoinment());
-            JOptionPane.showMessageDialog(null, "Su cita agendada es: \n" + recovered);
-            
+            if (recovered.equals("")) {
+                JOptionPane.showMessageDialog(null, "No tiene citas agendadas");
+            } else {
+                JOptionPane.showMessageDialog(null, "Su cita agendada es: \n" + recovered);
+
+            }
+
         }
     }
 

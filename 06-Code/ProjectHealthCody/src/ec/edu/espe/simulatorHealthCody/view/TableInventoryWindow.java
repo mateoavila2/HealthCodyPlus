@@ -5,20 +5,18 @@
  */
 package ec.edu.espe.simulatorHealthCody.view;
 
-import com.google.gson.Gson;
+import ec.edu.espe.simulatorHealthCody.controller.TableInventaryController;
 import ec.edu.espe.simulatorHealthCody.model.Product;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+
 
 /**
  *
  * @author Kenneth Andrade ESPE-DCCO
  */
 public class TableInventoryWindow extends javax.swing.JFrame {
+
+    Product product = new Product();
+    TableInventaryController tableControl = new TableInventaryController(this, product);
 
     /**
      * Creates new form Table
@@ -132,56 +130,16 @@ public class TableInventoryWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        // TODO add your handling code here:
-        
+        tableControl.back();
+
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void btnInventaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventaryActionPerformed
-        // TODO add your handling code here:
-        /*Inventory inventory = new Inventory("Products");
-        Gson gson = new Gson();
-        ArrayList<String[]> data = new ArrayList<String[]>();
-
-        String[] recovered = inventory.showProducts().split("\r\n");
-        List<Product> products = new ArrayList<Product>();
-        for (int i = 0; i < recovered.length; i++) {
-            products.add(gson.fromJson(recovered[i], Product.class));
-        }
-        //
-
-        String matrix[][] = new String[products.size()][4];
-        for (int i = 0; i < products.size(); i++) {
-            matrix[i][0] = products.get(i).getNameProduct().toString();
-            matrix[i][1] = products.get(i).getCodeProduct().toString();
-            matrix[i][2] = String.valueOf(products.get(i).getPriceProduct());
-            matrix[i][3] = String.valueOf(products.get(i).getQuantity());
-        }
-        tblInventory.setModel(new javax.swing.table.DefaultTableModel(
-                matrix,
-                new String[]{
-                    "Nombre", "Código", "Precio", "Cantidad"
-                }
-        ) {
-            Class[] types = new Class[]{
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
-            }
-        });
-        tblInventory.setVisible(true);
-        btnPrint.setVisible(true);
-        */
+        tableControl.showtTable();
     }//GEN-LAST:event_btnInventaryActionPerformed
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-        // TODO add your handling code here:
-        /*try {
-            tblInventory.print();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se puede imprimir el inventario total");
-        }*/
+        tableControl.print();
     }//GEN-LAST:event_btnPrintActionPerformed
 
     /**

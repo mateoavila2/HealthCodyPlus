@@ -6,7 +6,9 @@
 package ec.edu.espe.simulatorHealthCody.controller;
 
 import ec.edu.espe.simulatorHealthCody.model.Authentication;
-import ec.edu.espe.simulatorHealthCody.utils.DBmanager;
+import ec.edu.espe.simulatorHealthCody.model.Customer;
+import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
+import ec.edu.espe.simulatorHealthCody.view.CustomerMenu;
 import ec.edu.espe.simulatorHealthCody.view.EmployeeMenu;
 import ec.edu.espe.simulatorHealthCody.view.LoginAdministrator;
 import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
@@ -16,50 +18,56 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Mateo Ávila
+ * @author Rafa
  */
-public class LoginAdminControlller implements ActionListener {
+public class LoginAdminControlller {
 
     LoginAdministrator loginAdministrator;
-    DBmanager db;
+    MongoDBManager db;
 
     public LoginAdminControlller(LoginAdministrator loginAdministrator) {
-        
+
         this.loginAdministrator = loginAdministrator;
-        this.loginAdministrator.setLocationRelativeTo(null);
-        this.loginAdministrator.setVisible(true);
-        this.loginAdministrator.btnLogin.addActionListener(this);
-        this.loginAdministrator.btnReturn.addActionListener(this);
+        db = new MongoDBManager();
+        db.openConnection("Registry");
+
     }
 
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == loginAdministrator.btnLogin) {
+    public void show() {
+        this.loginAdministrator.setLocationRelativeTo(null);
+        this.loginAdministrator.setVisible(true);
+    }
 
+    public void hide() {
+        this.loginAdministrator.setVisible(false);
+    }
+
+    public void login(String userName, String password) {
+        if (userName.equals("") && password.equals("")) {
+            JOptionPane.showMessageDialog(null, "Datos no ingresados");
+        } else {
             boolean correctUser, correctkey;
-            db = new DBmanager("Registry", "Employees");
-            correctUser = db.verifyExistingData(loginAdministrator.txtUser.getText());
-            correctkey = db.verifyExistingData(loginAdministrator.txtCode.getText());
-            if ((correctUser == true) || (correctkey == true)) {
+            correctUser = db.verifyExistingData(userName,"Employees");
+            correctkey = db.verifyExistingData(password,"Employees");
+            if ((correctUser == true) && correctkey == true) {
+                hide();
                 EmployeeMenu employeeMenu;
                 EmployeeMenuControl employeeMenuControl;
                 employeeMenu = new EmployeeMenu();
-                this.loginAdministrator.setVisible(false);
                 employeeMenuControl = new EmployeeMenuControl(employeeMenu);
+                employeeMenuControl.show();
+
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o Código incorrectos");
-                loginAdministrator.txtUser.setText(null);
-                loginAdministrator.txtCode.setText(null);
-                loginAdministrator.txtUser.getAction();
-                loginAdministrator.txtCode.getAction();
+                loginAdministrator.txtUser.setText("");
+                loginAdministrator.txtCode.setText("");
             }
         }
-        if (ae.getSource() == loginAdministrator.btnReturn) {
-            this.loginAdministrator.setVisible(false);
-            LoginCustomer loginWindow = new LoginCustomer();
-            LoginCustomerController loginController = new LoginCustomerController(loginWindow);
-
-        }
     }
-
+    public void back() {
+        hide();
+        LoginCustomer loginWindow = new LoginCustomer();
+        LoginCustomerController loginController = new LoginCustomerController(loginWindow);
+        loginController.show();
+    }
 }

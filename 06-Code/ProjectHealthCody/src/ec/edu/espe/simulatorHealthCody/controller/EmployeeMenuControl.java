@@ -17,39 +17,40 @@ import java.rmi.registry.Registry;
  *
  * @author Rafa
  */
-public class EmployeeMenuControl implements ActionListener {
+public class EmployeeMenuControl{
 
     EmployeeMenu employeeMenu;
-    
+
     public EmployeeMenuControl(EmployeeMenu employeeMenu) {
         this.employeeMenu = employeeMenu;
+
+    }
+
+    public void show() {
         this.employeeMenu.setLocationRelativeTo(null);
         this.employeeMenu.setVisible(true);
-        this.employeeMenu.btnInventory1.addActionListener(this);
-        this.employeeMenu.btnReturn.addActionListener(this);
     }
-    
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == employeeMenu.btnInventory1) {
-            InventoryWindow inventoryWindow;
-            InventoryController inventoryController;
-            inventoryWindow = new InventoryWindow();
-            this.employeeMenu.setVisible(false);
-            Product product = new Product("Products");
-            inventoryController = new InventoryController(inventoryWindow,product);
-            
-        }
-        
-        if(ae.getSource() == employeeMenu.btnReturn){
-            this.employeeMenu.setVisible(false);
-            LoginCustomer loginCustomer = new LoginCustomer();
-            LoginCustomerController loginCustomerController = new LoginCustomerController(loginCustomer);
-        }
-        
-        
-        
-        
+
+    public void hide() {
+        this.employeeMenu.setVisible(false);
     }
-    
+
+    public void nextInventoryWindow() {
+        hide();
+        Product product = new Product();
+        InventoryWindow inventoryWindow = new InventoryWindow();;
+        InventoryController inventoryController;
+        inventoryController = new InventoryController(inventoryWindow, product);
+        inventoryController.show();
+
+    }
+
+    public void back() {
+        hide();
+        LoginCustomer loginCustomer = new LoginCustomer();
+        LoginCustomerController loginCustomerController = new LoginCustomerController(loginCustomer);
+        loginCustomerController.show();
+
+    }
+
 }

@@ -5,159 +5,108 @@
  */
 package ec.edu.espe.simulatorHealthCody.controller;
 
+import com.google.gson.Gson;
 import com.toedter.calendar.JDateChooser;
-import ec.edu.espe.simulatorHealthCody.model.Authentication;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
-import ec.edu.espe.simulatorHealthCody.model.User;
+import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
 import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
 import ec.edu.espe.simulatorHealthCody.view.RCustomer;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Mateo Ávila
+ * @author Rafa
  */
-public class RCustomerController implements ActionListener, MouseListener {
+public class RCustomerController {
 
     RCustomer rCustomer;
-    User user;
+    Customer customer;
+    MongoDBManager db;
+    Gson gson;
 
-    public RCustomerController(RCustomer rCustomer, User user) {
-        this.user = user;
+    public RCustomerController(RCustomer rCustomer, Customer customer) {
         this.rCustomer = rCustomer;
+        this.customer = customer;
+        db = new MongoDBManager();
+        db.openConnection("Registry");
+        gson = new Gson();
+    }
+    public void show() {
         this.rCustomer.setLocationRelativeTo(null);
         this.rCustomer.setVisible(true);
-        this.rCustomer.btnConfirm.addActionListener(this);
-        this.rCustomer.btnFinish.addActionListener(this);
-        this.rCustomer.btnBack.addActionListener(this);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent ae) {
+    public void hide() {
+        this.rCustomer.setVisible(false);
+    }
 
-        if (ae.getSource() == rCustomer.btnConfirm) {
-            int option;
+    public void confirmData() {
+        int option;
 
-            if ((rCustomer.txtName.getText().equals("")) || (rCustomer.txtID.getText().equals(""))) {
-                JOptionPane.showMessageDialog(null, "Campos vacios, Complete todos los campos");
+        if (customer.getName().equals("") || customer.getId().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campos vacios, Complete todos los campos");
+        } else {
+            option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
 
-            } else {
-                option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
-                if (option == 0) {
-                    JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
-                    rCustomer.lblMessage.setVisible(true);
-                    rCustomer.lblUserName.setEnabled(true);
-                    rCustomer.txtUserName.setEnabled(true);
-                    rCustomer.lblPassword.setEnabled(true);
-                    rCustomer.txtPassword.setEnabled(true);
-                    rCustomer.btnConfirm.setEnabled(false);
-                    rCustomer.btnFinish.setEnabled(true);
-                } else if (option == 1) {
-
-                }
-            }
-        }
-        if (ae.getSource() == rCustomer.btnFinish) {
-            Customer customer;
-            String userName = "", password = "", dateOfBirth = "";
-            userName = rCustomer.txtUserName.getText();
-            password = rCustomer.txtPassword.getText();
-            //btnFinish.setEnabled(true);
-            if ((rCustomer.txtUserName.getText().equals("") || (rCustomer.txtPassword.getText().equals("")))) {
-                JOptionPane.showMessageDialog(null, "Complete todos los campos");
-            } else {
-                String name, ID, gender;
-                name = rCustomer.txtName.getText();
-                ID = rCustomer.txtID.getText();
-                gender = rCustomer.cmbGender.getSelectedItem().toString();
-                dateOfBirth = covertDate(rCustomer.jDate);
-                customer = new Customer(name, ID, dateOfBirth, gender, userName, password);
-                System.out.println(customer.toString());
-                this.user.register(customer);
-
-                
-                LoginCustomer loginCustomer;
-                LoginCustomerController loginController;
-                loginCustomer = new LoginCustomer();
-                this.rCustomer.setVisible(false);
-                loginController = new LoginCustomerController(loginCustomer);
-            }
-        }
-        if (ae.getSource() == rCustomer.btnBack) {
-            
-            this.rCustomer.setVisible(false);
-            LoginCustomer loginCustomer = new LoginCustomer();
-            LoginCustomerController loginCustomerController = new LoginCustomerController(loginCustomer);
-
-        }
-
-        /*
-        if (ae.getSource() == customerWindow.getBtnFinish()) {
-            Customer customer;
-            Registry registy;
-            String userName = "", password = "", dateOfBirth = "";
-            userName = customerWindow.getTxtUserName().getText();
-            password = customerWindow.getTxtPassword().getText();
-            //btnFinish.setEnabled(true);
-            if ((customerWindow.getTxtUserName().getText().equals("") || (customerWindow.getTxtPassword().getText().equals("")))) {
-                JOptionPane.showMessageDialog(null, "Complete todos los campos");
-            } else {
-                String name, ID, gender;
-                name = customerWindow.getTxtName().getText();
-                ID = customerWindow.getTxtID().getText();
-                gender = customerWindow.getCmbGender().getSelectedItem().toString();
-                dateOfBirth = covertDate(customerWindow.getjDate());
-                customer = new Customer(name, ID, dateOfBirth, gender, userName, password);
-                registy = new Registry("Customers");
-                System.out.println(customer.toString());
-                registy.register(customer);
-                LoginCustomer loginWindow = new LoginCustomer();
-                Authentication authentication = new Authentication("Customers");
-                this.customerWindow.setVisible(false);
-                LoginCustomerController loginController = new LoginCustomerController(loginWindow, authentication);
+            if (option == 0) {
+                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+                rCustomer.lblMessage.setVisible(true);
+                rCustomer.lblUserName.setEnabled(true);
+                rCustomer.txtUserName.setEnabled(true);
+                rCustomer.lblPassword.setEnabled(true);
+                rCustomer.txtPassword.setEnabled(true);
+                rCustomer.btnConfirm.setEnabled(false);
+                rCustomer.btnFinish.setEnabled(true);
+            } else if (option == 1) {
 
             }
         }
-        if (ae.getSource() == customerWindow.getBtnBack()) {
-            LoginCustomer loginWindow = new LoginCustomer();
-            Authentication authentication = new Authentication("Customers");
-            this.customerWindow.setVisible(false);
-            LoginController loginController = new LoginController(loginWindow, authentication);
-        }*/
     }
 
-    @Override
-    public void mouseClicked(MouseEvent me) {
+    public boolean finish() {
+        boolean status;
 
-    }
-
-    @Override
-    public void mousePressed(MouseEvent me) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent me) {
+        if (customer.getUserName().equals("") || customer.getAccesKey().equals("")) {
+            JOptionPane.showMessageDialog(null, "Complete todos los campos");
+            status = false;
+        } else {
+            String dateOfBirth, gender;
+            gender = rCustomer.cmbGender.getSelectedItem().toString();
+            dateOfBirth = covertDate(rCustomer.jDate);
+            customer.setDateOfBirth(dateOfBirth);
+            customer.setGender(gender);
+            status = true;
+        }
+        return status;
 
     }
 
-    @Override
-    public void mouseEntered(MouseEvent me) {
+    public void registerCustomer() {
+        boolean status;
+        String jsonCustomer;
+        jsonCustomer = gson.toJson(customer);
+        status = db.save(jsonCustomer,"Customers");
+        if (status = true) {
+            hide();
+            LoginCustomer loginCustomer;
+            LoginCustomerController loginController;
+            loginCustomer = new LoginCustomer();
+            loginController = new LoginCustomerController(loginCustomer);
+            loginController.show();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado");
+        }
 
     }
 
-    @Override
-    public void mouseExited(MouseEvent me) {
-
-    }
-
-    public void emptyFields() {
+    public void back() {
+        hide();
+        LoginCustomer loginCustomer = new LoginCustomer();
+        LoginCustomerController loginCustomerController = new LoginCustomerController(loginCustomer);
+        loginCustomerController.show();
 
     }
 

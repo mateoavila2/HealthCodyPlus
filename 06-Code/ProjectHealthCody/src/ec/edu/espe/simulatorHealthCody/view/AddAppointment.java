@@ -78,7 +78,7 @@ public class AddAppointment extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/SecundaryMenuIMG.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(0, 0, 760, 440);
+        jLabel2.setBounds(0, -20, 760, 440);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -42,6 +42,15 @@ public class AppointmentController implements ActionListener, MouseListener {
         this.addAppointment.btnSave.addActionListener(this);
         this.addAppointment.btnback.addActionListener(this);
     }
+    
+    public void show() {
+        this.addAppointment.setLocationRelativeTo(null);
+        this.addAppointment.setVisible(true);
+    }
+
+    public void hide() {
+        this.addAppointment.setVisible(false);
+    }
 
     public void showAppointmet() throws ParseException {
         appointment = new Appointment("Scheduled appointments");
