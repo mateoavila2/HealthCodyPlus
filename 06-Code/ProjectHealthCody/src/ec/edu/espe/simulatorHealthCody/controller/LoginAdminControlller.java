@@ -7,7 +7,7 @@ package ec.edu.espe.simulatorHealthCody.controller;
 
 import ec.edu.espe.simulatorHealthCody.model.Authentication;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
-import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
+import ec.edu.espe.simulatorHealthCody.utils.NosqlDBManager;
 import ec.edu.espe.simulatorHealthCody.view.CustomerMenu;
 import ec.edu.espe.simulatorHealthCody.view.EmployeeMenu;
 import ec.edu.espe.simulatorHealthCody.view.LoginAdministrator;
@@ -23,13 +23,12 @@ import javax.swing.JOptionPane;
 public class LoginAdminControlller {
 
     LoginAdministrator loginAdministrator;
-    MongoDBManager db;
+    NosqlDBManager db;
 
     public LoginAdminControlller(LoginAdministrator loginAdministrator) {
 
         this.loginAdministrator = loginAdministrator;
-        db = new MongoDBManager();
-        db.openConnection("Registry");
+        db = new NosqlDBManager("Registry", "Employees");
 
     }
 
@@ -47,8 +46,8 @@ public class LoginAdminControlller {
             JOptionPane.showMessageDialog(null, "Datos no ingresados");
         } else {
             boolean correctUser, correctkey;
-            correctUser = db.verifyExistingData(userName,"Employees");
-            correctkey = db.verifyExistingData(password,"Employees");
+            correctUser = db.verifyExistingData(userName);
+            correctkey = db.verifyExistingData(password);
             if ((correctUser == true) && correctkey == true) {
                 hide();
                 EmployeeMenu employeeMenu;
@@ -58,16 +57,56 @@ public class LoginAdminControlller {
                 employeeMenuControl.show();
 
             } else {
-                JOptionPane.showMessageDialog(null, "Usuario o código incorrecto");
+                JOptionPane.showMessageDialog(null, "Usuario o Código incorrectos");
                 loginAdministrator.txtUser.setText("");
                 loginAdministrator.txtCode.setText("");
+
             }
+
         }
+
     }
+
     public void back() {
         hide();
         LoginCustomer loginWindow = new LoginCustomer();
         LoginCustomerController loginController = new LoginCustomerController(loginWindow);
         loginController.show();
     }
+
+    /*@Override
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == loginAdministrator.btnLogin) {
+            if (loginAdministrator.txtUser.getText().equals("") || loginAdministrator.txtCode.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Datos no ingresados \n Ingrese los datos");
+            } else {
+                boolean correctUser, correctkey;
+                db = new NosqlDBManager("Registry", "Employees");
+                correctUser = db.verifyExistingData(loginAdministrator.txtUser.getText());
+                correctkey = db.verifyExistingData(loginAdministrator.txtCode.getText());
+                System.out.println(correctUser);
+                System.out.println(correctkey);
+                if ((correctUser == true) && (correctkey == true)) {
+                    EmployeeMenu employeeMenu;
+                    EmployeeMenuControl employeeMenuControl;
+                    employeeMenu = new EmployeeMenu();
+                    this.loginAdministrator.setVisible(false);
+                    employeeMenuControl = new EmployeeMenuControl(employeeMenu);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario o Código incorrectos");
+                    loginAdministrator.txtUser.setText(null);
+                    loginAdministrator.txtCode.setText(null);
+                    loginAdministrator.txtUser.getAction();
+                    loginAdministrator.txtCode.getAction();
+                }
+            }
+
+        }
+        if (ae.getSource() == loginAdministrator.btnReturn) {
+            this.loginAdministrator.setVisible(false);
+            LoginCustomer loginWindow = new LoginCustomer();
+            LoginCustomerController loginController = new LoginCustomerController(loginWindow);
+
+        }
+    }*/
 }

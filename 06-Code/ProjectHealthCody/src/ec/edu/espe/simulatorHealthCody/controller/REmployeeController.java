@@ -8,7 +8,7 @@ package ec.edu.espe.simulatorHealthCody.controller;
 import com.google.gson.Gson;
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.simulatorHealthCody.model.Employee;
-import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
+import ec.edu.espe.simulatorHealthCody.utils.NosqlDBManager;
 import ec.edu.espe.simulatorHealthCody.view.REmployee;
 import ec.edu.espe.simulatorHealthCody.view.LoginAdministrator;
 import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
@@ -24,14 +24,13 @@ public class REmployeeController {
 
     REmployee rEmployee;
     Employee employee;
-    MongoDBManager db;
+    NosqlDBManager db;
     Gson gson;
 
     public REmployeeController(REmployee rEmployee, Employee employee) {
         this.rEmployee = rEmployee;
         this.employee = employee;
-        db = new MongoDBManager();
-        db.openConnection("Registry");
+        db = new NosqlDBManager("Registry", "Employees");
         gson = new Gson();
     }
 
@@ -49,12 +48,12 @@ public class REmployeeController {
         int option;
 
         if (employee.getName().equals("") || employee.getId().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campos vacíos, Complete todos los campos");
+            JOptionPane.showMessageDialog(null, "Campos vacios, Complete todos los campos");
         } else {
-            option = JOptionPane.showConfirmDialog(null, "¿Confirmar registro?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
+            option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
 
             if (option == 0) {
-                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmación", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
                 rEmployee.lblIMessaage.setVisible(true);
                 rEmployee.lblUSerimage.setVisible(true);
                 rEmployee.lblUsername.setVisible(true);
@@ -90,7 +89,7 @@ public class REmployeeController {
         boolean status;
         String jsonEmployee;
         jsonEmployee = gson.toJson(employee);
-        status = db.save(jsonEmployee,"Employees");
+        status = db.save(jsonEmployee);
         if (status = true) {
             hide();
             LoginAdministrator loginAdministrator;

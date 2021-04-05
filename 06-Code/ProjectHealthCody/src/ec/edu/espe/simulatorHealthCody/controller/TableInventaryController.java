@@ -7,7 +7,7 @@ package ec.edu.espe.simulatorHealthCody.controller;
 
 import com.google.gson.Gson;
 import ec.edu.espe.simulatorHealthCody.model.Product;
-import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
+import ec.edu.espe.simulatorHealthCody.utils.NosqlDBManager;
 import ec.edu.espe.simulatorHealthCody.view.InventoryWindow;
 import ec.edu.espe.simulatorHealthCody.view.TableInventoryWindow;
 import java.util.ArrayList;
@@ -22,14 +22,13 @@ public class TableInventaryController {
 
     TableInventoryWindow tableInventoryWindow;
     Product product;
-    MongoDBManager db;
+    NosqlDBManager db;
     Gson gson;
 
     public TableInventaryController(TableInventoryWindow tableInventoryWindow, Product product) {
         this.tableInventoryWindow = tableInventoryWindow;
         this.product = product;
-        db = new MongoDBManager();
-        db.openConnection("Inventory");
+        db = new NosqlDBManager("Inventory", "Products");
         gson = new Gson();
 
     }
@@ -46,7 +45,7 @@ public class TableInventaryController {
     public void showtTable() {
         Gson gson = new Gson();
         String jsonProducts;
-        jsonProducts = db.read("Products");
+        jsonProducts = db.read();
 
         ArrayList<String[]> data = new ArrayList<String[]>();
 
@@ -99,4 +98,57 @@ public class TableInventaryController {
         inventoryController = new InventoryController(inventoryWindow,product);
         inventoryController.show();
     }
+
+    /*@Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == tableInventoryWindow.btnInventary) {
+            Gson gson = new Gson();
+            ArrayList<String[]> data = new ArrayList<String[]>();
+
+            String[] recovered = inventory.showProducts().split("\r\n");
+            List<Product> products = new ArrayList<Product>();
+            for (int i = 0; i < recovered.length; i++) {
+                products.add(gson.fromJson(recovered[i], Product.class));
+            }
+            //
+
+            String matrix[][] = new String[products.size()][4];
+            for (int i = 0; i < products.size(); i++) {
+                matrix[i][0] = products.get(i).getNameProduct().toString();
+                matrix[i][1] = products.get(i).getCodeProduct().toString();
+                matrix[i][2] = String.valueOf(products.get(i).getPriceProduct());
+                matrix[i][3] = String.valueOf(products.get(i).getQuantity());
+            }
+            tableInventoryWindow.tblInventory.setModel(new javax.swing.table.DefaultTableModel(
+                    matrix,
+                    new String[]{
+                        "Nombre", "Código", "Precio", "Cantidad"
+                    }
+            ) {
+                Class[] types = new Class[]{
+                    java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                };
+
+                public Class getColumnClass(int columnIndex) {
+                    return types[columnIndex];
+                }
+            });
+            tableInventoryWindow.tblInventory.setVisible(true);
+            tableInventoryWindow.btnPrint.setVisible(true);
+        }
+        if (e.getSource() == tableInventoryWindow.btnPrint) {
+            try {
+                tableInventoryWindow.tblInventory.print();
+            } catch (Exception b) {
+                JOptionPane.showMessageDialog(null, "No se puede imprimir el inventario total");
+            }
+        }
+        if(e.getSource() == tableInventoryWindow.btnReturn){
+            InventoryWindow inventoryWindow;
+            InventoryController inventoryController;
+            inventoryWindow = new InventoryWindow();
+            this.tableInventoryWindow.setVisible(false);
+            inventoryController = new InventoryController(inventoryWindow, this.inventory);
+        }
+    }*/
 }

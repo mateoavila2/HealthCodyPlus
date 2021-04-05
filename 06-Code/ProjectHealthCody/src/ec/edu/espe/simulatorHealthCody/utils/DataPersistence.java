@@ -11,14 +11,13 @@ package ec.edu.espe.simulatorHealthCody.utils;
  */
 public interface DataPersistence {
 
-    public boolean save(String data,String table);
+    public boolean save(String data);
 
-    public String read(String table);
+    public String read();
 
-    public boolean update(String dataTofind, String dataToupdate,String table);
+    public boolean update(String dataTofind, String dataToupdate);
 
-    public boolean delete(String dataToDelete,String table);
+    public boolean delete(String dataToDelete);
 
-    public String find(String dataToFind,String table);
-    
+    public String find(String dataToFind);
 }

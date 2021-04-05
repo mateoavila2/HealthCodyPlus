@@ -66,10 +66,15 @@ public class DBmanagerDates {
             document.remove("_id");
             String recovered;
             recovered = document.get("code").toString();
+            //Properties properties = (Properties) gson.fromJson(recovered, Properties.class);
+            //Set<String> keys = properties.stringPropertyNames();
+            //for (String key : keys) {
                 if (dataToFind.equals(recovered)) {
 
                     dateFound = document.get("date").toString() + "\r\n";
                 }
+            //}
+
         }
         return dateFound;
 
@@ -77,13 +82,17 @@ public class DBmanagerDates {
 
     public void update(String dataToFind, String dataToUpdate, String keyName) {
         Document findDocument = new Document(keyName, dataToFind);
+
         Document updateDocument = new Document("$set", new Document(keyName, dataToUpdate));
+
         collection.findOneAndUpdate(findDocument, updateDocument);
     }
 
     public void delete(String keyName, String dataToDelete) {
         Document findDocument = new Document(keyName, dataToDelete);
+
         collection.findOneAndDelete(findDocument);
+
     }
 
 }
