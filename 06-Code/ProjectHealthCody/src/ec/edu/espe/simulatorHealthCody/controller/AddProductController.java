@@ -57,16 +57,16 @@ public class AddProductController {
                     JOptionPane.showMessageDialog(null, "Dato de precio no válido");
                     addProductWindows.txtPrice.setText(null);
                     addProductWindows.txtPrice.getAction();
-                } else {
+                } else{
                     Product product = new Product(name, code, price, quantitys);
                     String jsonProduct;
                     jsonProduct = gson.toJson(product);
                     db.openConnection("Inventory");
-                    boolean status = db.save(name,"Products");
+                    boolean status = db.save(jsonProduct,"Products");
                     JOptionPane.showMessageDialog(null, "Producto registrado con éxito");
                 }
             } catch (Exception b) {
-                JOptionPane.showMessageDialog(null, "Dato de precio no válido");
+                JOptionPane.showMessageDialog(null, "Dato de precio no válido wqe ");
                 addProductWindows.txtPrice.setText(null);
                 addProductWindows.txtPrice.getAction();
             }
