@@ -73,6 +73,7 @@ public class AddProductController {
 
                     Product product = new Product(name, code, price, quantitys);
                     jsonProduct = gson.toJson(product);
+                    price = Math.round(price*100.0)/100.0;
                     boolean status = db.save(jsonProduct, "Products");
                     JOptionPane.showMessageDialog(null, "El valor con iva es de: " + price);
                     JOptionPane.showMessageDialog(null, "Producto registrado con éxito");
