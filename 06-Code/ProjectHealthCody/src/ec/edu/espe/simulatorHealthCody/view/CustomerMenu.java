@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.simulatorHealthCody.view;
 
+import ec.edu.espe.simulatorHealthCody.controller.LoginCustomerController;
+
 /**
  *
  * @author Mateo Ávila ESPE
@@ -58,6 +60,11 @@ public class CustomerMenu extends javax.swing.JFrame {
         btnShowAppointment.setBounds(40, 240, 280, 40);
 
         btnReturn.setText("Regresar");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnReturn);
         btnReturn.setBounds(110, 380, 140, 50);
 
@@ -97,6 +104,11 @@ public class CustomerMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        LoginCustomerController loginCustomerController = null;
+        loginCustomerController.pressEmployee();
+     }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments
