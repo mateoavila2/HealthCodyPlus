@@ -51,7 +51,7 @@ public class LoginAdministrator extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnReturn);
-        btnReturn.setBounds(150, 420, 83, 32);
+        btnReturn.setBounds(180, 420, 120, 25);
 
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -60,11 +60,11 @@ public class LoginAdministrator extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnLogin);
-        btnLogin.setBounds(50, 420, 61, 32);
+        btnLogin.setBounds(50, 420, 100, 25);
         jPanel1.add(txtCode);
-        txtCode.setBounds(60, 310, 300, 24);
+        txtCode.setBounds(60, 310, 300, 22);
         jPanel1.add(txtUser);
-        txtUser.setBounds(60, 260, 300, 24);
+        txtUser.setBounds(60, 260, 300, 22);
 
         lblCodeForget.setText("¿Olvidaste tu usuario o contraseña?");
         jPanel1.add(lblCodeForget);

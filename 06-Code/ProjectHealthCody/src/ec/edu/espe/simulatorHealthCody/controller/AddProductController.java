@@ -10,10 +10,6 @@ import ec.edu.espe.simulatorHealthCody.model.Product;
 import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
 import ec.edu.espe.simulatorHealthCody.view.AddProductWindow;
 import ec.edu.espe.simulatorHealthCody.view.InventoryWindow;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,7 +19,7 @@ import javax.swing.JOptionPane;
 public class AddProductController {
 
     AddProductWindow addProductWindows;
-    Product product;
+    Product product;    
     MongoDBManager db;
     Gson gson;
 

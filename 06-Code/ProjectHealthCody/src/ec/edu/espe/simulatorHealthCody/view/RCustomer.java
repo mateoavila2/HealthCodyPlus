@@ -4,18 +4,19 @@
  * and open the template in the editor.
  */
 package ec.edu.espe.simulatorHealthCody.view;
+
 import ec.edu.espe.simulatorHealthCody.controller.RCustomerController;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
-
 
 /**
  *
  * @author Mateo Ávila ESPE
  */
 public class RCustomer extends javax.swing.JFrame {
+
     Customer customer = new Customer();
     RCustomerController controller = new RCustomerController(this, customer);
-    
+
     /**
      * Creates new form RegistryCustomerWindow
      */
@@ -112,6 +113,12 @@ public class RCustomer extends javax.swing.JFrame {
         cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
         jPanel1.add(cmbGender);
         cmbGender.setBounds(80, 190, 200, 26);
+
+        txtID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIDKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtID);
         txtID.setBounds(20, 140, 300, 30);
 
@@ -165,7 +172,7 @@ public class RCustomer extends javax.swing.JFrame {
         customer.setName(txtName.getText());
         customer.setId(txtID.getText());
         controller.confirmData();
-        
+
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
@@ -173,15 +180,23 @@ public class RCustomer extends javax.swing.JFrame {
         customer.setUserName(txtUserName.getText());
         customer.setAccesKey(txtPassword.getText());
         status = controller.finish();
-        if(status == true){
+        if (status == true) {
             controller.registerCustomer();
         }
-        
+
     }//GEN-LAST:event_btnFinishActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         controller.back();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyTyped
+
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            evt.consume();
+        }   
+    }//GEN-LAST:event_txtIDKeyTyped
 
     /**
      * @param args the command line arguments

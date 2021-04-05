@@ -52,11 +52,11 @@ public class AddAppointment extends javax.swing.JFrame {
 
         btnSave.setText("Guardar");
         jPanel2.add(btnSave);
-        btnSave.setBounds(330, 330, 76, 32);
+        btnSave.setBounds(330, 330, 110, 25);
 
         btnback.setText("Regresar");
         jPanel2.add(btnback);
-        btnback.setBounds(30, 380, 83, 32);
+        btnback.setBounds(30, 380, 120, 25);
 
         tableAppoint.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
