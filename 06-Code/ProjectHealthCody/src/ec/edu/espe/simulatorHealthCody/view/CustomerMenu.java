@@ -58,6 +58,11 @@ public class CustomerMenu extends javax.swing.JFrame {
         btnShowAppointment.setBounds(40, 240, 280, 40);
 
         btnReturn.setText("Regresar");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnReturn);
         btnReturn.setBounds(110, 380, 140, 50);
 
@@ -97,6 +102,11 @@ public class CustomerMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        LoginCustomer loginCustomer = new LoginCustomer();
+        loginCustomer.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments

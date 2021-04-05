@@ -3,28 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/REmployeeController.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/AddProductController.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/RCustomer.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/TableInventoryWindow.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/EmployeeMenu.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/InventoryController.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/test/ec/edu/espe/simulatorHealthCody/model/CustomerTest.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/InventoryWindow.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/LoginAdministrator.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/TableInventaryController.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/REmployee.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/LoginCustomer.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/AppointmentController.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/AddProductWindow.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/model/Appointment.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/AddAppointment.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/utils/DataPersistence.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/utils/JsonManager.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/CustomerMenuControl.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/CustomerMenu.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/simulatorHealthCody/HealthCodySystem.java</file>
-            <file>file:/C:/Users/Equipo/Desktop/INSPECTION/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/RCustomerController.java</file>
+            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/AddProductWindow.java</file>
+            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/view/CustomerMenu.java</file>
+            <file>file:/C:/ESPE/PROYECTO/HealthCodyPlus/06-Code/ProjectHealthCody/src/ec/edu/espe/simulatorHealthCody/controller/AppointmentController.java</file>
         </group>
     </open-files>
 </project-private>
