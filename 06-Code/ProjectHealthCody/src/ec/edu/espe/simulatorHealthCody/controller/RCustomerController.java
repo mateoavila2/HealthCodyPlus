@@ -8,7 +8,7 @@ package ec.edu.espe.simulatorHealthCody.controller;
 import com.google.gson.Gson;
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.simulatorHealthCody.model.Customer;
-import ec.edu.espe.simulatorHealthCody.utils.NosqlDBManager;
+import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
 import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
 import ec.edu.espe.simulatorHealthCody.view.RCustomer;
 import java.text.DateFormat;
@@ -23,17 +23,16 @@ public class RCustomerController {
 
     RCustomer rCustomer;
     Customer customer;
-    NosqlDBManager db;
+    MongoDBManager db;
     Gson gson;
 
     public RCustomerController(RCustomer rCustomer, Customer customer) {
         this.rCustomer = rCustomer;
         this.customer = customer;
-        db = new NosqlDBManager("Registry", "Customers");
+        db = new MongoDBManager();
+        db.openConnection("Registry");
         gson = new Gson();
-
     }
-
     public void show() {
         this.rCustomer.setLocationRelativeTo(null);
         this.rCustomer.setVisible(true);
@@ -47,12 +46,12 @@ public class RCustomerController {
         int option;
 
         if (customer.getName().equals("") || customer.getId().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campos vacios, Complete todos los campos");
+            JOptionPane.showMessageDialog(null, "Campos vacíos, Complete todos los campos");
         } else {
-            option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
+            option = JOptionPane.showConfirmDialog(null, "¿Confirmar registro?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
 
             if (option == 0) {
-                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmación", JOptionPane.INFORMATION_MESSAGE);
                 rCustomer.lblMessage.setVisible(true);
                 rCustomer.lblUserName.setEnabled(true);
                 rCustomer.txtUserName.setEnabled(true);
@@ -88,7 +87,7 @@ public class RCustomerController {
         boolean status;
         String jsonCustomer;
         jsonCustomer = gson.toJson(customer);
-        status = db.save(jsonCustomer);
+        status = db.save(jsonCustomer,"Customers");
         if (status = true) {
             hide();
             LoginCustomer loginCustomer;
@@ -98,7 +97,7 @@ public class RCustomerController {
             loginController.show();
 
         } else {
-            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado");
+            JOptionPane.showMessageDialog(null, "Ocurrió un error inesperado");
         }
 
     }
@@ -118,12 +117,6 @@ public class RCustomerController {
         String date = dateFormat.format(jDate.getDate());
         return date;
 
-    }
-    
-    public void validateID(String ID){
-        
-        
-    
     }
 
 }

@@ -7,9 +7,13 @@ package ec.edu.espe.simulatorHealthCody.controller;
 
 import com.google.gson.Gson;
 import ec.edu.espe.simulatorHealthCody.model.Product;
-import ec.edu.espe.simulatorHealthCody.utils.NosqlDBManager;
+import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
 import ec.edu.espe.simulatorHealthCody.view.AddProductWindow;
 import ec.edu.espe.simulatorHealthCody.view.InventoryWindow;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,13 +24,13 @@ public class AddProductController {
 
     AddProductWindow addProductWindows;
     Product product;
-    NosqlDBManager db;
+    MongoDBManager db;
     Gson gson;
 
     public AddProductController(AddProductWindow addProductWindow, Product product) {
         this.addProductWindows = addProductWindow;
         this.product = product;
-        db = new NosqlDBManager("Inventory", "Products");
+        db = new MongoDBManager();
         gson = new Gson();
     }
 
@@ -53,11 +57,12 @@ public class AddProductController {
                     JOptionPane.showMessageDialog(null, "Dato de precio no válido");
                     addProductWindows.txtPrice.setText(null);
                     addProductWindows.txtPrice.getAction();
-                } else {
+                } else{
                     Product product = new Product(name, code, price, quantitys);
                     String jsonProduct;
                     jsonProduct = gson.toJson(product);
-                    boolean status = db.save(name);
+                    db.openConnection("Inventory");
+                    boolean status = db.save(jsonProduct,"Products");
                     JOptionPane.showMessageDialog(null, "Producto registrado con éxito");
                 }
             } catch (Exception b) {

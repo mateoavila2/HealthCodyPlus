@@ -5,8 +5,11 @@
  */
 package simulatorHealthCody;
 
+import com.google.gson.Gson;
 import ec.edu.espe.simulatorHealthCody.controller.LoginCustomerController;
 import ec.edu.espe.simulatorHealthCody.model.Appointment;
+import ec.edu.espe.simulatorHealthCody.model.Product;
+import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
 import ec.edu.espe.simulatorHealthCody.view.LoginCustomer;
 import java.text.ParseException;
 import java.util.ArrayList;

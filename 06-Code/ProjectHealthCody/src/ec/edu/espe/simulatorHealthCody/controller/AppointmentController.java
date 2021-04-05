@@ -78,7 +78,7 @@ public class AppointmentController implements ActionListener, MouseListener {
         String reservate, code;
         if (ae.getSource() == addAppointment.btnSave) {
             if (selection == -1) {
-                JOptionPane.showMessageDialog(null, "Cita no seleccionsda \n Seleccione una cita");
+                JOptionPane.showMessageDialog(null, "Cita no seleccionada \n Seleccione una cita");
             } else {
                 for (int i = 0; i < dates.size(); i++) {
                     if (selection == (i)) {
@@ -92,7 +92,7 @@ public class AppointmentController implements ActionListener, MouseListener {
                                 reservate = appointment.delete(i);
                                 appointment = new Appointment("Scheduled reservate");
                                 appointment.add(reservate, customer.getCodeAppoinment());
-                                JOptionPane.showMessageDialog(null, "Cita agendada con exito");
+                                JOptionPane.showMessageDialog(null, "Cita agendada con éxito");
                             } catch (ParseException ex) {
                                 Logger.getLogger(AppointmentController.class.getName()).log(Level.SEVERE, null, ex);
                             }
