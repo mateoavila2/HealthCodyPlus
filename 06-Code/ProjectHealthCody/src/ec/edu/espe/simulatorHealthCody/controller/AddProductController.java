@@ -6,10 +6,16 @@
 package ec.edu.espe.simulatorHealthCody.controller;
 
 import com.google.gson.Gson;
+import ec.edu.espe.simulatorHealthCody.model.Iva;
 import ec.edu.espe.simulatorHealthCody.model.Product;
 import ec.edu.espe.simulatorHealthCody.utils.MongoDBManager;
 import ec.edu.espe.simulatorHealthCody.view.AddProductWindow;
 import ec.edu.espe.simulatorHealthCody.view.InventoryWindow;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +25,7 @@ import javax.swing.JOptionPane;
 public class AddProductController {
 
     AddProductWindow addProductWindows;
-    Product product;    
+    Product product;
     MongoDBManager db;
     Gson gson;
 
@@ -53,14 +59,26 @@ public class AddProductController {
                     JOptionPane.showMessageDialog(null, "Dato de precio no válido");
                     addProductWindows.txtPrice.setText(null);
                     addProductWindows.txtPrice.getAction();
-                } else{
-                    Product product = new Product(name, code, price, quantitys);
+                } else {
+                    
                     String jsonProduct;
-                    jsonProduct = gson.toJson(product);
+                    
                     db.openConnection("Inventory");
-                    boolean status = db.save(jsonProduct,"Products");
+
+                    IvaController ivaController = new IvaController();
+                    double price2 = ivaController.calculate(Float.parseFloat(String.valueOf(price)));
+                    //JOptionPane.showMessageDialog(null, "El valor con iva es de: " + price2);
+                    price = price2;
+                    
+
+                    Product product = new Product(name, code, price, quantitys);
+                    jsonProduct = gson.toJson(product);
+                    boolean status = db.save(jsonProduct, "Products");
+                    JOptionPane.showMessageDialog(null, "El valor con iva es de: " + price);
                     JOptionPane.showMessageDialog(null, "Producto registrado con éxito");
+                    
                 }
+
             } catch (Exception b) {
                 JOptionPane.showMessageDialog(null, "Dato de precio no válido");
                 addProductWindows.txtPrice.setText(null);
