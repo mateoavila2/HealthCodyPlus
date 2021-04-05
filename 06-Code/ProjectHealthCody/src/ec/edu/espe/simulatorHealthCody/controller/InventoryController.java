@@ -69,6 +69,7 @@ public class InventoryController {
 
     public boolean validateEntry(String data) {
         boolean status;
+        db = new MongoDBManager();
         status = db.verifyExistingData(data, "Products");
         if (status == true) {
             return true;
@@ -98,6 +99,7 @@ public class InventoryController {
 
     public void deleteProduct(String dataTodelete) {
         boolean status;
+        db = new MongoDBManager();
         if (dataTodelete.equals("")) {
             JOptionPane.showMessageDialog(null, "El cuadro de texto esta vacío");
         } else {

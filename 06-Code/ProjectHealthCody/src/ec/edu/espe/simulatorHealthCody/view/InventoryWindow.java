@@ -94,7 +94,7 @@ public class InventoryWindow extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnReturn);
-        btnReturn.setBounds(300, 350, 150, 40);
+        btnReturn.setBounds(300, 360, 150, 40);
 
         jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 48)); // NOI18N
         jLabel2.setText("Inventario");
@@ -137,7 +137,7 @@ public class InventoryWindow extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblModificD);
-        lblModificD.setBounds(120, 340, 140, 16);
+        lblModificD.setBounds(120, 340, 270, 16);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulatorHealthCody/images/InventoryIMG.png"))); // NOI18N
         jLabel1.setText("jLabel1");
