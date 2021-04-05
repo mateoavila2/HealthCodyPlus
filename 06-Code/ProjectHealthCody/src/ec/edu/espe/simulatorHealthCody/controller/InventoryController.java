@@ -52,7 +52,7 @@ public class InventoryController {
     public void findProduct(String dataToFind) {
         boolean status;
         if (dataToFind.equals("")) {
-            JOptionPane.showMessageDialog(null, "El cuadro de texto esta vacio");
+            JOptionPane.showMessageDialog(null, "El cuadro de texto está vacío");
         } else {
             status = db.verifyExistingData(dataToFind,"Products");
             if (status == true) {
@@ -81,7 +81,7 @@ public class InventoryController {
         boolean status;
 
         if (dataToupdate.equals("")) {
-            JOptionPane.showMessageDialog(null, "El cuadro de texto esta vacio");
+            JOptionPane.showMessageDialog(null, "El cuadro de texto esta vacío");
         } else {
             db.setKeyName("name");
             db.openConnection("Inventory");
@@ -97,7 +97,7 @@ public class InventoryController {
     public void deleteProduct(String dataTodelete) {
         boolean status;
         if (dataTodelete.equals("")) {
-            JOptionPane.showMessageDialog(null, "El cuadro de texto esta vacio");
+            JOptionPane.showMessageDialog(null, "El cuadro de texto esta vacío");
         } else {
             db.setKeyName("code");
             db.openConnection("Inventory");
@@ -107,7 +107,7 @@ public class InventoryController {
                 this.inventoryWindow.txtProduct.setText("");
             } else {
                 this.inventoryWindow.txtProduct.setText("");
-                JOptionPane.showMessageDialog(null, "El codigo ingresado no existe");
+                JOptionPane.showMessageDialog(null, "El código ingresado no existe");
             }
 
         }

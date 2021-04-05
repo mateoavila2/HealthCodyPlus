@@ -61,7 +61,7 @@ public class LoginCustomerController{
             } else {
                 loginCustomer.txtUserName.setText("");
                 loginCustomer.txpPassword.setText("");
-                JOptionPane.showMessageDialog(null, " Usuario o contaseña no existennte \n\t Intente de nuevo");
+                JOptionPane.showMessageDialog(null, " Usuario o contaseña no existente \n\t Intente de nuevo");
             }
         }
     }

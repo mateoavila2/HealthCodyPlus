@@ -49,12 +49,12 @@ public class REmployeeController {
         int option;
 
         if (employee.getName().equals("") || employee.getId().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campos vacios, Complete todos los campos");
+            JOptionPane.showMessageDialog(null, "Campos vacíos, Complete todos los campos");
         } else {
-            option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
+            option = JOptionPane.showConfirmDialog(null, "¿Confirmar registro?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
 
             if (option == 0) {
-                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmación", JOptionPane.INFORMATION_MESSAGE);
                 rEmployee.lblIMessaage.setVisible(true);
                 rEmployee.lblUSerimage.setVisible(true);
                 rEmployee.lblUsername.setVisible(true);

@@ -58,7 +58,7 @@ public class LoginAdminControlller {
                 employeeMenuControl.show();
 
             } else {
-                JOptionPane.showMessageDialog(null, "Usuario o Código incorrectos");
+                JOptionPane.showMessageDialog(null, "Usuario o código incorrecto");
                 loginAdministrator.txtUser.setText("");
                 loginAdministrator.txtCode.setText("");
             }

@@ -26,9 +26,6 @@ public class Customer extends User{
     public Customer() {
     }
     
-
-    
-
     public String getCodeAppoinment() {
         return codeAppoinment;
     }

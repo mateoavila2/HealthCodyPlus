@@ -46,12 +46,12 @@ public class RCustomerController {
         int option;
 
         if (customer.getName().equals("") || customer.getId().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campos vacios, Complete todos los campos");
+            JOptionPane.showMessageDialog(null, "Campos vacíos, Complete todos los campos");
         } else {
-            option = JOptionPane.showConfirmDialog(null, "Confirmar registro ?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
+            option = JOptionPane.showConfirmDialog(null, "¿Confirmar registro?", "Guardar datos", JOptionPane.YES_NO_CANCEL_OPTION);
 
             if (option == 0) {
-                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Datos guardados", "Confirmación", JOptionPane.INFORMATION_MESSAGE);
                 rCustomer.lblMessage.setVisible(true);
                 rCustomer.lblUserName.setEnabled(true);
                 rCustomer.txtUserName.setEnabled(true);
@@ -97,7 +97,7 @@ public class RCustomerController {
             loginController.show();
 
         } else {
-            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado");
+            JOptionPane.showMessageDialog(null, "Ocurrió un error inesperado");
         }
 
     }

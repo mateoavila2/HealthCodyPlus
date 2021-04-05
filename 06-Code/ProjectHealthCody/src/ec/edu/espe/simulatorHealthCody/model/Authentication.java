@@ -23,15 +23,4 @@ public class Authentication {
         operation.openConnection("Registry");
     }
 
-   /* public boolean login(String userName,String accesKey) {
-        boolean compare, corretUser, correctKey;
-        corretUser = operation.verifyExistingData(userName,"");
-        correctKey = operation.verifyExistingData(accesKey);
-        if (corretUser == true && correctKey == true) {
-            compare = true;
-        } else {
-            compare = false;
-        }
-        return compare;
-    } */
 }
